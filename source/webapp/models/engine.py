@@ -15,3 +15,9 @@ class Engine(models.Model):
 
     def __str__(self):
         return f"{self.get_engine_type_display()} {self.displacement}L, {self.horsepower} HP"
+
+
+    class Meta:
+        verbose_name_plural = "engines"
+        verbose_name = 'engine'
+        db_table = 'engine'

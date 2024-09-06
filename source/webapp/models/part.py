@@ -1,7 +1,6 @@
 from django.db import models
 
 from webapp.models.category import Category
-
 from webapp.models.vehicleinfo import VehicleInfo
 
 
@@ -17,3 +16,7 @@ class Part(models.Model):
     def __str__(self):
         return f"{self.name} for {self.vehicle_info.model.brand.name} {self.vehicle_info.model.name}"
 
+    class Meta:
+        verbose_name_plural = "car_parts"
+        verbose_name = 'car_part'
+        db_table = 'car_parts'
