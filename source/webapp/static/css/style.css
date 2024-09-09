@@ -1,0 +1,106 @@
+*,
+*::after,
+*::before{
+  box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #262626;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.nav-link {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.logo-custom {
+
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    color: #2A3D45;
+    text-transform: uppercase;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.main-block{
+	background: url(images/main-pic.jpg) 100% 0 no-repeat;
+    background-size: cover;
+	color: #fff;
+	text-align: center;
+	margin-bottom: 100px;
+}
+
+.main-block-inner{
+	padding: 16.9% 0 17%;
+}
+
+.carousel-item {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: -117px;
+    left: 33px;
+    right: 24px;
+    bottom: 14px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 120px;
+    z-index: 1;
+}
+
+.overlay h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.overlay p {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
+
+.overlay a {
+    padding: 10px 20px;
+}
+
+.red-button {
+    color: white;
+    font-weight: 700;
+}
+
+.all-headers {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.hover-red:hover {
+    color: red;
+}
+
+.our-partners {
+    background-color: #eff0f0;
+    border-radius: 5px;
+    padding: 10px 32px;
+}
+
+.bg-footer-custom {
+    background-color: #212529;
+    color: #fff;
+    font-weight: 500;
+}

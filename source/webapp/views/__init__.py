@@ -1,0 +1,1 @@
+from webapp.views.parts import PartsListView
