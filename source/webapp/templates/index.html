@@ -8,7 +8,7 @@
 
 {% block content %}
 
-<div class="main-block">
+    <div class="main-block">
         <div class="container main-block-inner">
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner overflow-visible">
@@ -34,11 +34,13 @@
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
@@ -46,65 +48,68 @@
         </div>
     </div>
     <div class="sales container my-4">
-    <h3 class="all-headers pb-4">Каталог товаров</h3>
+        <h3 class="all-headers pb-4">Каталог товаров</h3>
 
-    <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
-        {% for part in parts %}
-<div class="col mb-2">
-            <div class="card h-100 bg-body d-flex">
-                <div class="position-relative">
-                    <div class="img-wrapper">
-                        <img src="{{ part.image1.url }}" alt="{{ part.name }}" class="card-img-top img-fluid">
+        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
+            {% for part in parts %}
+                <div class="col mb-2">
+                    <div class="card h-100 bg-body d-flex">
+                        <div class="position-relative">
+                            <div class="img-wrapper">
+                                <img src="{{ part.image1.url }}" alt="{{ part.name }}" class="card-img-top img-fluid">
+                            </div>
+                            {% if part.discount %}
+                                <span class="badge bg-danger position-absolute top-0 start-0 m-2">-{{ part.discount }}%</span>
+                            {% endif %}
+                            <button class="btn btn-light position-absolute top-0 end-0 m-2">
+                                <i class="bi bi-heart"></i>
+                            </button>
+                        </div>
+                        <div class="p-2 h-100 d-flex flex-column py-3 px-4">
+                            <h4 class="mb-4">
+                                <a href="#" class="text-dark text-decoration-none hover-red">{{ part.name }}</a>
+                            </h4>
+                            <p>Модель: <span class="fw-bold">{{ part.vehicle_info.model }}</span></p>
+                            <p>Мощность: <span class="fw-bold">{{ part.vehicle_info.engine.horsepower }} л.с.</span></p>
+                            {#                    <p>Привод: <span class="fw-bold">{{ part.drive }},</span> КПП: <span class="fw-bold">{{ part.transmission }}</span></p>#}
+                            <p class="card-price mt-2">
+                                <del>10000 руб</del>
+                                <span class="fw-bold text-danger">{{ part.price }} руб</span></p>
+                            <div class="mt-auto d-flex justify-content-end pt-2">
+                                <span class="text-success fw-bold me-auto">В наличии <i
+                                        class="bi bi-check-circle-fill"></i></span>
+                                <button class="btn btn-light ms-2">
+                                    <i class="bi bi-cart"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    {% if part.discount %}
-                    <span class="badge bg-danger position-absolute top-0 start-0 m-2">-{{ part.discount }}%</span>
-                    {% endif %}
-                    <button class="btn btn-light position-absolute top-0 end-0 m-2">
-                        <i class="bi bi-heart"></i>
-                    </button>
                 </div>
-                <div class="p-2 h-100 d-flex flex-column py-3 px-4">
-                    <h4 class="mb-4">
-                        <a href="#" class="text-dark text-decoration-none hover-red">{{ part.name }}</a>
-                    </h4>
-                    <p>Модель: <span class="fw-bold">{{ part.vehicle_info.model }}</span></p>
-                    <p>Мощность: <span class="fw-bold">{{ part.vehicle_info.engine.horsepower }} л.с.</span></p>
-{#                    <p>Привод: <span class="fw-bold">{{ part.drive }},</span> КПП: <span class="fw-bold">{{ part.transmission }}</span></p>#}
-                    <p class="card-price mt-2"><del>10000 руб</del> <span class="fw-bold text-danger">{{ part.price }} руб</span></p>
-                    <div class="mt-auto d-flex justify-content-end pt-2">
-                        <span class="text-success fw-bold me-auto">В наличии <i class="bi bi-check-circle-fill"></i></span>
-                        <button class="btn btn-light ms-2">
-                            <i class="bi bi-cart"></i>
-                        </button>
-                    </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="our-partners">
+            <h3 class="all-headers pb-4">Наши партнеры</h3>
+            <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 text-center">
+                <div class="col mb-2">
+                    <a target="_blank" href="#"><i class="fas fa-university fa-3x"></i></a>
+                    <p>Alfa</p>
+                </div>
+                <div class="col mb-2">
+                    <a target="_blank" href="#"><i class="fas fa-car fa-3x"></i></a>
+                    <p>VSK</p>
+                </div>
+                <div class="col mb-2">
+                    <a target="_blank" href="#"><i class="fas fa-building fa-3x"></i></a>
+                    <p>Sber</p>
+                </div>
+                <div class="col mb-2">
+                    <a target="_blank" href="#"><i class="fas fa-briefcase fa-3x"></i></a>
+                    <p>Rosgos</p>
                 </div>
             </div>
         </div>
-        {% endfor %}
     </div>
-</div>
-
-<div class="container py-5">
-    <div class="our-partners">
-        <h3 class="all-headers pb-4">Наши партнеры</h3>
-        <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 text-center">
-            <div class="col mb-2">
-                <a target="_blank" href="#"><i class="fas fa-university fa-3x"></i></a>
-                <p>Alfa</p>
-            </div>
-            <div class="col mb-2">
-                <a target="_blank" href="#"><i class="fas fa-car fa-3x"></i></a>
-                <p>VSK</p>
-            </div>
-            <div class="col mb-2">
-                <a target="_blank" href="#"><i class="fas fa-building fa-3x"></i></a>
-                <p>Sber</p>
-            </div>
-            <div class="col mb-2">
-                <a target="_blank" href="#"><i class="fas fa-briefcase fa-3x"></i></a>
-                <p>Rosgos</p>
-            </div>
-        </div>
-    </div>
-</div>
 {% endblock %}
