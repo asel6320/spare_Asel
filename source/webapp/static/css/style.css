@@ -1,3 +1,5 @@
+{% load static %}
+
 *,
 *::after,
 *::before{
@@ -34,7 +36,7 @@ body {
 }
 
 .main-block{
-	background: url(images/main-pic.jpg) 100% 0 no-repeat;
+	background: url("/static/images/main-pic.jpg") 100% 0 no-repeat;
     background-size: cover;
 	color: #fff;
 	text-align: center;
