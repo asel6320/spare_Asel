@@ -24,7 +24,7 @@
     <nav class="navbar navbar-expand-lg py-3">
         <div class="container">
             <div class="logo-custom">
-                <a class="navbar-brand d-flex align-items-center" href="#">
+                <a class="navbar-brand d-flex align-items-center" href="{% url "webapp:parts_list" %}">
                     <img src="{% static 'images/logo.png' %}" alt="Avrora" class="logo-img">
                     <span>AVRORA</span>
                 </a>
@@ -70,12 +70,14 @@
                             <li><a class="dropdown-item" href="#">WON</a></li>
                         </ul>
                     </li>
+                    {% block search %}
+                        <li class="nav-item px-3">
+                            <form method="get">
+                                {% include "partial/search_form.html" with form=search_form %}
+                            </form>
+                        </li>
+                    {% endblock %}
 
-                    <li class="nav-item px-3">
-                        <form method="get">
-                            {% include "partial/search_form.html" with form=search_form %}
-                        </form>
-                    </li>
                 </ul>
             </div>
         </div>
