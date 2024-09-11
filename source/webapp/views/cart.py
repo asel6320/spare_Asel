@@ -20,7 +20,7 @@ class CartAdd(View):  # добавление запчасти в корзину
             else:
                 cart.quantity = 1
             cart.save()
-        return redirect('webapp:parts')
+        return redirect('webapp:parts_list')
 
 
 class CartView(View):
