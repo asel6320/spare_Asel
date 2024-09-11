@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>{{ part.name }} - Детали</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="img-wrapper">
+                    <img src="{{ part.image1.url }}" alt="{{ part.name }}" class="img-fluid rounded shadow">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card p-4 bg-body">
+                    <h1 class="mb-4">{{ part.name }}</h1>
+                    <p><strong>Категория:</strong> {{ category.name }}</p>
+                    <p><strong>Цена:</strong> <span class="fw-bold text-danger">{{ part.price }} руб</span></p>
+                    {% if part.discount %}
+                        <p class="badge bg-danger">Скидка {{ part.discount }}%</p>
+                    {% endif %}
+                    <p>Модель: <span class="fw-bold">{{ part.vehicle_info.model }}</span></p>
+                    <p>Мощность: <span class="fw-bold">{{ part.vehicle_info.engine.horsepower }} л.с.</span></p>
+                    <p class="mt-3">
+                        <button class="btn btn-danger">
+                            {# Добавление в корзину #}
+                            <i class="bi bi-cart me-2"></i> Добавить в корзину
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        {# Похожие запасти #}
+        <div class="sales container my-5">
+            <h3 class="all-headers pb-4">Похожие запчасти</h3>
+            <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
+                {% for related_part in related_parts %}
+                    <div class="col mb-4">
+                        <div class="card h-100 bg-body d-flex">
+                            <div class="position-relative">
+                                <div class="img-wrapper">
+                                    <img src="{{ related_part.image1.url }}" alt="{{ related_part.name }}"
+                                         class="card-img-top img-fluid">
+                                </div>
+                                {% if related_part.discount %}
+                                    <span class="badge bg-danger position-absolute top-0 start-0 m-2">-{{ related_part.discount }}%</span>
+                                {% endif %}
+                                <button class="btn btn-light position-absolute top-0 end-0 m-2">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                            </div>
+                            <div class="p-2 h-100 d-flex flex-column py-3 px-4">
+                                <h4 class="mb-4">
+                                    <a href="{% url 'webapp:part_detail' related_part.pk %}"
+                                       class="text-dark text-decoration-none hover-red">{{ related_part.name }}</a>
+                                </h4>
+                                <p>Модель: <span class="fw-bold">{{ related_part.vehicle_info.model }}</span></p>
+                                <p>Мощность: <span class="fw-bold">{{ related_part.vehicle_info.engine.horsepower }} л.с.</span>
+                                </p>
+                                <p class="card-price mt-2">
+                                    <span class="fw-bold text-danger">{{ related_part.price }} руб</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p class="text-muted">Похожие запчасти не найдены.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% block search %}
+
+    {% endblock %}
+{% endblock %}
