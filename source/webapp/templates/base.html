@@ -76,6 +76,11 @@
                             {% include "partial/search_form.html" with form=search_form %}
                         </form>
                     </li>
+                    <li class="nav-item px-3">
+                        <a class="btn btn-light ms-2" href="{% url "webapp:cart" %}" >Корзина
+                                    <i class="bi bi-cart"></i>
+                                </a>
+                    </li>
                 </ul>
             </div>
         </div>
