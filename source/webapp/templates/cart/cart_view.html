@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load cart_tags %}
+{% block content %}
+  <div class="container mt-4">
+    <h2>Ваша корзина</h2>
+    
+    {% if carts %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Название</th>
+            <th>Цена</th>
+            <th>Количество</th>
+            <th>Итого</th>
+            <th>Действия</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for cart in carts %}
+            <tr>
+              <th>{{ forloop.counter }}</th>
+              <td>{{ cart.part.name }}</td>
+              <td>{{ cart.part.price }} ₽</td> 
+              <td>{{ cart.quantity }}</td>
+              <td>{{ cart.part.price|multiply:cart.quantity|floatformat:2 }} ₽</td>
+                
+              <td>
+                <form action="{% url 'webapp:cart_delete' cart.pk %}" method="post" class="d-inline">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                </form>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <h4>Итоговая стоимость: {{ total|floatformat:2 }} ₽</h4>
+        
+        <button type="submit">Оформить заказ</button>
+    
+    {% else %}
+      <p>Ваша корзина пуста.</p>
+    {% endif %}
+  </div>
+{% endblock %}
