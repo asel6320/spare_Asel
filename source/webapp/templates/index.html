@@ -78,12 +78,13 @@
                             <div class="mt-auto d-flex justify-content-end pt-2">
                                 <span class="text-success fw-bold me-auto">В наличии <i
                                         class="bi bi-check-circle-fill"></i></span>
-                                <form method="post" action="{% url 'webapp:part_add_cart' part.pk %}?next={{ request.get_full_path }}">
-        {% csrf_token %}
-        <button class="btn btn-light ms-2" type="submit">
-            <i class="bi bi-cart"></i>
-        </button>
-    </form>
+                                <form method="post"
+                                      action="{% url 'webapp:part_add_cart' part.pk %}?next={{ request.get_full_path }}">
+                                    {% csrf_token %}
+                                    <button class="btn btn-light ms-2" type="submit">
+                                        <i class="bi bi-cart"></i>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
