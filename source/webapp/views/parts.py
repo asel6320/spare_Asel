@@ -51,7 +51,7 @@ class PartsDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         part_category = self.object.category
-        related_parts = Part.objects.filter(category=part_category).exclude(id=self.object.id)[:5]  # Получаем похожие запчасти по категории
+        related_parts = Part.objects.filter(category=part_category).exclude(pk=self.object.pk)[:5]  # Получаем похожие запчасти по категории
         context['related_parts'] = related_parts
         context['category'] = part_category
 
