@@ -10,7 +10,7 @@ from webapp.models import Part
 class PartsListView(ListView):
     model = Part
     context_object_name = 'parts'
-    template_name = 'index.html'
+    template_name = 'part/index.html'
     ordering = ['-price']
 
     def dispatch(self, request, *args, **kwargs):
@@ -46,7 +46,7 @@ class PartsListView(ListView):
 class PartsDetailView(DetailView):
     model = Part
     context_object_name = 'part'
-    template_name = 'parts_detail.html'
+    template_name = 'part/parts_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

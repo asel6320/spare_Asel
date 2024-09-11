@@ -11,6 +11,7 @@ class Part(models.Model):
     name = models.CharField(max_length=255)  # название запчасти
     description = models.TextField()  # описание запчасти
     price = models.DecimalField(max_digits=10, decimal_places=2)  # цена
+    amount = models.PositiveIntegerField(verbose_name="Остаток", default=0) #количество
     image1 = models.ImageField(default='default.jpg', upload_to='parts/') #изображение
 
     def __str__(self):
