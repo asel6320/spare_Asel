@@ -1,8 +1,8 @@
 from django.shortcuts import get_object_or_404
+from django.db.models import Q, Subquery, OuterRef, DecimalField
 from django.shortcuts import render
 from django.utils.http import urlencode
-
-from django.db.models import Q
+from webapp.models.price_history import PriceHistory
 from django.views.generic import ListView, DetailView
 
 from webapp.forms import SearchForm
@@ -12,7 +12,6 @@ from webapp.models import Part, Country
 class BasePartView(ListView):
     model = Part
     paginate_by = 12
-    ordering = ['-price']
 
     def dispatch(self, request, *args, **kwargs):
         self.form = self.get_form()
@@ -29,10 +28,22 @@ class BasePartView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
+
+        # Аннотация для получения последней цены из PriceHistory
+        latest_price = Subquery(
+            PriceHistory.objects.filter(part=OuterRef('pk')).order_by('-date_changed').values('price')[:1],
+            output_field=DecimalField()
+        )
+
+        queryset = queryset.annotate(latest_price=latest_price)
+
         if self.search_value:
             queryset = queryset.filter(
-                Q(name__icontains=self.search_value) | Q(price__icontains=self.search_value)
+                Q(name__icontains=self.search_value) | Q(latest_price__icontains=self.search_value)
             )
+
+        queryset = queryset.order_by('-latest_price')
+
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -82,3 +93,4 @@ class PartsDetailView(DetailView):
 
 def about_us(request):
     return render(request, 'part/about_us.html')
+
