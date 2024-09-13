@@ -4,13 +4,8 @@ from django.urls import reverse
 
 
 class Cart(models.Model):
-    quantity = models.PositiveIntegerField(verbose_name='Количество', default=1 ,validators=(MinValueValidator(1),))
+    quantity = models.PositiveIntegerField(verbose_name='Количество', default=1, validators=(MinValueValidator(1),))
     part = models.ForeignKey('webapp.Part', related_name='carts', on_delete=models.CASCADE, verbose_name="запчасти")
-
-
-
-    def get_total_price(self):
-        return self.quantity * self.part.price
 
     def __str__(self):
         return f"{self.quantity}"

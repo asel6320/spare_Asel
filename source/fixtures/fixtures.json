@@ -446,7 +446,6 @@
     "vehicle_info": 1,
     "name": "weesd",
     "description": "dwdsad",
-    "price": "2102012.00",
     "amount": 20,
     "image1": "parts/.jpg"
   }
@@ -459,7 +458,6 @@
     "vehicle_info": 2,
     "name": "Передние тормозные колодки",
     "description": "Оригинальные передние тормозные колодки",
-    "price": "79.99",
     "amount": 40,
     "image1": "parts/brake_pads.jpg"
   }
@@ -472,7 +470,6 @@
     "vehicle_info": 2,
     "name": "Передние тормозные колодки",
     "description": "Оригинальные передние тормозные колодки",
-    "price": "15999.00",
     "amount": 50,
     "image1": "parts/_𝘍𝘦𝘳𝘯.jpg"
   }
@@ -485,7 +482,6 @@
     "vehicle_info": 5,
     "name": "Abcd",
     "description": "wdwdsdsad",
-    "price": "20000.00",
     "amount": 20,
     "image1": "parts/_𝘚𝘵𝘢𝘳𝘬.jpg"
   }
@@ -498,7 +494,6 @@
     "vehicle_info": 2,
     "name": "Hjfwefd",
     "description": "etsgdqd",
-    "price": "10000.00",
     "amount": 10,
     "image1": "parts/99px_ru_wallpaper_356133_makima__makima_iz_anime_chainsaw_man_.jpg"
   }
@@ -511,7 +506,6 @@
     "vehicle_info": 2,
     "name": "Toyota Camry Battery",
     "description": "Battery",
-    "price": "1000.00",
     "amount": 1,
     "image1": "default.jpg"
   }
@@ -524,7 +518,6 @@
     "vehicle_info": 1,
     "name": "Lexus Battery",
     "description": "Battery",
-    "price": "200.00",
     "amount": 3,
     "image1": "parts/asel.jpeg"
   }
@@ -537,7 +530,6 @@
     "vehicle_info": 2,
     "name": "Svechi za menya",
     "description": "Svechi",
-    "price": "100.00",
     "amount": 2,
     "image1": "parts/Без_названия.jpeg"
   }
@@ -550,7 +542,6 @@
     "vehicle_info": 2,
     "name": "Ziman svechka",
     "description": "che",
-    "price": "300.00",
     "amount": 4,
     "image1": "parts/asel_vKJxE8c.jpeg"
   }
@@ -563,7 +554,6 @@
     "vehicle_info": 2,
     "name": "Important detail De",
     "description": "fgeh and comcast com",
-    "price": "140.00",
     "amount": 5,
     "image1": "parts/bl.png"
   }
@@ -576,7 +566,6 @@
     "vehicle_info": 2,
     "name": "Toyota together detail",
     "description": "Together detail and making the world a safer place when being together and trading the dreif and making this one a better place and I have to submit the report",
-    "price": "120.00",
     "amount": 3,
     "image1": "parts/sh.jpg"
   }
@@ -589,7 +578,6 @@
     "vehicle_info": 1,
     "name": "Karbyurator poluchaetsya",
     "description": "Karbyurator i perfarator together",
-    "price": "200.00",
     "amount": 4,
     "image1": "parts/asel_3rwh7wu.jpeg"
   }
@@ -602,7 +590,6 @@
     "vehicle_info": 5,
     "name": "Kusovnoe otdelenie perfaratora",
     "description": "together",
-    "price": "1000.00",
     "amount": 2,
     "image1": "parts/Без_названия_nvgiVvT.jpeg"
   }
@@ -615,7 +602,6 @@
     "vehicle_info": 2,
     "name": "Hower of perfarator",
     "description": "the perfarator of the karbyarator",
-    "price": "120.00",
     "amount": 3,
     "image1": "parts/bl_WVkiorZ.png"
   }
@@ -628,7 +614,6 @@
     "vehicle_info": 1,
     "name": "Dvigatel' dvigatelya",
     "description": "Eto samaya vajnaya chast'",
-    "price": "120.00",
     "amount": 5,
     "image1": "parts/asel_mU7K4XS.jpeg"
   }
@@ -648,25 +633,6 @@
     "is_active": true,
     "date_joined": "2024-09-09T08:51:01.133Z",
     "phone_number": "",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "webapp.user",
-  "pk": 4,
-  "fields": {
-    "password": "pbkdf2_sha256$720000$VzcEnfnB9vfCKui6gYR6Po$UQXdrqyeTJu6S93xiEcfBD1kadcK/GgTgFhd72kkiAo=",
-    "last_login": "2024-09-13T03:23:50.984Z",
-    "is_superuser": true,
-    "username": "admin",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2024-09-13T03:19:46.946Z",
-    "phone_number": null,
     "groups": [],
     "user_permissions": []
   }
