@@ -7,6 +7,7 @@ from django.views.generic import ListView, DetailView
 from webapp.forms import SearchForm
 from webapp.models import Part, Country
 
+
 class BasePartView(ListView):
     model = Part
     paginate_by = 12
@@ -42,9 +43,11 @@ class BasePartView(ListView):
             context["search_value"] = self.search_value
         return context
 
+
 class PartsListView(BasePartView):
     context_object_name = 'parts'
     template_name = 'part/index.html'
+
 
 class PartsByCountryView(BasePartView):
     context_object_name = 'parts_by_country'
@@ -59,6 +62,7 @@ class PartsByCountryView(BasePartView):
         context['country'] = get_object_or_404(Country, pk=self.kwargs['pk'])
         return context
 
+
 class PartsDetailView(DetailView):
     model = Part
     context_object_name = 'part'
@@ -67,15 +71,9 @@ class PartsDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         part_category = self.object.category
-        related_parts = Part.objects.filter(category=part_category).exclude(pk=self.object.pk)[:5]  # Получаем похожие запчасти по категории
+        related_parts = Part.objects.filter(category=part_category).exclude(pk=self.object.pk)[
+                        :5]  # Получаем похожие запчасти по категории
         context['related_parts'] = related_parts
         context['category'] = part_category
 
         return context
-
-
-
-
-
-
-
