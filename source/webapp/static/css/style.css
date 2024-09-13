@@ -106,3 +106,23 @@ body {
     color: #fff;
     font-weight: 500;
 }
+
+.pagination .page-link {
+    font-size: 10px;
+    color: #000;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 5px 10px;
+}
+
+.pagination .page-link:hover {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+}
+
+.pagination .page-item.active .page-link {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+}
