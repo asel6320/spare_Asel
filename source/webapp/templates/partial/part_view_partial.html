@@ -1,0 +1,36 @@
+<div class="card h-100 bg-body d-flex">
+                        <div class="position-relative">
+                            <div class="img-wrapper">
+                                <img src="{{ part.image1.url }}" alt="{{ part.name }}" class="card-img-top img-fluid">
+                            </div>
+                            {% if part.discount %}
+                                <span class="badge bg-danger position-absolute top-0 start-0 m-2">-{{ part.discount }}%</span>
+                            {% endif %}
+                            <button class="btn btn-light position-absolute top-0 end-0 m-2">
+                                <i class="bi bi-heart"></i>
+                            </button>
+                        </div>
+                        <div class="p-2 h-100 d-flex flex-column py-3 px-4">
+                            <h4 class="mb-4">
+                                <a href="{% url 'webapp:part_detail' part.pk %}"
+                                   class="text-dark text-decoration-none hover-red">{{ part.name }}</a>
+                            </h4>
+                            <p>Модель: <span class="fw-bold">{{ part.vehicle_info.model }}</span></p>
+                            <p>Мощность: <span class="fw-bold">{{ part.vehicle_info.engine.horsepower }} л.с.</span></p>
+                            {#                    <p>Привод: <span class="fw-bold">{{ part.drive }},</span> КПП: <span class="fw-bold">{{ part.transmission }}</span></p>#}
+                            <p class="card-price mt-2">
+                                <del>10000 руб</del>
+                                <span class="fw-bold text-danger">{{ part.price }} руб</span></p>
+                            <div class="mt-auto d-flex justify-content-end pt-2">
+                                <span class="text-success fw-bold me-auto">В наличии <i
+                                        class="bi bi-check-circle-fill"></i></span>
+                                <form method="post"
+                                      action="{% url 'webapp:part_add_cart' part.pk %}?next={{ request.get_full_path }}">
+                                    {% csrf_token %}
+                                    <button class="btn btn-success ms-2" type="submit">
+                                        <i class="bi bi-cart"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>

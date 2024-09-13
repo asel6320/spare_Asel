@@ -36,8 +36,20 @@
                 </button>
                 <div class="collapse navbar-collapse flex-grow-0 ms-auto" id="navbarNav">
                     <ul class="navbar-nav d-block d-md-flex ms-auto">
-                        <li class="nav-item px-3">
-                            <a class="nav-link" href="#">Продукты</a>
+                        <li class="nav-item dropdown px-3">
+                            <a class="nav-link dropdown-toggle" href="#" id="partCountryDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                Запчасти
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="partCountryDropdown">
+                                {% for country in countries %}
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'webapp:parts_by_country' country.pk %}">
+                                            Запчасти из {{ country.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
                         </li>
                         <li class="nav-item px-3">
                             <a class="nav-link" href="#">О компании</a>
