@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404
+from django.shortcuts import render
 from django.utils.http import urlencode
 
 from django.db.models import Q
@@ -77,3 +78,7 @@ class PartsDetailView(DetailView):
         context['category'] = part_category
 
         return context
+
+
+def about_us(request):
+    return render(request, 'part/about_us.html')

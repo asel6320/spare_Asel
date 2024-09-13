@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>About Us</title>
+{% endblock %}
+
+{% block content %}
+    
+    <body>
+        <div class="container" style="margin-bottom: 5%">
+            <div class="row about-us-row">
+                <div class="about-us-col">
+                    <h1 class="about-us-heading">О нас</h1>
+                    <p class="about-us-text">{% lorem 100 w %}</p>
+                </div>
+                <div class="about-us-col">
+                    <img src="https://8934175.fs1.hubspotusercontent-na1.net/hubfs/8934175/Imported_Blog_Media/People_at_work01.jpg" class="about-us-img">
+                </div>
+            </div>
+
+
+            <div class="row about-us-row">
+                <div class="about-us-col">
+                    <img src="https://365financialanalyst.com/wp-content/uploads/2020/11/Defining-a-companys-Vision-Mission-Goals-and-Values-statements-thumb.jpg" class="about-us-img">
+                </div>
+                <div class="about-us-col">
+                    <h1 class="about-us-heading">Наша миссия</h1>
+                    <p class="about-us-text">{% lorem 100 w %}</p>
+                </div>
+            </div>
+
+
+            <div style="margin-top: 10%;" >
+                <h1 style="text-align: center">Поставляем комплектующие от таких автопроизводителей как: </h1>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 30px; margin-bottom: 40px">
+                <div class="card" style="width: 18rem; border-radius: 5%; overflow: hidden;">
+                    <img src="https://banner2.cleanpng.com/20171203/618/av2q4pytp.webp" class="card-img-top" alt="Mercedes" style="width: 100%; height: auto;">
+                </div>
+                <div class="card" style="width: 18rem; border-radius: 5%; overflow: hidden;">
+                    <img src="https://banner2.cleanpng.com/20171203/618/av2q4pytp.webp" class="card-img-top" alt="Mercedes" style="width: 100%; height: auto;">
+                </div>
+                <div class="card" style="width: 18rem; border-radius: 5%; overflow: hidden;">
+                    <img src="https://banner2.cleanpng.com/20171203/618/av2q4pytp.webp" class="card-img-top" alt="Mercedes" style="width: 100%; height: auto;">
+                </div>
+                <div class="card" style="width: 18rem; border-radius: 5%; overflow: hidden;">
+                    <img src="https://banner2.cleanpng.com/20171203/618/av2q4pytp.webp" class="card-img-top" alt="Mercedes" style="width: 100%; height: auto;">
+                </div>
+                <div class="card" style="width: 18rem; border-radius: 5%; overflow: hidden;">
+                    <img src="https://banner2.cleanpng.com/20171203/618/av2q4pytp.webp" class="card-img-top" alt="Mercedes" style="width: 100%; height: auto;">
+                </div>
+                <div class="card" style="width: 18rem; border-radius: 5%; overflow: hidden;">
+                    <img src="https://banner2.cleanpng.com/20171203/618/av2q4pytp.webp" class="card-img-top" alt="Mercedes" style="width: 100%; height: auto;">
+                </div>
+                <div class="card" style="width: 18rem; border-radius: 5%; overflow: hidden;">
+                    <img src="https://banner2.cleanpng.com/20171203/618/av2q4pytp.webp" class="card-img-top" alt="Mercedes" style="width: 100%; height: auto;">
+                </div>
+                <div class="card" style="width: 18rem; border-radius: 5%; overflow: hidden;">
+                    <img src="https://banner2.cleanpng.com/20171203/618/av2q4pytp.webp" class="card-img-top" alt="Mercedes" style="width: 100%; height: auto;">
+                </div>
+            </div>
+        </div>    
+    </body>
+    
+{% endblock %}
