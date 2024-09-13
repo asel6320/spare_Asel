@@ -11,6 +11,7 @@ class PartsListView(ListView):
     model = Part
     context_object_name = 'parts'
     template_name = 'part/index.html'
+    paginate_by = 12
     ordering = ['-price']
 
     def dispatch(self, request, *args, **kwargs):

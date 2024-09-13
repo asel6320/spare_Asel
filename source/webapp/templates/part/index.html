@@ -94,6 +94,10 @@
         </div>
     </div>
 
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+
     <div class="container py-5">
         <div class="our-partners">
             <h3 class="all-headers pb-4">Наши партнеры</h3>
