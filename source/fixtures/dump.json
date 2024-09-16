@@ -1,5 +1,31 @@
 [
 {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2024-09-16T08:33:51.810Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "15",
+        "object_repr": "Dvigatel' dvigatelya for LEXUS 3",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2024-09-16T08:35:47.947Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "14",
+        "object_repr": "Hower of perfarator for Toyota Camry",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
     "model": "auth.permission",
     "pk": 1,
     "fields": {
@@ -660,6 +686,14 @@
     }
 },
 {
+    "model": "sessions.session",
+    "pk": "jnw6wz5b4lmshh3jufzwc4m4n8t141ji",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAQRf-FtSG8BqhL934DYWCQqoGktCvjv2uTLnR7zzn3xULc1hq2QUuYMzszyU6_G8b0oLaDfI_t1nnqbV1m5LvCDzr4tWd6Xg7376DGUb91EgYK-CzBYUJhi9XFkLAua8i6oClpAuGUERaVpGiV8xq0sCqBJ5rY-wPZHTdG:1sq7Al:2Wlz0EUSZsEqUVZqsvZPHBDhItHexIVIkwThPdLkrU0",
+        "expire_date": "2024-09-30T08:33:27.605Z"
+    }
+},
+{
     "model": "webapp.carbrand",
     "pk": 1,
     "fields": {
@@ -980,79 +1014,30 @@
 },
 {
     "model": "webapp.country",
-    "pk": 1,
+    "pk": 12,
     "fields": {
-        "name": "Korea"
+        "name": "Китай"
     }
 },
 {
     "model": "webapp.country",
-    "pk": 2,
+    "pk": 13,
     "fields": {
-        "name": "China"
+        "name": "Финляндия"
     }
 },
 {
     "model": "webapp.country",
-    "pk": 3,
-    "fields": {
-        "name": "США"
-    }
-},
-{
-    "model": "webapp.country",
-    "pk": 4,
-    "fields": {
-        "name": "Германия"
-    }
-},
-{
-    "model": "webapp.country",
-    "pk": 5,
-    "fields": {
-        "name": "Япония"
-    }
-},
-{
-    "model": "webapp.country",
-    "pk": 6,
-    "fields": {
-        "name": "Франция"
-    }
-},
-{
-    "model": "webapp.country",
-    "pk": 7,
-    "fields": {
-        "name": "Италия"
-    }
-},
-{
-    "model": "webapp.country",
-    "pk": 8,
+    "pk": 14,
     "fields": {
         "name": "Южная Корея"
     }
 },
 {
     "model": "webapp.country",
-    "pk": 9,
-    "fields": {
-        "name": "Франция"
-    }
-},
-{
-    "model": "webapp.country",
-    "pk": 10,
+    "pk": 15,
     "fields": {
         "name": "Италия"
-    }
-},
-{
-    "model": "webapp.country",
-    "pk": 11,
-    "fields": {
-        "name": "Южная Корея"
     }
 },
 {
@@ -1065,7 +1050,7 @@
         "body_type": "did",
         "engine": 1,
         "countries": [
-            1
+            12
         ]
     }
 },
@@ -1079,8 +1064,7 @@
         "body_type": "Седан",
         "engine": 2,
         "countries": [
-            3,
-            5
+            13
         ]
     }
 },
@@ -1094,7 +1078,7 @@
         "body_type": "Седан",
         "engine": 2,
         "countries": [
-            5
+            14
         ]
     }
 },
@@ -1263,7 +1247,7 @@
         "name": "Hower of perfarator",
         "description": "the perfarator of the karbyarator",
         "amount": 3,
-        "image1": "parts/bl_WVkiorZ.png"
+        "image1": "parts/car_eRgtRHn.jpg"
     }
 },
 {
@@ -1275,7 +1259,7 @@
         "name": "Dvigatel' dvigatelya",
         "description": "Eto samaya vajnaya chast'",
         "amount": 5,
-        "image1": "parts/asel_mU7K4XS.jpeg"
+        "image1": "parts/car_htoD5Q1.jpg"
     }
 },
 {
@@ -1283,7 +1267,7 @@
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$720000$n10CHl4Y6iy6r2LmRORjA2$xyLZv2u4+YfK1Wnn9GPMiKP8ZksxCYjwZSpkRY5pYDw=",
-        "last_login": "2024-09-09T08:51:12.346Z",
+        "last_login": "2024-09-16T08:33:27.601Z",
         "is_superuser": true,
         "username": "a",
         "first_name": "",
@@ -1295,22 +1279,6 @@
         "phone_number": "",
         "groups": [],
         "user_permissions": []
-    }
-},
-{
-    "model": "webapp.cart",
-    "pk": 17,
-    "fields": {
-        "quantity": 1,
-        "part": 15
-    }
-},
-{
-    "model": "webapp.cart",
-    "pk": 18,
-    "fields": {
-        "quantity": 1,
-        "part": 8
     }
 },
 {
