@@ -7,11 +7,12 @@ from webapp.models.vehicleinfo import VehicleInfo
 # Модель запчастей
 class Part(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="parts")  # категория запчасти
-    vehicle_info = models.ForeignKey(VehicleInfo, on_delete=models.CASCADE, related_name="parts")  # информация о транспортном средстве
+    vehicle_info = models.ForeignKey(VehicleInfo, on_delete=models.CASCADE,
+                                     related_name="parts")  # информация о транспортном средстве
     name = models.CharField(max_length=255)  # название запчасти
     description = models.TextField()  # описание запчасти
-    amount = models.PositiveIntegerField(verbose_name="Остаток", default=0) #количество
-    image1 = models.ImageField(default='default.jpg', upload_to='parts/') #изображение
+    amount = models.PositiveIntegerField(verbose_name="Остаток", default=0)  # количество
+    image1 = models.ImageField(default='default.jpg', upload_to='parts/')  # изображение
 
     @property
     def current_price(self):
