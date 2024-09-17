@@ -63,10 +63,6 @@ class Migration(migrations.Migration):
             table='car_parts',
         ),
         migrations.AlterModelTable(
-            name='user',
-            table='user',
-        ),
-        migrations.AlterModelTable(
             name='vehicleinfo',
             table='vehicle',
         ),

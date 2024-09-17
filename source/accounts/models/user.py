@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-from webapp.manager import UserManager
+from accounts.manager import UserManager
 
 
 # Модель пользователя
