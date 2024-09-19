@@ -13,6 +13,8 @@ class Part(models.Model):
     description = models.TextField()  # описание запчасти
     amount = models.PositiveIntegerField(verbose_name="Остаток", default=0)  # количество
     image1 = models.ImageField(default='default.jpg', upload_to='parts/')  # изображение
+    image2 = models.ImageField(blank=True, null=True, upload_to='parts/')  # изображение 2 (опционально)
+    image3 = models.ImageField(blank=True, null=True, upload_to='parts/')  # изображение 3 (опционально)
 
     @property
     def current_price(self):

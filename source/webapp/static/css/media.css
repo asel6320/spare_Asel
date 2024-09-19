@@ -1,4 +1,22 @@
-@media (min-width: 332px) and (max-width: 572px){
+@media (min-width: 300px) and (max-width: 467px) {
+    .carousel .overlay {
+        left: -30px;
+        background-color: transparent;
+    }
+    .carousel .overlay h1 {
+        margin: 0;
+        font-size: 17px;
+    }
+    .carousel .overlay p {
+        overflow: hidden;
+    }
+    .carousel .overlay a {
+        font-size: 12px;
+        padding: 5px 7px;
+    }
+}
+
+@media (min-width: 468px) and (max-width: 572px) {
     .carousel .overlay {
         top: -50px;
         left: 5%;
