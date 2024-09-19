@@ -89,6 +89,19 @@
                             </li>
                         {% endblock %}
 
+                        {% if user.is_authenticated %}
+                            <li class="nav-item px-3">
+                                <a class="btn btn-light ms-2" href="{% url 'logout' %}">Выйти</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item px-3">
+                                <a class="btn btn-light ms-2" href="{% url 'login' %}">Войти</a>
+                            </li>
+                            <li class="nav-item px-3">
+                                <a class="btn btn-light ms-2" href="{% url 'register' %}">Зарегистрироваться</a>
+                            </li>
+                        {% endif %}
+
                         <li class="nav-item px-3">
                             <a class="btn btn-light ms-2" href="{% url "webapp:cart" %}">Корзина
                                 <i class="bi bi-cart"></i>
