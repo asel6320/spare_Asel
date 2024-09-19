@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Модель для стран
 
 
@@ -8,7 +9,6 @@ class Country(models.Model):
 
     def __str__(self):
         return self.name
-
 
     class Meta:
         verbose_name_plural = "car_countries"

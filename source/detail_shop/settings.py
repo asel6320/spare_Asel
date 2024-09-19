@@ -39,7 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'webapp'
+
+    'django.contrib.humanize',
+
+    'webapp',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -86,9 +90,6 @@ DATABASES = {
     }
 }
 
-
-
-
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
@@ -129,4 +130,4 @@ MEDIA_URL = 'parts/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'webapp.User'
+AUTH_USER_MODEL = 'accounts.User'

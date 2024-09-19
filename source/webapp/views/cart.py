@@ -1,7 +1,7 @@
-from webapp.models import Cart, Part
+from webapp.models import Cart, Part, PriceHistory
 from django.shortcuts import redirect, get_object_or_404, render
 from django.views import View
-from django.db.models import Sum, F
+from django.db.models import Sum, F, Subquery, OuterRef
 
 
 class CartAdd(View):  # добавление запчасти в корзину
@@ -25,10 +25,16 @@ class CartAdd(View):  # добавление запчасти в корзину
 
 class CartView(View):
 
-    def get(self, request, *args, **kwargs):  # получение всех позиций в корзине и их общей суммы
+    def get(self, request, *args, **kwargs):
         carts = Cart.objects.all()
-        total = carts.aggregate(total_sum=Sum(F('quantity') * F('part__price')))['total_sum']
-        return render(request, 'cart/cart_view.html', {'carts': carts, 'total': total})
+        latest_price_subquery = PriceHistory.objects.filter(part=OuterRef('part')).order_by('-date_changed').values(
+            'price')[:1]
+        carts_with_price = carts.annotate(latest_price=Subquery(latest_price_subquery))
+
+        total = carts_with_price.aggregate(
+            total_sum=Sum(F('quantity') * F('latest_price'))
+        )['total_sum']
+        return render(request, 'cart/cart_view.html', {'carts': carts_with_price, 'total': total})
 
 
 class CartDelete(View):
