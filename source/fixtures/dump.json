@@ -1263,7 +1263,7 @@
     }
 },
 {
-    "model": "webapp.user",
+    "model": "accounts.user",
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$720000$n10CHl4Y6iy6r2LmRORjA2$xyLZv2u4+YfK1Wnn9GPMiKP8ZksxCYjwZSpkRY5pYDw=",
