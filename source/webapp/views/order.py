@@ -26,11 +26,11 @@ class OrderCreate(View):
                 order.user = request.user
             order.save()
 
-            carts = Cart.objects.filter(user=request.user)
+            carts = Cart.objects.filter()   # user=request.user (подключить когда будет аутентификация)
             for cart in carts:
                 OrderPart.objects.create(order=order, part=cart.part, quantity=cart.quantity)
             carts.delete()
             return redirect('webapp:parts_list')
 
-        carts = Cart.objects.filter(user=request.user)
+        carts = Cart.objects.filter()   # user=request.user (подключить когда будет аутентификация)
         return render(request, 'cart/cart_view.html', {'carts': carts, 'order_form': form})
