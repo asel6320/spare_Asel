@@ -13,7 +13,7 @@ class OrderCreate(View):
             user = request.user
             form.fields['first_name'].initial = user.first_name
             form.fields['last_name'].initial = user.last_name
-            form.fields['phone'].initial =  user.phone_number
+            form.fields['phone'].initial = user.phone_number
             form.fields['email'].initial = user.email
         carts = Cart.objects.filter()  # Возможно: user=request.user
         return render(request, 'cart/cart_view.html', {'carts': carts, 'order_form': form})
