@@ -1,4 +1,4 @@
-@media (min-width: 500px) and (max-width: 768px){
+@media (min-width: 332px) and (max-width: 572px){
     .carousel .overlay {
         top: -50px;
         left: 5%;
@@ -12,12 +12,20 @@
         overflow: hidden;
     }
     .carousel .overlay a {
-        font-size: 14px;
+        font-size: 12px;
+    }
+
+    .row {
+        width: 100%;
+    }
+
+    .col {
+        flex: 0 0 auto;
     }
 
 }
 
-@media (min-width: 600px) {
+@media (min-width: 573px) and (max-width: 767px){
     .carousel .overlay {
         top: -80px;
         left: 5%;
@@ -30,6 +38,9 @@
 
     .carousel .overlay a {
         font-size: 14px;
+    }
+    .carousel .overlay p {
+        font-size: 15px;
     }
 }
 
@@ -65,17 +76,13 @@
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 992px) and (max-width: 1200px) {
     .carousel .overlay h1 {
         font-size: 2.5rem;
     }
 
     .carousel .overlay p {
         font-size: 1.5rem;
-    }
-
-    .carousel .overlay {
-        width: 60%;
     }
 
     .card h4 {
