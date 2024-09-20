@@ -3,6 +3,8 @@ from django.shortcuts import redirect, get_object_or_404, render
 from django.views import View
 from django.db.models import Sum, F, Subquery, OuterRef
 
+from webapp.models.order import Order
+
 
 class CartAdd(View):  # добавление запчасти в корзину
 
@@ -13,7 +15,8 @@ class CartAdd(View):  # добавление запчасти в корзину
     def post(self, request, *args, **kwargs):  # добавление товара в корзину с проверкой наличия на складе
         if self.part.amount > 0:
             # Здесь может быть фильтрация корзины по пользователю, если корзина привязана к юзеру
-            cart, created = Cart.objects.get_or_create(part=self.part)
+            order, created = Order.objects.get_or_create(user=request.user)
+            cart, created = Cart.objects.get_or_create(part=self.part, order=order)
             if not created:
                 if cart.quantity < self.part.amount:
                     cart.quantity += 1
