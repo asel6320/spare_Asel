@@ -29,4 +29,4 @@ class OrderPart(models.Model):
         return f'{self.quantity} {self.part}'
 
     class Meta:
-        db_table = "order_it"
+        db_table = "order_part"

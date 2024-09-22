@@ -26,6 +26,19 @@
     }
 },
 {
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2024-09-19T12:44:33.373Z",
+        "user": 3,
+        "content_type": 17,
+        "object_id": "4",
+        "object_repr": "0709441718",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
     "model": "auth.permission",
     "pk": 1,
     "fields": {
@@ -566,6 +579,114 @@
     }
 },
 {
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+        "name": "Can add order part",
+        "content_type": 16,
+        "codename": "add_orderpart"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+        "name": "Can change order part",
+        "content_type": 16,
+        "codename": "change_orderpart"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+        "name": "Can delete order part",
+        "content_type": 16,
+        "codename": "delete_orderpart"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+        "name": "Can view order part",
+        "content_type": 16,
+        "codename": "view_orderpart"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 65,
+    "fields": {
+        "name": "Can add user",
+        "content_type": 17,
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 66,
+    "fields": {
+        "name": "Can change user",
+        "content_type": 17,
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 67,
+    "fields": {
+        "name": "Can delete user",
+        "content_type": 17,
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 68,
+    "fields": {
+        "name": "Can view user",
+        "content_type": 17,
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 69,
+    "fields": {
+        "name": "Can add Заказ оформления",
+        "content_type": 18,
+        "codename": "add_order"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 70,
+    "fields": {
+        "name": "Can change Заказ оформления",
+        "content_type": 18,
+        "codename": "change_order"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 71,
+    "fields": {
+        "name": "Can delete Заказ оформления",
+        "content_type": 18,
+        "codename": "delete_order"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 72,
+    "fields": {
+        "name": "Can view Заказ оформления",
+        "content_type": 18,
+        "codename": "view_order"
+    }
+},
+{
     "model": "contenttypes.contenttype",
     "pk": 1,
     "fields": {
@@ -686,11 +807,35 @@
     }
 },
 {
-    "model": "sessions.session",
-    "pk": "jnw6wz5b4lmshh3jufzwc4m4n8t141ji",
+    "model": "contenttypes.contenttype",
+    "pk": 16,
     "fields": {
-        "session_data": ".eJxVjMsOwiAQRf-FtSG8BqhL934DYWCQqoGktCvjv2uTLnR7zzn3xULc1hq2QUuYMzszyU6_G8b0oLaDfI_t1nnqbV1m5LvCDzr4tWd6Xg7376DGUb91EgYK-CzBYUJhi9XFkLAua8i6oClpAuGUERaVpGiV8xq0sCqBJ5rY-wPZHTdG:1sq7Al:2Wlz0EUSZsEqUVZqsvZPHBDhItHexIVIkwThPdLkrU0",
-        "expire_date": "2024-09-30T08:33:27.605Z"
+        "app_label": "webapp",
+        "model": "orderpart"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": {
+        "app_label": "accounts",
+        "model": "user"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 18,
+    "fields": {
+        "app_label": "webapp",
+        "model": "order"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "kr03x18wkyif6ofivkaan4qpdksc9i47",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAURP-FtSEIvYAu3fcbmvsgUjWQlHZl_Hdp0oWuJplzZt5qwm3N09bSMs2irsqp029HyM9UdiAPLPequZZ1mUnvij5o02OV9Lod7t9Bxpb72otYTEMUBuYzWRBHjhitxAGCuSDYRD08oXAwxrE3EUyHgJYDqc8XBw84RA:1srGVE:zS2u1eWsIcb245-JReqnGsr_lWAOwe_6OxJ_x-W1F90",
+        "expire_date": "2024-10-03T12:43:20.957Z"
     }
 },
 {
@@ -1263,22 +1408,24 @@
     }
 },
 {
-    "model": "accounts.user",
-    "pk": 1,
+    "model": "webapp.order",
+    "pk": 9,
     "fields": {
-        "password": "pbkdf2_sha256$720000$n10CHl4Y6iy6r2LmRORjA2$xyLZv2u4+YfK1Wnn9GPMiKP8ZksxCYjwZSpkRY5pYDw=",
-        "last_login": "2024-09-16T08:33:27.601Z",
-        "is_superuser": true,
-        "username": "a",
-        "first_name": "",
-        "last_name": "",
-        "email": "",
-        "is_staff": true,
-        "is_active": true,
-        "date_joined": "2024-09-09T08:51:01.133Z",
-        "phone_number": "",
-        "groups": [],
-        "user_permissions": []
+        "user": null,
+        "first_name": "Каныкей",
+        "last_name": "ибраева",
+        "phone": "89241717098",
+        "email": "kani@gmail.com",
+        "created_at": "2024-09-19T12:38:54.867Z"
+    }
+},
+{
+    "model": "webapp.orderpart",
+    "pk": 6,
+    "fields": {
+        "order": 9,
+        "quantity": 1,
+        "part": 6
     }
 },
 {
@@ -1414,6 +1561,63 @@
         "part": 15,
         "price": "55.00",
         "date_changed": "2024-09-13T21:16:29.988Z"
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$720000$n10CHl4Y6iy6r2LmRORjA2$xyLZv2u4+YfK1Wnn9GPMiKP8ZksxCYjwZSpkRY5pYDw=",
+        "last_login": "2024-09-16T08:33:27.601Z",
+        "is_superuser": false,
+        "username": "beka",
+        "first_name": "musaev",
+        "last_name": "bekbol",
+        "email": "19kani92@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-09-09T08:51:01.133Z",
+        "phone_number": "89241717098",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$720000$4W8ulcpZrbT4LlpAWV37B9$Odz/40s4s/XKzcSwX8ks5WtSy+K2pw/pGPCdiLlN/ro=",
+        "last_login": "2024-09-19T12:43:20.951Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-09-19T12:42:46.427Z",
+        "phone_number": "0000000000",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 4,
+    "fields": {
+        "password": "beka",
+        "last_login": "2024-09-19T12:44:14Z",
+        "is_superuser": false,
+        "username": "bekbol",
+        "first_name": "bekbol",
+        "last_name": "musaev",
+        "email": "11@mail.ru",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-09-19T12:43:25Z",
+        "phone_number": "0709441718",
+        "groups": [],
+        "user_permissions": []
     }
 }
 ]
