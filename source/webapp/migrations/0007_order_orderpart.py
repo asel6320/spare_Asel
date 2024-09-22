@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
                 ('part', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='webapp.part')),
             ],
             options={
-                'db_table': 'order_it',
+                'db_table': 'order_part',
             },
         ),
     ]

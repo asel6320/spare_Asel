@@ -12,11 +12,6 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AddField(
-            model_name='cart',
-            name='order',
-            field=models.ForeignKey(default=0, on_delete=django.db.models.deletion.CASCADE, related_name='carts', to='webapp.order', verbose_name='заказ'),
-        ),
-        migrations.AddField(
             model_name='part',
             name='image2',
             field=models.ImageField(blank=True, null=True, upload_to='parts/'),
