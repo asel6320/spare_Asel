@@ -1,9 +1,11 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 
+User = get_user_model()
+
 
 class Order(models.Model):
-    user = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, blank=True,
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True,
                              verbose_name='Пользователь')
     first_name = models.CharField(max_length=100, null=True, blank=True, verbose_name='Имя')
     last_name = models.CharField(max_length=100, null=True, blank=True, verbose_name='Фамилия')

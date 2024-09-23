@@ -1,0 +1,706 @@
+[
+{
+    "model": "webapp.carbrand",
+    "pk": 1,
+    "fields": {
+        "name": "BMW",
+        "description": "bmwbmwbmw"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 2,
+    "fields": {
+        "name": "LEXUS",
+        "description": "lexuslssdsd"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 3,
+    "fields": {
+        "name": "KIA",
+        "description": "sssasas"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 4,
+    "fields": {
+        "name": "Toyota",
+        "description": "Японский производитель автомобилей"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 5,
+    "fields": {
+        "name": "Ford",
+        "description": "Американский производитель автомобилей"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 6,
+    "fields": {
+        "name": "BMW",
+        "description": "Немецкий производитель автомобилей премиум-класса"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 7,
+    "fields": {
+        "name": "Renault",
+        "description": "Французский производитель автомобилей"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 8,
+    "fields": {
+        "name": "Fiat",
+        "description": "Итальянский производитель автомобилей"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 9,
+    "fields": {
+        "name": "Renault",
+        "description": "Французский производитель автомобилей"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 10,
+    "fields": {
+        "name": "Fiat",
+        "description": "Итальянский производитель автомобилей"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 11,
+    "fields": {
+        "name": "Hyundai",
+        "description": "Южнокорейский производитель автомобилей"
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 1,
+    "fields": {
+        "name": "m5",
+        "brand": 1,
+        "year_of_manufacture": 2012
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 2,
+    "fields": {
+        "name": "3",
+        "brand": 2,
+        "year_of_manufacture": 2010
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 3,
+    "fields": {
+        "name": "Morning",
+        "brand": 3,
+        "year_of_manufacture": 2018
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 4,
+    "fields": {
+        "name": "Camry",
+        "brand": 4,
+        "year_of_manufacture": 2020
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 5,
+    "fields": {
+        "name": "Mustang",
+        "brand": 5,
+        "year_of_manufacture": 2019
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 6,
+    "fields": {
+        "name": "Clio",
+        "brand": 7,
+        "year_of_manufacture": 2018
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 7,
+    "fields": {
+        "name": "500",
+        "brand": 8,
+        "year_of_manufacture": 2022
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 8,
+    "fields": {
+        "name": "Elantra",
+        "brand": 11,
+        "year_of_manufacture": 2020
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 9,
+    "fields": {
+        "name": "3 Series",
+        "brand": 1,
+        "year_of_manufacture": 2021
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 1,
+    "fields": {
+        "engine_type": "electric",
+        "displacement": "222.00",
+        "horsepower": 22,
+        "torque": 222
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 2,
+    "fields": {
+        "engine_type": "gasoline",
+        "displacement": "2.50",
+        "horsepower": 203,
+        "torque": 250
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 3,
+    "fields": {
+        "engine_type": "diesel",
+        "displacement": "3.00",
+        "horsepower": 255,
+        "torque": 400
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 4,
+    "fields": {
+        "engine_type": "electric",
+        "displacement": "0.00",
+        "horsepower": 150,
+        "torque": 300
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 5,
+    "fields": {
+        "engine_type": "hybrid",
+        "displacement": "2.00",
+        "horsepower": 200,
+        "torque": 320
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 6,
+    "fields": {
+        "engine_type": "gasoline",
+        "displacement": "1.40",
+        "horsepower": 140,
+        "torque": 200
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 7,
+    "fields": {
+        "engine_type": "diesel",
+        "displacement": "2.20",
+        "horsepower": 180,
+        "torque": 340
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 1,
+    "fields": {
+        "name": "Легковой",
+        "description": "aaa"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 2,
+    "fields": {
+        "name": "Грузовые",
+        "description": "фф"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 3,
+    "fields": {
+        "name": "Автобус",
+        "description": "выв"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 4,
+    "fields": {
+        "name": "Тормоза",
+        "description": "Тормозные колодки, диски и сопутствующие детали"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 5,
+    "fields": {
+        "name": "Подвеска",
+        "description": "Амортизаторы, стойки и элементы подвески"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 6,
+    "fields": {
+        "name": "Детали двигателя",
+        "description": "Компоненты двигателя и запчасти"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 7,
+    "fields": {
+        "name": "Детали двигателя",
+        "description": "Компоненты двигателя и запчасти"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 8,
+    "fields": {
+        "name": "Трансмиссия",
+        "description": "Запчасти трансмиссии и привода"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 9,
+    "fields": {
+        "name": "Кузовные детали",
+        "description": "Детали кузова и ремонтные компоненты"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 10,
+    "fields": {
+        "name": "Интерьер",
+        "description": "Отделка интерьера и аксессуары"
+    }
+},
+{
+    "model": "webapp.country",
+    "pk": 12,
+    "fields": {
+        "name": "Китай"
+    }
+},
+{
+    "model": "webapp.country",
+    "pk": 13,
+    "fields": {
+        "name": "Финляндия"
+    }
+},
+{
+    "model": "webapp.country",
+    "pk": 14,
+    "fields": {
+        "name": "Южная Корея"
+    }
+},
+{
+    "model": "webapp.country",
+    "pk": 15,
+    "fields": {
+        "name": "Италия"
+    }
+},
+{
+    "model": "webapp.vehicleinfo",
+    "pk": 1,
+    "fields": {
+        "vehicle_type": "passenger",
+        "model": 2,
+        "year_of_manufacture": 2010,
+        "body_type": "did",
+        "engine": 1,
+        "countries": [
+            12
+        ]
+    }
+},
+{
+    "model": "webapp.vehicleinfo",
+    "pk": 2,
+    "fields": {
+        "vehicle_type": "passenger",
+        "model": 4,
+        "year_of_manufacture": 2020,
+        "body_type": "Седан",
+        "engine": 2,
+        "countries": [
+            13
+        ]
+    }
+},
+{
+    "model": "webapp.vehicleinfo",
+    "pk": 5,
+    "fields": {
+        "vehicle_type": "passenger",
+        "model": 4,
+        "year_of_manufacture": 2020,
+        "body_type": "Седан",
+        "engine": 2,
+        "countries": [
+            14
+        ]
+    }
+},
+{
+    "model": "webapp.part",
+    "pk": 1,
+    "fields": {
+        "category": 1,
+        "vehicle_info": 1,
+        "name": "weesd",
+        "description": "dwdsad",
+        "amount": 100,
+        "image1": "parts/.jpg"
+    }
+},
+{
+    "model": "webapp.part",
+    "pk": 2,
+    "fields": {
+        "category": 4,
+        "vehicle_info": 2,
+        "name": "Передние тормозные колодки",
+        "description": "Оригинальные передние тормозные колодки",
+        "amount": 40,
+        "image1": "parts/brake_pads.jpg"
+    }
+},
+{
+    "model": "webapp.part",
+    "pk": 3,
+    "fields": {
+        "category": 4,
+        "vehicle_info": 2,
+        "name": "Передние тормозные колодки",
+        "description": "Оригинальные передние тормозные колодки",
+        "amount": 50,
+        "image1": "parts/_𝘍𝘦𝘳𝘯.jpg"
+    }
+},
+{
+    "model": "webapp.part",
+    "pk": 4,
+    "fields": {
+        "category": 5,
+        "vehicle_info": 5,
+        "name": "Abcd",
+        "description": "wdwdsdsad",
+        "amount": 20,
+        "image1": "parts/_𝘚𝘵𝘢𝘳𝘬.jpg"
+    }
+},
+{
+    "model": "webapp.part",
+    "pk": 5,
+    "fields": {
+        "category": 7,
+        "vehicle_info": 2,
+        "name": "Hjfwefd",
+        "description": "etsgdqd",
+        "amount": 10,
+        "image1": "parts/99px_ru_wallpaper_356133_makima__makima_iz_anime_chainsaw_man_.jpg"
+    }
+},
+{
+    "model": "webapp.part",
+    "pk": 6,
+    "fields": {
+        "category": 1,
+        "vehicle_info": 2,
+        "name": "Toyota Camry Battery",
+        "description": "Battery",
+        "amount": 1,
+        "image1": "default.jpg"
+    }
+},
+{
+    "model": "webapp.part",
+    "pk": 7,
+    "fields": {
+        "category": 2,
+        "vehicle_info": 1,
+        "name": "Lexus Battery",
+        "description": "Battery",
+        "amount": 3,
+        "image1": "parts/asel.jpeg"
+    }
+},
+{
+    "model": "webapp.part",
+    "pk": 8,
+    "fields": {
+        "category": 3,
+        "vehicle_info": 2,
+        "name": "Svechi za menya",
+        "description": "Svechi",
+        "amount": 2,
+        "image1": "parts/Без_названия.jpeg"
+    }
+},
+{
+    "model": "webapp.part",
+    "pk": 9,
+    "fields": {
+        "category": 3,
+        "vehicle_info": 2,
+        "name": "Ziman svechka",
+        "description": "che",
+        "amount": 4,
+        "image1": "parts/asel_vKJxE8c.jpeg"
+    }
+},
+{
+    "model": "webapp.part",
+    "pk": 10,
+    "fields": {
+        "category": 2,
+        "vehicle_info": 2,
+        "name": "Important detail De",
+        "description": "fgeh and comcast com",
+        "amount": 5,
+        "image1": "parts/bl.png"
+    }
+},
+{
+    "model": "webapp.part",
+    "pk": 11,
+    "fields": {
+        "category": 1,
+        "vehicle_info": 2,
+        "name": "Toyota together detail",
+        "description": "Together detail and making the world a safer place when being together and trading the dreif and making this one a better place and I have to submit the report",
+        "amount": 3,
+        "image1": "parts/sh.jpg"
+    }
+},
+{
+    "model": "webapp.part",
+    "pk": 12,
+    "fields": {
+        "category": 8,
+        "vehicle_info": 1,
+        "name": "Karbyurator poluchaetsya",
+        "description": "Karbyurator i perfarator together",
+        "amount": 4,
+        "image1": "parts/asel_3rwh7wu.jpeg"
+    }
+},
+{
+    "model": "webapp.part",
+    "pk": 13,
+    "fields": {
+        "category": 9,
+        "vehicle_info": 5,
+        "name": "Kusovnoe otdelenie perfaratora",
+        "description": "together",
+        "amount": 2,
+        "image1": "parts/Без_названия_nvgiVvT.jpeg"
+    }
+},
+{
+    "model": "webapp.part",
+    "pk": 14,
+    "fields": {
+        "category": 3,
+        "vehicle_info": 2,
+        "name": "Hower of perfarator",
+        "description": "the perfarator of the karbyarator",
+        "amount": 3,
+        "image1": "parts/car_eRgtRHn.jpg"
+    }
+},
+{
+    "model": "webapp.part",
+    "pk": 15,
+    "fields": {
+        "category": 7,
+        "vehicle_info": 1,
+        "name": "Dvigatel' dvigatelya",
+        "description": "Eto samaya vajnaya chast'",
+        "amount": 5,
+        "image1": "parts/car_htoD5Q1.jpg"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 2,
+    "fields": {
+        "part": 1,
+        "price": "100.00",
+        "date_changed": "2024-09-13T20:39:40.451Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 3,
+    "fields": {
+        "part": 2,
+        "price": "1000.00",
+        "date_changed": "2024-09-13T21:14:47.246Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 4,
+    "fields": {
+        "part": 3,
+        "price": "125.00",
+        "date_changed": "2024-09-13T21:14:55.597Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 5,
+    "fields": {
+        "part": 4,
+        "price": "500.00",
+        "date_changed": "2024-09-13T21:15:03.310Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 6,
+    "fields": {
+        "part": 5,
+        "price": "1500.00",
+        "date_changed": "2024-09-13T21:15:09.797Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 7,
+    "fields": {
+        "part": 6,
+        "price": "100000.00",
+        "date_changed": "2024-09-13T21:15:17.686Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 8,
+    "fields": {
+        "part": 7,
+        "price": "2200.00",
+        "date_changed": "2024-09-13T21:15:34.618Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 9,
+    "fields": {
+        "part": 8,
+        "price": "999.00",
+        "date_changed": "2024-09-13T21:15:40.991Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 10,
+    "fields": {
+        "part": 9,
+        "price": "99.00",
+        "date_changed": "2024-09-13T21:15:48.174Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 11,
+    "fields": {
+        "part": 10,
+        "price": "699.00",
+        "date_changed": "2024-09-13T21:15:53.727Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 12,
+    "fields": {
+        "part": 11,
+        "price": "545.00",
+        "date_changed": "2024-09-13T21:16:00.077Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 13,
+    "fields": {
+        "part": 12,
+        "price": "300.00",
+        "date_changed": "2024-09-13T21:16:11.575Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 14,
+    "fields": {
+        "part": 13,
+        "price": "30.00",
+        "date_changed": "2024-09-13T21:16:17.886Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 15,
+    "fields": {
+        "part": 14,
+        "price": "399.00",
+        "date_changed": "2024-09-13T21:16:24.231Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 16,
+    "fields": {
+        "part": 15,
+        "price": "55.00",
+        "date_changed": "2024-09-13T21:16:29.988Z"
+    }
+}
+]
