@@ -1,7 +1,7 @@
 from django.urls import path
 
-from webapp.views.parts import PartsListView, PartsDetailView, PartsByCountryView, about_us
-from webapp.views.cart import CartView, CartAdd, CartDelete
+from webapp.views.parts import about_us
+from webapp.views import PartsListView, PartsDetailView, PartsByCountryView, CartView, CartAdd, CartDelete, OrderCreate
 
 app_name = 'webapp'
 
@@ -13,4 +13,6 @@ urlpatterns = [
     path('part/<int:pk>/', PartsDetailView.as_view(), name='part_detail'),
     path('parts/country/<int:pk>/', PartsByCountryView.as_view(), name='parts_by_country'),
     path('parts/about_us/', about_us, name='about_us'),
+    path('order/create/', OrderCreate.as_view(), name='order_create'),
+
 ]
