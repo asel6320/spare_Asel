@@ -6,7 +6,7 @@ User = get_user_model()
 
 
 class UserFactory(factory.django.DjangoModelFactory):
-    username = factory.Faker('username')
+    username = factory.Faker('user_name')
     password = factory.Sequence(lambda n: f'password{n}')
 
     @classmethod

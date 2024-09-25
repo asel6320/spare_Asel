@@ -5,7 +5,6 @@ from accounts.forms.user_update_form import UserUpdateForm
 
 @login_required
 def profile_edit_view(request):
-    # Edit profile information
     if request.method == 'POST':
         form = UserUpdateForm(request.POST, instance=request.user)
         if form.is_valid():
