@@ -59,19 +59,36 @@ class PartsListView(BasePartView):
     context_object_name = 'parts'
     template_name = 'part/index.html'
 
-
-class PartsByCountryView(BasePartView):
-    context_object_name = 'parts_by_country'
-    template_name = 'part/parts_by_country.html'
-
-    def get_queryset(self):
-        country = get_object_or_404(Country, pk=self.kwargs['pk'])
-        return Part.objects.filter(vehicle_info__countries=country).order_by('-price_history__price')
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['country'] = get_object_or_404(Country, pk=self.kwargs['pk'])
+        # No search form in this view, so we exclude 'search_form'
+        context.pop('search_form', None)
         return context
+
+class PartsMainView(BasePartView):
+    context_object_name = 'parts'
+    template_name = 'part/parts_main.html'  # This is where you include search, currency, and cart
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        # If there is a search value, filter by part name or description
+        if self.search_value:
+            queryset = queryset.filter(
+                Q(name__icontains=self.search_value) | Q(description__icontains=self.search_value)
+            )
+        return queryset
+
+# class PartsByCountryView(BasePartView):
+#     context_object_name = 'parts_by_country'
+#     template_name = 'part/parts_by_country.html'
+#
+#     def get_queryset(self):
+#         country = get_object_or_404(Country, pk=self.kwargs['pk'])
+#         return Part.objects.filter(vehicle_info__countries=country).order_by('-price_history__price')
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['country'] = get_object_or_404(Country, pk=self.kwargs['pk'])
+#         return context
 
 
 class PartsDetailView(DetailView):
