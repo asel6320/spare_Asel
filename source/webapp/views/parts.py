@@ -66,11 +66,28 @@ class PartsListView(BasePartView):
         context.pop('search_form', None)
         return context
 
+
 class PartsMainView(ListView):
     model = Part
     template_name = 'part/parts_main.html'
     context_object_name = 'parts'
     paginate_by = 12
+
+    def dispatch(self, request, *args, **kwargs):
+        self.form = self.get_form()
+        self.search_value = self.get_search_value()
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_filter_form(self):
+        return PartsFilterForm(self.request.GET)
+
+    def get_search_value(self):
+        form = self.form
+        if form.is_valid():
+            return form.cleaned_data['search']
+
+    def get_form(self):
+        return SearchForm(self.request.GET)
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -105,17 +122,19 @@ class PartsMainView(ListView):
 
         return queryset.order_by('-latest_price')
 
-    def get_filter_form(self):
-        return PartsFilterForm(self.request.GET)
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context["search_form"] = self.form
         context['filter_form'] = self.get_filter_form()
         context['countries'] = Country.objects.all()
         context['brands'] = CarBrand.objects.all()
         context['models'] = CarModel.objects.all()
         context['categories'] = Category.objects.all()
+        if self.search_value:
+            context["search"] = urlencode({"search": self.search_value})
+            context["search_value"] = self.search_value
         return context
+
 
 class PartsDetailView(DetailView):
     model = Part
@@ -136,8 +155,8 @@ class PartsDetailView(DetailView):
 def about_us(request):
     return render(request, 'part/about_us.html')
 
+
 def get_models(request):
     brand_id = request.GET.get('brand_id')
     models = CarModel.objects.filter(brand_id=brand_id).values('id', 'name')
     return JsonResponse({'models': list(models)})
-
