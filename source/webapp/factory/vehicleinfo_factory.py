@@ -1,10 +1,9 @@
 import factory
-
-from webapp.facroty import CarModelFactory, EngineFactory, CountryFactory
+from webapp.factory import CarModelFactory, EngineFactory, CountryFactory
 from webapp.models import VehicleInfo
 
 
-class VehicleInfoFactory:
+class VehicleInfoFactory(factory.django.DjangoModelFactory):
     vehicle_type = factory.Sequence(lambda n: f'Vehicle_type {n}')
     model = factory.SubFactory(CarModelFactory)
     year_of_manufacture = factory.Faker("random_int", min=1990, max=2024)

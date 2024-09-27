@@ -1,6 +1,6 @@
 import factory
 
-from webapp.facroty import CategoryFactory, VehicleInfoFactory
+from webapp.factory import CategoryFactory, VehicleInfoFactory
 from webapp.models import Part
 
 
