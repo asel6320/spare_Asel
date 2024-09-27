@@ -5,7 +5,7 @@ User = get_user_model()
 
 
 class Order(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True,
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders',
                              verbose_name='Пользователь')
     first_name = models.CharField(max_length=100, null=True, blank=True, verbose_name='Имя')
     last_name = models.CharField(max_length=100, null=True, blank=True, verbose_name='Фамилия')
@@ -23,9 +23,14 @@ class Order(models.Model):
 
 
 class OrderPart(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     order = models.ForeignKey('webapp.Order', on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField()
     part = models.ForeignKey('webapp.Part', on_delete=models.CASCADE)
+
+    def get_latest_price(self):
+        price_history = self.part.price_history.order_by('-date_changed').first()
+        return price_history.price if price_history else None
 
     def __str__(self):
         return f'{self.quantity} {self.part}'
