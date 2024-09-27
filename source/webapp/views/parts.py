@@ -26,6 +26,7 @@ class BasePartView(ListView):
         form = self.form
         if form.is_valid():
             return form.cleaned_data['search']
+        return None
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -120,6 +121,11 @@ class PartsMainView(ListView):
             if max_price:
                 queryset = queryset.filter(latest_price__lte=max_price)
 
+        if self.search_value:
+            queryset = queryset.filter(
+                Q(name__icontains=self.search_value) | Q(latest_price__icontains=self.search_value)
+            )
+
         return queryset.order_by('-latest_price')
 
     def get_context_data(self, **kwargs):
@@ -134,6 +140,8 @@ class PartsMainView(ListView):
             context["search"] = urlencode({"search": self.search_value})
             context["search_value"] = self.search_value
         return context
+
+
 
 
 class PartsDetailView(DetailView):
