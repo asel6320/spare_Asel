@@ -1,0 +1,74 @@
+[
+{
+    "model": "accounts.user",
+    "fields": {
+        "password": "pbkdf2_sha256$720000$n10CHl4Y6iy6r2LmRORjA2$xyLZv2u4+YfK1Wnn9GPMiKP8ZksxCYjwZSpkRY5pYDw=",
+        "last_login": "2024-09-16T08:33:27.601Z",
+        "is_superuser": true,
+        "username": "a",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-09-09T08:51:01.133Z",
+        "phone_number": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "fields": {
+        "password": "pbkdf2_sha256$720000$XNWEzkdYYiUaR7eUB5n3dv$xoFYE1+g0NpOwb59cab8kgpzrua9L2Vkt5UgSMfBcYk=",
+        "last_login": "2024-09-19T02:53:49.938Z",
+        "is_superuser": false,
+        "username": "123",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-09-19T02:53:49.311Z",
+        "phone_number": "123123",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "fields": {
+        "password": "pbkdf2_sha256$720000$biPOKTIjkUEyXncLSSJ4dq$S4FIIBIQfOQOWuUkBIw3A26uUrv93H5HgszBgAOHmE0=",
+        "last_login": "2024-09-19T02:54:53.546Z",
+        "is_superuser": false,
+        "username": "1",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-09-19T02:54:52.934Z",
+        "phone_number": "1",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.user",
+    "fields": {
+        "password": "pbkdf2_sha256$720000$8aT3KsMX9izu45HWF91Eb1$R0fls/oDFXg6jnUokiRjN2OuR0kCejANRqDi8eKq8+k=",
+        "last_login": "2024-09-19T03:01:13.042Z",
+        "is_superuser": false,
+        "username": "3",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-09-19T02:59:47.356Z",
+        "phone_number": "3",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
