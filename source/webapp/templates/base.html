@@ -67,13 +67,6 @@
                                 <li><a class="dropdown-item" href="#">WON</a></li>
                             </ul>
                         </li>
-                        {% block search %}
-                            <li class="nav-item px-3">
-                                <form method="get">
-                                    {% include "partial/search_form.html" with form=search_form %}
-                                </form>
-                            </li>
-                        {% endblock %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle btn btn-light ms-2" href="#" id="navbarDropdown"
                                role="button" data-bs-toggle="dropdown" aria-expanded="false">

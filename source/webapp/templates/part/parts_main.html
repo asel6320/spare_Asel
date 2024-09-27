@@ -63,9 +63,13 @@
             <div class="row">
                 <div class="col-lg-3">
                     <!-- Search Form -->
-                    <form method="get" class="mb-3">
-                        {% include "partial/search_form.html" with form=search_form %}
-                    </form>
+                    {% block search %}
+                        <li class="nav-item px-3">
+                            <form method="get">
+                                {% include "partial/search_form.html" with form=search_form %}
+                            </form>
+                        </li>
+                    {% endblock %}
 
                     <h5>Фильтрация</h5>
 
