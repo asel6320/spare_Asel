@@ -3,12 +3,26 @@
 {% block content %}
 <div class="container mt-5">
     <h2 class="text-center mb-4">Мой профиль</h2>
-    <div class="card">
-        <div class="card-body">
-            <p><strong>Имя пользователя:</strong> {{ user.username }}</p>
-            <p><strong>Электронная почта:</strong> {{ user.email }}</p>
-            <p><strong>Телефон:</strong> {{ user.phone_number }}</p>
-            <a href="{% url 'profile_edit_view' %}" class="btn btn-primary mt-3">Редактировать профиль</a>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-header bg-danger bg-gradient text-white text-center">
+                    <h4>{{ user.username }}</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <strong>Электронная почта:</strong> {{ user.email }}
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Телефон:</strong> {{ user.phone_number }}
+                        </li>
+                    </ul>
+                    <div class="text-center mt-4">
+                        <a href="{% url 'profile_edit_view' %}" class="btn btn-outline-primary">Редактировать профиль</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
