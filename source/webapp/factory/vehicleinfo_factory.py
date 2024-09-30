@@ -1,5 +1,8 @@
 import factory
-from webapp.factory import CarModelFactory, EngineFactory, CountryFactory
+from webapp.factory.car_factory import CarModelFactory
+
+from webapp.factory.engine_factory import EngineFactory
+from webapp.factory.country_factory import CountryFactory
 from webapp.models import VehicleInfo
 
 

@@ -1,7 +1,7 @@
 import factory
 
 from accounts.factory import UserFactory
-from webapp.factory import PartFactory
+from webapp.factory.part_factory import PartFactory
 from webapp.models import Cart
 
 
