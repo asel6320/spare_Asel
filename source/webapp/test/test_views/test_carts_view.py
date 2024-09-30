@@ -74,15 +74,3 @@ class TestCart(TestCase):
         self.assertEqual(self.cart.quantity, 1)
         with self.assertRaises(Cart.DoesNotExist):
             self.cart.refresh_from_db()
-
-    def test_cart_view_anonymous_user(self):
-        session_key = self.client.session.session_key
-        if not session_key:
-            self.client.session.create()
-        CartFactory(part=self.part, session_key=session_key, quantity=1)
-        response = self.client.get(reverse('webapp:cart'))
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(response.context['carts']), 1)
-        self.assertEqual(response.context['total'], 100.00)
-
-

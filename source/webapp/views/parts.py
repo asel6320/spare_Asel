@@ -92,4 +92,3 @@ class PartsDetailView(DetailView):
 
 def about_us(request):
     return render(request, 'part/about_us.html')
-
