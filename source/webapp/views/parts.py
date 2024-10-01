@@ -98,6 +98,10 @@ class PartsMainView(ListView):
             output_field=DecimalField()
         )
         queryset = queryset.annotate(latest_price=latest_price)
+        if self.search_value:
+            queryset = queryset.filter(
+                Q(name__icontains=self.search_value) | Q(latest_price__icontains=self.search_value)
+            )
 
         form = self.get_filter_form()
         if form.is_valid():
@@ -121,12 +125,10 @@ class PartsMainView(ListView):
             if max_price:
                 queryset = queryset.filter(latest_price__lte=max_price)
 
-        if self.search_value:
-            queryset = queryset.filter(
-                Q(name__icontains=self.search_value) | Q(latest_price__icontains=self.search_value)
-            )
-
         return queryset.order_by('-latest_price')
+
+    def get_filter_form(self):
+        return PartsFilterForm(self.request.GET)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -140,7 +142,6 @@ class PartsMainView(ListView):
             context["search"] = urlencode({"search": self.search_value})
             context["search_value"] = self.search_value
         return context
-
 
 class PartsDetailView(DetailView):
     model = Part
@@ -166,3 +167,4 @@ def get_models(request):
     brand_id = request.GET.get('brand_id')
     models = CarModel.objects.filter(brand_id=brand_id).values('id', 'name')
     return JsonResponse({'models': list(models)})
+

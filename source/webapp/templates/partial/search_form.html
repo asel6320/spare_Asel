@@ -1,6 +1,15 @@
-<form class="text-center" action="" method="GET">
-    <div class="input-group">
-        <input type="text" class="form-control" name="search" placeholder="Поиск" value="{{ request.GET.search }}">
-        <button class="btn btn-outline-secondary" type="submit">Найти</button>
+<form class="text-center d-flex justify-content-center align-items-center gap-2 my-3" action="" method="GET">
+    <div class="form-group mb-0">
+        <label for="{{ form.search.id_for_label }}" class="me-2">{{ form.search.label }}</label>
+        {{ form.search }}
     </div>
+    <input type="submit" value="Поиск" class="btn btn-primary">
 </form>
+
+{% if form.search.errors %}
+    <div class="text-danger mt-2">
+        {% for error in form.search.errors %}
+            <p class="form-error">{{ error }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
