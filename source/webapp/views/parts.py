@@ -26,6 +26,7 @@ class BasePartView(ListView):
         form = self.form
         if form.is_valid():
             return form.cleaned_data['search']
+        return None
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -66,6 +67,7 @@ class PartsListView(BasePartView):
         context.pop('search_form', None)
         return context
 
+
 class PartsMainView(ListView):
     model = Part
     template_name = 'part/parts_main.html'
@@ -77,13 +79,16 @@ class PartsMainView(ListView):
         self.search_value = self.get_search_value()
         return super().dispatch(request, *args, **kwargs)
 
-    def get_form(self):
-        return SearchForm(self.request.GET)
+    def get_filter_form(self):
+        return PartsFilterForm(self.request.GET)
 
     def get_search_value(self):
         form = self.form
         if form.is_valid():
             return form.cleaned_data['search']
+
+    def get_form(self):
+        return SearchForm(self.request.GET)
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -156,6 +161,7 @@ class PartsDetailView(DetailView):
 
 def about_us(request):
     return render(request, 'part/about_us.html')
+
 
 def get_models(request):
     brand_id = request.GET.get('brand_id')

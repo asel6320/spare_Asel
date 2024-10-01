@@ -56,6 +56,33 @@
                                 <li><a class="dropdown-item" href="#">한국어</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item dropdown px-3">
+                            <a class="nav-link dropdown-toggle" href="#" id="currencyDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                USD
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="currencyDropdown">
+                                <li><a class="dropdown-item" href="#">KGZ</a></li>
+                                <li><a class="dropdown-item" href="#">RUB</a></li>
+                                <li><a class="dropdown-item" href="#">WON</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle btn btn-light ms-2" href="#" id="navbarDropdown"
+                               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-circle fs-5"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                {% if user.is_authenticated %}
+                                    <li><a class="dropdown-item" href="{% url 'profile_view' %}">Личный кабинет</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'logout' %}">Выйти</a></li>
+                                {% else %}
+                                    <li><a class="dropdown-item" href="{% url 'login' %}">Войти</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'register' %}">Зарегистрироваться</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+
                         <li class="nav-item px-3">
                             <a class="btn btn-light ms-2" href="{% url "webapp:cart" %}">Корзина
                                 <i class="bi bi-cart"></i>

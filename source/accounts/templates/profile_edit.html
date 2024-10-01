@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Редактировать профиль</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <a href="{% url 'password_change' %}" class="btn btn-warning mt-3">Изменить пароль</a>
+        <button type="submit" class="btn btn-success mt-3">Сохранить изменения</button>
+        <a href="{% url 'profile_view' %}" class="btn btn-secondary mt-3">Отмена</a>
+    </form>
+</div>
+{% endblock %}

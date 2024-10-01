@@ -15,8 +15,14 @@ class OrderCreate(View):
             form.fields['last_name'].initial = user.last_name
             form.fields['phone'].initial = user.phone_number
             form.fields['email'].initial = user.email
-        carts = Cart.objects.filter()  # Возможно: user=request.user
-        return render(request, 'cart/cart_view.html', {'carts': carts, 'order_form': form})
+        carts = Cart.objects.filter(user=request.user) if request.user.is_authenticated else Cart.objects.filter(
+            session_key=request.session.session_key)
+
+        return render(request, 'cart/cart_view.html', {
+            'carts': carts,
+            'order_form': form,
+            'user': user if request.user.is_authenticated else None
+        })
 
     def post(self, request, *args, **kwargs):
         form = OrderForm(request.POST)
@@ -26,11 +32,13 @@ class OrderCreate(View):
                 order.user = request.user
             order.save()
 
-            carts = Cart.objects.filter()   # user=request.user (подключить когда будет аутентификация)
+            carts = Cart.objects.filter(user=request.user) if request.user.is_authenticated else Cart.objects.filter(
+                session_key=request.session.session_key)
             for cart in carts:
                 OrderPart.objects.create(order=order, part=cart.part, quantity=cart.quantity)
             carts.delete()
             return redirect('webapp:parts_list')
 
-        carts = Cart.objects.filter()   # user=request.user (подключить когда будет аутентификация)
+        carts = Cart.objects.filter(user=request.user) if request.user.is_authenticated else Cart.objects.filter(
+            session_key=request.session.session_key)
         return render(request, 'cart/cart_view.html', {'carts': carts, 'order_form': form})
