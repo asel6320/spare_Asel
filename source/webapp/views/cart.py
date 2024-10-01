@@ -4,7 +4,7 @@ from django.views import View
 from django.db.models import Sum, F, Subquery, OuterRef
 
 
-class CartAdd(View):  # добавление запчасти в корзину
+class CartAdd(View):
 
     def dispatch(self, request, *args, **kwargs):
         self.part = get_object_or_404(Part, pk=kwargs.get('pk'))
@@ -57,7 +57,7 @@ class CartDelete(View):
         self.cart = get_object_or_404(Cart, pk=kwargs.get('pk'))
         return super().dispatch(request, *args, **kwargs)
 
-    def post(self, request, *args, **kwargs):  # удаление или уменьшение количества товара в корзине
+    def post(self, request, *args, **kwargs):
         if self.cart.quantity > 1:
             self.cart.quantity -= 1
             self.cart.save()

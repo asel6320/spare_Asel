@@ -1,9 +1,9 @@
 import factory
 from random import randrange
 from webapp.models import CarBrand, CarModel
+import datetime
 
-MIN_PRICE = 1
-MAX_PRICE = 100
+CURRENT_YEAR = datetime.datetime.now().year
 
 
 class CarBrandFactory(factory.django.DjangoModelFactory):
@@ -17,7 +17,7 @@ class CarBrandFactory(factory.django.DjangoModelFactory):
 class CarModelFactory(factory.django.DjangoModelFactory):
     name = factory.Sequence(lambda n: f'CarModel {n}')
     brand = factory.SubFactory(CarBrandFactory)
-    year_of_manufacture = factory.LazyAttribute(randrange(MIN_PRICE, MAX_PRICE))
+    year_of_manufacture = factory.LazyFunction(lambda: randrange(1990, CURRENT_YEAR))
 
     class Meta:
         model = CarModel

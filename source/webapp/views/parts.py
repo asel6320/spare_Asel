@@ -142,8 +142,6 @@ class PartsMainView(ListView):
         return context
 
 
-
-
 class PartsDetailView(DetailView):
     model = Part
     context_object_name = 'part'

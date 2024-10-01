@@ -1,15 +1,14 @@
 from datetime import datetime
+import factory.fuzzy
 
-import factory
-
-from webapp.facroty import PartFactory
+from webapp.factory.part_factory import PartFactory
 from webapp.models import PriceHistory
 
 MIN_DECIMAL = 1
 MAX_DECIMAL = 100
 
 
-class PriceHistoryFactory:
+class PriceHistoryFactory(factory.django.DjangoModelFactory):
     part = factory.SubFactory(PartFactory)
     price = factory.fuzzy.FuzzyDecimal(MIN_DECIMAL, MAX_DECIMAL)
     date_changed = factory.LazyFunction(datetime.now)
