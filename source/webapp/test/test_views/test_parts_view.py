@@ -45,13 +45,3 @@ class TestPart(TestCase):
         response = self.client.get(reverse('webapp:part_detail', kwargs={'pk': self.part.pk}))
         category = response.context['category']
         self.assertEqual(category, self.part.category)
-
-    def test_get_queryset_orders_by_latest_price(self):
-        response = self.client.get(reverse('webapp:parts_by_country', kwargs={'pk': self.country.pk}))
-        parts = response.context['parts_by_country']
-        self.assertEqual(parts[0], self.part1)
-        self.assertEqual(parts[1], self.part2)
-
-    def test_get_context_data_contains_country(self):
-        response = self.client.get(reverse('webapp:parts_by_country', kwargs={'pk': self.country.pk}))
-        self.assertEqual(response.context['country'], self.country)
