@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     let popupDisplayed = false;
-    const popupDelay = 3400;
+    const popupDelay = 34000;
 
     function showPopup() {
         if (!popupDisplayed) {
