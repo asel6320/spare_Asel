@@ -2,6 +2,7 @@ from webapp.models import Cart, Part, PriceHistory
 from django.shortcuts import redirect, get_object_or_404, render
 from django.views import View
 from django.db.models import Sum, F, Subquery, OuterRef
+from django.http import JsonResponse
 
 
 class CartAdd(View):
@@ -27,7 +28,11 @@ class CartAdd(View):
                 cart.quantity = 1
             cart.save()
 
-        return redirect('webapp:parts_list')
+        cart_count = Cart.objects.filter(
+            user=request.user).count() if request.user.is_authenticated else Cart.objects.filter(
+            session_key=request.session.session_key).count()
+
+        return JsonResponse({'cart_count': cart_count})
 
 
 class CartView(View):
@@ -41,7 +46,8 @@ class CartView(View):
                 request.session.create()
             carts = Cart.objects.filter(session_key=request.session.session_key)
 
-        latest_price_subquery = PriceHistory.objects.filter(part=OuterRef('part')).order_by('-date_changed').values('price')[:1]
+        latest_price_subquery = PriceHistory.objects.filter(part=OuterRef('part')).order_by('-date_changed').values(
+            'price')[:1]
         carts_with_price = carts.annotate(latest_price=Subquery(latest_price_subquery))
 
         total = carts_with_price.aggregate(

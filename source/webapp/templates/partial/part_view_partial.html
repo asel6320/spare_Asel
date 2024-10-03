@@ -21,12 +21,15 @@
 
             <!-- Carousel Indicators (Dots) on the Left Side -->
             <div class="part carousel-indicators position-absolute">
-                <button type="button" data-bs-target="#partCarousel{{ part.pk }}" data-bs-slide-to="0" class="active" aria-current="true" style="background-color: green;"></button>
+                <button type="button" data-bs-target="#partCarousel{{ part.pk }}" data-bs-slide-to="0" class="active"
+                        aria-current="true" style="background-color: green;"></button>
                 {% if part.image2 %}
-                    <button type="button" data-bs-target="#partCarousel{{ part.pk }}" data-bs-slide-to="1" style="background-color: green;"></button>
+                    <button type="button" data-bs-target="#partCarousel{{ part.pk }}" data-bs-slide-to="1"
+                            style="background-color: green;"></button>
                 {% endif %}
                 {% if part.image3 %}
-                    <button type="button" data-bs-target="#partCarousel{{ part.pk }}" data-bs-slide-to="2" style="background-color: green;"></button>
+                    <button type="button" data-bs-target="#partCarousel{{ part.pk }}" data-bs-slide-to="2"
+                            style="background-color: green;"></button>
                 {% endif %}
             </div>
         </div>
@@ -61,12 +64,11 @@
         <div class="mt-auto d-flex justify-content-end pt-2">
             <span class="text-success fw-bold me-auto">В наличии <i class="bi bi-check-circle-fill"></i></span>
 
-            <form method="post" action="{% url 'webapp:part_add_cart' part.pk %}?next={{ request.get_full_path }}">
-                {% csrf_token %}
-                <button class="btn btn-success ms-2" type="submit">
-                    <i class="bi bi-cart"></i>
-                </button>
-            </form>
+            <button class="btn btn-success ms-2" data-js="add-to-cart-button"
+                    data-url="{% url 'webapp:part_add_cart' part.pk %}">
+                <i class="bi bi-cart"></i>
+            </button>
         </div>
+    <meta name="csrf-token" content="{{ csrf_token }}">
     </div>
 </div>
