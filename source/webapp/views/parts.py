@@ -158,6 +158,7 @@ class PartsDetailView(DetailView):
                         :5]  # Получаем похожие запчасти по категории
         context['related_parts'] = related_parts
         context['category'] = part_category
+        context['reviews'] = Review.objects.all()
 
         return context
 

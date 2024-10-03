@@ -202,3 +202,17 @@ body {
    border: 1px solid gray;
 }
 
+.card-review {
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #333;
+    border-radius: 50%;
+}
+
+.carousel-item {
+    transition: transform 0.5s ease;
+}
