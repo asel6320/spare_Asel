@@ -2,8 +2,9 @@ from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
 
+
 class LoginForm(AuthenticationForm):
-    username = forms.CharField(max_length=30)
+    username = forms.EmailField(max_length=30)
     password = forms.CharField(widget=forms.PasswordInput)
 
     def clean(self):
