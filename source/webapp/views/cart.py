@@ -16,21 +16,19 @@ class CartAdd(View):
             if request.user.is_authenticated:
                 cart, created = Cart.objects.get_or_create(part=self.part, user=request.user)
             else:
-                session_key = request.session.session_key
-                if not session_key:
-                    request.session.create()
-                cart, created = Cart.objects.get_or_create(part=self.part, session_key=request.session.session_key)
-
-            if not created:
-                if cart.quantity < self.part.amount:
-                    cart.quantity += 1
-            else:
+                session_key = request.session.session_key or request.session.create()
+                cart, created = Cart.objects.get_or_create(part=self.part, session_key=session_key)
+            if created:
                 cart.quantity = 1
+            elif cart.quantity < self.part.amount:
+                cart.quantity += 1
+
             cart.save()
 
         cart_count = Cart.objects.filter(
-            user=request.user).count() if request.user.is_authenticated else Cart.objects.filter(
-            session_key=request.session.session_key).count()
+            user=request.user if request.user.is_authenticated else None,
+            session_key=request.session.session_key if not request.user.is_authenticated else None
+        ).count()
 
         return JsonResponse({'cart_count': cart_count})
 

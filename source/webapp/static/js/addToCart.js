@@ -27,6 +27,11 @@ function handleCartAction(event) {
     let url = button.getAttribute('data-url');
     let action = button.getAttribute('data-action');
 
+    if (!url) {
+        console.error("URL не указан для кнопки:", button);
+        return;
+    }
+
     makeRequest(url, "POST").then(data => {
         if (action === 'add') {
             console.log("Товар добавлен в корзину:", data);
