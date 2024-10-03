@@ -35,10 +35,17 @@ class OrderCreate(View):
             carts = Cart.objects.filter(user=request.user) if request.user.is_authenticated else Cart.objects.filter(
                 session_key=request.session.session_key)
             for cart in carts:
-                OrderPart.objects.create(order=order, part=cart.part, quantity=cart.quantity)
+                OrderPart.objects.create(
+                    order=order,
+                    part=cart.part,
+                    quantity=cart.quantity,
+                    user=request.user
+                )
+
             carts.delete()
             return redirect('webapp:parts_list')
 
         carts = Cart.objects.filter(user=request.user) if request.user.is_authenticated else Cart.objects.filter(
             session_key=request.session.session_key)
         return render(request, 'cart/cart_view.html', {'carts': carts, 'order_form': form})
+
