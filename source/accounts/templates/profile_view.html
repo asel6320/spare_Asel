@@ -4,7 +4,7 @@
 <div class="container mt-5">
     <h2 class="text-center mb-4">Мой профиль</h2>
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="card shadow-lg">
                 <div class="card-header bg-danger bg-gradient text-white text-center">
                     <h4>{{ user.username }}</h4>
@@ -23,6 +23,65 @@
                     </div>
                 </div>
             </div>
+
+            <h3 class="mt-5 text-center">Мои заказы</h3>
+            {% if orders_with_totals %}
+                <table class="table table-bordered mt-3">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Номер заказа</th>
+                            <th>Дата оформления</th>
+                            <th>Запчасти</th>
+                            <th>Количество</th>
+                            <th>Цена за 1 ед.</th>
+                            <th>Сумма заказа</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order_info in orders_with_totals %}
+                            <tr>
+                                <td>{{ order_info.order.id }}</td>
+                                <td>{{ order_info.order.created_at|date:"d-m-Y H:i" }}</td>
+                                <td>
+                                    <ul>
+                                        {% for order_part in order_info.order.orderpart_set.all %}
+                                            <li>
+                                                <a href="{% url 'webapp:part_detail' order_part.part.id %}">
+                                                    {{ order_part.part.name }}
+                                                </a>
+                                            </li>                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        {% for order_part in order_info.order.orderpart_set.all %}
+                                            <li>{{ order_part.quantity }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        {% for order_part in order_info.order.orderpart_set.all %}
+                                            <li>
+                                                {% if order_part.part.current_price %}
+                                                    {{ order_part.part.current_price }} руб.
+                                                {% else %}
+                                                    Не указана
+                                                {% endif %}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td>
+                                    {{ order_info.total_sum }} руб.
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="mt-3">У вас нет заказов.</p>
+            {% endif %}
         </div>
     </div>
 </div>
