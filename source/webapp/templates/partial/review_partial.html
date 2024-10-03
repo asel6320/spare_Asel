@@ -1,0 +1,25 @@
+{% load static %}
+
+{% if reviews.exists %}
+    <div id="reviewCarousel{{ part.pk }}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-inner">
+            {% for review in reviews %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <div class="card card-review p-3">
+                        <p class="mb-1"><strong>Отзыв:</strong> {{ review.text }}</p>
+                        <p class="mb-1"><strong>Автор:</strong> {{ review.author }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <button class="review-carousel-btn carousel-control-prev" type="button" data-bs-target="#reviewCarousel{{ part.pk }}" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="review-carousel-btn carousel-control-next" type="button" data-bs-target="#reviewCarousel{{ part.pk }}" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+{% endif %}

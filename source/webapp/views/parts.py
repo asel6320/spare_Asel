@@ -9,6 +9,8 @@ from django.views.generic import ListView, DetailView
 from webapp.forms import SearchForm, PartsFilterForm
 from webapp.models import Part, Country, CarBrand, CarModel, Category, PriceHistory
 
+from webapp.models.review import Review
+
 
 class BasePartView(ListView):
     model = Part
@@ -138,6 +140,7 @@ class PartsMainView(ListView):
         context['brands'] = CarBrand.objects.all()
         context['models'] = CarModel.objects.all()
         context['categories'] = Category.objects.all()
+        context["reviews"] = Review.objects.all()
         if self.search_value:
             context["search"] = urlencode({"search": self.search_value})
             context["search_value"] = self.search_value
@@ -155,6 +158,7 @@ class PartsDetailView(DetailView):
                         :5]  # Получаем похожие запчасти по категории
         context['related_parts'] = related_parts
         context['category'] = part_category
+        context['reviews'] = Review.objects.all()
 
         return context
 

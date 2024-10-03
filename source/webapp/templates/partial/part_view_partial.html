@@ -19,7 +19,6 @@
                 {% endif %}
             </div>
 
-            <!-- Carousel Indicators (Dots) on the Left Side -->
             <div class="part carousel-indicators position-absolute">
                 <button type="button" data-bs-target="#partCarousel{{ part.pk }}" data-bs-slide-to="0" class="active"
                         aria-current="true" style="background-color: green;"></button>
@@ -48,6 +47,9 @@
         </h4>
         <p>Модель: <span class="fw-bold">{{ part.vehicle_info.model }}</span></p>
         <p>Мощность: <span class="fw-bold">{{ part.vehicle_info.engine.horsepower }} л.с.</span></p>
+
+        {% block content %}
+        {% endblock %}
 
         {% if part.previous_price or part.current_price %}
             <p class="card-price mt-2">

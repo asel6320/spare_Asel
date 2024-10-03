@@ -5,6 +5,7 @@ from webapp.models.car import CarModel, CarBrand
 from webapp.models.engine import Engine
 from webapp.models.country import Country
 from webapp.models.vehicleinfo import VehicleInfo
+from webapp.models import Review
 
 
 admin.site.register(Category)
@@ -14,3 +15,4 @@ admin.site.register(CarBrand)
 admin.site.register(Engine)
 admin.site.register(Country)
 admin.site.register(VehicleInfo)
+admin.site.register(Review)
