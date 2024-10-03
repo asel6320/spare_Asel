@@ -58,7 +58,6 @@ class CartView(View):
 
 
 class CartDelete(View):
-
     def dispatch(self, request, *args, **kwargs):
         self.cart = get_object_or_404(Cart, pk=kwargs.get('pk'))
         return super().dispatch(request, *args, **kwargs)
@@ -69,4 +68,9 @@ class CartDelete(View):
             self.cart.save()
         elif self.cart.quantity == 1:
             self.cart.delete()
-        return redirect('webapp:cart')
+
+        cart_count = Cart.objects.filter(
+            user=request.user).count() if request.user.is_authenticated else Cart.objects.filter(
+            session_key=request.session.session_key).count()
+
+        return JsonResponse({'cart_count': cart_count})

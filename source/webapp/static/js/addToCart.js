@@ -20,22 +20,28 @@ async function makeRequest(url, method = "POST") {
     }
 }
 
-function onClick(event) {
+
+function handleCartAction(event) {
     event.preventDefault();
     let button = event.target;
     let url = button.getAttribute('data-url');
+    let action = button.getAttribute('data-action');
 
     makeRequest(url, "POST").then(data => {
-        console.log("Товар добавлен в корзину:", data);
+        if (action === 'add') {
+            console.log("Товар добавлен в корзину:", data);
+        } else if (action === 'delete') {
+            console.log("Товар удален из корзины:", data);
+        }
     }).catch(error => {
-        console.error("Ошибка при добавлении товара в корзину:", error);
+        console.error("Ошибка при обработке товара в корзине:", error);
     });
 }
 
 function onLoad() {
-    let addToCartButtons = document.querySelectorAll('[data-js="add-to-cart-button"]');
+    let addToCartButtons = document.querySelectorAll('[data-js="add-to-cart-button"], [data-js="delete-from-cart-button"]');
     for (let button of addToCartButtons) {
-        button.addEventListener('click', onClick);
+        button.addEventListener('click', handleCartAction);
     }
 }
 
