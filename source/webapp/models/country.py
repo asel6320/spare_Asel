@@ -11,6 +11,6 @@ class Country(models.Model):
         return self.name
 
     class Meta:
-        verbose_name_plural = "car_countries"
-        verbose_name = 'car_countries'
+        verbose_name_plural = "Страны"
+        verbose_name = 'Страна'
         db_table = 'countries'

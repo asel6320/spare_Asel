@@ -37,3 +37,5 @@ class OrderPart(models.Model):
 
     class Meta:
         db_table = "order_part"
+        verbose_name = "Заказ"
+        verbose_name_plural = "Заказы"

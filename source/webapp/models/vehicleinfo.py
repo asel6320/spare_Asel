@@ -11,6 +11,7 @@ TYPE_CHOICES = [
     ('bus', 'Автобусы'),
     ('engine', 'Двигатели'),
     ('railroad', 'Ж/Д техника'),
+    ('bicycle', 'Мотоцыкли')
 ]
 
 
@@ -28,6 +29,6 @@ class VehicleInfo(models.Model):
         return f"{self.model.brand.name} {self.model.name} ({self.year_of_manufacture})"
 
     class Meta:
-        verbose_name_plural = "vehicles"
-        verbose_name = 'vehicle'
+        verbose_name_plural = "Типы транспорта"
+        verbose_name = 'Тип транспорта'
         db_table = 'vehicle'
