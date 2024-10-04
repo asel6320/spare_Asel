@@ -37,12 +37,16 @@
                                 Удалить
                             </button>
                         </td>
+                        <td>
+                            
+                        </td>
+
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
             <meta name="csrf-token" content="{{ csrf_token }}">
-            <h4>Итоговая стоимость: {{ total|floatformat:2 }} ₽</h4>
+            <h4 id="total-cost">Итоговая стоимость: {{ total|floatformat:2 }} ₽</h4>
 
 
 

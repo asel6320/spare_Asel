@@ -20,12 +20,12 @@ async function makeRequest(url, method = "POST") {
     }
 }
 
-
 function handleCartAction(event) {
     event.preventDefault();
     let button = event.target;
     let url = button.getAttribute('data-url');
     let action = button.getAttribute('data-action');
+    let itemRow = button.closest('tr');
 
     if (!url) {
         console.error("URL не указан для кнопки:", button);
@@ -37,11 +37,13 @@ function handleCartAction(event) {
             console.log("Товар добавлен в корзину:", data);
         } else if (action === 'delete') {
             console.log("Товар удален из корзины:", data);
+            itemRow.remove();
         }
     }).catch(error => {
         console.error("Ошибка при обработке товара в корзине:", error);
     });
 }
+
 
 function onLoad() {
     let addToCartButtons = document.querySelectorAll('[data-js="add-to-cart-button"], [data-js="delete-from-cart-button"]');
