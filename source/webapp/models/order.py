@@ -6,7 +6,7 @@ User = get_user_model()
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders',
-                             verbose_name='Пользователь')
+                             verbose_name='Пользователь', blank=True, null=True)
     first_name = models.CharField(max_length=100, null=False, blank=False, verbose_name='Имя')
     last_name = models.CharField(max_length=100, null=False, blank=False, verbose_name='Фамилия')
     phone = models.CharField(max_length=20, null=False, blank=False, verbose_name='Телефон')
