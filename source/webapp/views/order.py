@@ -39,7 +39,7 @@ class OrderCreate(View):
                     order=order,
                     part=cart.part,
                     quantity=cart.quantity,
-                    user=request.user
+                    user=request.user if request.user.is_authenticated else None
                 )
 
             carts.delete()
@@ -48,4 +48,5 @@ class OrderCreate(View):
         carts = Cart.objects.filter(user=request.user) if request.user.is_authenticated else Cart.objects.filter(
             session_key=request.session.session_key)
         return render(request, 'cart/cart_view.html', {'carts': carts, 'order_form': form})
+
 
