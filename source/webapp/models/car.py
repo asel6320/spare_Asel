@@ -10,8 +10,8 @@ class CarBrand(models.Model):
         return self.name
 
     class Meta:
-        verbose_name_plural = 'car_brands'
-        verbose_name = 'car_brand'
+        verbose_name_plural = 'Марки машин'
+        verbose_name = 'Марка машины'
         db_table = 'car_brand'
 
 
@@ -25,6 +25,6 @@ class CarModel(models.Model):
         return f"{self.brand.name} {self.name} ({self.year_of_manufacture})"
 
     class Meta:
-        verbose_name_plural = 'car_models'
-        verbose_name = 'car_model'
+        verbose_name_plural = 'Модели машины'
+        verbose_name = 'Модель машины'
         db_table = 'car_model'

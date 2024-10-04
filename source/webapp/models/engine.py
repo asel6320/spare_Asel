@@ -19,6 +19,6 @@ class Engine(models.Model):
         return f"{self.get_engine_type_display()} {self.displacement}L, {self.horsepower} HP"
 
     class Meta:
-        verbose_name_plural = "engines"
-        verbose_name = 'engine'
+        verbose_name_plural = "Двигатели"
+        verbose_name = 'Двигатель'
         db_table = 'engine'

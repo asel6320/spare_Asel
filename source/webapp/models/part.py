@@ -34,6 +34,6 @@ class Part(models.Model):
         return f"{self.name} for {self.vehicle_info.model.brand.name} {self.vehicle_info.model.name}"
 
     class Meta:
-        verbose_name_plural = "car_parts"
-        verbose_name = 'car_part'
+        verbose_name_plural = "Запчасти"
+        verbose_name = 'Запчасть'
         db_table = 'car_parts'
