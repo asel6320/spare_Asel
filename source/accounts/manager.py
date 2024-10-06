@@ -5,7 +5,8 @@ class UserManager(BaseUserManager):
     def create_user(self, username, phone_number=None, password=None, **extra_fields):
         if not phone_number:
             raise ValueError('Поле номера телефона должна быть заполнена')
-
+        if not username:
+            raise ValueError('Поле email должен быть заполнен')
         user = self.model(username=username, phone_number=phone_number, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
@@ -14,7 +15,7 @@ class UserManager(BaseUserManager):
     def create_superuser(self, username, password=None, phone_number=None, **extra_fields):
         if not phone_number:
             phone_number = '0000000000'
-        user = self.create_user(username, password=password, phone_number=phone_number, **extra_fields)
+        user = self.create_user(username=username, password=password, phone_number=phone_number, **extra_fields)
         user.is_superuser = True
         user.is_staff = True
         user.save(using=self._db)
