@@ -25,7 +25,7 @@ class Order(models.Model):
 class OrderPart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     order = models.ForeignKey('webapp.Order', on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField()
+    quantity = models.PositiveIntegerField(verbose_name='Количество')
     part = models.ForeignKey('webapp.Part', on_delete=models.CASCADE)
 
     def get_latest_price(self):

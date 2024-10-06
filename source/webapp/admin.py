@@ -58,19 +58,24 @@ admin.site.register(Order, OrderAdmin)
 
 
 class OrderPartAdmin(admin.ModelAdmin):
-    list_display = ('id', 'get_customer', 'get_part', 'quantity')
+    list_display = ('id', 'get_customer', 'get_number', 'get_part', 'quantity')
     list_filter = ('order__user__first_name', 'order__user__last_name', 'part__name')
     search_fields = ('order__user__first_name', 'order__user__last_name', 'part__name')
 
     def get_customer(self, obj):
-        return f"{obj.order.last_name}"
+        return f"{obj.order.last_name} {obj.order.first_name}"
 
-    get_customer.short_description = 'Customer'
+    get_customer.short_description = "ФИО"
+
+    def get_number(self, obj):
+        return f"{obj.order.phone}"
+
+    get_number.short_description = "Телефон"
 
     def get_part(self, obj):
         return obj.part.name
 
-    get_part.short_description = 'Part'
+    get_part.short_description = 'Товар'
 
 
 admin.site.register(OrderPart, OrderPartAdmin)
