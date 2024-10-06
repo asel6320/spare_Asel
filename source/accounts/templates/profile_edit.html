@@ -6,9 +6,9 @@
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <a href="{% url 'password_change' %}" class="btn btn-warning mt-3">Изменить пароль</a>
+        <a href="{% url 'accounts:password_change' %}" class="btn btn-warning mt-3">Изменить пароль</a>
         <button type="submit" class="btn btn-success mt-3">Сохранить изменения</button>
-        <a href="{% url 'profile_view' %}" class="btn btn-secondary mt-3">Отмена</a>
+        <a href="{% url 'accounts:profile_view' %}" class="btn btn-secondary mt-3">Отмена</a>
     </form>
 </div>
 {% endblock %}

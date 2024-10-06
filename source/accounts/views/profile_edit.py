@@ -9,7 +9,7 @@ def profile_edit_view(request):
         form = UserUpdateForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('profile_view')
+            return redirect('accounts:profile_view')
     else:
         form = UserUpdateForm(instance=request.user)
 

@@ -8,6 +8,9 @@ from accounts.views.profile_view import profile_view
 
 from accounts.views.password_change_view import CustomPasswordChangeView
 
+
+app_name = 'accounts'
+
 urlpatterns = [
     path('register/', register_view, name='register'),
     path('login/', CustomLoginView.as_view(), name='login'),
