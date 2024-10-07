@@ -1,3 +1,5 @@
+import json
+
 from webapp.models import Cart, Part, PriceHistory
 from django.shortcuts import redirect, get_object_or_404, render
 from django.views import View
@@ -72,3 +74,47 @@ class CartDelete(View):
             session_key=request.session.session_key).count()
 
         return JsonResponse({'cart_count': cart_count})
+
+
+class CartUpdate(View):
+    def dispatch(self, request, *args, **kwargs):
+        self.cart = get_object_or_404(Cart, pk=kwargs.get('pk'))
+        return super().dispatch(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        data = json.loads(request.body)
+        change = data.get('change', 0)
+
+        if change == -1 and self.cart.quantity > 1:
+            self.cart.quantity -= 1
+        elif change == 1 and self.cart.quantity < self.cart.part.amount:
+            self.cart.quantity += 1
+
+        self.cart.save()
+
+        return JsonResponse({'new_quantity': self.cart.quantity})
+
+
+class CartDeleteFull(View):
+    def dispatch(self, request, *args, **kwargs):
+        self.cart = get_object_or_404(Cart, pk=kwargs.get('pk'))
+        return super().dispatch(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        self.cart.delete()
+        total_cost = self.calculate_total_cost(request.user)
+        return JsonResponse({'success': True, 'total_cost': total_cost})
+
+    def calculate_total_cost(self, user):
+
+        total = 0
+        if user.is_authenticated:
+            carts = Cart.objects.filter(user=user)
+        else:
+            carts = Cart.objects.filter(session_key=self.request.session.session_key)
+
+        for cart in carts:
+            total += cart.quantity * cart.part.current_price
+
+        return total
+
