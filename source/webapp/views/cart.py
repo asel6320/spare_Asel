@@ -89,6 +89,9 @@ class CartUpdate(View):
             self.cart.quantity -= 1
         elif change == 1 and self.cart.quantity < self.cart.part.amount:
             self.cart.quantity += 1
+        elif change == -1 and self.cart.quantity == 1:
+            self.cart.delete()
+            return JsonResponse({'new_quantity': 0})
 
         self.cart.save()
 
@@ -117,4 +120,3 @@ class CartDeleteFull(View):
             total += cart.quantity * cart.part.current_price
 
         return total
-
