@@ -1,53 +1,84 @@
-async function makeRequest(url, method = "POST") {
-    let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+document.addEventListener('DOMContentLoaded', function() {
+        const addToCartButtons = document.querySelectorAll('[data-js="add-to-cart-button"]');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const url = button.getAttribute('data-url');
+                const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-    let headers = {
-        'Content-Type': 'application/json',
-        'X-CSRFToken': csrfToken
-    };
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrfToken,
+                    },
+                    body: JSON.stringify({})
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.cart_count !== undefined) {
+                        console.log(`Товар добавлен в корзину. Всего товаров: ${data.cart_count}`);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
 
-    let response = await fetch(url, {
-        method: method,
-        headers: headers,
+        const deleteFromCartButtons = document.querySelectorAll('[data-js="delete-from-cart-button"]');
+        deleteFromCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const url = button.getAttribute('data-url');
+                const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrfToken,
+                    },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        console.log('Товар удалён из корзины');
+                        location.reload();
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
+
+        const changeQuantityButtons = document.querySelectorAll('.change-quantity');
+        changeQuantityButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const cartId = button.closest('tr').getAttribute('data-cart-id');
+                const action = button.getAttribute('data-action');
+                const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                const quantityElement = button.parentElement.querySelector('.quantity');
+                let quantity = parseInt(quantityElement.textContent);
+
+                if (action === 'increment') {
+                    quantity += 1;
+                } else if (action === 'decrement' && quantity > 1) {
+                    quantity -= 1;
+                }
+
+                fetch(`/cart/update/${cartId}/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrfToken,
+                    },
+                    body: JSON.stringify({ quantity: quantity })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        quantityElement.textContent = quantity;
+                        const totalCost = data.total_cost;
+                        document.getElementById('total-cost').textContent = `Итоговая стоимость: ${totalCost} ₽`;
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
     });
-
-    if (response.ok) {
-        return await response.json();
-    } else {
-        let error = new Error(await response.text());
-        console.log(error);
-        throw error;
-    }
-}
-
-
-function handleCartAction(event) {
-    event.preventDefault();
-    let button = event.target;
-    let url = button.getAttribute('data-url');
-    let action = button.getAttribute('data-action');
-
-    if (!url) {
-        console.error("URL не указан для кнопки:", button);
-        return;
-    }
-
-    makeRequest(url, "POST").then(data => {
-        if (action === 'add') {
-            console.log("Товар добавлен в корзину:", data);
-        } else if (action === 'delete') {
-            console.log("Товар удален из корзины:", data);
-        }
-    }).catch(error => {
-        console.error("Ошибка при обработке товара в корзине:", error);
-    });
-}
-
-function onLoad() {
-    let addToCartButtons = document.querySelectorAll('[data-js="add-to-cart-button"], [data-js="delete-from-cart-button"]');
-    for (let button of addToCartButtons) {
-        button.addEventListener('click', handleCartAction);
-    }
-}
-
-window.addEventListener('load', onLoad);

@@ -23,17 +23,20 @@
                 </thead>
                 <tbody>
                 {% for cart in carts %}
-                    <tr>
+                    <tr data-cart-id="{{ cart.pk }}">
                         <th>{{ forloop.counter }}</th>
                         <td>{{ cart.part.name }}</td>
                         <td>{{ cart.part.current_price }} ₽</td>
-                        <td>{{ cart.quantity }}</td>
-                        <td>{{ cart.part.current_price|multiply:cart.quantity|floatformat:2 }} ₽</td>
-
-
                         <td>
-                            <button class="btn btn-danger ms-2" data-js="delete-from-cart-button"
-                                    data-action="delete" data-url="{% url 'webapp:cart_delete' cart.pk %}">
+                            <button class="btn btn-danger change-quantity" data-action="decrement">-</button>
+                            <span class="quantity">{{ cart.quantity }}</span>
+                            <button class="btn btn-success change-quantity" data-action="increment">+</button>
+                        </td>
+                        <td>{{ cart.part.current_price|multiply:cart.quantity|floatformat:2 }} ₽</td>
+                        <td>
+                            <button class="btn btn-danger ms-2"
+                                    data-js="delete-from-cart-button"
+                                    data-url="{% url 'webapp:cart_delete_full' cart.pk %}">
                                 Удалить
                             </button>
                         </td>
@@ -42,7 +45,8 @@
                 </tbody>
             </table>
             <meta name="csrf-token" content="{{ csrf_token }}">
-            <h4>Итоговая стоимость: {{ total|floatformat:2 }} ₽</h4>
+
+            <h4 id="total-cost">Итоговая стоимость: {{ total|floatformat:2 }} ₽</h4>
 
 
 
