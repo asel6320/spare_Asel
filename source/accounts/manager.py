@@ -1,4 +1,13 @@
 from django.contrib.auth.models import BaseUserManager
+from random import choice
+
+
+def random_phone_number():
+    psw = ''
+    for _ in range(10):
+        psw = psw + choice(list('123456789'))
+
+    return psw
 
 
 class UserManager(BaseUserManager):
@@ -14,7 +23,7 @@ class UserManager(BaseUserManager):
 
     def create_superuser(self, username, password=None, phone_number=None, **extra_fields):
         if not phone_number:
-            phone_number = '0000000000'
+            phone_number = random_phone_number()
         user = self.create_user(username=username, password=password, phone_number=phone_number, **extra_fields)
         user.is_superuser = True
         user.is_staff = True
