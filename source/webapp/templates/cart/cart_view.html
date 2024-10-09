@@ -54,10 +54,11 @@
                 Оформить заказ
             </button>
             <br><br>
-            <form method="post" action="{% url 'webapp:save_cart' %}">
+            <form method="#" action="#">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-danger">Сохранить корзину</button>
-            </form>
+            </form><br><br>
+            
 
         {% else %}
             <p>Ваша корзина пуста.</p>
