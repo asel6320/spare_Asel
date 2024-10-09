@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
     cartRows.forEach(row => {
         const quantityElement = row.querySelector('.quantity');
         const cartId = row.getAttribute('data-cart-id');
-        const priceElement = row.cells[2];  // The price cell
-        const totalElement = row.cells[4];  // The total (Итого) cell
+        const priceElement = row.cells[2];
+        const totalElement = row.cells[4];
 
         row.querySelectorAll('.change-quantity').forEach(button => {
             button.addEventListener('click', function () {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             },
-            body: JSON.stringify({ change: change })
+            body: JSON.stringify({change: change})
         })
             .then(response => response.json())
             .then(data => {
@@ -43,6 +43,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     let price = parseFloat(priceElement.textContent.replace('₽', '').trim());
                     let newTotal = price * data.new_quantity;
                     totalElement.textContent = `${newTotal.toFixed(2)} ₽`;
+
+                    if (data.new_quantity === 1) {
+                        row.querySelector('.change-quantity[data-action="decrement"]').disabled = true;
+                    } else {
+                        row.querySelector('.change-quantity[data-action="decrement"]').disabled = false;
+                    }
 
                     updateTotalCost();
                 }
