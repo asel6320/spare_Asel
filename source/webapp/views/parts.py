@@ -1,9 +1,7 @@
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404
 from django.db.models import Q, Subquery, OuterRef, DecimalField
 from django.shortcuts import render
 from django.utils.http import urlencode
-from webapp.models.price_history import PriceHistory
 from django.views.generic import ListView, DetailView
 
 from webapp.forms import SearchForm, PartsFilterForm
@@ -146,6 +144,7 @@ class PartsMainView(ListView):
             context["search_value"] = self.search_value
         return context
 
+
 class PartsDetailView(DetailView):
     model = Part
     context_object_name = 'part'
@@ -171,4 +170,3 @@ def get_models(request):
     brand_id = request.GET.get('brand_id')
     models = CarModel.objects.filter(brand_id=brand_id).values('id', 'name')
     return JsonResponse({'models': list(models)})
-

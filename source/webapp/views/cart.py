@@ -1,7 +1,7 @@
 import json
 
 from webapp.models import Cart, Part, PriceHistory
-from django.shortcuts import redirect, get_object_or_404, render
+from django.shortcuts import get_object_or_404, render
 from django.views import View
 from django.db.models import Sum, F, Subquery, OuterRef
 from django.http import JsonResponse

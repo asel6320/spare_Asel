@@ -53,6 +53,11 @@
             <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#orderModal">
                 Оформить заказ
             </button>
+            <br><br>
+            <form method="post" action="{% url 'webapp:save_cart' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Сохранить корзину</button>
+            </form>
 
         {% else %}
             <p>Ваша корзина пуста.</p>
@@ -94,11 +99,14 @@
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
                             <button type="submit" class="btn btn-primary">Отправить заказ</button>
                         </div>
+
                     </form>
+
                 </div>
             </div>
         </div>
     </div>
+
 
 
     {% block search %}
