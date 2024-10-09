@@ -36,9 +36,16 @@
         {% if part.discount %}
             <span class="badge bg-danger position-absolute top-0 start-0 m-2">-{{ part.discount }}%</span>
         {% endif %}
-        <button class="btn btn-light position-absolute top-0 end-0 m-2">
-            <i class="bi bi-heart"></i>
-        </button>
+         <form method="post" action="{% url 'webapp:favorite_add' part.pk %}" class="favorite-form" data-part-id="{{ part.pk }}">
+            {% csrf_token %}
+            <button class="btn btn-light position-absolute top-0 end-0 m-2" type="submit" title="Добавить в избранные">
+                {% if part.pk in favorites %}
+                    <i class="bi bi-heart-fill text-danger"></i>
+                {% else %}
+                    <i class="bi bi-heart text-black-50"></i>
+                {% endif %}
+            </button>
+        </form>
     </div>
 
     <div class="p-2 h-100 d-flex flex-column py-3 px-4">
@@ -54,10 +61,10 @@
         {% if part.previous_price or part.current_price %}
             <p class="card-price mt-2">
                 {% if part.previous_price %}
-                    <del>{{ part.previous_price|intcomma }} руб</del>
+                    <del>{{ part.previous_price|intcomma }} сом</del>
                 {% endif %}
                 {% if part.current_price %}
-                    <span class="fw-bold text-danger">{{ part.current_price|intcomma }} руб</span>
+                    <span class="fw-bold text-danger">{{ part.current_price|intcomma }} сом</span>
                 {% endif %}
             </p>
         {% endif %}
@@ -69,7 +76,21 @@
                     data-url="{% url 'webapp:part_add_cart' part.pk %}">
                 <i class="bi bi-cart"></i>
             </button>
+             
         </div>
+{#        <form method="post" action="{% url 'webapp:favorite_add' part.pk %}" class="favorite-form" data-part-id="{{ part.pk }}">#}
+{#    {% csrf_token %}#}
+{#    <button class="btn position-absolute top-0 end-0 m-2" type="submit" title="Добавить в избранные">#}
+{#        <!-- Если товар в избранном, показываем красное сердечко -->#}
+{#        {% if part.pk in favorites %}#}
+{#            <i class="bi bi-heart-fill text-danger"></i> <!-- Красное сердечко для добавленных товаров -->#}
+{#        {% else %}#}
+{#            <i class="bi bi-heart text-black-50"></i> <!-- Белое сердечко для остальных товаров -->#}
+{#        {% endif %}#}
+{#    #}
+{#   #}
+{#    </button>#}
+{#</form>#}
     <meta name="csrf-token" content="{{ csrf_token }}">
     </div>
 </div>

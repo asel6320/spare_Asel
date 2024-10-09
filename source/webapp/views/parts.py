@@ -3,6 +3,8 @@ from django.shortcuts import get_object_or_404
 from django.db.models import Q, Subquery, OuterRef, DecimalField
 from django.shortcuts import render
 from django.utils.http import urlencode
+
+from webapp.models.favorites import Favorite
 from webapp.models.price_history import PriceHistory
 from django.views.generic import ListView, DetailView
 
@@ -161,6 +163,21 @@ class PartsDetailView(DetailView):
         context['reviews'] = Review.objects.all()
 
         return context
+
+    def get(self, request, *args, **kwargs):
+        part = get_object_or_404(Part, pk=kwargs['pk'])
+
+        # Получение избранных товаров
+        if request.user.is_authenticated:
+            favorites = Favorite.objects.filter(user=request.user).values_list('part_id', flat=True)
+        else:
+            session_key = request.session.session_key or request.session.create()
+            favorites = Favorite.objects.filter(session_key=session_key).values_list('part_id', flat=True)
+
+        return render(request, 'favorites/favorites.html', {
+            'part': part,
+            'favorites': favorites,
+        })
 
 
 def about_us(request):
