@@ -1,6 +1,6 @@
 from django.contrib.auth import login
 from django.contrib.auth.views import LoginView
-from accounts.forms.auth_form import LoginForm
+from accounts.forms.authentication import LoginForm
 from django.shortcuts import redirect
 
 

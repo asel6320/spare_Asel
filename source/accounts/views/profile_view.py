@@ -1,6 +1,8 @@
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.views.generic import UpdateView
+
 
 @login_required
 def profile_view(request):
@@ -27,3 +29,7 @@ def profile_view(request):
         'total': total,
     }
     return render(request, 'profile_view.html', context)
+
+# class UserProfileView(LoginRequiredMixin , UpdateView):
+#     template_name = 'profile_view.html'
+#     form_class = Pr

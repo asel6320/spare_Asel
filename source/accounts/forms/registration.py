@@ -2,12 +2,22 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from accounts.models import User
 
+
 class RegisterForm(UserCreationForm):
     phone_number = forms.CharField(max_length=15, required=True, help_text='Обязательно для заполнения')
 
     class Meta:
         model = User
-        fields = ['email', 'username', 'phone_number', 'password1', 'password2']
+        fields = ['first_name', 'last_name', 'email', 'username', 'phone_number', 'password1', 'password2']
+
+    first_name = forms.CharField()
+    last_name = forms.CharField()
+    username = forms.CharField()
+    email = forms.CharField()
+    phone_number = forms.CharField()
+
+    password1 = forms.CharField()
+    password2 = forms.CharField()
 
     def clean_phone_number(self):
         phone_number = self.cleaned_data.get('phone_number')

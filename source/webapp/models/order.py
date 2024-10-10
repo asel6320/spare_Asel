@@ -29,7 +29,7 @@ class Order(models.Model):
 
 
 class OrderPart(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     order = models.ForeignKey('webapp.Order', on_delete=models.CASCADE)
     part = models.ForeignKey('webapp.Part', on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(verbose_name='Количество', default=0)

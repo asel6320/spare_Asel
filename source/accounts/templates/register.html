@@ -1,182 +1,94 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
+
+
+
 {% block content %}
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f9;
-        }
-
-        .login-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-        }
-
-        .login {
-            background-color: white;
-            padding: 50px;
-            border-radius: 15px;
-            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-            width: 400px;
-            text-align: center;
-            margin: 20px;
-        }
-
-        h2 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 30px;
-            color: #333;
-        }
-
-        form {
-            margin-top: 20px;
-        }
-
-        input.text {
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        input.text:focus {
-            border-color: #333;
-            box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.2);
-        }
-
-        button.signin {
-            width: 100%;
-            padding: 15px;
-            background-color: #333;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin: 10px;
-        }
-
-        button.signin:hover {
-            background-color: #555;
-        }
-
-        hr {
-            margin: 30px 0;
-            border: 0;
-            border-top: 1px solid #ddd;
-        }
-
-        a {
-            color: #333;
-            font-size: 14px;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .error {
-            color: red;
-            font-size: 12px;
-            text-align: left;
-        }
-    </style>
-<body>
-    <div class="login-container">
-        <div class="login">
-            <h2>Регистрация</h2>
-
-            <form method="POST" action="{% url 'accounts:register' %}">
-                {% csrf_token %}
-
-                {% if form.non_field_errors %}
-                    <div class="alert alert-danger">
-                        {% for error in form.non_field_errors %}
-                            <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-
-                <div class="mb-3">
-                    <label for="{{ form.username.id_for_label }}" class="form-label">Имя пользователя</label>
-                    {{ form.username }}
-                    {% if form.username.errors %}
-                        <div class="text-danger">
-                            {% for error in form.username.errors %}
-                                <p>{{ error }}</p>
-                            {% endfor %}
+    <div class="row">
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-9 bg-white p-4 mb-5 mx-2 rounded custom-shadow">
+                    <h2 class="text-center mb-4">Регистрация</h2>
+                    <form action="{% url "accounts:register" %}" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="id_first_name" class="form-label">Имя</label>
+                                <input type="text" class="form-control" id="id_first_name"
+                                       value="{% if form.first_name.value %}{{ form.first_name.value }}{% endif %}"
+                                       name="first_name"
+                                       placeholder="Введите ваше имя" required>
+                                {% if form.first_name.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{ form.first_name.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="id_last_name" class="form-label">Фамилия</label>
+                                <input type="text" class="form-control" id="id_last_name"
+                                       value="{% if form.last_name.value %}{{ form.last_name.value }}{% endif %}"
+                                       name="last_name"
+                                       placeholder="Введите вашу фамилию" required>
+                                {% if form.last_name.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{ form.last_name.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="id_username" class="form-label">Имя пользователя</label>
+                                <input type="text" class="form-control" id="id_username"
+                                       value="{% if form.username.value %}{{ form.username.value }}{% endif %}"
+                                       name="username"
+                                       placeholder="Введите ваше имя пользователя" required>
+                                {% if form.username.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{ form.username.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="id_email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="id_email"
+                                       value="{% if form.email.value %}{{ form.email.value }}{% endif %}"
+                                       name="email"
+                                       placeholder="Введите ваш email" required>
+                                {% if form.email.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{ form.email.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="id_password1" class="form-label">Пароль</label>
+                                <input type="password" class="form-control" id="id_password1"
+                                       value="{% if form.password1.value %}{{ form.password1.value }}{% endif %}"
+                                       name="password1"
+                                       placeholder="Введите пароль" required>
+                                {% if form.password1.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{ form.password1.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="id_password2" class="form-label">Подтверждение пароля</label>
+                                <input type="password" class="form-control" id="id_password2"
+                                       value="{% if form.password2.value %}{{ form.password2.value }}{% endif %}"
+                                       name="password2"
+                                       placeholder="Подтвердите пароль" required>
+                                {% if form.password2.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{ form.password2.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="phone_number" class="form-label">Номер телефона</label>
+                                <input type="number" class="form-control" id="phone_number"
+                                       value="{% if form.phone_number.value %}{{ form.phone_number.value }}{% endif %}"
+                                       name="phone_number"
+                                       placeholder="Номер телефона" required>
+                                {% if form.phone_number.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{ form.phone_number.errors }}</div>
+                                {% endif %}
+                            </div>
                         </div>
-                    {% endif %}
+                        <button type="submit"
+                                class="btn btn-dark btn-block">Зарегистрироваться
+                        </button>
+                    </form>
                 </div>
-
-                <div class="mb-3">
-                    <label for="{{ form.email.id_for_label }}" class="form-label">Электронная почта</label>
-                    {{ form.email }}
-                    {% if form.email.errors %}
-                        <div class="text-danger">
-                            {% for error in form.email.errors %}
-                                <p>{{ error }}</p>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                </div>
-
-                <div class="mb-3">
-                    <label for="{{ form.phone_number.id_for_label }}" class="form-label">Номер телефона</label>
-                    {{ form.phone_number }}
-                    {% if form.phone_number.errors %}
-                        <div class="text-danger">
-                            {% for error in form.phone_number.errors %}
-                                <p>{{ error }}</p>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                </div>
-
-                <div class="mb-3">
-                    <label for="{{ form.password1.id_for_label }}" class="form-label">Пароль</label>
-                    {{ form.password1 }}
-                    {% if form.password1.errors %}
-                        <div class="text-danger">
-                            {% for error in form.password1.errors %}
-                                <p>{{ error }}</p>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                </div>
-
-                <div class="mb-3">
-                    <label for="{{ form.password2.id_for_label }}" class="form-label">Подтверждение пароля</label>
-                    {{ form.password2 }}
-                    {% if form.password2.errors %}
-                        <div class="text-danger">
-                            {% for error in form.password2.errors %}
-                                <p>{{ error }}</p>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                </div>
-
-                <button type="submit" class="signin">Зарегистрироваться</button>
-
-                <a href="{% url 'accounts:login' %}">Уже есть аккаунт? Войти</a>
-            </form>
+            </div>
         </div>
     </div>
-</body>
-</html>
 {% endblock %}
