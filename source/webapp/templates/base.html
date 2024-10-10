@@ -79,7 +79,7 @@
                                         <li><a class="dropdown-item" href="/admin/">CRM</a></li>
                                         <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Выйти</a></li>
                                     {% else %}    
-                                    <li><a class="dropdown-item" href="{% url 'accounts:profile_view' %}">Личный кабинет</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'accounts:profile' %}">Личный кабинет</a></li>
                                     <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Выйти</a></li>
                                     {% endif %}    
                                 {% else %}
