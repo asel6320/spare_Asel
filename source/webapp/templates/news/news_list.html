@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+    <div class="news-list container">
+    <h2 style="text-align: center">Все новости</h2>
+    <div>
+        {% for news in news_list %}
+        <div class="card">
+        <div class="card-header">
+            <h5>{{ news.title }}</h5>
+        </div>
+        <div class="card-body">
+        <p class="card-title">{{ news.short_description }}</p>
+        <a href="{% url 'webapp:news_detail' news.id %}" style="">Читать далее</a>
+        </div>
+    </div>
+        {% endfor %}
+    </div>
+    </div>
+	
+{% endblock %}
+

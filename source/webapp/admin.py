@@ -10,6 +10,7 @@ from webapp.models.engine import Engine
 from webapp.models.country import Country
 from webapp.models.vehicleinfo import VehicleInfo
 from webapp.models import Review, Order, OrderPart
+from webapp.models.news import News
 
 admin.site.register(Category)
 admin.site.register(CarBrand)
@@ -79,3 +80,11 @@ class OrderPartAdmin(admin.ModelAdmin):
 
 
 admin.site.register(OrderPart, OrderPartAdmin)
+
+
+class NewsAdmin(admin.ModelAdmin):
+    list_display = ('title', 'short_description', 'full_text', 'published_at')
+    list_filter = ('title', 'short_description', 'published_at')
+    search_fields = ('title', 'short_description', 'full_text')
+
+admin.site.register(News, NewsAdmin)

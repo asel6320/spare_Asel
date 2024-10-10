@@ -216,3 +216,13 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+.news-list {
+    text-align: center;
+}
+
+.card-header {
+    font-family: 'Roboto', sans-serif;
+    color: #262626;
+    font-size: 16px;
+    font-weight: 400;
+}
