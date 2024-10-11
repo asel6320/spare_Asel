@@ -20,7 +20,6 @@ class OrderCreateView(FormView):
             user = self.request.user
             initial['first_name'] = user.first_name
             initial['last_name'] = user.last_name
-            initial['phone'] = user.phone_number
             initial['email'] = user.email
         return initial
 
@@ -43,11 +42,11 @@ class OrderCreateView(FormView):
                 if cart_items.exists():
                     order = Order.objects.create(
                         user=user,
-                        first_name=form.cleaned_data.get('first_name'),
-                        last_name=form.cleaned_data.get('last_name'),
-                        phone=form.cleaned_data.get('phone'),
-                        email=form.cleaned_data.get('email'),
-                        # delivery_address=form.cleaned_data['delivery_address'],
+                        first_name=form.cleaned_data['first_name'],
+                        last_name=form.cleaned_data['last_name'],
+                        phone=form.cleaned_data['phone'],
+                        email=form.cleaned_data['email'],
+                        delivery_address=form.cleaned_data.get('delivery_address', ''),
                     )
 
                     for cart_item in cart_items:
@@ -62,6 +61,7 @@ class OrderCreateView(FormView):
                             )
 
                         OrderPart.objects.create(
+                            user=user,
                             order=order,
                             part=part,
                             name=name,
@@ -74,18 +74,11 @@ class OrderCreateView(FormView):
                     cart_items.delete()
 
                     messages.success(self.request, 'Заказ оформлен!')
-                    return redirect(self.success_url)
+                    return redirect(self.get_success_url())
         except ValidationError as e:
             messages.error(self.request, str(e))
-            return redirect('webapp:parts_list')
-
-    def post(self, request, *args, **kwargs):
-        form = OrderForm(request.POST)
-        if form.is_valid():
-            return self.form_valid(form)
-        print(self.form_invalid(form))
-        return self.form_invalid(form)
+            return self.form_invalid(form)
 
     def form_invalid(self, form):
         messages.error(self.request, 'Заполните все обязательные поля!')
-        return redirect('webapp:parts_list')
+        return super().form_invalid(form)

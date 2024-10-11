@@ -1,23 +1,34 @@
-from django import forms
-from django.core.exceptions import ValidationError
 import re
+from django import forms
 
-from webapp.models import Order
 
+class OrderForm(forms.Form):
+    first_name = forms.CharField(label="Имя", max_length=100, required=True)
+    last_name = forms.CharField(label="Фамилия", max_length=100, required=True)
+    phone = forms.CharField(label="Телефон", max_length=15, required=True)
+    email = forms.EmailField(label="Электронная почта", required=True)
 
-class OrderForm(forms.ModelForm):
+    requires_delivery = forms.ChoiceField(
+        label="Требуется доставка?",
+        choices=[
+            ("0", 'Нет'),
+            ("1", 'Да'),
+        ],
+        required=True
+    )
 
-    def clean(self):
-        cleaned_data = super().clean()
-        required_fields = ["email", "phone", "last_name", "first_name"]
+    delivery_address = forms.CharField(label="Адрес доставки", required=False)
 
-        for field in required_fields:
-            if not cleaned_data.get(field):
-                raise ValidationError(f"Поле {field} не может быть пустым.")
+    payment_on_get = forms.ChoiceField(
+        label="Оплата при получении?",
+        choices=[
+            ("0", 'Нет'),
+            ("1", 'Да'),
+        ],
+        required=True
+    )
 
-        return cleaned_data
-
-    def clean_phone_number(self):
+    def clean_phone(self):
         data = self.cleaned_data['phone']
 
         if not data.isdigit():
@@ -28,7 +39,3 @@ class OrderForm(forms.ModelForm):
             raise forms.ValidationError("Неверный формат номера")
 
         return data
-
-    class Meta:
-        model = Order
-        fields = ["email", "phone", "last_name", "first_name", 'requires_delivery', 'delivery_address']

@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.core.exceptions import ValidationError
 
 User = get_user_model()
 
@@ -20,6 +21,16 @@ class Order(models.Model):
 
     def __str__(self):
         return f"Заказ № {self.pk} | Покупатель {self.first_name} {self.last_name}"
+
+    def clean(self):
+        cleaned_data = super().clean()
+        required_fields = ["email", "phone", "last_name", "first_name"]
+
+        for field in required_fields:
+            if not cleaned_data.get(field):
+                raise ValidationError(f"Поле {field} не может быть пустым.")
+
+        return cleaned_data
 
     class Meta:
         db_table = "order"
