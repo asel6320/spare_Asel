@@ -167,6 +167,10 @@ body {
     text-transform: uppercase;
 }
 
+.custom-carousel-img {
+    height: 250px;
+}
+
 .partner-icon {
     color: #555;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -215,4 +219,5 @@ body {
     border: 1px solid #198754;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
 
