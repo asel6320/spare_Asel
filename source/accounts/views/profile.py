@@ -10,7 +10,7 @@ from webapp.models import Order, OrderPart
 
 
 class UserProfileView(LoginRequiredMixin, UpdateView):
-    template_name = 'profile_view.html'
+    template_name = 'profile.html'
     form_class = ProfileForm
     success_url = reverse_lazy('accounts:profile')
 

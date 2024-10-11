@@ -21,6 +21,7 @@ class Migration(migrations.Migration):
             name='orderpart',
             options={'ordering': ('id',), 'verbose_name': 'Проданный товар', 'verbose_name_plural': 'Проданные товары'},
         ),
+
         migrations.AddField(
             model_name='order',
             name='delivery_address',
@@ -35,6 +36,11 @@ class Migration(migrations.Migration):
             model_name='order',
             name='payment_on_get',
             field=models.BooleanField(default=False, verbose_name='Оплата при получении'),
+        ),
+        migrations.AddField(
+            model_name='cart',
+            name='created_timestamp',
+            field=models.DateTimeField(auto_now_add=True, verbose_name='Дата добавления')
         ),
         migrations.AddField(
             model_name='order',

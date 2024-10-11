@@ -12,4 +12,4 @@ class TestProfileView(TestCase):
 
     def test_profile_view_get(self):
         response = self.client.get(reverse('profile_view'))
-        self.assertTemplateUsed(response, template_name='profile_view.html')
+        self.assertTemplateUsed(response, template_name='profile.html')

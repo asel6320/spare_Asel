@@ -1,8 +1,8 @@
 from django.urls import path
 
 from webapp.views.parts import about_us
-from webapp.views import PartsListView, PartsDetailView, CartView, CartAdd, CartDelete, OrderCreate, PartsMainView, \
-    get_models, CartUpdate, CartDeleteFull
+from webapp.views import PartsListView, PartsDetailView, CartView, CartAdd, CartDelete, OrderCreateView, PartsMainView, \
+    get_models, CartUpdate, CartDeleteFull, CartAddView, CartChangeView, CartRemoveView
 
 app_name = 'webapp'
 
@@ -16,7 +16,10 @@ urlpatterns = [
     path('part/<int:pk>/', PartsDetailView.as_view(), name='part_detail'),
     path('parts/', PartsMainView.as_view(), name='parts_main'),
     path('parts/about_us/', about_us, name='about_us'),
-    path('order/create/', OrderCreate.as_view(), name='order_create'),
+    path('order/create/', OrderCreateView.as_view(), name='order_create'),
     path('get-models/', get_models, name='get_models'),
+    path('cart_add/', CartAddView.as_view(), name='cart_add'),
+    path('cart_change/', CartChangeView.as_view(), name='cart_change'),
+    path('cart_remove/', CartRemoveView.as_view(), name='cart_remove'),
 
 ]

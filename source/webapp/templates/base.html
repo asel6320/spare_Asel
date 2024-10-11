@@ -103,6 +103,10 @@
     <main class="flex-grow-1">
         {% block content %}
         {% endblock %}
+    
+        {% block modal_cart %}
+            {% include "cart/cart_bytton.html" %}
+        {% endblock  %}
     </main>
 
     <footer class="footer bg-footer-custom py-4">
