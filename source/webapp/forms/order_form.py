@@ -1,5 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
+import re
+
 from webapp.models import Order
 
 
@@ -15,12 +17,18 @@ class OrderForm(forms.ModelForm):
 
         return cleaned_data
 
+    def clean_phone_number(self):
+        data = self.cleaned_data['phone']
+
+        if not data.isdigit():
+            raise forms.ValidationError("Номер телефона должен содержать только цифры")
+
+        pattern = re.compile(r'^\d{10}$')
+        if not pattern.match(data):
+            raise forms.ValidationError("Неверный формат номера")
+
+        return data
+
     class Meta:
         model = Order
-        fields = ['first_name', 'last_name', 'phone', 'email']
-        widgets = {
-            'first_name': forms.TextInput(attrs={'placeholder': 'Ваше имя'}),
-            'last_name': forms.TextInput(attrs={'placeholder': 'Ваша фамилия'}),
-            'phone': forms.TextInput(attrs={'placeholder': 'Ваш номер телефона'}),
-            'email': forms.EmailInput(attrs={'placeholder': 'Ваш email'}),
-        }
+        fields = ["email", "phone", "last_name", "first_name", 'requires_delivery', 'delivery_address']

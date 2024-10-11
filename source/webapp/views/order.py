@@ -43,10 +43,10 @@ class OrderCreateView(FormView):
                 if cart_items.exists():
                     order = Order.objects.create(
                         user=user,
-                        first_name=form.cleaned_data['first_name'],
-                        last_name=form.cleaned_data['last_name'],
-                        phone=form.cleaned_data['phone'],
-                        email=form.cleaned_data['email'],
+                        first_name=form.cleaned_data.get('first_name'),
+                        last_name=form.cleaned_data.get('last_name'),
+                        phone=form.cleaned_data.get('phone'),
+                        email=form.cleaned_data.get('email'),
                         # delivery_address=form.cleaned_data['delivery_address'],
                     )
 
@@ -58,7 +58,7 @@ class OrderCreateView(FormView):
 
                         if part.amount < quantity:
                             raise ValidationError(
-                                f'Недостаточное количество товара {name} на складе. В наличии - {part.quantity}'
+                                f'Недостаточное количество товара {name} на складе. В наличии - {part.amount}'
                             )
 
                         OrderPart.objects.create(
@@ -77,53 +77,15 @@ class OrderCreateView(FormView):
                     return redirect(self.success_url)
         except ValidationError as e:
             messages.error(self.request, str(e))
-            return redirect('webapp:order_create')
+            return redirect('webapp:parts_list')
 
     def post(self, request, *args, **kwargs):
         form = OrderForm(request.POST)
         if form.is_valid():
             return self.form_valid(form)
-
+        print(self.form_invalid(form))
         return self.form_invalid(form)
 
-    # def get(self, request, *args, **kwargs):
-    #     form = OrderForm()
-    #     if request.user.is_authenticated:
-    #         user = request.user
-    #         form.fields['first_name'].initial = user.first_name
-    #         form.fields['last_name'].initial = user.last_name
-    #         form.fields['phone'].initial = user.phone_number
-    #         form.fields['email'].initial = user.email
-    #     carts = Cart.objects.filter(user=request.user) if request.user.is_authenticated else Cart.objects.filter(
-    #         session_key=request.session.session_key)
-    #
-    #     return render(request, 'cart/cart_view.html', {
-    #         'carts': carts,
-    #         'order_form': form,
-    #         'user': user if request.user.is_authenticated else None
-    #     })
-    #
-    # def post(self, request, *args, **kwargs):
-    #     form = OrderForm(request.POST)
-    #     if form.is_valid():
-    #         order = form.save(commit=False)
-    #         if request.user.is_authenticated:
-    #             order.user = request.user
-    #         order.save()
-    #
-    #         carts = Cart.objects.filter(user=request.user) if request.user.is_authenticated else Cart.objects.filter(
-    #             session_key=request.session.session_key)
-    #         for cart in carts:
-    #             OrderPart.objects.create(
-    #                 order=order,
-    #                 part=cart.part,
-    #                 quantity=cart.quantity,
-    #                 user=request.user if request.user.is_authenticated else None
-    #             )
-    #
-    #         carts.delete()
-    #         return redirect('webapp:parts_list')
-    #
-    #     carts = Cart.objects.filter(user=request.user) if request.user.is_authenticated else Cart.objects.filter(
-    #         session_key=request.session.session_key)
-    #     return render(request, 'cart/making_order.html', {'carts': carts, 'order_form': form})
+    def form_invalid(self, form):
+        messages.error(self.request, 'Заполните все обязательные поля!')
+        return redirect('webapp:parts_list')
