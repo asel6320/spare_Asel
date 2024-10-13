@@ -52,6 +52,9 @@ class OrderPart(models.Model):
         price_history = self.part.price_history.order_by('-date_changed').first()
         return price_history.price if price_history else None
 
+    def part_price(self):
+        return round(self.part.current_price * self.quantity) if self.part.current_price else 0
+
     def __str__(self):
         return f"Товар {self.name} | Заказ № {self.order.pk}"
 

@@ -6,8 +6,6 @@ from django.views import View
 from django.db.models import Sum, F, Subquery, OuterRef
 from django.http import JsonResponse
 
-from webapp.views.mixins import CartMixin
-
 
 class CartAdd(View):
 
@@ -104,78 +102,4 @@ class CartDeleteFull(View):
 
     def post(self, request, *args, **kwargs):
         self.cart.delete()
-        total_cost = self.calculate_total_cost(request.user)
-        return JsonResponse({'success': True, 'total_cost': total_cost})
 
-    def calculate_total_cost(self, user):
-
-        total = 0
-        if user.is_authenticated:
-            carts = Cart.objects.filter(user=user)
-        else:
-            carts = Cart.objects.filter(session_key=self.request.session.session_key)
-
-        for cart in carts:
-            total += cart.quantity * cart.part.current_price
-
-        return total
-
-
-class CartAddView(CartMixin, View):
-    def post(self, request):
-        part_pk = request.POST.get("part_pk")
-        part = Part.objects.get(part_pk=part_pk)
-
-        cart = self.get_cart(request, part=part)
-
-        if cart:
-            cart.quantity += 1
-            cart.save()
-        else:
-            Cart.objects.create(user=request.user if request.user.is_authenticated else None,
-                                session_key=request.session.session_key if not request.user.is_authenticated else None,
-                                part=part, quantity=1)
-
-        response_data = {
-            "message": "Товар добавлен в корзину",
-            'cart_items_html': self.render_cart(request)
-        }
-
-        return JsonResponse(response_data)
-
-
-class CartChangeView(CartMixin, View):
-    def post(self, request):
-        cart_pk = request.POST.get("cart_pk")
-
-        cart = self.get_cart(request, cart_pk=cart_pk)
-
-        cart.quantity = request.POST.get("quantity")
-        cart.save()
-
-        quantity = cart.quantity
-
-        response_data = {
-            "message": "Количество изменено",
-            "quantity": quantity,
-            'cart_items_html': self.render_cart(request)
-        }
-
-        return JsonResponse(response_data)
-
-
-class CartRemoveView(CartMixin, View):
-    def post(self, request):
-        cart_pk = request.POST.get("cart_pk")
-
-        cart = self.get_cart(request, cart_pk=cart_pk)
-        quantity = cart.quantity
-        cart.delete()
-
-        response_data = {
-            "message": "Товар удален из корзины",
-            "quantity_deleted": quantity,
-            'cart_items_html': self.render_cart(request)
-        }
-
-        return JsonResponse(response_data)

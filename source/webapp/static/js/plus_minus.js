@@ -54,18 +54,4 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
     }
-
-    function updateTotalCost() {
-        let totalCost = 0;
-
-        cartRows.forEach(row => {
-            if (row.parentElement) {
-                let quantity = parseInt(row.querySelector('.quantity').textContent);
-                let price = parseFloat(row.cells[2].textContent.replace('₽', '').trim());
-                totalCost += quantity * price;
-            }
-        });
-
-        document.getElementById('total-cost').textContent = `Итоговая стоимость: ${totalCost.toFixed(2)} ₽`;
-    }
 });

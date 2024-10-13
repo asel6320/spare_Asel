@@ -32,7 +32,7 @@ class UserProfileView(LoginRequiredMixin, UpdateView):
         orders = Order.objects.filter(user=self.request.user).prefetch_related(
             Prefetch(
                 "orderpart_set",
-                queryset=OrderPart.objects.select_related("product"),
+                queryset=OrderPart.objects.select_related("part"),
             )
         ).order_by("-id")
 

@@ -12,17 +12,17 @@
                         <div class="input-group">
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-dark btn-sm decrement"
-                                        data-cart-id="{{ cart.pk }}"
-                                        data-cart-change-url="{% url "webapp:cart_remove" %}">
+                                        data-js="add-to-cart-button"
+                                        data-cart-change-url="{% url "webapp:cart_delete" cart.pk %}">
                                     {% csrf_token %}
                                     -</button>
                             </span>
                             <input type="text" class="form-control number" value="{{ cart.quantity }}"
                                    readonly>
                             <span class="input-group-btn">
-                                <button type="button" class="btn btn-dark btn-sm increment"
+                                <button type="button" class="btn btn-dark btn-sm increment" data-js="add-to-cart-button"
                                         data-cart-id="{{ cart.pk }}"
-                                        data-cart-change-url="{% url "webapp:cart_add" %}">
+                                        data-cart-change-url="{% url "webapp:part_add_cart" cart.pk %}">
                                     {% csrf_token %}
                                     +</button>
                             </span>
@@ -33,7 +33,8 @@
                     </div>
                     <div class="col p-0"><strong> {{ cart.part_price }} с</strong></div>
                     <div class="col p-0">
-                        <a href="{% url "webapp:cart_remove" %}" class="remove-from-cart"
+                        <a href="{% url "webapp:cart_delete_full" cart.pk %}" data-js="delete-from-cart-button"
+                           class="remove-from-cart"
                            data-cart-id="{{ cart.pk }}">
                             {% csrf_token %}
                             <img class="mx-1" src="{% static "icons/trash3-fill.svg" %}"
