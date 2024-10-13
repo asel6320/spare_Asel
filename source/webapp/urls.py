@@ -2,7 +2,7 @@ from django.urls import path
 
 from webapp.views.parts import about_us
 from webapp.views import PartsListView, PartsDetailView, CartView, CartAdd, CartDelete, OrderCreate, PartsMainView, \
-    get_models, CartUpdate, CartDeleteFull
+    get_models, CartUpdate, CartDeleteFull, CreateReviewView
 
 app_name = 'webapp'
 
@@ -18,4 +18,5 @@ urlpatterns = [
     path('parts/about_us/', about_us, name='about_us'),
     path('order/create/', OrderCreate.as_view(), name='order_create'),
     path('get-models/', get_models, name='get_models'),
+    path('part/<int:pk>/review/create/', CreateReviewView.as_view(), name='create_review'),
 ]
