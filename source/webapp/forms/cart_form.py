@@ -1,9 +1,0 @@
-from django import forms
-
-from webapp.models import Cart
-
-
-class CartForm(forms.ModelForm):
-    class Meta:
-        model = Cart
-        fields = ['quantity']

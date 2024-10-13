@@ -24,7 +24,7 @@ class TestOrder(TestCase):
     def test_order_create_view_get_authenticated_user(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'cart/cart_view.html')
+        self.assertTemplateUsed(response, 'cart/user_cart.html')
         self.assertIn('order_form', response.context)
         form = response.context['order_form']
         self.assertIsInstance(form, OrderForm)
@@ -37,7 +37,7 @@ class TestOrder(TestCase):
         self.client.logout()
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'cart/cart_view.html')
+        self.assertTemplateUsed(response, 'cart/user_cart.html')
         form = response.context['order_form']
         self.assertIsInstance(form, OrderForm)
         self.assertNotIn('first_name', form.initial)
@@ -68,7 +68,7 @@ class TestOrder(TestCase):
         }
         response = self.client.post(self.url, data=form_data)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'cart/cart_view.html')
+        self.assertTemplateUsed(response, 'cart/user_cart.html')
         self.assertFalse(Order.objects.filter(user=self.user).exists())
 
 

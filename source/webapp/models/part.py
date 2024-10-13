@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 from webapp.models.category import Category
 from webapp.models.vehicleinfo import VehicleInfo
@@ -29,6 +30,9 @@ class Part(models.Model):
             if second_latest_price < latest_price:
                 return second_latest_price
         return None
+
+    def get_absolute_url(self):
+        return reverse("webapp:parts_list", kwargs={"pk": self.pk})
 
     def __str__(self):
         return f"{self.name} for {self.vehicle_info.model.brand.name} {self.vehicle_info.model.name}"

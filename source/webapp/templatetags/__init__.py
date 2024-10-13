@@ -1,1 +1,0 @@
-from webapp.templatetags.cart_tags import user_carts

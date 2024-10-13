@@ -4,7 +4,7 @@ from django.views.generic import CreateView
 
 from django.contrib import auth, messages
 from accounts.forms.registration import RegisterForm
-from webapp.models import Cart
+from carts.models import Cart
 
 
 class UserRegistrationView(CreateView):

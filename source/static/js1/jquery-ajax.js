@@ -13,7 +13,7 @@ $(document).ready(function () {
         var cartCount = parseInt(goodsInCartCount.text() || 0);
 
         // Получаем id товара из атрибута data-product-id
-        var product_id = $(this).data("product-id");
+        var part_id = $(this).data("part-id");
 
         // Из атрибута href берем ссылку на контроллер django
         var add_to_cart_url = $(this).attr("href");
@@ -23,7 +23,7 @@ $(document).ready(function () {
             type: "POST",
             url: add_to_cart_url,
             data: {
-                product_id: product_id,
+                part_id: part_id,
                 csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
             },
             success: function (data) {
@@ -148,7 +148,7 @@ $(document).ready(function () {
             type: "POST",
             url: url,
             data: {
-                cart_id: cartID,
+                cart_ID: cartID,
                 quantity: quantity,
                 csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
             },
@@ -179,26 +179,7 @@ $(document).ready(function () {
         });
     }
 
-    // Берем из разметки элемент по id - оповещения от django
-    var notification = $('#notification');
-    // И через 7 сек. убираем
-    if (notification.length > 0) {
-        setTimeout(function () {
-            notification.alert('close');
-        }, 7000);
-    }
 
-    // При клике по значку корзины открываем всплывающее(модальное) окно
-    $('#modalButton').click(function () {
-        $('#exampleModal').appendTo('body');
-
-        $('#exampleModal').modal('show');
-    });
-
-    // Собыите клик по кнопке закрыть окна корзины
-    $('#exampleModal .btn-close').click(function () {
-        $('#exampleModal').modal('hide');
-    });
 
     // Обработчик события радиокнопки выбора способа доставки
     $("input[name='requires_delivery']").change(function () {
@@ -212,25 +193,8 @@ $(document).ready(function () {
     });
 
     // Форматирования ввода номера телефона в форме (xxx) xxx-хххx
-    document.getElementById('id_phone_number').addEventListener('input', function (e) {
-        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
-        e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
-    });
+
 
     // Проверяем на стороне клинта коррекность номера телефона в форме xxx-xxx-хх-хx
-    $('#create_order_form').on('submit', function (event) {
-        var phoneNumber = $('#id_phone_number').val();
-        var regex = /^\(\d{3}\) \d{3}-\d{4}$/;
 
-        if (!regex.test(phoneNumber)) {
-            $('#phone_number_error').show();
-            event.preventDefault();
-        } else {
-            $('#phone_number_error').hide();
-
-            // Очистка номера телефона от скобок и тире перед отправкой формы
-            var cleanedPhoneNumber = phoneNumber.replace(/[()\-\s]/g, '');
-            $('#id_phone_number').val(cleanedPhoneNumber);
-        }
-    });
 });

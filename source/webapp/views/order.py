@@ -4,8 +4,8 @@ from django.shortcuts import redirect
 from django.views.generic import FormView
 from django.contrib import messages
 from django.urls import reverse_lazy
-
-from webapp.models import Cart, Order, OrderPart
+from carts.models import Cart
+from webapp.models import Order, OrderPart
 from webapp.forms import OrderForm
 
 

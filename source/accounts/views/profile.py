@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Prefetch
 
 from django.urls import reverse_lazy
-from django.views.generic import UpdateView
+from django.views.generic import UpdateView, TemplateView
 from django.contrib import messages
 
 from accounts.forms.profile import ProfileForm
@@ -56,3 +56,11 @@ class UserProfileView(LoginRequiredMixin, UpdateView):
         context['total'] = total
         return context
 
+
+class UserCartView(TemplateView):
+    template_name = 'user_cart.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Корзина'
+        return context
