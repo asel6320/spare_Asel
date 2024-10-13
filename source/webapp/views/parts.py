@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from django.db.models import Q, Subquery, OuterRef, DecimalField
 from django.shortcuts import render
 from django.utils.http import urlencode
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 
 from webapp.forms import SearchForm, PartsFilterForm
 from webapp.models import Part, Country, CarBrand, CarModel, Category, PriceHistory
@@ -162,8 +162,13 @@ class PartsDetailView(DetailView):
         return context
 
 
-def about_us(request):
-    return render(request, 'part/about_us.html')
+class AboutUs(TemplateView):
+    template_name = 'part/about_us.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['content'] = "О нас"
+        return context
 
 
 def get_models(request):

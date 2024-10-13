@@ -1,6 +1,6 @@
 from django.db import models
 
-from webapp.models.car import CarModel, CarBrand
+from webapp.models.car import CarModel
 from webapp.models.country import Country
 from webapp.models.engine import Engine
 

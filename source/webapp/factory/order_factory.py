@@ -1,7 +1,7 @@
 from datetime import datetime
 import factory
 from accounts.factory import UserFactory
-from webapp.models import Order
+from orders.models import Order
 
 
 class OrderFactory(factory.django.DjangoModelFactory):

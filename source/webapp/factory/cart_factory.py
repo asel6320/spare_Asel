@@ -2,7 +2,7 @@ import factory
 
 from accounts.factory import UserFactory
 from webapp.factory.part_factory import PartFactory
-from webapp.models import Cart
+from carts.models import Cart
 
 
 class CartFactory(factory.django.DjangoModelFactory):

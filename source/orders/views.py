@@ -5,12 +5,12 @@ from django.views.generic import FormView
 from django.contrib import messages
 from django.urls import reverse_lazy
 from carts.models import Cart
-from webapp.models import Order, OrderPart
-from webapp.forms import OrderForm
+from orders.models import Order, OrderPart
+from orders.form import OrderForm
 
 
 class OrderCreateView(FormView):
-    template_name = 'cart/making_order.html'
+    template_name = 'making_order.html'
     success_url = reverse_lazy('webapp:parts_list')
     form_class = OrderForm
 

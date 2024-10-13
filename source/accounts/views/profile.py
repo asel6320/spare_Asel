@@ -6,7 +6,7 @@ from django.views.generic import UpdateView, TemplateView
 from django.contrib import messages
 
 from accounts.forms.profile import ProfileForm
-from webapp.models import Order, OrderPart
+from orders.models import Order, OrderPart
 
 
 class UserProfileView(LoginRequiredMixin, UpdateView):
