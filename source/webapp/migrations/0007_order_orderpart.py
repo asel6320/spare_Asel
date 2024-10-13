@@ -36,7 +36,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('quantity', models.PositiveIntegerField()),
                 ('order', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='webapp.order')),
-                ('part', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='webapp.part')),
+                ('part', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='part.part')),
             ],
             options={
                 'db_table': 'order_part',

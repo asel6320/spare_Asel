@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('session_key', models.CharField(blank=True, max_length=40, null=True, verbose_name='Ключ сессии')),
                 ('created_timestamp', models.DateTimeField(auto_now_add=True, verbose_name='Дата добавления')),
                 ('quantity', models.PositiveIntegerField(default=1, validators=[django.core.validators.MinValueValidator(1)], verbose_name='Количество')),
-                ('part', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='carts', to='webapp.part', verbose_name='запчасти')),
+                ('part', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='carts', to='part.part', verbose_name='запчасти')),
                 ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='Пользователь')),
             ],
             options={

@@ -389,7 +389,7 @@
     }
 },
 {
-    "model": "webapp.part",
+    "model": "part.part",
     "pk": 1,
     "fields": {
         "category": 1,
@@ -401,7 +401,7 @@
     }
 },
 {
-    "model": "webapp.part",
+    "model": "part.part",
     "pk": 2,
     "fields": {
         "category": 4,
@@ -413,7 +413,7 @@
     }
 },
 {
-    "model": "webapp.part",
+    "model": "part.part",
     "pk": 3,
     "fields": {
         "category": 4,
@@ -425,7 +425,7 @@
     }
 },
 {
-    "model": "webapp.part",
+    "model": "part.part",
     "pk": 4,
     "fields": {
         "category": 5,
@@ -437,7 +437,7 @@
     }
 },
 {
-    "model": "webapp.part",
+    "model": "part.part",
     "pk": 5,
     "fields": {
         "category": 7,
@@ -449,7 +449,7 @@
     }
 },
 {
-    "model": "webapp.part",
+    "model": "part.part",
     "pk": 6,
     "fields": {
         "category": 1,
@@ -461,7 +461,7 @@
     }
 },
 {
-    "model": "webapp.part",
+    "model": "part.part",
     "pk": 7,
     "fields": {
         "category": 2,
@@ -473,7 +473,7 @@
     }
 },
 {
-    "model": "webapp.part",
+    "model": "part.part",
     "pk": 8,
     "fields": {
         "category": 3,
@@ -485,7 +485,7 @@
     }
 },
 {
-    "model": "webapp.part",
+    "model": "part.part",
     "pk": 9,
     "fields": {
         "category": 3,
@@ -497,7 +497,7 @@
     }
 },
 {
-    "model": "webapp.part",
+    "model": "part.part",
     "pk": 10,
     "fields": {
         "category": 2,
@@ -509,7 +509,7 @@
     }
 },
 {
-    "model": "webapp.part",
+    "model": "part.part",
     "pk": 11,
     "fields": {
         "category": 1,
@@ -521,7 +521,7 @@
     }
 },
 {
-    "model": "webapp.part",
+    "model": "part.part",
     "pk": 12,
     "fields": {
         "category": 8,
@@ -533,7 +533,7 @@
     }
 },
 {
-    "model": "webapp.part",
+    "model": "part.part",
     "pk": 13,
     "fields": {
         "category": 9,
@@ -545,7 +545,7 @@
     }
 },
 {
-    "model": "webapp.part",
+    "model": "part.part",
     "pk": 14,
     "fields": {
         "category": 3,
@@ -557,7 +557,7 @@
     }
 },
 {
-    "model": "webapp.part",
+    "model": "part.part",
     "pk": 15,
     "fields": {
         "category": 7,

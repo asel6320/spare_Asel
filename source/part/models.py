@@ -40,4 +40,4 @@ class Part(models.Model):
     class Meta:
         verbose_name_plural = "Запчасти"
         verbose_name = 'Запчасть'
-        db_table = 'car_parts'
+        db_table = 'car_part'

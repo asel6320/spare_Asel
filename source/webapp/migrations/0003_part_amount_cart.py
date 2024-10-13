@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('quantity', models.PositiveIntegerField(default=1, validators=[django.core.validators.MinValueValidator(1)], verbose_name='Количество')),
-                ('part', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='carts', to='webapp.part', verbose_name='запчасти')),
+                ('part', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='carts', to='part.part', verbose_name='запчасти')),
             ],
             options={
                 'verbose_name': 'Товар в корзине',
