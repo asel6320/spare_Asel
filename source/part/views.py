@@ -1,12 +1,11 @@
-from django.http import JsonResponse
 from django.db.models import Q, Subquery, OuterRef, DecimalField
-from django.shortcuts import render
 from django.utils.http import urlencode
-from django.views.generic import ListView, DetailView, TemplateView
+from django.views.generic import ListView, DetailView
 
-from webapp.forms import SearchForm, PartsFilterForm
-from webapp.models import Part, Country, CarBrand, CarModel, Category, PriceHistory
-
+from webapp.forms import SearchForm
+from part.form import PartsFilterForm
+from webapp.models import Country, CarBrand, CarModel, Category, PriceHistory
+from part.models import Part
 from webapp.models.review import Review
 
 
@@ -59,7 +58,7 @@ class BasePartView(ListView):
 
 class PartsListView(BasePartView):
     context_object_name = 'parts'
-    template_name = 'part/index.html'
+    template_name = 'part/../templates/index.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -160,18 +159,3 @@ class PartsDetailView(DetailView):
         context['reviews'] = Review.objects.all()
 
         return context
-
-
-class AboutUs(TemplateView):
-    template_name = 'part/about_us.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['content'] = "О нас"
-        return context
-
-
-def get_models(request):
-    brand_id = request.GET.get('brand_id')
-    models = CarModel.objects.filter(brand_id=brand_id).values('id', 'name')
-    return JsonResponse({'models': list(models)})

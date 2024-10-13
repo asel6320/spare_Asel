@@ -5,7 +5,7 @@ User = get_user_model()
 
 
 class Review(models.Model):
-    part = models.ForeignKey('webapp.Part', related_name='reviews', on_delete=models.CASCADE,
+    part = models.ForeignKey('part.Part', related_name='reviews', on_delete=models.CASCADE,
                              verbose_name='Запчасть')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviews', verbose_name="Пользователь",
                              default=1)

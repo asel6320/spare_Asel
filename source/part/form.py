@@ -1,6 +1,7 @@
 from django import forms
 from webapp.models import Country, CarBrand, CarModel, Category
 
+
 class PartsFilterForm(forms.Form):
     country = forms.ModelChoiceField(queryset=Country.objects.all(), required=False, label='Страна производства')
     brand = forms.ModelChoiceField(queryset=CarBrand.objects.all(), required=False, label='Марка машины')

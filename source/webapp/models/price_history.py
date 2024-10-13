@@ -1,6 +1,6 @@
 from django.db import models
 
-from webapp.models.part import Part
+from part.models import Part
 
 
 class PriceHistory(models.Model):

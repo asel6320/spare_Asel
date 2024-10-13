@@ -19,7 +19,7 @@ class Cart(models.Model):
                              verbose_name="Пользователь")
     created_timestamp = models.DateTimeField(auto_now_add=True, verbose_name='Дата добавления')
     quantity = models.PositiveIntegerField(verbose_name='Количество', default=1, validators=(MinValueValidator(1),))
-    part = models.ForeignKey('webapp.Part', related_name='carts', on_delete=models.CASCADE, verbose_name="запчасти")
+    part = models.ForeignKey('part.Part', related_name='carts', on_delete=models.CASCADE, verbose_name="запчасти")
 
     def __str__(self):
         if self.user:

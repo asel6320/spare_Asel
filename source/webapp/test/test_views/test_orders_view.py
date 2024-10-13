@@ -4,8 +4,9 @@ from webapp.factory.cart_factory import CartFactory
 
 from accounts.factory.user_factory import UserFactory
 from webapp.factory.order_factory import OrderFactory
-from webapp.forms import OrderForm
-from webapp.models import Order, OrderPart, Cart
+from orders.form import OrderForm
+from orders.models import Order, OrderPart
+from carts.models import Cart
 
 
 class TestOrder(TestCase):

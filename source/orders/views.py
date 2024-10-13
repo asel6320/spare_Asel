@@ -11,7 +11,7 @@ from orders.form import OrderForm
 
 class OrderCreateView(FormView):
     template_name = 'making_order.html'
-    success_url = reverse_lazy('webapp:parts_list')
+    success_url = reverse_lazy('part:parts_list')
     form_class = OrderForm
 
     def get_initial(self):

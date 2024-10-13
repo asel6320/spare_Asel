@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from django.views import View
 from carts.mixins import CartMixin
 from carts.models import Cart
-from webapp.models import Part
+from part.models import Part
 
 
 class CartAddView(CartMixin, View):
