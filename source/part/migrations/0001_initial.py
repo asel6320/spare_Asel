@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
             options={
                 'verbose_name': 'Запчасть',
                 'verbose_name_plural': 'Запчасти',
-                'db_table': 'car_parts',
+                'db_table': 'car_part',
             },
         ),
     ]

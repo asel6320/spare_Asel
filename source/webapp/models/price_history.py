@@ -5,7 +5,7 @@ from part.models import Part
 
 class PriceHistory(models.Model):
     part = models.ForeignKey(Part, related_name='price_history', on_delete=models.CASCADE)
-    price = models.DecimalField(max_digits=100, decimal_places=2)
+    price = models.DecimalField(max_digits=1000, decimal_places=2)
     date_changed = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
