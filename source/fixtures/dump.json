@@ -815,22 +815,6 @@
     }
   },
   {
-    "model": "contenttypes.contenttype",
-    "pk": 17,
-    "fields": {
-      "app_label": "accounts",
-      "model": "user"
-    }
-  },
-  {
-    "model": "contenttypes.contenttype",
-    "pk": 18,
-    "fields": {
-      "app_label": "webapp",
-      "model": "order"
-    }
-  },
-  {
     "model": "sessions.session",
     "pk": "kr03x18wkyif6ofivkaan4qpdksc9i47",
     "fields": {
@@ -1393,27 +1377,6 @@
       "description": "Eto samaya vajnaya chast'",
       "amount": 5,
       "image1": "parts/car_htoD5Q1.jpg"
-    }
-  },
-  {
-    "model": "webapp.order",
-    "pk": 9,
-    "fields": {
-      "user": null,
-      "first_name": "Каныкей",
-      "last_name": "ибраева",
-      "phone": "89241717098",
-      "email": "kani@gmail.com",
-      "created_at": "2024-09-19T12:38:54.867Z"
-    }
-  },
-  {
-    "model": "webapp.orderpart",
-    "pk": 6,
-    "fields": {
-      "order": 9,
-      "quantity": 1,
-      "part": 6
     }
   },
   {

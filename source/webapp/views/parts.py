@@ -164,20 +164,7 @@ class PartsDetailView(DetailView):
 
         return context
 
-    def get(self, request, *args, **kwargs):
-        part = get_object_or_404(Part, pk=kwargs['pk'])
 
-        # Получение избранных товаров
-        if request.user.is_authenticated:
-            favorites = Favorite.objects.filter(user=request.user).values_list('part_id', flat=True)
-        else:
-            session_key = request.session.session_key or request.session.create()
-            favorites = Favorite.objects.filter(session_key=session_key).values_list('part_id', flat=True)
-
-        return render(request, 'favorites/favorites.html', {
-            'part': part,
-            'favorites': favorites,
-        })
 
 
 def about_us(request):

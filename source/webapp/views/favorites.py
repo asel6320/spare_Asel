@@ -1,10 +1,9 @@
-from django.shortcuts import redirect, get_object_or_404, render
-from django.views import View
-from django.http import JsonResponse
-from webapp.models import Part, PriceHistory
 from django.db.models import Subquery, OuterRef
-
 from webapp.models.favorites import Favorite
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404, render, redirect
+from django.views import View
+from webapp.models import Part, PriceHistory
 
 
 class FavoriteAdd(View):
@@ -17,7 +16,10 @@ class FavoriteAdd(View):
             if request.user.is_authenticated:
                 favorite, created = Favorite.objects.get_or_create(part=self.part, user=request.user)
             else:
-                session_key = request.session.session_key or request.session.create()
+                session_key = request.session.session_key
+                if not session_key:
+                    session_key = request.session.create()
+
                 favorite, created = Favorite.objects.get_or_create(part=self.part, session_key=session_key)
 
             if not created:
@@ -26,17 +28,18 @@ class FavoriteAdd(View):
             else:
                 status = 'added'
 
-            # Получаем текущее количество избранных товаров
             favorite_count = Favorite.objects.filter(
-                user=request.user).count() if request.user.is_authenticated else Favorite.objects.filter(
-                session_key=session_key).count()
+                user=request.user if request.user.is_authenticated else None,
+                session_key=request.session.session_key if not request.user.is_authenticated else None
+            ).count()
 
             return JsonResponse({
                 'status': status,
                 'favorite_count': favorite_count
             })
 
-        return JsonResponse({'status': 'error'}, status=400)
+
+        return JsonResponse({'status': 'error', 'message': 'Запчасть отсутствует на складе'}, status=400)
 
 
 class FavoriteView(View):
