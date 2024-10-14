@@ -45,7 +45,7 @@
 
     <div class="p-2 h-100 d-flex flex-column py-3 px-4">
         <h4 class="mb-4">
-            <a href="{% url 'webapp:part_detail' part.pk %}"
+            <a href="{% url 'part:part_detail' part.pk %}"
                class="text-dark text-decoration-none hover-red">{{ part.name }}</a>
         </h4>
         <p>Модель: <span class="fw-bold">{{ part.vehicle_info.model }}</span></p>

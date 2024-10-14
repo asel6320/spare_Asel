@@ -10,4 +10,4 @@ class CustomLoginView(LoginView):
 
     def form_valid(self, form):
         login(self.request, form.get_user())
-        return redirect('webapp:parts_list')
+        return redirect('part:parts_list')

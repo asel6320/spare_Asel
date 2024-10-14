@@ -58,7 +58,7 @@ class BasePartView(ListView):
 
 class PartsListView(BasePartView):
     context_object_name = 'parts'
-    template_name = 'part/../templates/index.html'
+    template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -64,23 +64,3 @@ class CartDeleteView(CartMixin, View):
 
         return JsonResponse(response_data)
 
-# class CartView(View):
-#
-#     def get(self, request, *args, **kwargs):
-#         if request.user.is_authenticated:
-#             carts = Cart.objects.filter(user=request.user)
-#         else:
-#             session_key = request.session.session_key
-#             if not session_key:
-#                 request.session.create()
-#             carts = Cart.objects.filter(session_key=request.session.session_key)
-#
-#         latest_price_subquery = PriceHistory.objects.filter(part=OuterRef('part')).order_by('-date_changed').values(
-#             'price')[:1]
-#         carts_with_price = carts.annotate(latest_price=Subquery(latest_price_subquery))
-#
-#         total = carts_with_price.aggregate(
-#             total_sum=Sum(F('quantity') * F('latest_price'))
-#         )['total_sum']
-#
-#         return render(request, 'cart/user_cart.html', {'carts': carts_with_price, 'total': total})
