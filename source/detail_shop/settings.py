@@ -33,8 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "unfold",
-    "unfold.contrib.filters",
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -116,6 +115,9 @@ DATABASES = {
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+
+TELEGRAM_BOT_TOKEN = '7751663655:AAH_LSqPA1KLRCuEMDsLl_8s-QkaGZndbw4'
+TELEGRAM_CHAT_ID = ('1463061700')
 
 TIME_ZONE = 'UTC'
 

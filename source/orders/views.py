@@ -5,8 +5,10 @@ from django.views.generic import FormView
 from django.contrib import messages
 from django.urls import reverse_lazy
 from carts.models import Cart
+from django.conf import settings
 from orders.models import Order, OrderPart
 from orders.form import OrderForm
+from webapp.botTG import send_notifications, send_waiting_client
 
 
 class OrderCreateView(FormView):
@@ -68,6 +70,10 @@ class OrderCreateView(FormView):
                             price=price,
                             quantity=quantity,
                         )
+                        message = f'Новый заказ №{order.id}\nИмя: {order.first_name}\nТелефон: {order.phone}'
+                        chat_id = settings.TELEGRAM_CHAT_ID
+                        send_notifications(chat_id, message)
+                        send_waiting_client(chat_id)
                         part.amount -= quantity
                         part.save()
 
