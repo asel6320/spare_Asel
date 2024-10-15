@@ -3,7 +3,6 @@ from django.urls import path
 from webapp.views.parts import about_us
 from webapp.views import PartsListView, PartsDetailView, CartView, CartAdd, CartDelete, OrderCreate, PartsMainView, \
     get_models, CartUpdate, CartDeleteFull, CreateReviewView
-    get_models, CartUpdate, CartDeleteFull
 from webapp.views import PartsListView, PartsDetailView, CartView, CartAdd, CartDelete, OrderCreate, PartsMainView, get_models, news
 
 app_name = 'webapp'
