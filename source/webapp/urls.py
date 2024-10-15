@@ -2,6 +2,7 @@ from django.urls import path
 
 from webapp.views.parts import about_us
 from webapp.views import PartsListView, PartsDetailView, CartView, CartAdd, CartDelete, OrderCreate, PartsMainView, \
+    get_models, CartUpdate, CartDeleteFull, CreateReviewView
     get_models, CartUpdate, CartDeleteFull
 from webapp.views import PartsListView, PartsDetailView, CartView, CartAdd, CartDelete, OrderCreate, PartsMainView, get_models, news
 
@@ -22,4 +23,5 @@ urlpatterns = [
     path('', news.latest_news, name='latest_news'),
     path('news/', news.news_list, name='news_list'),
     path('news/<int:news_id>/', news.news_detail, name='news_detail'),
+    path('part/<int:pk>/review/create/', CreateReviewView.as_view(), name='create_review'),
 ]

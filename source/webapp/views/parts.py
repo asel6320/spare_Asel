@@ -65,7 +65,6 @@ class PartsListView(BasePartView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # No search form in this view, so we exclude 'search_form'
         context.pop('search_form', None)
         return context
 

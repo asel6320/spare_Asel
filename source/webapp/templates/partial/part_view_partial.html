@@ -5,16 +5,16 @@
         <div id="partCarousel{{ part.pk }}" class="carousel slide" data-bs-interval="false">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{ part.image1.url }}" alt="{{ part.name }}" class="card-img-top img-fluid">
+                    <img src="{{ part.image1.url }}" alt="{{ part.name }}" class="card-img-top img-fluid custom-carousel-img-main">
                 </div>
                 {% if part.image2 %}
                     <div class="carousel-item">
-                        <img src="{{ part.image2.url }}" alt="{{ part.name }}" class="card-img-top img-fluid">
+                        <img src="{{ part.image2.url }}" alt="{{ part.name }}" class="card-img-top img-fluid custom-carousel-img-main">
                     </div>
                 {% endif %}
                 {% if part.image3 %}
                     <div class="carousel-item">
-                        <img src="{{ part.image3.url }}" alt="{{ part.name }}" class="card-img-top img-fluid">
+                        <img src="{{ part.image3.url }}" alt="{{ part.name }}" class="card-img-top img-fluid custom-carousel-img-main">
                     </div>
                 {% endif %}
             </div>
@@ -64,8 +64,8 @@
         {% endif %}
 
         <div class="mt-auto d-flex justify-content-end pt-2">
-            <span class="text-success fw-bold me-auto">В наличии <i class="bi bi-check-circle-fill"></i></span>
-
+            <span class="text-secondary fw-bold me-auto">{{ part.reviews.count}} отзывов</span>
+            <button class="btn btn-warning ms-2"><a href="{% url "webapp:create_review" part.pk %}"><i class="bi bi-chat text-white"></i></a></button>
             <button class="btn btn-success ms-2" data-js="add-to-cart-button"
                     data-url="{% url 'webapp:part_add_cart' part.pk %}">
                 <i class="bi bi-cart"></i>
