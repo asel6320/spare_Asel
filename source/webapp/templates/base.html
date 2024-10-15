@@ -78,10 +78,10 @@
                                     {% if user.is_staff %}
                                         <li><a class="dropdown-item" href="/admin/">CRM</a></li>
                                         <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Выйти</a></li>
-                                    {% else %}    
+                                    {% else %}
                                     <li><a class="dropdown-item" href="{% url 'accounts:profile_view' %}">Личный кабинет</a></li>
                                     <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Выйти</a></li>
-                                    {% endif %}    
+                                    {% endif %}
                                 {% else %}
                                     <li><a class="dropdown-item" href="{% url 'accounts:login' %}">Войти</a></li>
                                     <li><a class="dropdown-item" href="{% url 'accounts:register' %}">Зарегистрироваться</a></li>
