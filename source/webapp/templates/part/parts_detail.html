@@ -48,13 +48,20 @@
                     {% endif %}
                     <p>Модель: <span class="fw-bold">{{ part.vehicle_info.model }}</span></p>
                     <p>Мощность: <span class="fw-bold">{{ part.vehicle_info.engine.horsepower }} л.с.</span></p>
-                    <form class="mb-3" method="post" action="{% url 'webapp:part_add_cart' part.pk %}?next={{ request.get_full_path }}">
-                        {% csrf_token %}
-                        <button class="btn btn-success ms-2" type="submit">
-                            <i class="bi bi-cart"></i>
+                    <form method="post" action="{% url 'webapp:favorite_add' part.pk %}" class="favorite-form" data-part-id="{{ part.pk }}">
+                    {% csrf_token %}
+                        <button class="btn position-absolute top-0 end-0 m-2" type="submit" title="Добавить в избранные">
+                            {% if part.pk in favorites %}
+                                <i class="bi bi-heart-fill text-danger"></i>
+                                {% else %}
+                                 <i class="bi bi-heart text-black-50"></i> 
+                                 {% endif %}
+                        
                         </button>
                     </form>
                     {% include 'partial/review_partial.html' %}
+                
+                
                 </div>
             </div>
         </div>
@@ -72,9 +79,19 @@
                                     <img src="{{ related_part.image1.url }}" alt="{{ related_part.name }}"
                                          class="card-img-top img-fluid">
                                 </div>
-                                <button class="btn btn-light position-absolute top-0 end-0 m-2">
-                                    <i class="bi bi-heart"></i>
-                                </button>
+                                <form method="post" action="{% url 'webapp:favorite_add' part.pk %}" class="favorite-form" data-part-id="{{ part.pk }}">
+    {% csrf_token %}
+    <button class="btn position-absolute top-0 end-0 m-2" type="submit" title="Добавить в избранные">
+        <!-- Если товар в избранном, показываем красное сердечко -->
+        {% if part.pk in favorites %}
+            <i class="bi bi-heart-fill text-danger"></i> <!-- Красное сердечко для добавленных товаров -->
+        {% else %}
+            <i class="bi bi-heart text-black-50"></i> <!-- Белое сердечко для остальных товаров -->
+        {% endif %}
+
+
+    </button>
+</form>
                             </div>
                             <div class="p-2 h-100 d-flex flex-column py-3 px-4">
                                 <h4 class="mb-4">

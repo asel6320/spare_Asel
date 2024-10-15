@@ -815,22 +815,6 @@
     }
   },
   {
-    "model": "contenttypes.contenttype",
-    "pk": 17,
-    "fields": {
-      "app_label": "accounts",
-      "model": "user"
-    }
-  },
-  {
-    "model": "contenttypes.contenttype",
-    "pk": 18,
-    "fields": {
-      "app_label": "webapp",
-      "model": "order"
-    }
-  },
-  {
     "model": "sessions.session",
     "pk": "kr03x18wkyif6ofivkaan4qpdksc9i47",
     "fields": {
@@ -1324,8 +1308,8 @@
         "image2": "",
         "image3": ""
     }
-},
-{
+  },
+  {
     "model": "webapp.part",
     "pk": 8,
     "fields": {

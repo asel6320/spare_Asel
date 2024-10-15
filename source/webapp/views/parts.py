@@ -3,6 +3,8 @@ from django.shortcuts import get_object_or_404
 from django.db.models import Q, Subquery, OuterRef, DecimalField
 from django.shortcuts import render
 from django.utils.http import urlencode
+
+from webapp.models.favorites import Favorite
 from webapp.models.price_history import PriceHistory
 from django.views.generic import ListView, DetailView
 
@@ -160,6 +162,8 @@ class PartsDetailView(DetailView):
         context['reviews'] = Review.objects.all()
 
         return context
+
+
 
 
 def about_us(request):
