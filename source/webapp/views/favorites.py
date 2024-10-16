@@ -32,6 +32,7 @@ class FavoriteAdd(View):
                 'favorite_count': favorite_count
             })
         return JsonResponse({'status': 'error', 'message': 'Запчасть отсутствует на складе'}, status=400)
+
 class FavoriteView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -44,6 +45,7 @@ class FavoriteView(View):
         if not favorites_with_price.exists():
             return render(request, 'favorites/favorites.html', {'favorites': favorites_with_price, 'message': 'Нет избранных товаров.'})
         return render(request, 'favorites/favorites.html', {'favorites': favorites_with_price})
+
 class FavoriteDelete(View):
     def dispatch(self, request, *args, **kwargs):
         self.favorite = get_object_or_404(Favorite, pk=kwargs.get('pk'))
