@@ -32,7 +32,7 @@ class Part(models.Model):
         return None
 
     def get_absolute_url(self):
-        return reverse("webapp:parts_list", kwargs={"pk": self.pk})
+        return reverse("part:part_detail", kwargs={"pk": self.pk})
 
     def __str__(self):
         return f"{self.name} for {self.vehicle_info.model.brand.name} {self.vehicle_info.model.name}"

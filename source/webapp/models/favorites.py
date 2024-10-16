@@ -7,7 +7,7 @@ User = get_user_model()
 class Favorite(models.Model):
     session_key = models.CharField(max_length=40, null=True, blank=True, verbose_name='Ключ сессии')
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, verbose_name="Пользователь")
-    part = models.ForeignKey('webapp.Part', related_name='favorites', on_delete=models.CASCADE, verbose_name="Запчасть")
+    part = models.ForeignKey('part.Part', related_name='favorites', on_delete=models.CASCADE, verbose_name="Запчасть")
 
     def __str__(self):
         return f"Избранное: {self.part}"

@@ -67,12 +67,14 @@
         <div class="mt-auto d-flex justify-content-end pt-2">
             <span class="text-success fw-bold me-auto">В наличии <i class="bi bi-check-circle-fill"></i></span>
 
-            <a href="{% url "cart:cart_add" %}" class="btn add-to-cart"
-               data-part-id="{{ part.id }}">
-                {% csrf_token %}
-                <img class="mx-1" src="{% static "icons/cart-plus.svg" %}" alt="Catalog Icon"
-                     width="32" height="32">
-            </a>
+            <div class="mt-auto d-flex justify-content-end pt-2">
+            <span class="text-secondary fw-bold me-auto">{{ part.reviews.count}} отзывов</span>
+            <button class="btn btn-warning ms-2"><a href="{% url "webapp:create_review" part.pk %}"><i class="bi bi-chat text-white"></i></a></button>
+            <button class="btn btn-success ms-2" data-js="add-to-cart-button"
+                    data-url="#">
+                <i class="bi bi-cart"></i>
+            </button>
+        </div>
 
         </div>
         <form method="post" action="{% url 'webapp:favorite_add' part.pk %}" class="favorite-form" data-part-id="{{ part.pk }}">

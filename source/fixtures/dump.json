@@ -392,72 +392,72 @@
     "model": "part.part",
     "pk": 1,
     "fields": {
-      "category": 1,
-      "vehicle_info": 1,
-      "name": "weesd",
-      "description": "dwdsad",
-      "amount": 100,
-      "image1": "parts/.jpg"
+        "category": 1,
+        "vehicle_info": 1,
+        "name": "weesd",
+        "description": "dwdsad",
+        "amount": 100,
+        "image1": "parts/.jpg"
     }
 },
 {
     "model": "part.part",
     "pk": 2,
     "fields": {
-      "category": 4,
-      "vehicle_info": 2,
-      "name": "Передние тормозные колодки",
-      "description": "Оригинальные передние тормозные колодки",
-      "amount": 40,
-      "image1": "parts/brake_pads.jpg"
+        "category": 4,
+        "vehicle_info": 2,
+        "name": "Передние тормозные колодки",
+        "description": "Оригинальные передние тормозные колодки",
+        "amount": 50,
+        "image1": "parts/brake_pads.jpg"
     }
 },
 {
     "model": "part.part",
     "pk": 3,
     "fields": {
-      "category": 4,
-      "vehicle_info": 2,
-      "name": "Передние тормозные колодки",
-      "description": "Оригинальные передние тормозные колодки",
-      "amount": 50,
-      "image1": "parts/_𝘍𝘦𝘳𝘯.jpg"
+        "category": 4,
+        "vehicle_info": 2,
+        "name": "Передние тормозные колодки",
+        "description": "Оригинальные передние тормозные колодки",
+        "amount": 50,
+        "image1": "parts/_𝘍𝘦𝘳𝘯.jpg"
     }
 },
 {
     "model": "part.part",
     "pk": 4,
     "fields": {
-      "category": 5,
-      "vehicle_info": 5,
-      "name": "Abcd",
-      "description": "wdwdsdsad",
-      "amount": 20,
-      "image1": "parts/_𝘚𝘵𝘢𝘳𝘬.jpg"
+        "category": 5,
+        "vehicle_info": 5,
+        "name": "Abcd",
+        "description": "wdwdsdsad",
+        "amount": 50,
+        "image1": "parts/_𝘚𝘵𝘢𝘳𝘬.jpg"
     }
 },
 {
     "model": "part.part",
     "pk": 5,
     "fields": {
-      "category": 7,
-      "vehicle_info": 2,
-      "name": "Hjfwefd",
-      "description": "etsgdqd",
-      "amount": 10,
-      "image1": "parts/99px_ru_wallpaper_356133_makima__makima_iz_anime_chainsaw_man_.jpg"
+        "category": 7,
+        "vehicle_info": 2,
+        "name": "Hjfwefd",
+        "description": "etsgdqd",
+        "amount": 50,
+        "image1": "parts/99px_ru_wallpaper_356133_makima__makima_iz_anime_chainsaw_man_.jpg"
     }
 },
 {
     "model": "part.part",
     "pk": 6,
     "fields": {
-      "category": 1,
-      "vehicle_info": 2,
-      "name": "Toyota Camry Battery",
-      "description": "Battery",
-      "amount": 1,
-      "image1": "default.jpg"
+        "category": 1,
+        "vehicle_info": 2,
+        "name": "Toyota Camry Battery",
+        "description": "Battery",
+        "amount": 50,
+        "image1": "default.jpg"
     }
 },
 {
@@ -476,120 +476,101 @@
     "model": "part.part",
     "pk": 8,
     "fields": {
-      "category": 3,
-      "vehicle_info": 2,
-      "name": "Svechi za menya",
-      "description": "Svechi",
-      "amount": 2,
-      "image1": "parts/Без_названия.jpeg"
+        "category": 3,
+        "vehicle_info": 2,
+        "name": "Svechi za menya",
+        "description": "Svechi",
+        "amount": 50,
+        "image1": "parts/Без_названия.jpeg"
     }
 },
 {
     "model": "part.part",
     "pk": 9,
     "fields": {
-      "category": 3,
-      "vehicle_info": 2,
-      "name": "Ziman svechka",
-      "description": "che",
-      "amount": 4,
-      "image1": "parts/asel_vKJxE8c.jpeg"
+        "category": 3,
+        "vehicle_info": 2,
+        "name": "Ziman svechka",
+        "description": "che",
+        "amount": 50,
+        "image1": "parts/asel_vKJxE8c.jpeg"
     }
 },
 {
     "model": "part.part",
     "pk": 10,
     "fields": {
-      "category": 2,
-      "vehicle_info": 2,
-      "name": "Important detail De",
-      "description": "fgeh and comcast com",
-      "amount": 5,
-      "image1": "parts/bl.png"
+        "category": 2,
+        "vehicle_info": 2,
+        "name": "Important detail De",
+        "description": "fgeh and comcast com",
+        "amount": 50,
+        "image1": "parts/bl.png"
     }
 },
 {
     "model": "part.part",
     "pk": 11,
     "fields": {
-      "category": 1,
-      "vehicle_info": 2,
-      "name": "Toyota together detail",
-      "description": "Together detail and making the world a safer place when being together and trading the dreif and making this one a better place and I have to submit the report",
-      "amount": 3,
-      "image1": "parts/sh.jpg"
+        "category": 1,
+        "vehicle_info": 2,
+        "name": "Toyota together detail",
+        "description": "Together detail and making the world a safer place when being together and trading the dreif and making this one a better place and I have to submit the report",
+        "amount": 50,
+        "image1": "parts/sh.jpg"
     }
 },
 {
     "model": "part.part",
     "pk": 12,
     "fields": {
-      "category": 8,
-      "vehicle_info": 1,
-      "name": "Karbyurator poluchaetsya",
-      "description": "Karbyurator i perfarator together",
-      "amount": 4,
-      "image1": "parts/asel_3rwh7wu.jpeg"
+        "category": 8,
+        "vehicle_info": 1,
+        "name": "Karbyurator poluchaetsya",
+        "description": "Karbyurator i perfarator together",
+        "amount": 50,
+        "image1": "parts/asel_3rwh7wu.jpeg"
     }
 },
 {
     "model": "part.part",
     "pk": 13,
     "fields": {
-      "category": 9,
-      "vehicle_info": 5,
-      "name": "Kusovnoe otdelenie perfaratora",
-      "description": "together",
-      "amount": 2,
-      "image1": "parts/Без_названия_nvgiVvT.jpeg"
+        "category": 9,
+        "vehicle_info": 5,
+        "name": "Kusovnoe otdelenie perfaratora",
+        "description": "together",
+        "amount": 50,
+        "image1": "parts/Без_названия_nvgiVvT.jpeg"
     }
 },
 {
     "model": "part.part",
     "pk": 14,
     "fields": {
-      "category": 3,
-      "vehicle_info": 2,
-      "name": "Hower of perfarator",
-      "description": "the perfarator of the karbyarator",
-      "amount": 3,
-      "image1": "parts/car_eRgtRHn.jpg"
+        "category": 3,
+        "vehicle_info": 2,
+        "name": "Hower of perfarator",
+        "description": "the perfarator of the karbyarator",
+        "amount": 50,
+        "image1": "parts/car_eRgtRHn.jpg"
     }
 },
 {
     "model": "part.part",
     "pk": 15,
     "fields": {
-      "category": 7,
-      "vehicle_info": 1,
-      "name": "Dvigatel' dvigatelya",
-      "description": "Eto samaya vajnaya chast'",
-      "amount": 5,
-      "image1": "parts/car_htoD5Q1.jpg"
+        "category": 7,
+        "vehicle_info": 1,
+        "name": "Dvigatel' dvigatelya",
+        "description": "Eto samaya vajnaya chast'",
+        "amount": 50,
+        "image1": "parts/car_htoD5Q1.jpg"
     }
-  },
-  {
-    "model": "webapp.order",
-    "pk": 9,
-    "fields": {
-      "user": null,
-      "first_name": "Каныкей",
-      "last_name": "ибраева",
-      "phone": "89241717098",
-      "email": "kani@gmail.com",
-      "created_at": "2024-09-19T12:38:54.867Z"
-    }
-  },
-  {
-    "model": "webapp.orderpart",
-    "pk": 6,
-    "fields": {
-      "order": 9,
-      "quantity": 1,
-      "part": 6
-    }
-  },
-  {
+},
+
+
+{
     "model": "webapp.pricehistory",
     "pk": 2,
     "fields": {
@@ -723,62 +704,4 @@
         "price": "55.00",
         "date_changed": "2024-09-13T21:16:29.988Z"
     }
-  },
-  {
-    "model": "accounts.user",
-    "pk": 1,
-    "fields": {
-      "password": "pbkdf2_sha256$720000$n10CHl4Y6iy6r2LmRORjA2$xyLZv2u4+YfK1Wnn9GPMiKP8ZksxCYjwZSpkRY5pYDw=",
-      "last_login": "2024-09-16T08:33:27.601Z",
-      "is_superuser": false,
-      "username": "beka",
-      "first_name": "musaev",
-      "last_name": "bekbol",
-      "email": "19kani92@gmail.com",
-      "is_staff": true,
-      "is_active": true,
-      "date_joined": "2024-09-09T08:51:01.133Z",
-      "phone_number": "89241717098",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "accounts.user",
-    "pk": 3,
-    "fields": {
-      "password": "pbkdf2_sha256$720000$4W8ulcpZrbT4LlpAWV37B9$Odz/40s4s/XKzcSwX8ks5WtSy+K2pw/pGPCdiLlN/ro=",
-      "last_login": "2024-09-19T12:43:20.951Z",
-      "is_superuser": true,
-      "username": "admin",
-      "first_name": "",
-      "last_name": "",
-      "email": "",
-      "is_staff": true,
-      "is_active": true,
-      "date_joined": "2024-09-19T12:42:46.427Z",
-      "phone_number": "0000000000",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "accounts.user",
-    "pk": 4,
-    "fields": {
-      "password": "beka",
-      "last_login": "2024-09-19T12:44:14Z",
-      "is_superuser": false,
-      "username": "bekbol",
-      "first_name": "bekbol",
-      "last_name": "musaev",
-      "email": "11@mail.ru",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2024-09-19T12:43:25Z",
-      "phone_number": "0709441718",
-      "groups": [],
-      "user_permissions": []
-    }
-  }
-]
+}]

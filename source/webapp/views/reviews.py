@@ -3,8 +3,9 @@ from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse
 from django.views.generic import CreateView
 
-from webapp.forms import ReviewForm
-from webapp.models import Part, Review
+from webapp.forms.review_form import ReviewForm
+from webapp.models.review import Review
+from part.models import Part
 
 
 class CreateReviewView(LoginRequiredMixin, CreateView):
