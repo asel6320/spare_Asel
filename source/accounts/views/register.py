@@ -10,7 +10,7 @@ from carts.models import Cart
 class UserRegistrationView(CreateView):
     template_name = 'register.html'
     form_class = RegisterForm
-    success_url = reverse_lazy('webapp:parts_list')
+    success_url = reverse_lazy('part:parts_list')
 
     def form_valid(self, form):
         session_key = self.request.session.session_key

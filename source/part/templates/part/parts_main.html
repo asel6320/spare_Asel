@@ -21,7 +21,7 @@
     <div class="d-flex flex-column min-vh-100">
         <header class="header bg-light shadow-sm py-3">
             <nav class="navbar navbar-expand-lg container">
-                <a class="navbar-brand d-flex align-items-center" href="{% url 'webapp:parts_list' %}">
+                <a class="navbar-brand d-flex align-items-center" href="{% url 'part:parts_list' %}">
                     <img src="{% static 'images/logo.png' %}" alt="Avrora" class="logo-img me-2" style="height: 40px;">
                     <span class="fw-bold text-dark">AVRORA</span>
                 </a>
@@ -46,7 +46,7 @@
                             </ul>
                         </li>
                         <li class="nav-item px-3">
-                            <a class="btn btn-outline-dark ms-2" href="{% url 'webapp:cart' %}">
+                            <a class="btn btn-outline-dark ms-2" href="{% url "accounts:cart" %}">
                                 Корзина
                                 <i class="bi bi-cart"></i>
                             </a>
@@ -68,7 +68,7 @@
 
                     <h5 class="mb-3">Фильтрация</h5>
 
-                    <form method="get" action="{% url 'webapp:parts_main' %}" class="mb-3 p-3 bg-light border rounded">
+                    <form method="get" action="{% url 'part:parts_main' %}" class="mb-3 p-3 bg-light border rounded">
                         <div class="mb-3">
                             <label for="countryFilter" class="form-label">Страна производства</label>
                             <select id="countryFilter" name="country" class="form-select">
@@ -123,7 +123,7 @@
                     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
                         {% for part in parts %}
                             <div class="col mb-4">
-                                {% include "partial/part_view_partial.html" %}
+                                {% include "part/partial/part_view_partial.html" %}
                             </div>
                         {% empty %}
                             <p>Не найдено запчастей</p>
