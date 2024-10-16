@@ -2,7 +2,7 @@ import factory
 
 from webapp.factory.category_factory import CategoryFactory
 from webapp.factory.vehicleinfo_factory import VehicleInfoFactory
-from webapp.models import Part
+from part.models import Part
 
 
 class PartFactory(factory.django.DjangoModelFactory):

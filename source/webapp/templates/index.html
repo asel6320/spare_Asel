@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}
+    <title>Main</title>
+{% endblock %}
+
+{% block content %}
+
+    <div class="main-block">
+        <div class="container main-block-inner">
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner overflow-visible">
+                    <div class="carousel-item active">
+                        <div class="overlay">
+                            <h1>Продажа автозапчастей</h1>
+                            <p>- Лучшие решения для вашего автомобиля -</p>
+                            <a href="#" class="btn btn-danger">Заказать</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="overlay">
+                            <h1>Качество и надежность</h1>
+                            <p>- Индивидуальные решения для ваших нужд -</p>
+                            <a href="#" class="btn btn-danger">Заказать</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="overlay">
+                            <h1>Инновационные подходы</h1>
+                            <p>- Повышение эффективности вашего автомобиля -</p>
+                            <a href="#" class="btn btn-danger">Заказать</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="sales container my-4">
+        <h3 class="all-headers pb-4">Каталог товаров</h3>
+
+        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
+            {% for part in parts %}
+                <div class="col mb-2">
+                    {% include "part/partial/part_view_partial.html" %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+
+    {% include 'news/latest_news.html' %}
+    
+    <div class="container py-5">
+        <div class="our-partners">
+            <h3 class="all-headers pb-4">Наши партнеры</h3>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 text-center">
+                <div class="col mb-4">
+                    <a target="_blank" href="#">
+                        <i class="fas fa-university fa-3x partner-icon"></i>
+                    </a>
+                    <p class="partner-name">Alfa</p>
+                </div>
+                <div class="col mb-4">
+                    <a target="_blank" href="#">
+                        <i class="fas fa-car fa-3x partner-icon"></i>
+                    </a>
+                    <p class="partner-name">VSK</p>
+                </div>
+                <div class="col mb-4">
+                    <a target="_blank" href="#">
+                        <i class="fas fa-building fa-3x partner-icon"></i>
+                    </a>
+                    <p class="partner-name">Sber</p>
+                </div>
+                <div class="col mb-4">
+                    <a target="_blank" href="#">
+                        <i class="fas fa-briefcase fa-3x partner-icon"></i>
+                    </a>
+                    <p class="partner-name">Rosgos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="popup" id="discountPopup" style="display: none;">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2>Скидка 10% на первый заказ!</h2>
+            <p>Используйте код: <strong>WELCOME10</strong></p>
+            <a href="#" class="btn btn-danger">Получить скидку</a>
+        </div>
+    </div>
+    
+{% endblock %}

@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.test import TestCase
 
 from accounts.factory.user_factory import UserFactory
-from accounts.forms.reg_form import RegisterForm
+from accounts.forms.registration import RegisterForm
 
 
 class TestRegister(TestCase):

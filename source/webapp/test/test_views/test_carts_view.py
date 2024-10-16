@@ -5,7 +5,7 @@ from webapp.factory.cart_factory import CartFactory
 
 from accounts.factory.user_factory import UserFactory
 from webapp.factory.price_history_factory import PriceHistoryFactory
-from webapp.models import Cart
+from carts.models import Cart
 
 
 class TestCart(TestCase):

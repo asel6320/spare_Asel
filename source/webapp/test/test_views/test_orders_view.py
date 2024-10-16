@@ -4,8 +4,9 @@ from webapp.factory.cart_factory import CartFactory
 
 from accounts.factory.user_factory import UserFactory
 from webapp.factory.order_factory import OrderFactory
-from webapp.forms import OrderForm
-from webapp.models import Order, OrderPart, Cart
+from orders.form import OrderForm
+from orders.models import Order, OrderPart
+from carts.models import Cart
 
 
 class TestOrder(TestCase):
@@ -24,7 +25,7 @@ class TestOrder(TestCase):
     def test_order_create_view_get_authenticated_user(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'cart/cart_view.html')
+        self.assertTemplateUsed(response, 'cart/user_cart.html')
         self.assertIn('order_form', response.context)
         form = response.context['order_form']
         self.assertIsInstance(form, OrderForm)
@@ -37,7 +38,7 @@ class TestOrder(TestCase):
         self.client.logout()
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'cart/cart_view.html')
+        self.assertTemplateUsed(response, 'cart/user_cart.html')
         form = response.context['order_form']
         self.assertIsInstance(form, OrderForm)
         self.assertNotIn('first_name', form.initial)
@@ -68,7 +69,7 @@ class TestOrder(TestCase):
         }
         response = self.client.post(self.url, data=form_data)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'cart/cart_view.html')
+        self.assertTemplateUsed(response, 'cart/user_cart.html')
         self.assertFalse(Order.objects.filter(user=self.user).exists())
 
 

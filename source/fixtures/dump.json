@@ -1,1584 +1,730 @@
 [
-  {
-    "model": "admin.logentry",
-    "pk": 1,
-    "fields": {
-      "action_time": "2024-09-16T08:33:51.810Z",
-      "user": 1,
-      "content_type": 13,
-      "object_id": "15",
-      "object_repr": "Dvigatel' dvigatelya for LEXUS 3",
-      "action_flag": 2,
-      "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 2,
-    "fields": {
-      "action_time": "2024-09-16T08:35:47.947Z",
-      "user": 1,
-      "content_type": 13,
-      "object_id": "14",
-      "object_repr": "Hower of perfarator for Toyota Camry",
-      "action_flag": 2,
-      "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
-    }
-  },
-  {
-    "model": "admin.logentry",
-    "pk": 3,
-    "fields": {
-      "action_time": "2024-09-19T12:44:33.373Z",
-      "user": 3,
-      "content_type": 17,
-      "object_id": "4",
-      "object_repr": "0709441718",
-      "action_flag": 1,
-      "change_message": "[{\"added\": {}}]"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 1,
-    "fields": {
-      "name": "Can add log entry",
-      "content_type": 1,
-      "codename": "add_logentry"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 2,
-    "fields": {
-      "name": "Can change log entry",
-      "content_type": 1,
-      "codename": "change_logentry"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 3,
-    "fields": {
-      "name": "Can delete log entry",
-      "content_type": 1,
-      "codename": "delete_logentry"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 4,
-    "fields": {
-      "name": "Can view log entry",
-      "content_type": 1,
-      "codename": "view_logentry"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 5,
-    "fields": {
-      "name": "Can add permission",
-      "content_type": 2,
-      "codename": "add_permission"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 6,
-    "fields": {
-      "name": "Can change permission",
-      "content_type": 2,
-      "codename": "change_permission"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 7,
-    "fields": {
-      "name": "Can delete permission",
-      "content_type": 2,
-      "codename": "delete_permission"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 8,
-    "fields": {
-      "name": "Can view permission",
-      "content_type": 2,
-      "codename": "view_permission"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 9,
-    "fields": {
-      "name": "Can add group",
-      "content_type": 3,
-      "codename": "add_group"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 10,
-    "fields": {
-      "name": "Can change group",
-      "content_type": 3,
-      "codename": "change_group"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 11,
-    "fields": {
-      "name": "Can delete group",
-      "content_type": 3,
-      "codename": "delete_group"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 12,
-    "fields": {
-      "name": "Can view group",
-      "content_type": 3,
-      "codename": "view_group"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 13,
-    "fields": {
-      "name": "Can add content type",
-      "content_type": 4,
-      "codename": "add_contenttype"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 14,
-    "fields": {
-      "name": "Can change content type",
-      "content_type": 4,
-      "codename": "change_contenttype"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 15,
-    "fields": {
-      "name": "Can delete content type",
-      "content_type": 4,
-      "codename": "delete_contenttype"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 16,
-    "fields": {
-      "name": "Can view content type",
-      "content_type": 4,
-      "codename": "view_contenttype"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 17,
-    "fields": {
-      "name": "Can add session",
-      "content_type": 5,
-      "codename": "add_session"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 18,
-    "fields": {
-      "name": "Can change session",
-      "content_type": 5,
-      "codename": "change_session"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 19,
-    "fields": {
-      "name": "Can delete session",
-      "content_type": 5,
-      "codename": "delete_session"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 20,
-    "fields": {
-      "name": "Can view session",
-      "content_type": 5,
-      "codename": "view_session"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 21,
-    "fields": {
-      "name": "Can add car_brand",
-      "content_type": 6,
-      "codename": "add_carbrand"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 22,
-    "fields": {
-      "name": "Can change car_brand",
-      "content_type": 6,
-      "codename": "change_carbrand"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 23,
-    "fields": {
-      "name": "Can delete car_brand",
-      "content_type": 6,
-      "codename": "delete_carbrand"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 24,
-    "fields": {
-      "name": "Can view car_brand",
-      "content_type": 6,
-      "codename": "view_carbrand"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 25,
-    "fields": {
-      "name": "Can add car_category",
-      "content_type": 7,
-      "codename": "add_category"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 26,
-    "fields": {
-      "name": "Can change car_category",
-      "content_type": 7,
-      "codename": "change_category"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 27,
-    "fields": {
-      "name": "Can delete car_category",
-      "content_type": 7,
-      "codename": "delete_category"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 28,
-    "fields": {
-      "name": "Can view car_category",
-      "content_type": 7,
-      "codename": "view_category"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 29,
-    "fields": {
-      "name": "Can add car_countries",
-      "content_type": 8,
-      "codename": "add_country"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 30,
-    "fields": {
-      "name": "Can change car_countries",
-      "content_type": 8,
-      "codename": "change_country"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 31,
-    "fields": {
-      "name": "Can delete car_countries",
-      "content_type": 8,
-      "codename": "delete_country"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 32,
-    "fields": {
-      "name": "Can view car_countries",
-      "content_type": 8,
-      "codename": "view_country"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 33,
-    "fields": {
-      "name": "Can add engine",
-      "content_type": 9,
-      "codename": "add_engine"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 34,
-    "fields": {
-      "name": "Can change engine",
-      "content_type": 9,
-      "codename": "change_engine"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 35,
-    "fields": {
-      "name": "Can delete engine",
-      "content_type": 9,
-      "codename": "delete_engine"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 36,
-    "fields": {
-      "name": "Can view engine",
-      "content_type": 9,
-      "codename": "view_engine"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 37,
-    "fields": {
-      "name": "Can add user",
-      "content_type": 10,
-      "codename": "add_user"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 38,
-    "fields": {
-      "name": "Can change user",
-      "content_type": 10,
-      "codename": "change_user"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 39,
-    "fields": {
-      "name": "Can delete user",
-      "content_type": 10,
-      "codename": "delete_user"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 40,
-    "fields": {
-      "name": "Can view user",
-      "content_type": 10,
-      "codename": "view_user"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 41,
-    "fields": {
-      "name": "Can add car_model",
-      "content_type": 11,
-      "codename": "add_carmodel"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 42,
-    "fields": {
-      "name": "Can change car_model",
-      "content_type": 11,
-      "codename": "change_carmodel"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 43,
-    "fields": {
-      "name": "Can delete car_model",
-      "content_type": 11,
-      "codename": "delete_carmodel"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 44,
-    "fields": {
-      "name": "Can view car_model",
-      "content_type": 11,
-      "codename": "view_carmodel"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 45,
-    "fields": {
-      "name": "Can add vehicle",
-      "content_type": 12,
-      "codename": "add_vehicleinfo"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 46,
-    "fields": {
-      "name": "Can change vehicle",
-      "content_type": 12,
-      "codename": "change_vehicleinfo"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 47,
-    "fields": {
-      "name": "Can delete vehicle",
-      "content_type": 12,
-      "codename": "delete_vehicleinfo"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 48,
-    "fields": {
-      "name": "Can view vehicle",
-      "content_type": 12,
-      "codename": "view_vehicleinfo"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 49,
-    "fields": {
-      "name": "Can add car_part",
-      "content_type": 13,
-      "codename": "add_part"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 50,
-    "fields": {
-      "name": "Can change car_part",
-      "content_type": 13,
-      "codename": "change_part"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 51,
-    "fields": {
-      "name": "Can delete car_part",
-      "content_type": 13,
-      "codename": "delete_part"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 52,
-    "fields": {
-      "name": "Can view car_part",
-      "content_type": 13,
-      "codename": "view_part"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 53,
-    "fields": {
-      "name": "Can add Товар в корзине",
-      "content_type": 14,
-      "codename": "add_cart"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 54,
-    "fields": {
-      "name": "Can change Товар в корзине",
-      "content_type": 14,
-      "codename": "change_cart"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 55,
-    "fields": {
-      "name": "Can delete Товар в корзине",
-      "content_type": 14,
-      "codename": "delete_cart"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 56,
-    "fields": {
-      "name": "Can view Товар в корзине",
-      "content_type": 14,
-      "codename": "view_cart"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 57,
-    "fields": {
-      "name": "Can add История цены",
-      "content_type": 15,
-      "codename": "add_pricehistory"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 58,
-    "fields": {
-      "name": "Can change История цены",
-      "content_type": 15,
-      "codename": "change_pricehistory"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 59,
-    "fields": {
-      "name": "Can delete История цены",
-      "content_type": 15,
-      "codename": "delete_pricehistory"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 60,
-    "fields": {
-      "name": "Can view История цены",
-      "content_type": 15,
-      "codename": "view_pricehistory"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 61,
-    "fields": {
-      "name": "Can add order part",
-      "content_type": 16,
-      "codename": "add_orderpart"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 62,
-    "fields": {
-      "name": "Can change order part",
-      "content_type": 16,
-      "codename": "change_orderpart"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 63,
-    "fields": {
-      "name": "Can delete order part",
-      "content_type": 16,
-      "codename": "delete_orderpart"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 64,
-    "fields": {
-      "name": "Can view order part",
-      "content_type": 16,
-      "codename": "view_orderpart"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 65,
-    "fields": {
-      "name": "Can add user",
-      "content_type": 17,
-      "codename": "add_user"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 66,
-    "fields": {
-      "name": "Can change user",
-      "content_type": 17,
-      "codename": "change_user"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 67,
-    "fields": {
-      "name": "Can delete user",
-      "content_type": 17,
-      "codename": "delete_user"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 68,
-    "fields": {
-      "name": "Can view user",
-      "content_type": 17,
-      "codename": "view_user"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 69,
-    "fields": {
-      "name": "Can add Заказ оформления",
-      "content_type": 18,
-      "codename": "add_order"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 70,
-    "fields": {
-      "name": "Can change Заказ оформления",
-      "content_type": 18,
-      "codename": "change_order"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 71,
-    "fields": {
-      "name": "Can delete Заказ оформления",
-      "content_type": 18,
-      "codename": "delete_order"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 72,
-    "fields": {
-      "name": "Can view Заказ оформления",
-      "content_type": 18,
-      "codename": "view_order"
-    }
-  },
-  {
-    "model": "contenttypes.contenttype",
-    "pk": 1,
-    "fields": {
-      "app_label": "admin",
-      "model": "logentry"
-    }
-  },
-  {
-    "model": "contenttypes.contenttype",
-    "pk": 2,
-    "fields": {
-      "app_label": "auth",
-      "model": "permission"
-    }
-  },
-  {
-    "model": "contenttypes.contenttype",
-    "pk": 3,
-    "fields": {
-      "app_label": "auth",
-      "model": "group"
-    }
-  },
-  {
-    "model": "contenttypes.contenttype",
-    "pk": 4,
-    "fields": {
-      "app_label": "contenttypes",
-      "model": "contenttype"
-    }
-  },
-  {
-    "model": "contenttypes.contenttype",
-    "pk": 5,
-    "fields": {
-      "app_label": "sessions",
-      "model": "session"
-    }
-  },
-  {
-    "model": "contenttypes.contenttype",
-    "pk": 6,
-    "fields": {
-      "app_label": "webapp",
-      "model": "carbrand"
-    }
-  },
-  {
-    "model": "contenttypes.contenttype",
-    "pk": 7,
-    "fields": {
-      "app_label": "webapp",
-      "model": "category"
-    }
-  },
-  {
-    "model": "contenttypes.contenttype",
-    "pk": 8,
-    "fields": {
-      "app_label": "webapp",
-      "model": "country"
-    }
-  },
-  {
-    "model": "contenttypes.contenttype",
-    "pk": 9,
-    "fields": {
-      "app_label": "webapp",
-      "model": "engine"
-    }
-  },
-  {
-    "model": "contenttypes.contenttype",
-    "pk": 10,
-    "fields": {
-      "app_label": "webapp",
-      "model": "user"
-    }
-  },
-  {
-    "model": "contenttypes.contenttype",
-    "pk": 11,
-    "fields": {
-      "app_label": "webapp",
-      "model": "carmodel"
-    }
-  },
-  {
-    "model": "contenttypes.contenttype",
-    "pk": 12,
-    "fields": {
-      "app_label": "webapp",
-      "model": "vehicleinfo"
-    }
-  },
-  {
-    "model": "contenttypes.contenttype",
-    "pk": 13,
-    "fields": {
-      "app_label": "webapp",
-      "model": "part"
-    }
-  },
-  {
-    "model": "contenttypes.contenttype",
-    "pk": 14,
-    "fields": {
-      "app_label": "webapp",
-      "model": "cart"
-    }
-  },
-  {
-    "model": "contenttypes.contenttype",
-    "pk": 15,
-    "fields": {
-      "app_label": "webapp",
-      "model": "pricehistory"
-    }
-  },
-  {
-    "model": "contenttypes.contenttype",
-    "pk": 16,
-    "fields": {
-      "app_label": "webapp",
-      "model": "orderpart"
-    }
-  },
-  {
-    "model": "sessions.session",
-    "pk": "kr03x18wkyif6ofivkaan4qpdksc9i47",
-    "fields": {
-      "session_data": ".eJxVjMsOwiAURP-FtSEIvYAu3fcbmvsgUjWQlHZl_Hdp0oWuJplzZt5qwm3N09bSMs2irsqp029HyM9UdiAPLPequZZ1mUnvij5o02OV9Lod7t9Bxpb72otYTEMUBuYzWRBHjhitxAGCuSDYRD08oXAwxrE3EUyHgJYDqc8XBw84RA:1srGVE:zS2u1eWsIcb245-JReqnGsr_lWAOwe_6OxJ_x-W1F90",
-      "expire_date": "2024-10-03T12:43:20.957Z"
-    }
-  },
-  {
+{
     "model": "webapp.carbrand",
     "pk": 1,
     "fields": {
-      "name": "BMW",
-      "description": "bmwbmwbmw"
-    }
-  },
-  {
-    "model": "webapp.carbrand",
-    "pk": 2,
-    "fields": {
-      "name": "LEXUS",
-      "description": "lexuslssdsd"
-    }
-  },
-  {
-    "model": "webapp.carbrand",
-    "pk": 3,
-    "fields": {
-      "name": "KIA",
-      "description": "sssasas"
-    }
-  },
-  {
-    "model": "webapp.carbrand",
-    "pk": 4,
-    "fields": {
-      "name": "Toyota",
-      "description": "Японский производитель автомобилей"
-    }
-  },
-  {
-    "model": "webapp.carbrand",
-    "pk": 5,
-    "fields": {
-      "name": "Ford",
-      "description": "Американский производитель автомобилей"
-    }
-  },
-  {
-    "model": "webapp.carbrand",
-    "pk": 6,
-    "fields": {
-      "name": "BMW",
-      "description": "Немецкий производитель автомобилей премиум-класса"
-    }
-  },
-  {
-    "model": "webapp.carbrand",
-    "pk": 7,
-    "fields": {
-      "name": "Renault",
-      "description": "Французский производитель автомобилей"
-    }
-  },
-  {
-    "model": "webapp.carbrand",
-    "pk": 8,
-    "fields": {
-      "name": "Fiat",
-      "description": "Итальянский производитель автомобилей"
-    }
-  },
-  {
-    "model": "webapp.carbrand",
-    "pk": 9,
-    "fields": {
-      "name": "Renault",
-      "description": "Французский производитель автомобилей"
-    }
-  },
-  {
-    "model": "webapp.carbrand",
-    "pk": 10,
-    "fields": {
-      "name": "Fiat",
-      "description": "Итальянский производитель автомобилей"
-    }
-  },
-  {
-    "model": "webapp.carbrand",
-    "pk": 11,
-    "fields": {
-      "name": "Hyundai",
-      "description": "Южнокорейский производитель автомобилей"
-    }
-  },
-  {
-    "model": "webapp.carmodel",
-    "pk": 1,
-    "fields": {
-      "name": "m5",
-      "brand": 1,
-      "year_of_manufacture": 2012
-    }
-  },
-  {
-    "model": "webapp.carmodel",
-    "pk": 2,
-    "fields": {
-      "name": "3",
-      "brand": 2,
-      "year_of_manufacture": 2010
-    }
-  },
-  {
-    "model": "webapp.carmodel",
-    "pk": 3,
-    "fields": {
-      "name": "Morning",
-      "brand": 3,
-      "year_of_manufacture": 2018
-    }
-  },
-  {
-    "model": "webapp.carmodel",
-    "pk": 4,
-    "fields": {
-      "name": "Camry",
-      "brand": 4,
-      "year_of_manufacture": 2020
-    }
-  },
-  {
-    "model": "webapp.carmodel",
-    "pk": 5,
-    "fields": {
-      "name": "Mustang",
-      "brand": 5,
-      "year_of_manufacture": 2019
-    }
-  },
-  {
-    "model": "webapp.carmodel",
-    "pk": 6,
-    "fields": {
-      "name": "Clio",
-      "brand": 7,
-      "year_of_manufacture": 2018
-    }
-  },
-  {
-    "model": "webapp.carmodel",
-    "pk": 7,
-    "fields": {
-      "name": "500",
-      "brand": 8,
-      "year_of_manufacture": 2022
-    }
-  },
-  {
-    "model": "webapp.carmodel",
-    "pk": 8,
-    "fields": {
-      "name": "Elantra",
-      "brand": 11,
-      "year_of_manufacture": 2020
-    }
-  },
-  {
-    "model": "webapp.carmodel",
-    "pk": 9,
-    "fields": {
-      "name": "3 Series",
-      "brand": 1,
-      "year_of_manufacture": 2021
-    }
-  },
-  {
-    "model": "webapp.engine",
-    "pk": 1,
-    "fields": {
-      "engine_type": "electric",
-      "displacement": "222.00",
-      "horsepower": 22,
-      "torque": 222
-    }
-  },
-  {
-    "model": "webapp.engine",
-    "pk": 2,
-    "fields": {
-      "engine_type": "gasoline",
-      "displacement": "2.50",
-      "horsepower": 203,
-      "torque": 250
-    }
-  },
-  {
-    "model": "webapp.engine",
-    "pk": 3,
-    "fields": {
-      "engine_type": "diesel",
-      "displacement": "3.00",
-      "horsepower": 255,
-      "torque": 400
-    }
-  },
-  {
-    "model": "webapp.engine",
-    "pk": 4,
-    "fields": {
-      "engine_type": "electric",
-      "displacement": "0.00",
-      "horsepower": 150,
-      "torque": 300
-    }
-  },
-  {
-    "model": "webapp.engine",
-    "pk": 5,
-    "fields": {
-      "engine_type": "hybrid",
-      "displacement": "2.00",
-      "horsepower": 200,
-      "torque": 320
-    }
-  },
-  {
-    "model": "webapp.engine",
-    "pk": 6,
-    "fields": {
-      "engine_type": "gasoline",
-      "displacement": "1.40",
-      "horsepower": 140,
-      "torque": 200
-    }
-  },
-  {
-    "model": "webapp.engine",
-    "pk": 7,
-    "fields": {
-      "engine_type": "diesel",
-      "displacement": "2.20",
-      "horsepower": 180,
-      "torque": 340
-    }
-  },
-  {
-    "model": "webapp.category",
-    "pk": 1,
-    "fields": {
-      "name": "Легковой",
-      "description": "aaa"
-    }
-  },
-  {
-    "model": "webapp.category",
-    "pk": 2,
-    "fields": {
-      "name": "Грузовые",
-      "description": "фф"
-    }
-  },
-  {
-    "model": "webapp.category",
-    "pk": 3,
-    "fields": {
-      "name": "Автобус",
-      "description": "выв"
-    }
-  },
-  {
-    "model": "webapp.category",
-    "pk": 4,
-    "fields": {
-      "name": "Тормоза",
-      "description": "Тормозные колодки, диски и сопутствующие детали"
-    }
-  },
-  {
-    "model": "webapp.category",
-    "pk": 5,
-    "fields": {
-      "name": "Подвеска",
-      "description": "Амортизаторы, стойки и элементы подвески"
-    }
-  },
-  {
-    "model": "webapp.category",
-    "pk": 6,
-    "fields": {
-      "name": "Детали двигателя",
-      "description": "Компоненты двигателя и запчасти"
-    }
-  },
-  {
-    "model": "webapp.category",
-    "pk": 7,
-    "fields": {
-      "name": "Детали двигателя",
-      "description": "Компоненты двигателя и запчасти"
-    }
-  },
-  {
-    "model": "webapp.category",
-    "pk": 8,
-    "fields": {
-      "name": "Трансмиссия",
-      "description": "Запчасти трансмиссии и привода"
-    }
-  },
-  {
-    "model": "webapp.category",
-    "pk": 9,
-    "fields": {
-      "name": "Кузовные детали",
-      "description": "Детали кузова и ремонтные компоненты"
-    }
-  },
-  {
-    "model": "webapp.category",
-    "pk": 10,
-    "fields": {
-      "name": "Интерьер",
-      "description": "Отделка интерьера и аксессуары"
-    }
-  },
-  {
-    "model": "webapp.country",
-    "pk": 12,
-    "fields": {
-      "name": "Китай"
-    }
-  },
-  {
-    "model": "webapp.country",
-    "pk": 13,
-    "fields": {
-      "name": "Финляндия"
-    }
-  },
-  {
-    "model": "webapp.country",
-    "pk": 14,
-    "fields": {
-      "name": "Южная Корея"
-    }
-  },
-  {
-    "model": "webapp.country",
-    "pk": 15,
-    "fields": {
-      "name": "Италия"
-    }
-  },
-  {
-    "model": "webapp.vehicleinfo",
-    "pk": 1,
-    "fields": {
-      "vehicle_type": "passenger",
-      "model": 2,
-      "year_of_manufacture": 2010,
-      "body_type": "did",
-      "engine": 1,
-      "countries": [
-        12
-      ]
-    }
-  },
-  {
-    "model": "webapp.vehicleinfo",
-    "pk": 2,
-    "fields": {
-      "vehicle_type": "passenger",
-      "model": 4,
-      "year_of_manufacture": 2020,
-      "body_type": "Седан",
-      "engine": 2,
-      "countries": [
-        13
-      ]
-    }
-  },
-  {
-    "model": "webapp.vehicleinfo",
-    "pk": 5,
-    "fields": {
-      "vehicle_type": "passenger",
-      "model": 4,
-      "year_of_manufacture": 2020,
-      "body_type": "Седан",
-      "engine": 2,
-      "countries": [
-        14
-      ]
-    }
-  },
-  {
-    "model": "webapp.part",
-    "pk": 1,
-    "fields": {
-        "category": 1,
-        "vehicle_info": 1,
-        "name": "weesd",
-        "description": "dwdsad",
-        "amount": 100,
-        "image1": "parts/.jpg",
-        "image2": "",
-        "image3": ""
-    }
-  },
-  {
-    "model": "webapp.part",
-    "pk": 2,
-    "fields": {
-        "category": 4,
-        "vehicle_info": 2,
-        "name": "Передние тормозные колодки",
-        "description": "Оригинальные передние тормозные колодки",
-        "amount": 40,
-        "image1": "parts/brake_pads.jpg",
-        "image2": "",
-        "image3": ""
-    }
-  },
-  {
-    "model": "webapp.part",
-    "pk": 3,
-    "fields": {
-        "category": 4,
-        "vehicle_info": 2,
-        "name": "Передние тормозные колодки",
-        "description": "Оригинальные передние тормозные колодки",
-        "amount": 50,
-        "image1": "parts/_𝘍𝘦𝘳𝘯.jpg",
-        "image2": "",
-        "image3": ""
-    }
-  },
-  {
-    "model": "webapp.part",
-    "pk": 4,
-    "fields": {
-        "category": 5,
-        "vehicle_info": 5,
-        "name": "Abcd",
-        "description": "wdwdsdsad",
-        "amount": 20,
-        "image1": "parts/_𝘚𝘵𝘢𝘳𝘬.jpg",
-        "image2": "",
-        "image3": ""
-    }
-  },
-  {
-    "model": "webapp.part",
-    "pk": 5,
-    "fields": {
-        "category": 7,
-        "vehicle_info": 2,
-        "name": "Hjfwefd",
-        "description": "etsgdqd",
-        "amount": 10,
-        "image1": "parts/99px_ru_wallpaper_356133_makima__makima_iz_anime_chainsaw_man_.jpg",
-        "image2": "",
-        "image3": ""
-    }
-  },
-  {
-    "model": "webapp.part",
-    "pk": 6,
-    "fields": {
-        "category": 1,
-        "vehicle_info": 2,
-        "name": "Toyota Camry Battery",
-        "description": "Battery",
-        "amount": 1,
-        "image1": "default.jpg",
-        "image2": "",
-        "image3": ""
+        "name": "BMW",
+        "description": "bmwbmwbmw"
     }
 },
 {
-    "model": "webapp.part",
+    "model": "webapp.carbrand",
+    "pk": 2,
+    "fields": {
+        "name": "LEXUS",
+        "description": "lexuslssdsd"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 3,
+    "fields": {
+        "name": "KIA",
+        "description": "sssasas"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 4,
+    "fields": {
+        "name": "Toyota",
+        "description": "Японский производитель автомобилей"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 5,
+    "fields": {
+        "name": "Ford",
+        "description": "Американский производитель автомобилей"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 6,
+    "fields": {
+        "name": "BMW",
+        "description": "Немецкий производитель автомобилей премиум-класса"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 7,
+    "fields": {
+        "name": "Renault",
+        "description": "Французский производитель автомобилей"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 8,
+    "fields": {
+        "name": "Fiat",
+        "description": "Итальянский производитель автомобилей"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 9,
+    "fields": {
+        "name": "Renault",
+        "description": "Французский производитель автомобилей"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 10,
+    "fields": {
+        "name": "Fiat",
+        "description": "Итальянский производитель автомобилей"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 11,
+    "fields": {
+        "name": "Hyundai",
+        "description": "Южнокорейский производитель автомобилей"
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 1,
+    "fields": {
+        "name": "m5",
+        "brand": 1,
+        "year_of_manufacture": 2012
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 2,
+    "fields": {
+        "name": "3",
+        "brand": 2,
+        "year_of_manufacture": 2010
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 3,
+    "fields": {
+        "name": "Morning",
+        "brand": 3,
+        "year_of_manufacture": 2018
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 4,
+    "fields": {
+        "name": "Camry",
+        "brand": 4,
+        "year_of_manufacture": 2020
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 5,
+    "fields": {
+        "name": "Mustang",
+        "brand": 5,
+        "year_of_manufacture": 2019
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 6,
+    "fields": {
+        "name": "Clio",
+        "brand": 7,
+        "year_of_manufacture": 2018
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 7,
+    "fields": {
+        "name": "500",
+        "brand": 8,
+        "year_of_manufacture": 2022
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 8,
+    "fields": {
+        "name": "Elantra",
+        "brand": 11,
+        "year_of_manufacture": 2020
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 9,
+    "fields": {
+        "name": "3 Series",
+        "brand": 1,
+        "year_of_manufacture": 2021
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 1,
+    "fields": {
+        "engine_type": "electric",
+        "displacement": "222.00",
+        "horsepower": 22,
+        "torque": 222
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 2,
+    "fields": {
+        "engine_type": "gasoline",
+        "displacement": "2.50",
+        "horsepower": 203,
+        "torque": 250
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 3,
+    "fields": {
+        "engine_type": "diesel",
+        "displacement": "3.00",
+        "horsepower": 255,
+        "torque": 400
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 4,
+    "fields": {
+        "engine_type": "electric",
+        "displacement": "0.00",
+        "horsepower": 150,
+        "torque": 300
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 5,
+    "fields": {
+        "engine_type": "hybrid",
+        "displacement": "2.00",
+        "horsepower": 200,
+        "torque": 320
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 6,
+    "fields": {
+        "engine_type": "gasoline",
+        "displacement": "1.40",
+        "horsepower": 140,
+        "torque": 200
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 7,
+    "fields": {
+        "engine_type": "diesel",
+        "displacement": "2.20",
+        "horsepower": 180,
+        "torque": 340
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 1,
+    "fields": {
+        "name": "Легковой",
+        "description": "aaa"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 2,
+    "fields": {
+        "name": "Грузовые",
+        "description": "фф"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 3,
+    "fields": {
+        "name": "Автобус",
+        "description": "выв"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 4,
+    "fields": {
+        "name": "Тормоза",
+        "description": "Тормозные колодки, диски и сопутствующие детали"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 5,
+    "fields": {
+        "name": "Подвеска",
+        "description": "Амортизаторы, стойки и элементы подвески"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 6,
+    "fields": {
+        "name": "Детали двигателя",
+        "description": "Компоненты двигателя и запчасти"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 7,
+    "fields": {
+        "name": "Детали двигателя",
+        "description": "Компоненты двигателя и запчасти"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 8,
+    "fields": {
+        "name": "Трансмиссия",
+        "description": "Запчасти трансмиссии и привода"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 9,
+    "fields": {
+        "name": "Кузовные детали",
+        "description": "Детали кузова и ремонтные компоненты"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 10,
+    "fields": {
+        "name": "Интерьер",
+        "description": "Отделка интерьера и аксессуары"
+    }
+},
+{
+    "model": "webapp.country",
+    "pk": 12,
+    "fields": {
+        "name": "Китай"
+    }
+},
+{
+    "model": "webapp.country",
+    "pk": 13,
+    "fields": {
+        "name": "Финляндия"
+    }
+},
+{
+    "model": "webapp.country",
+    "pk": 14,
+    "fields": {
+        "name": "Южная Корея"
+    }
+},
+{
+    "model": "webapp.country",
+    "pk": 15,
+    "fields": {
+        "name": "Италия"
+    }
+},
+{
+    "model": "webapp.vehicleinfo",
+    "pk": 1,
+    "fields": {
+        "vehicle_type": "passenger",
+        "model": 2,
+        "year_of_manufacture": 2010,
+        "body_type": "did",
+        "engine": 1,
+        "countries": [
+            12
+        ]
+    }
+},
+{
+    "model": "webapp.vehicleinfo",
+    "pk": 2,
+    "fields": {
+        "vehicle_type": "passenger",
+        "model": 4,
+        "year_of_manufacture": 2020,
+        "body_type": "Седан",
+        "engine": 2,
+        "countries": [
+            13
+        ]
+    }
+},
+{
+    "model": "webapp.vehicleinfo",
+    "pk": 5,
+    "fields": {
+        "vehicle_type": "passenger",
+        "model": 4,
+        "year_of_manufacture": 2020,
+        "body_type": "Седан",
+        "engine": 2,
+        "countries": [
+            14
+        ]
+    }
+},
+{
+    "model": "part.part",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "vehicle_info": 1,
+      "name": "weesd",
+      "description": "dwdsad",
+      "amount": 100,
+      "image1": "parts/.jpg"
+    }
+},
+{
+    "model": "part.part",
+    "pk": 2,
+    "fields": {
+      "category": 4,
+      "vehicle_info": 2,
+      "name": "Передние тормозные колодки",
+      "description": "Оригинальные передние тормозные колодки",
+      "amount": 40,
+      "image1": "parts/brake_pads.jpg"
+    }
+},
+{
+    "model": "part.part",
+    "pk": 3,
+    "fields": {
+      "category": 4,
+      "vehicle_info": 2,
+      "name": "Передние тормозные колодки",
+      "description": "Оригинальные передние тормозные колодки",
+      "amount": 50,
+      "image1": "parts/_𝘍𝘦𝘳𝘯.jpg"
+    }
+},
+{
+    "model": "part.part",
+    "pk": 4,
+    "fields": {
+      "category": 5,
+      "vehicle_info": 5,
+      "name": "Abcd",
+      "description": "wdwdsdsad",
+      "amount": 20,
+      "image1": "parts/_𝘚𝘵𝘢𝘳𝘬.jpg"
+    }
+},
+{
+    "model": "part.part",
+    "pk": 5,
+    "fields": {
+      "category": 7,
+      "vehicle_info": 2,
+      "name": "Hjfwefd",
+      "description": "etsgdqd",
+      "amount": 10,
+      "image1": "parts/99px_ru_wallpaper_356133_makima__makima_iz_anime_chainsaw_man_.jpg"
+    }
+},
+{
+    "model": "part.part",
+    "pk": 6,
+    "fields": {
+      "category": 1,
+      "vehicle_info": 2,
+      "name": "Toyota Camry Battery",
+      "description": "Battery",
+      "amount": 1,
+      "image1": "default.jpg"
+    }
+},
+{
+    "model": "part.part",
     "pk": 7,
     "fields": {
         "category": 2,
         "vehicle_info": 1,
         "name": "Lexus Battery",
         "description": "Battery",
-        "amount": 3,
-        "image1": "parts/asel.jpeg",
-        "image2": "",
-        "image3": ""
-    }
-  },
-  {
-    "model": "webapp.part",
-    "pk": 8,
-    "fields": {
-        "category": 3,
-        "vehicle_info": 2,
-        "name": "Svechi za menya",
-        "description": "Svechi",
-        "amount": 2,
-        "image1": "parts/Без_названия.jpeg",
-        "image2": "",
-        "image3": ""
-    }
-  },
-  {
-    "model": "webapp.part",
-    "pk": 9,
-    "fields": {
-        "category": 3,
-        "vehicle_info": 2,
-        "name": "Ziman svechka",
-        "description": "che",
-        "amount": 4,
-        "image1": "parts/asel_vKJxE8c.jpeg",
-        "image2": "",
-        "image3": ""
-    }
-  },
-  {
-    "model": "webapp.part",
-    "pk": 10,
-    "fields": {
-        "category": 2,
-        "vehicle_info": 2,
-        "name": "Important detail De",
-        "description": "fgeh and comcast com",
-        "amount": 5,
-        "image1": "parts/bl.png",
-        "image2": "",
-        "image3": ""
-    }
-  },
-  {
-    "model": "webapp.part",
-    "pk": 11,
-    "fields": {
-        "category": 1,
-        "vehicle_info": 2,
-        "name": "Toyota together detail",
-        "description": "Together detail and making the world a safer place when being together and trading the dreif and making this one a better place and I have to submit the report",
-        "amount": 3,
-        "image1": "parts/sh.jpg",
-        "image2": "",
-        "image3": ""
-    }
-  },
-  {
-    "model": "webapp.part",
-    "pk": 12,
-    "fields": {
-        "category": 8,
-        "vehicle_info": 1,
-        "name": "Karbyurator poluchaetsya",
-        "description": "Karbyurator i perfarator together",
-        "amount": 4,
-        "image1": "parts/asel_3rwh7wu.jpeg",
-        "image2": "",
-        "image3": ""
-    }
-  },
-  {
-    "model": "webapp.part",
-    "pk": 13,
-    "fields": {
-        "category": 9,
-        "vehicle_info": 5,
-        "name": "Kusovnoe otdelenie perfaratora",
-        "description": "together",
-        "amount": 2,
-        "image1": "parts/Без_названия_nvgiVvT.jpeg",
-        "image2": "",
-        "image3": ""
-    }
-  },
-  {
-    "model": "webapp.part",
-    "pk": 14,
-    "fields": {
-        "category": 3,
-        "vehicle_info": 2,
-        "name": "Hower of perfarator",
-        "description": "the perfarator of the karbyarator",
-        "amount": 3,
-        "image1": "parts/car_eRgtRHn.jpg",
-        "image2": "",
-        "image3": ""
-    }
-  },
-  {
-    "model": "webapp.part",
-    "pk": 15,
-    "fields": {
-        "category": 7,
-        "vehicle_info": 1,
-        "name": "Dvigatel' dvigatelya",
-        "description": "Eto samaya vajnaya chast'",
-        "amount": 5,
-        "image1": "parts/car_htoD5Q1.jpg",
-        "image2": "",
-        "image3": ""
+        "amount": 50,
+        "image1": "parts/asel.jpeg"
     }
 },
 {
-    "model": "webapp.pricehistory",
-    "pk": 2,
+    "model": "part.part",
+    "pk": 8,
     "fields": {
-      "part": 1,
-      "price": "100.00",
-      "date_changed": "2024-09-13T20:39:40.451Z"
+      "category": 3,
+      "vehicle_info": 2,
+      "name": "Svechi za menya",
+      "description": "Svechi",
+      "amount": 2,
+      "image1": "parts/Без_названия.jpeg"
+    }
+},
+{
+    "model": "part.part",
+    "pk": 9,
+    "fields": {
+      "category": 3,
+      "vehicle_info": 2,
+      "name": "Ziman svechka",
+      "description": "che",
+      "amount": 4,
+      "image1": "parts/asel_vKJxE8c.jpeg"
+    }
+},
+{
+    "model": "part.part",
+    "pk": 10,
+    "fields": {
+      "category": 2,
+      "vehicle_info": 2,
+      "name": "Important detail De",
+      "description": "fgeh and comcast com",
+      "amount": 5,
+      "image1": "parts/bl.png"
+    }
+},
+{
+    "model": "part.part",
+    "pk": 11,
+    "fields": {
+      "category": 1,
+      "vehicle_info": 2,
+      "name": "Toyota together detail",
+      "description": "Together detail and making the world a safer place when being together and trading the dreif and making this one a better place and I have to submit the report",
+      "amount": 3,
+      "image1": "parts/sh.jpg"
+    }
+},
+{
+    "model": "part.part",
+    "pk": 12,
+    "fields": {
+      "category": 8,
+      "vehicle_info": 1,
+      "name": "Karbyurator poluchaetsya",
+      "description": "Karbyurator i perfarator together",
+      "amount": 4,
+      "image1": "parts/asel_3rwh7wu.jpeg"
+    }
+},
+{
+    "model": "part.part",
+    "pk": 13,
+    "fields": {
+      "category": 9,
+      "vehicle_info": 5,
+      "name": "Kusovnoe otdelenie perfaratora",
+      "description": "together",
+      "amount": 2,
+      "image1": "parts/Без_названия_nvgiVvT.jpeg"
+    }
+},
+{
+    "model": "part.part",
+    "pk": 14,
+    "fields": {
+      "category": 3,
+      "vehicle_info": 2,
+      "name": "Hower of perfarator",
+      "description": "the perfarator of the karbyarator",
+      "amount": 3,
+      "image1": "parts/car_eRgtRHn.jpg"
+    }
+},
+{
+    "model": "part.part",
+    "pk": 15,
+    "fields": {
+      "category": 7,
+      "vehicle_info": 1,
+      "name": "Dvigatel' dvigatelya",
+      "description": "Eto samaya vajnaya chast'",
+      "amount": 5,
+      "image1": "parts/car_htoD5Q1.jpg"
     }
   },
   {
+    "model": "webapp.order",
+    "pk": 9,
+    "fields": {
+      "user": null,
+      "first_name": "Каныкей",
+      "last_name": "ибраева",
+      "phone": "89241717098",
+      "email": "kani@gmail.com",
+      "created_at": "2024-09-19T12:38:54.867Z"
+    }
+  },
+  {
+    "model": "webapp.orderpart",
+    "pk": 6,
+    "fields": {
+      "order": 9,
+      "quantity": 1,
+      "part": 6
+    }
+  },
+  {
+    "model": "webapp.pricehistory",
+    "pk": 2,
+    "fields": {
+        "part": 1,
+        "price": "100.00",
+        "date_changed": "2024-09-13T20:39:40.451Z"
+    }
+},
+{
     "model": "webapp.pricehistory",
     "pk": 3,
     "fields": {
-      "part": 2,
-      "price": "1000.00",
-      "date_changed": "2024-09-13T21:14:47.246Z"
+        "part": 2,
+        "price": "1000.00",
+        "date_changed": "2024-09-13T21:14:47.246Z"
     }
-  },
-  {
+},
+{
     "model": "webapp.pricehistory",
     "pk": 4,
     "fields": {
-      "part": 3,
-      "price": "125.00",
-      "date_changed": "2024-09-13T21:14:55.597Z"
+        "part": 3,
+        "price": "125.00",
+        "date_changed": "2024-09-13T21:14:55.597Z"
     }
-  },
-  {
+},
+{
     "model": "webapp.pricehistory",
     "pk": 5,
     "fields": {
-      "part": 4,
-      "price": "500.00",
-      "date_changed": "2024-09-13T21:15:03.310Z"
+        "part": 4,
+        "price": "500.00",
+        "date_changed": "2024-09-13T21:15:03.310Z"
     }
-  },
-  {
+},
+{
     "model": "webapp.pricehistory",
     "pk": 6,
     "fields": {
-      "part": 5,
-      "price": "1500.00",
-      "date_changed": "2024-09-13T21:15:09.797Z"
+        "part": 5,
+        "price": "1500.00",
+        "date_changed": "2024-09-13T21:15:09.797Z"
     }
-  },
-  {
+},
+{
     "model": "webapp.pricehistory",
     "pk": 7,
     "fields": {
-      "part": 6,
-      "price": "100000.00",
-      "date_changed": "2024-09-13T21:15:17.686Z"
+        "part": 6,
+        "price": "100000.00",
+        "date_changed": "2024-09-13T21:15:17.686Z"
     }
-  },
-  {
+},
+{
     "model": "webapp.pricehistory",
     "pk": 8,
     "fields": {
-      "part": 7,
-      "price": "2200.00",
-      "date_changed": "2024-09-13T21:15:34.618Z"
+        "part": 7,
+        "price": "2200.00",
+        "date_changed": "2024-09-13T21:15:34.618Z"
     }
-  },
-  {
+},
+{
     "model": "webapp.pricehistory",
     "pk": 9,
     "fields": {
-      "part": 8,
-      "price": "999.00",
-      "date_changed": "2024-09-13T21:15:40.991Z"
+        "part": 8,
+        "price": "999.00",
+        "date_changed": "2024-09-13T21:15:40.991Z"
     }
-  },
-  {
+},
+{
     "model": "webapp.pricehistory",
     "pk": 10,
     "fields": {
-      "part": 9,
-      "price": "99.00",
-      "date_changed": "2024-09-13T21:15:48.174Z"
+        "part": 9,
+        "price": "99.00",
+        "date_changed": "2024-09-13T21:15:48.174Z"
     }
-  },
-  {
+},
+{
     "model": "webapp.pricehistory",
     "pk": 11,
     "fields": {
-      "part": 10,
-      "price": "699.00",
-      "date_changed": "2024-09-13T21:15:53.727Z"
+        "part": 10,
+        "price": "699.00",
+        "date_changed": "2024-09-13T21:15:53.727Z"
     }
-  },
-  {
+},
+{
     "model": "webapp.pricehistory",
     "pk": 12,
     "fields": {
-      "part": 11,
-      "price": "545.00",
-      "date_changed": "2024-09-13T21:16:00.077Z"
+        "part": 11,
+        "price": "545.00",
+        "date_changed": "2024-09-13T21:16:00.077Z"
     }
-  },
-  {
+},
+{
     "model": "webapp.pricehistory",
     "pk": 13,
     "fields": {
-      "part": 12,
-      "price": "300.00",
-      "date_changed": "2024-09-13T21:16:11.575Z"
+        "part": 12,
+        "price": "300.00",
+        "date_changed": "2024-09-13T21:16:11.575Z"
     }
-  },
-  {
+},
+{
     "model": "webapp.pricehistory",
     "pk": 14,
     "fields": {
-      "part": 13,
-      "price": "30.00",
-      "date_changed": "2024-09-13T21:16:17.886Z"
+        "part": 13,
+        "price": "30.00",
+        "date_changed": "2024-09-13T21:16:17.886Z"
     }
-  },
-  {
+},
+{
     "model": "webapp.pricehistory",
     "pk": 15,
     "fields": {
-      "part": 14,
-      "price": "399.00",
-      "date_changed": "2024-09-13T21:16:24.231Z"
+        "part": 14,
+        "price": "399.00",
+        "date_changed": "2024-09-13T21:16:24.231Z"
     }
-  },
-  {
+},
+{
     "model": "webapp.pricehistory",
     "pk": 16,
     "fields": {
-      "part": 15,
-      "price": "55.00",
-      "date_changed": "2024-09-13T21:16:29.988Z"
+        "part": 15,
+        "price": "55.00",
+        "date_changed": "2024-09-13T21:16:29.988Z"
     }
-},
-{
-    "model": "webapp.news",
-    "pk": 1,
-    "fields": {
-        "title": "ADADADADADAD",
-        "short_description": "втфыолтволфытвлофытв твлофытв олыфтвлыфт лвтфыолвтлоыф тволыфт",
-        "full_text": "ыфтво ыфтвл ыфтвлотыфловтыолф твлоыф тволтфыловтфыловтылофт влоыфт влотфыловтфылотвфлоытвлоыфтвлоыфт влофытвлоыфт волтыфловтфлоывтлофытвлофытв ылофтвлоыфтвлофыт волыфтвлофы твлфыовтфыловт",
-        "image": "",
-        "published_at": "2024-10-06T17:41:03.984Z"
-    }
-},
-{
-    "model": "webapp.news",
-    "pk": 2,
-    "fields": {
-        "title": "фбвфь",
-        "short_description": "втыфолтвфлывтлофы толвыфтв лфыт влфыо твлофыт влфыот вфлытв фылв тфылвтфылвтфыл втфыло т",
-        "full_text": "чят остяло стлоятс яолтс лоятсшячтсолячтс гшятс очялтсгшят слячт сгояшчт слястшгят",
-        "image": "",
-        "published_at": "2024-10-10T19:02:41.962Z"
-    }
-},
-{
+  },
+  {
     "model": "accounts.user",
     "pk": 1,
     "fields": {
@@ -1601,19 +747,19 @@
     "model": "accounts.user",
     "pk": 3,
     "fields": {
-        "password": "pbkdf2_sha256$720000$4W8ulcpZrbT4LlpAWV37B9$Odz/40s4s/XKzcSwX8ks5WtSy+K2pw/pGPCdiLlN/ro=",
-        "last_login": "2024-10-06T17:35:19.292Z",
-        "is_superuser": true,
-        "username": "admin",
-        "first_name": "",
-        "last_name": "",
-        "email": "",
-        "is_staff": true,
-        "is_active": true,
-        "date_joined": "2024-09-19T12:42:46.427Z",
-        "phone_number": "0000000000",
-        "groups": [],
-        "user_permissions": []
+      "password": "pbkdf2_sha256$720000$4W8ulcpZrbT4LlpAWV37B9$Odz/40s4s/XKzcSwX8ks5WtSy+K2pw/pGPCdiLlN/ro=",
+      "last_login": "2024-09-19T12:43:20.951Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-09-19T12:42:46.427Z",
+      "phone_number": "0000000000",
+      "groups": [],
+      "user_permissions": []
     }
   },
   {
