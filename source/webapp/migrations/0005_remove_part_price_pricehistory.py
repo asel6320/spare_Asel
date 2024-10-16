@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('price', models.DecimalField(decimal_places=2, max_digits=10)),
                 ('date_changed', models.DateTimeField(auto_now_add=True)),
-                ('part', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='price_history', to='part.part')),
+                ('part', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='price_history', to='webapp.part')),
             ],
             options={
                 'verbose_name': 'История цены',
