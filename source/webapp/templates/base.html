@@ -1,4 +1,5 @@
 {% load static %}
+{% load cache %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -42,9 +43,11 @@
                         <li class="nav-item px-3">
                             <a class="nav-link" href="{% url 'part:parts_main' %}">Запчасти</a>
                         </li>
-                        <li class="nav-item px-3">
-                            <a class="nav-link" href="{% url 'webapp:about_us' %}">О компании</a>
-                        </li>
+                        {% cache 1000 about_us %}
+                            <li class="nav-item px-3">
+                                <a class="nav-link" href="{% url 'webapp:about_us' %}">О компании</a>
+                            </li>
+                        {% endcache %}
                         <li class="nav-item px-3">
                             <a class="nav-link" href="#">Контакты</a>
                         </li>
@@ -58,45 +61,54 @@
                                 <li><a class="dropdown-item" href="#">한국어</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown px-3">
-                            <a class="nav-link dropdown-toggle" href="#" id="currencyDropdown" role="button"
-                               data-bs-toggle="dropdown" aria-expanded="false">
-                                USD
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="currencyDropdown">
-                                <li><a class="dropdown-item" href="#">KGZ</a></li>
-                                <li><a class="dropdown-item" href="#">RUB</a></li>
-                                <li><a class="dropdown-item" href="#">WON</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle btn btn-light ms-2" href="#" id="navbarDropdown"
-                               role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-circle fs-5"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                {% if user.is_authenticated %}
-                                    {% if user.is_staff %}
-                                        <li><a class="dropdown-item" href="/admin/">CRM</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Выйти</a></li>
-                                    {% else %}
-                                        <li><a class="dropdown-item" href="{% url 'accounts:profile' %}">Личный
-                                            кабинет</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Выйти</a></li>
-                                    {% endif %}
-                                {% else %}
-                                    <li><a class="dropdown-item" href="{% url 'accounts:login' %}">Войти</a></li>
-                                    <li><a class="dropdown-item"
-                                           href="{% url 'accounts:register' %}">Зарегистрироваться</a></li>
-                                {% endif %}
-                            </ul>
-                        </li>
+                        {% cache 500 valutes %}
+                            <li class="nav-item dropdown px-3">
+                                <a class="nav-link dropdown-toggle" href="#" id="currencyDropdown" role="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                    USD
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="currencyDropdown">
+                                    <li><a class="dropdown-item" href="#">KGZ</a></li>
+                                    <li><a class="dropdown-item" href="#">RUB</a></li>
+                                    <li><a class="dropdown-item" href="#">WON</a></li>
+                                </ul>
+                            </li>
+                        {% endcache %}
+                        {% cache 500 log %}
 
-                        <li class="nav-item px-3">
-                            <a class="btn btn-light ms-2" href="{% url "accounts:cart" %}">Корзина
-                                <i class="bi bi-cart"></i>
-                            </a>
-                        </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle btn btn-light ms-2" href="#" id="navbarDropdown"
+                                   role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle fs-5"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    {% if user.is_authenticated %}
+                                        {% if user.is_staff %}
+                                            <li><a class="dropdown-item" href="/admin/">CRM</a></li>
+                                            <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Выйти</a>
+                                            </li>
+                                        {% else %}
+                                            <li><a class="dropdown-item" href="{% url 'accounts:profile' %}">Личный
+                                                кабинет</a></li>
+                                            <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Выйти</a>
+                                            </li>
+                                        {% endif %}
+                                    {% else %}
+                                        <li><a class="dropdown-item" href="{% url 'accounts:login' %}">Войти</a></li>
+                                        <li><a class="dropdown-item"
+                                               href="{% url 'accounts:register' %}">Зарегистрироваться</a></li>
+                                    {% endif %}
+                                </ul>
+                            </li>
+                        {% endcache %}
+
+                        {% cache 500 cart %}
+                            <li class="nav-item px-3">
+                                <a class="btn btn-light ms-2" href="{% url "accounts:cart" %}">Корзина
+                                    <i class="bi bi-cart"></i>
+                                </a>
+                            </li>
+                        {% endcache %}
                     </ul>
                 </div>
             </div>
