@@ -1,4 +1,5 @@
 from django.urls import path
+from django.views.decorators.cache import cache_page
 
 from webapp.about_us_view import get_models, AboutUs
 from webapp.views.favorites import FavoriteView, FavoriteAdd, FavoriteDelete
@@ -8,7 +9,7 @@ from webapp.views.reviews import CreateReviewView
 app_name = 'webapp'
 
 urlpatterns = [
-    path('parts/about_us/', AboutUs.as_view(), name='about_us'),
+    path('parts/about_us/', cache_page(60*10)(AboutUs.as_view()), name='about_us'),
     path('get-models/', get_models, name='get_models'),
 
     path('favorites/', FavoriteView.as_view(), name='favorites'),
