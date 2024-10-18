@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,7 +19,7 @@
     <link rel="stylesheet" href="{% static 'css/popup.css' %}">
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     {% block title %}
-        <title>Web Title</title>
+        <title>{% trans "Web Title" %}</title>
     {% endblock %}
 </head>
 <body>
@@ -28,44 +29,72 @@
             <div class="container">
                 <div class="logo-custom">
                     <a class="navbar-brand d-flex align-items-center" href="{% url "webapp:parts_list" %}">
-                        <img src="{% static 'images/logo.png' %}" alt="Avrora" class="logo-img">
-                        <span>AVRORA</span>
+                        <img src="{% static 'images/logo.png' %}" alt="{% trans "Avrora" %}" class="logo-img">
+                        <span>{% trans "AVRORA" %}</span>
                     </a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="{% trans "Toggle navigation" %}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse flex-grow-0 ms-auto" id="navbarNav">
                     <ul class="navbar-nav d-block d-md-flex ms-auto">
                         <li class="nav-item px-3">
-                            <a class="nav-link" href="{% url 'webapp:parts_main' %}">Запчасти</a>
+                            <a class="nav-link" href="{% url 'webapp:parts_main' %}">{% trans "Запчасти" %}</a>
                         </li>
                         <li class="nav-item px-3">
-                            <a class="nav-link" href="{% url 'webapp:about_us' %}">О компании</a>
+                            <a class="nav-link" href="{% url 'webapp:about_us' %}">{% trans "О компании" %}</a>
                         </li>
                         <li class="nav-item px-3">
-                            <a class="nav-link" href="#">Контакты</a>
+                            <a class="nav-link" href="#">{% trans "Контакты" %}</a>
                         </li>
                         <li class="nav-item dropdown px-3">
-                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
-                               data-bs-toggle="dropdown" aria-expanded="false">
-                                РУ
+                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {% get_current_language as LANGUAGE_CODE %}
+                                {% if LANGUAGE_CODE == 'ru' %}
+                                    РУ
+                                {% elif LANGUAGE_CODE == 'en' %}
+                                    Eng
+                                {% elif LANGUAGE_CODE == 'ko' %}
+                                    한국어
+                                {% endif %}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                                <li><a class="dropdown-item" href="#">English</a></li>
-                                <li><a class="dropdown-item" href="#">한국어</a></li>
+                                <li>
+                                    <form action="{% url 'lang:set_language' %}" method="post">
+                                        {% csrf_token %}
+                                        <input name="next" type="hidden" value="{{ request.path }}">
+                                        <input name="language" type="hidden" value="en">
+                                        <button type="submit" class="dropdown-item">{% trans "English" %}</button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="{% url 'lang:set_language' %}" method="post">
+                                        {% csrf_token %}
+                                        <input name="next" type="hidden" value="{{ request.path }}">
+                                        <input name="language" type="hidden" value="ru">
+                                        <button type="submit" class="dropdown-item">{% trans "РУ" %}</button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="{% url 'lang:set_language' %}" method="post">
+                                        {% csrf_token %}
+                                        <input name="next" type="hidden" value="{{ request.path }}">
+                                        <input name="language" type="hidden" value="ko">
+                                        <button type="submit" class="dropdown-item">{% trans "한국어" %}</button>
+                                    </form>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown px-3">
                             <a class="nav-link dropdown-toggle" href="#" id="currencyDropdown" role="button"
                                data-bs-toggle="dropdown" aria-expanded="false">
-                                USD
+                                {% trans "USD" %}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="currencyDropdown">
-                                <li><a class="dropdown-item" href="#">KGZ</a></li>
-                                <li><a class="dropdown-item" href="#">RUB</a></li>
-                                <li><a class="dropdown-item" href="#">WON</a></li>
+                                <li><a class="dropdown-item" href="#">{% trans "KGZ" %}</a></li>
+                                <li><a class="dropdown-item" href="#">{% trans "RUB" %}</a></li>
+                                <li><a class="dropdown-item" href="#">{% trans "WON" %}</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -76,21 +105,21 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 {% if user.is_authenticated %}
                                     {% if user.is_staff %}
-                                        <li><a class="dropdown-item" href="/admin/">CRM</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Выйти</a></li>
+                                        <li><a class="dropdown-item" href="/admin/">{% trans "CRM" %}</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">{% trans "Выйти" %}</a></li>
                                     {% else %}
-                                    <li><a class="dropdown-item" href="{% url 'accounts:profile_view' %}">Личный кабинет</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Выйти</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'accounts:profile_view' %}">{% trans "Личный кабинет" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">{% trans "Выйти" %}</a></li>
                                     {% endif %}
                                 {% else %}
-                                    <li><a class="dropdown-item" href="{% url 'accounts:login' %}">Войти</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'accounts:register' %}">Зарегистрироваться</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'accounts:login' %}">{% trans "Войти" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'accounts:register' %}">{% trans "Зарегистрироваться" %}</a></li>
                                 {% endif %}
                             </ul>
                         </li>
 
                         <li class="nav-item px-3">
-                            <a class="btn btn-light ms-2" href="{% url "webapp:cart" %}">Корзина
+                            <a class="btn btn-light ms-2" href="{% url "webapp:cart" %}">{% trans "Корзина" %}
                                 <i class="bi bi-cart"></i>
                             </a>
                         </li>
@@ -107,7 +136,7 @@
 
     <footer class="footer bg-footer-custom py-4">
         <div class="container">
-            <p class="footer-text text-center mb-3">© 2021 Автосалон "ABC AUTO". Официальный дилер</p>
+            <p class="footer-text text-center mb-3">{% trans "© 2021 Автосалон 'ABC AUTO'. Официальный дилер" %}</p>
             <div class="social-media-links d-flex justify-content-center">
                 <a href="https://www.instagram.com" target="_blank" class="text-light me-4">
                     <i class="fab fa-instagram fa-lg"></i>

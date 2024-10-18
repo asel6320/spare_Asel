@@ -1,0 +1,156 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-18 01:38-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: webapp/templates/base.html:22
+msgid "Web Title"
+msgstr "Web Title"
+
+#: webapp/templates/base.html:32
+msgid "Avrora"
+msgstr "Avrora"
+
+#: webapp/templates/base.html:33
+msgid "AVRORA"
+msgstr "AVRORA"
+
+#: webapp/templates/base.html:37
+msgid "Toggle navigation"
+msgstr "Toggle navigation"
+
+#: webapp/templates/base.html:43
+msgid "Запчасти"
+msgstr "Spare parts"
+
+#: webapp/templates/base.html:46
+msgid "О компании"
+msgstr "About Us"
+
+#: webapp/templates/base.html:49
+msgid "Контакты"
+msgstr "Contacts"
+
+#: webapp/templates/base.html:68
+msgid "English"
+msgstr "English"
+
+#: webapp/templates/base.html:76
+msgid "РУ"
+msgstr "Russian"
+
+#: webapp/templates/base.html:84
+msgid "한국어"
+msgstr "Korean"
+
+#: webapp/templates/base.html:92
+msgid "USD"
+msgstr ""
+
+#: webapp/templates/base.html:95
+msgid "KGZ"
+msgstr ""
+
+#: webapp/templates/base.html:96
+msgid "RUB"
+msgstr ""
+
+#: webapp/templates/base.html:97
+msgid "WON"
+msgstr ""
+
+#: webapp/templates/base.html:108
+msgid "CRM"
+msgstr ""
+
+#: webapp/templates/base.html:109 webapp/templates/base.html:112
+msgid "Выйти"
+msgstr "Log Out"
+
+#: webapp/templates/base.html:111
+msgid "Личный кабинет"
+msgstr "Personal Account"
+
+#: webapp/templates/base.html:115
+msgid "Войти"
+msgstr "Log In"
+
+#: webapp/templates/base.html:116
+msgid "Зарегистрироваться"
+msgstr "Register"
+
+#: webapp/templates/base.html:122
+msgid "Корзина"
+msgstr "Cart"
+
+#: webapp/templates/base.html:139
+msgid "© 2021 Автосалон 'ABC AUTO'. Официальный дилер"
+msgstr "© 2021 Auto Spare Parts. Official Dealer"
+
+#: webapp/templates/part/index.html:6
+msgid "Main"
+msgstr "Main"
+
+#: webapp/templates/part/index.html:17
+msgid "Продажа автозапчастей"
+msgstr "Full range of spare parts"
+
+#: webapp/templates/part/index.html:18
+msgid "Лучшие решения для вашего автомобиля"
+msgstr "The best solutions for your car"
+
+#: webapp/templates/part/index.html:23
+msgid "Качество и надежность"
+msgstr "Quality and reliability"
+
+#: webapp/templates/part/index.html:24
+msgid "Индивидуальные решения для ваших нужд"
+msgstr "Customized solutions for your needs"
+
+#: webapp/templates/part/index.html:29
+msgid "Инновационные подходы"
+msgstr "Innovative approaches"
+
+#: webapp/templates/part/index.html:30
+msgid "Повышение эффективности вашего автомобиля"
+msgstr "Improving your car's efficiency"
+
+#: webapp/templates/part/index.html:48
+msgid "Каталог товаров"
+msgstr "Product catalog"
+
+#: webapp/templates/part/index.html:67
+msgid "Наши партнеры"
+msgstr "Our partners"
+
+#: webapp/templates/part/index.html:100
+#, python-format
+msgid "Скидка 10%% на первый заказ"
+msgstr "10% discount on first order"
+
+#: webapp/templates/part/index.html:101
+msgid "Используйте код"
+msgstr "Use the Promo Code"
+
+#: webapp/templates/part/index.html:101
+msgid "WELCOME10"
+msgstr "WELCOME10"
+
+#: webapp/templates/part/index.html:102
+msgid "Получить скидку"
+msgstr "Get discount"
