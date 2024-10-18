@@ -84,7 +84,8 @@
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     {% if user.is_authenticated %}
                                         {% if user.is_staff %}
-                                            <li><a class="dropdown-item" href="/admin/">CRM</a></li>
+                                            <li><a class="dropdown-item" href="{% url 'admin_panel:admin_home' %}">CRM</a></li>
+                                            <li><a class="dropdown-item" href="{% url 'admin_panel:admin_home' %}">Админ</a>
                                             <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Выйти</a>
                                             </li>
                                         {% else %}
