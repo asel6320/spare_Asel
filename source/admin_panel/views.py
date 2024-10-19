@@ -1,12 +1,15 @@
+from django.contrib.auth.decorators import user_passes_test
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import Http404
 from django.contrib import messages
 from django.apps import apps
 from django.forms import modelform_factory
 
-import accounts
 
 EXCLUDED_APPS = {'auth', 'contenttypes', 'admin', 'sessions'}
+
+def staff_required(function):
+    return user_passes_test(lambda u: u.is_authenticated and u.is_staff)(function)
 
 
 def get_model_or_404(model_name):
@@ -23,6 +26,8 @@ def get_model_or_404(model_name):
         'user': 'accounts.User',
         'order': 'orders.Order',
         'orderpart': 'orders.OrderPart',
+        'review': 'webapp.Review',
+
 
     }
 
@@ -40,7 +45,7 @@ def get_model_or_404(model_name):
         print(f'Ошибка: Модель {model_path} не найдена.')  # Отладка
         raise Http404(f'Модель {model_name} не найдена.')
 
-
+@staff_required
 def admin_home(request):
     models = [
         model for model in apps.get_models()
@@ -57,6 +62,7 @@ def admin_home(request):
 
     return render(request, 'home.html', {'models': models_data})
 
+@staff_required
 def model_list(request, model_name):
     print(f'Получение списка для модели: {model_name}')  # Отладка
     model = get_model_or_404(model_name)
@@ -69,6 +75,8 @@ def model_list(request, model_name):
 
     return render(request, 'model_list.html', {'objects': objects, 'model_name': model_name})
 
+
+@staff_required
 def model_add(request, model_name):
     """Добавление нового объекта в модель."""
     model = get_model_or_404(model_name)
@@ -82,6 +90,8 @@ def model_add(request, model_name):
         form = get_model_form(model)()
     return render(request, 'model_form.html', {'form': form, 'model_name': model_name})
 
+
+@staff_required
 def model_edit(request, model_name, pk):
     """Редактирование существующего объекта модели."""
     model = get_model_or_404(model_name)
@@ -96,6 +106,8 @@ def model_edit(request, model_name, pk):
         form = get_model_form(model)(instance=obj)
     return render(request, 'model_form.html', {'form': form, 'model_name': model_name})
 
+
+@staff_required
 def model_delete(request, model_name, pk):
     """Удаление объекта модели."""
     model = get_model_or_404(model_name)
@@ -105,6 +117,7 @@ def model_delete(request, model_name, pk):
         messages.success(request, f'Запись из {model_name} удалена')
         return redirect('admin_panel:model_list', model_name=model_name)
     return render(request, 'model_delete.html', {'obj': obj, 'model_name': model_name})
+
 
 def get_model_form(model):
     """Генерация формы для модели."""

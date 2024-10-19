@@ -1,7 +1,5 @@
 from django.db.models import Q, Subquery, OuterRef, DecimalField
 from django.utils.http import urlencode
-from webapp.models.favorites import Favorite
-from webapp.models.price_history import PriceHistory
 from django.views.generic import ListView, DetailView
 
 from webapp.forms import SearchForm
@@ -64,7 +62,6 @@ class PartsListView(BasePartView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # No search form in this view, so we exclude 'search_form'
         context.pop('search_form', None)
         return context
 
