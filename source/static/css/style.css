@@ -35,15 +35,28 @@ body {
     margin-right: 10px;
 }
 
-.main-block{
-	background: url("/static/images/main-pic.jpg") 100% 0 no-repeat;
-    background-size: cover;
+.main-block {
 	color: #fff;
 	text-align: center;
 	margin-bottom: 100px;
 }
 
-.main-block-inner{
+.main-block-1 {
+    background: url("/static/images/slider-1.jpg") 100% 0 no-repeat;
+    background-size: cover;
+}
+
+.main-block-2 {
+    background: url("/static/images/slider-2.jpg") 100% 0 no-repeat;
+    background-size: cover;
+}
+
+.main-block-3 {
+    background: url("/static/images/slider-3.jpg") 100% 0 no-repeat;
+    background-size: cover;
+}
+
+.main-block-inner {
 	padding: 16.9% 0 17%;
 }
 

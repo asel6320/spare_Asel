@@ -33,7 +33,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-
+    "unfold",
+    "unfold.contrib.filters",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,14 +45,13 @@ INSTALLED_APPS = [
     "debug_toolbar",
     'webapp',
     'accounts',
-    'carts',
-    'orders',
-    'part',
+    'lang',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -126,7 +126,13 @@ INTERNAL_IPS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGES = [
+    ('ru', 'Russian'),
+    ('en', 'English'),
+    ('ko', 'Korean'),
+]
+
+LANGUAGE_CODE = 'ru'
 
 TELEGRAM_BOT_TOKEN = '7751663655:AAH_LSqPA1KLRCuEMDsLl_8s-QkaGZndbw4'
 TELEGRAM_CHAT_ID = ('1463061700')
@@ -135,15 +141,21 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
+USE_L10N = True
+
 USE_TZ = True
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+MEDIA_URL = '/parts/'
+
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
-MEDIA_URL = 'parts/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -153,3 +165,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.User'
 
 LOGOUT_REDIRECT_URL = '/'
+

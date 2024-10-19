@@ -16,9 +16,10 @@ Including another URLconf
 """
 from debug_toolbar.toolbar import debug_toolbar_urls
 from django.conf import settings
+from django.conf.urls.i18n import i18n_patterns
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from django.conf.urls.static import static
 
 urlpatterns = [
                   path('admin/', admin.site.urls, name='admin'),
@@ -27,4 +28,10 @@ urlpatterns = [
                   path('order/', include('orders.urls')),
                   path('', include('part.urls')),
                   path('accounts/', include("accounts.urls")),
-              ] + debug_toolbar_urls() + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path('lang/', include("lang.urls")),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + debug_toolbar_urls() + static(
+    settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += i18n_patterns(
+    path('', include('django.conf.urls.i18n')),
+)

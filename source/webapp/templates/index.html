@@ -1,9 +1,9 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load static %}
 
-
 {% block title %}
-    <title>Main</title>
+    <title>{% trans "Main" %}</title>
 {% endblock %}
 
 {% block content %}
@@ -12,25 +12,22 @@
         <div class="container main-block-inner">
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner overflow-visible">
-                    <div class="carousel-item active">
+                    <div class="carousel-item active main-block-1">
                         <div class="overlay">
-                            <h1>Продажа автозапчастей</h1>
-                            <p>- Лучшие решения для вашего автомобиля -</p>
-                            <a href="#" class="btn btn-danger">Заказать</a>
+                            <h1>{% trans "Продажа автозапчастей" %}</h1>
+                            <p>{% trans "Лучшие решения для вашего автомобиля" %}</p>
                         </div>
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item main-block-2">
                         <div class="overlay">
-                            <h1>Качество и надежность</h1>
-                            <p>- Индивидуальные решения для ваших нужд -</p>
-                            <a href="#" class="btn btn-danger">Заказать</a>
+                            <h1>{% trans "Качество и надежность" %}</h1>
+                            <p>-{% trans "Индивидуальные решения для ваших нужд" %}-</p>
                         </div>
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item main-block-3">
                         <div class="overlay">
-                            <h1>Инновационные подходы</h1>
-                            <p>- Повышение эффективности вашего автомобиля -</p>
-                            <a href="#" class="btn btn-danger">Заказать</a>
+                            <h1>{% trans "Инновационные подходы" %}</h1>
+                            <p>- {% trans "Повышение эффективности вашего автомобиля" %}-</p>
                         </div>
                     </div>
                 </div>
@@ -48,7 +45,7 @@
         </div>
     </div>
     <div class="sales container my-4">
-        <h3 class="all-headers pb-4">Каталог товаров</h3>
+        <h3 class="all-headers pb-4">{% trans "Каталог товаров" %}</h3>
 
         <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
             {% for part in parts %}
@@ -67,7 +64,7 @@
     
     <div class="container py-5">
         <div class="our-partners">
-            <h3 class="all-headers pb-4">Наши партнеры</h3>
+            <h3 class="all-headers pb-4">{% trans "Наши партнеры" %}</h3>
             <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 text-center">
                 <div class="col mb-4">
                     <a target="_blank" href="#">
@@ -100,9 +97,9 @@
     <div class="popup" id="discountPopup" style="display: none;">
         <div class="popup-content">
             <span class="close-btn">&times;</span>
-            <h2>Скидка 10% на первый заказ!</h2>
-            <p>Используйте код: <strong>WELCOME10</strong></p>
-            <a href="#" class="btn btn-danger">Получить скидку</a>
+            <h2>{% trans "Скидка 10% на первый заказ" %}!</h2>
+            <p>{% trans "Используйте код" %}: <strong>{% trans "WELCOME10" %}</strong></p>
+            <a href="#" class="btn btn-danger">{% trans "Получить скидку" %}</a>
         </div>
     </div>
     
