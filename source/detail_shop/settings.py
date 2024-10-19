@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     "debug_toolbar",
     'webapp',
     'accounts',
+    'part',
+    'carts',
+    'orders',
     'lang',
 ]
 
