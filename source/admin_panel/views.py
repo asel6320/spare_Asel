@@ -4,7 +4,10 @@ from django.http import Http404
 from django.contrib import messages
 from django.apps import apps
 from django.forms import modelform_factory
+import sys
 
+
+sys.stdout.reconfigure(encoding='utf-8')
 
 EXCLUDED_APPS = {'auth', 'contenttypes', 'admin', 'sessions'}
 
@@ -27,8 +30,6 @@ def get_model_or_404(model_name):
         'order': 'orders.Order',
         'orderpart': 'orders.OrderPart',
         'review': 'webapp.Review',
-
-
     }
 
     print(f'Запрос модели: {model_name}')  # Отладка
