@@ -1,0 +1,23 @@
+<div id="discountPopup" style="display: none;" class="popup-container">
+    <form id="contactForm" action="{% url 'contacts:contact' %}" method="POST" class="popup-form">
+        {% csrf_token %}
+        <div class="popup-header">
+            <h2>Не нашли то, что искали? Сообщите нам! </h2>
+            <button type="button" id="closePopup" class="close-btn">&times;</button>
+        </div>
+        <div class="popup-body">
+            <label for="last_name">Фамилия:</label>
+            <input type="text" name="last_name" id="last_name" required>
+
+            <label for="phone_number">Номер телефона:</label>
+            <input type="text" name="phone_number" id="phone_number" required>
+
+            <label for="comments">Комментарий:</label>
+            <textarea name="comments" id="comments"></textarea>
+
+            <button type="submit" class="submit-btn">Связаться</button>
+        </div>
+    </form>
+</div>
+
+<div id="jq-notification" style="display: none;"></div>
