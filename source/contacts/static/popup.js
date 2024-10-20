@@ -4,7 +4,7 @@ $(document).ready(function () {
     // всплывающее окно через 14 секунд
     setTimeout(function () {
         $("#discountPopup").fadeIn(400);
-    }, 4000);
+    }, 14000);
 
     // Закрытие всплывающего окна
     $("#closePopup").click(function () {
