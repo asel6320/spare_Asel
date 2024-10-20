@@ -1,4 +1,4 @@
-# from django.contrib import admin
+# from django.contrib import admin_panel
 # from django.http import HttpResponse
 # from django.shortcuts import render
 # from django.urls import path
@@ -11,53 +11,53 @@
 # from webapp.models.vehicleinfo import VehicleInfo
 # from webapp.models import Review, Order, OrderPart
 #
-# admin.site.register(Category)
-# admin.site.register(CarBrand)
-# admin.site.register(Engine)
-# admin.site.register(Country)
+# admin_panel.site.register(Category)
+# admin_panel.site.register(CarBrand)
+# admin_panel.site.register(Engine)
+# admin_panel.site.register(Country)
 #
 #
-# class PartAdmin(admin.ModelAdmin):
+# class PartAdmin(admin_panel.ModelAdmin):
 #     list_display = ('name', 'category', 'vehicle_info', 'amount')
 #     list_filter = ('category', 'vehicle_info__model__brand', 'amount')
 #
 #
-# admin.site.register(Part, PartAdmin)
+# admin_panel.site.register(Part, PartAdmin)
 #
 #
-# class CarModelAdmin(admin.ModelAdmin):
+# class CarModelAdmin(admin_panel.ModelAdmin):
 #     list_display = ('name', 'brand', 'year_of_manufacture')
 #     list_filter = ('brand', 'year_of_manufacture')
 #
 #
-# admin.site.register(CarModel, CarModelAdmin)
+# admin_panel.site.register(CarModel, CarModelAdmin)
 #
 #
-# class VehicleInfoAdmin(admin.ModelAdmin):
+# class VehicleInfoAdmin(admin_panel.ModelAdmin):
 #     list_display = ('vehicle_type', 'model', 'year_of_manufacture', 'engine')
 #     list_filter = ('vehicle_type', 'year_of_manufacture', 'engine')
 #
 #
-# admin.site.register(VehicleInfo, VehicleInfoAdmin)
+# admin_panel.site.register(VehicleInfo, VehicleInfoAdmin)
 #
 #
-# class ReviewAdmin(admin.ModelAdmin):
+# class ReviewAdmin(admin_panel.ModelAdmin):
 #     list_display = ('part', 'user', 'text')
 #     list_filter = ('part', 'user')
 #
 #
-# admin.site.register(Review, ReviewAdmin)
+# admin_panel.site.register(Review, ReviewAdmin)
 #
 #
-# class OrderAdmin(admin.ModelAdmin):
+# class OrderAdmin(admin_panel.ModelAdmin):
 #     list_display = ('user', 'first_name', 'last_name', 'created_at')
 #     list_filter = ('user', 'created_at')
 #
 #
-# admin.site.register(Order, OrderAdmin)
+# admin_panel.site.register(Order, OrderAdmin)
 #
 #
-# class OrderPartAdmin(admin.ModelAdmin):
+# class OrderPartAdmin(admin_panel.ModelAdmin):
 #     list_display = ('id', 'get_customer', 'get_number', 'get_part', 'quantity')
 #     list_filter = ('order__user__first_name', 'order__user__last_name', 'part__name')
 #     search_fields = ('order__user__first_name', 'order__user__last_name', 'part__name')
@@ -78,12 +78,12 @@
 #     get_part.short_description = 'Товар'
 #
 #
-# admin.site.register(OrderPart, OrderPartAdmin)
+# admin_panel.site.register(OrderPart, OrderPartAdmin)
 
 
-#class NewsAdmin(admin.ModelAdmin):
+#class NewsAdmin(admin_panel.ModelAdmin):
 #    list_display = ('title', 'short_description', 'full_text', 'published_at')
 #    list_filter = ('title', 'short_description', 'published_at')
 #    search_fields = ('title', 'short_description', 'full_text')
 
-#admin.site.register(News, NewsAdmin)
+#admin_panel.site.register(News, NewsAdmin)

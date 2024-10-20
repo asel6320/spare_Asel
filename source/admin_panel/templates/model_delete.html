@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Удалить объект</h1>
+    <p>Вы уверены, что хотите удалить этот объект?</p>
+    <p><strong>{{ obj }}</strong></p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        <a href="{% url 'admin_panel:model_list' model_name=model_name %}" class="btn btn-secondary">Отмена</a>
+    </form>
+</div>
+{% endblock %}
