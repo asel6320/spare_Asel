@@ -30,6 +30,7 @@ def get_model_or_404(model_name):
         'order': 'orders.Order',
         'orderpart': 'orders.OrderPart',
         'review': 'webapp.Review',
+        'news': 'webapp.News',
     }
 
     print(f'Запрос модели: {model_name}')  # Отладка
