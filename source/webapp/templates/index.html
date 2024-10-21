@@ -61,7 +61,7 @@
     {% endif %}
 
     {% include 'news/latest_news.html' %}
-    
+
     <div class="container py-5">
         <div class="our-partners">
             <h3 class="all-headers pb-4">{% trans "Наши партнеры" %}</h3>
@@ -94,13 +94,11 @@
         </div>
     </div>
     
-    <div class="popup" id="discountPopup" style="display: none;">
-        <div class="popup-content">
-            <span class="close-btn">&times;</span>
-            <h2>{% trans "Скидка 10% на первый заказ" %}!</h2>
-            <p>{% trans "Используйте код" %}: <strong>{% trans "WELCOME10" %}</strong></p>
-            <a href="#" class="btn btn-danger">{% trans "Получить скидку" %}</a>
-        </div>
-    </div>
+    {% include 'popup.html' %}
+
+
+<i id="openPopup" class="bi bi-chat-dots-fill" style="font-size: 2rem; cursor: pointer;"></i>
+
+
     
 {% endblock %}
