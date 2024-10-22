@@ -1,11 +1,13 @@
-from django.contrib.auth.decorators import user_passes_test
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import Http404
-from django.contrib import messages
-from django.apps import apps
-from django.forms import modelform_factory
 import sys
 
+from django.apps import apps
+from django.contrib import messages
+from django.contrib.auth.decorators import user_passes_test
+from django.forms import modelform_factory
+from django.http import Http404
+from django.shortcuts import render, get_object_or_404, redirect
+
+from admin_panel.form import PriceUpdateForm
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -31,6 +33,7 @@ def get_model_or_404(model_name):
         'orderpart': 'orders.OrderPart',
         'review': 'webapp.Review',
         'news': 'webapp.News',
+
     }
 
     print(f'Запрос модели: {model_name}')  # Отладка
@@ -124,3 +127,4 @@ def model_delete(request, model_name, pk):
 def get_model_form(model):
     """Генерация формы для модели."""
     return modelform_factory(model, fields='__all__')
+

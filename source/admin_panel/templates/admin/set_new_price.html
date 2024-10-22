@@ -1,0 +1,26 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+  <h1>Обновление цен</h1>
+  <form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" name="apply">Применить</button>
+  </form>
+  <hr>
+  <h2>Выбранные запчасти</h2>
+  <ul>
+    {% for part in queryset %}
+      <li>{{ part.part.name }} - Цена: {{ part.price }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+
+ modeladmin.message_user(
+                request,
+                ngettext(
+                    "%d цена была успешно изменена.",
+                    "%d цены были успешно изменены.",
+                    updated_count,
+                ) % updated_count,
+                messages.SUCCESS
+            )

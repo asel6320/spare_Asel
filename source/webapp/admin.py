@@ -1,15 +1,13 @@
-# from django.contrib import admin_panel
-# from django.http import HttpResponse
-# from django.shortcuts import render
-# from django.urls import path
-#
-# from webapp.models.category import Category
-# from webapp.models.part import Part
+# from django.contrib import admin as admin_panel
+# from orders.models import Order, OrderPart
+# from part.models import Part
+# from webapp.models import Review
 # from webapp.models.car import CarModel, CarBrand
-# from webapp.models.engine import Engine
+# from webapp.models.category import Category
 # from webapp.models.country import Country
+# from webapp.models.engine import Engine
+# from webapp.models.news import News
 # from webapp.models.vehicleinfo import VehicleInfo
-# from webapp.models import Review, Order, OrderPart
 #
 # admin_panel.site.register(Category)
 # admin_panel.site.register(CarBrand)
@@ -79,11 +77,12 @@
 #
 #
 # admin_panel.site.register(OrderPart, OrderPartAdmin)
-
-
-#class NewsAdmin(admin_panel.ModelAdmin):
-#    list_display = ('title', 'short_description', 'full_text', 'published_at')
-#    list_filter = ('title', 'short_description', 'published_at')
-#    search_fields = ('title', 'short_description', 'full_text')
-
-#admin_panel.site.register(News, NewsAdmin)
+#
+#
+# class NewsAdmin(admin_panel.ModelAdmin):
+#     list_display = ('title', 'short_description', 'full_text', 'published_at')
+#     list_filter = ('title', 'short_description', 'published_at')
+#     search_fields = ('title', 'short_description', 'full_text')
+#
+#
+# admin_panel.site.register(News, NewsAdmin)

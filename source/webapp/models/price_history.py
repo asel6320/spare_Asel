@@ -16,3 +16,5 @@ class PriceHistory(models.Model):
         db_table = 'price_histories'
         ordering = ['-date_changed']
         app_label = 'webapp'
+
+
