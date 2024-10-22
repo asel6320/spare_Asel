@@ -19,7 +19,6 @@ body {
 }
 
 .logo-custom {
-
     font-family: 'Poppins', sans-serif;
 }
 
@@ -56,28 +55,17 @@ body {
     background-size: cover;
 }
 
-.main-block-inner {
-	padding: 16.9% 0 17%;
-}
-
 .carousel-item {
     position: relative;
 }
 
 .overlay {
-    position: absolute;
-    top: -117px;
-    left: 33px;
-    right: 24px;
-    bottom: 14px;
-    background-color: rgba(128, 128, 128, 0.5);
     color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 120px;
-    z-index: 1;
+    padding: 200px;
 }
 
 .overlay h1 {
