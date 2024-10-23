@@ -251,22 +251,30 @@
         {% endblock %}
     </main>
 
-    <footer class="footer bg-footer-custom py-4">
-        <div class="container">
-            <p class="footer-text text-center mb-3">{% trans "© 2021 Автосалон 'ABC AUTO'. Официальный дилер" %}</p>
-            <div class="social-media-links d-flex justify-content-center">
-                <a href="https://www.instagram.com" target="_blank" class="text-light me-4">
-                    <i class="fab fa-instagram fa-lg"></i>
-                </a>
-                <a href="https://wa.me/123456789" target="_blank" class="text-light me-4">
-                    <i class="fab fa-whatsapp fa-lg"></i>
-                </a>
-                <a href="https://www.kakao.com" target="_blank" class="text-light">
-                    <i class="fas fa-comment-dots fa-lg"></i>
-                </a>
-            </div>
+<footer class="footer bg-footer-custom py-4">
+    <div class="container">
+        <p class="footer-text text-center mb-3">{% trans "© 2021 Автосалон 'ABC AUTO'. Официальный дилер" %}</p>
+
+        <div class="text-center mb-3">
+            <a href="{% url 'webapp:contract_offer' %}" class="text-light">
+                {% trans "Договор оферты" %}
+            </a>
         </div>
-    </footer>
+
+        <div class="social-media-links d-flex justify-content-center">
+            <a href="https://www.instagram.com" target="_blank" class="text-light me-4">
+                <i class="fab fa-instagram fa-lg"></i>
+            </a>
+            <a href="https://wa.me/123456789" target="_blank" class="text-light me-4">
+                <i class="fab fa-whatsapp fa-lg"></i>
+            </a>
+            <a href="https://www.kakao.com" target="_blank" class="text-light">
+                <i class="fas fa-comment-dots fa-lg"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Договор оферты</title>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Договор оферты</h1>
+
+
+    <div class="content-section">
+        <p>Здесь будет содержаться информация о договоре оферты...</p>
+    </div>
+
+    <div class="my-4">
+        <h3>Дополнительные документы и политики</h3>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <a href="{% url 'webapp:contract_offer' %}" class="text-decoration-none">Договор оферты</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'webapp:privacy_policy' %}" class="text-decoration-none">Политика конфиденциальности</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'webapp:terms_of_use' %}" class="text-decoration-none">Условия использования сайта</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'webapp:product_docs' %}" class="text-decoration-none">Документация по продуктам</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'webapp:brand_style' %}" class="text-decoration-none">Логотип и фирменный стиль</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

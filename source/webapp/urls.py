@@ -6,6 +6,9 @@ from webapp.views.favorites import FavoriteView, FavoriteAdd, FavoriteDelete
 from webapp.views import news
 from webapp.views.reviews import CreateReviewView
 
+from webapp.views.contact_offer import *
+
+
 app_name = 'webapp'
 
 urlpatterns = [
@@ -21,4 +24,11 @@ urlpatterns = [
     path('news/<int:news_id>/', news.news_detail, name='news_detail'),
 
     path('part/<int:pk>/review/create/', CreateReviewView.as_view(), name='create_review'),
+
+
+    path('contract_offer/', contract_offer, name='contract_offer'),
+    path('privacy_policy/', privacy_policy, name='privacy_policy'),
+    path('terms_of_use/', terms_of_use, name='terms_of_use'),
+    path('product_docs/', product_docs, name='product_docs'),
+    path('brand_style/', brand_style, name='brand_style'),
 ]
