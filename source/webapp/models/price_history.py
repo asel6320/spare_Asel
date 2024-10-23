@@ -1,7 +1,6 @@
 from django.db import models
 
 
-
 class PriceHistory(models.Model):
     part = models.ForeignKey('part.Part', related_name='price_history', on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=1000, decimal_places=2)
