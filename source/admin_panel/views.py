@@ -1,15 +1,16 @@
-from django.contrib.auth.decorators import user_passes_test
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import Http404
-from django.contrib import messages
-from django.apps import apps
-from django.forms import modelform_factory
 import sys
 
+from django.apps import apps
+from django.contrib import messages
+from django.contrib.auth.decorators import user_passes_test
+from django.forms import modelform_factory
+from django.http import Http404
+from django.shortcuts import render, get_object_or_404, redirect
 
 sys.stdout.reconfigure(encoding='utf-8')
 
 EXCLUDED_APPS = {'auth', 'contenttypes', 'admin', 'sessions'}
+
 
 def staff_required(function):
     return user_passes_test(lambda u: u.is_authenticated and u.is_staff)(function)
@@ -31,6 +32,7 @@ def get_model_or_404(model_name):
         'orderpart': 'orders.OrderPart',
         'review': 'webapp.Review',
         'news': 'webapp.News',
+
     }
 
     print(f'Запрос модели: {model_name}')  # Отладка
@@ -46,6 +48,7 @@ def get_model_or_404(model_name):
     except LookupError:
         print(f'Ошибка: Модель {model_path} не найдена.')  # Отладка
         raise Http404(f'Модель {model_name} не найдена.')
+
 
 @staff_required
 def admin_home(request):
@@ -63,6 +66,7 @@ def admin_home(request):
     ]
 
     return render(request, 'home.html', {'models': models_data})
+
 
 @staff_required
 def model_list(request, model_name):
