@@ -1,33 +1,29 @@
-{% extends "admin/base_site.html" %}
+{% extends "base.html" %}
 
 {% block content %}
-    <h1>Обновление цен</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="hidden" name="apply" value="1">
-        <input type="submit"  value="Применить">
-    </form>
-    <hr>
-    <h2>Выбранные запчасти</h2>
-    {% if queryset %}
-        <ul>
-            {% for part in queryset %}
-                <li>{{ part.part.name }} - Цена: {{ part.price }}</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>Никакие запчасти не выбраны.</p>
-    {% endif %}
+    <div class="container mt-5">
+        <h1 class="text-center">Массовая смена цен</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="price">Новая цена:</label>
+                {{ form.price }}
+                <br><br>
+                <button type="submit" class="btn btn-primary">Применить</button>
+            </div>
 
+            <h4>Выберите запчасти для обновления:</h4>
+            <ul class="list-group mb-3">
+                {% for part in parts %}
+                    <li class="list-group-item">
+                        <input type="checkbox" name="selected_parts" value="{{ part.id }}">
+                        {{ part.name }} - {{ part.current_price  }}
+                    </li>
+                {% endfor %}
+            </ul>
+
+
+        </form>
+        <a href="{% url 'admin_panel:admin_home' %}" class="btn btn-secondary mt-3">Назад</a>
+    </div>
 {% endblock %}
-
-{# modeladmin.message_user(#}
-{#                request,#}
-{#                ngettext(#}
-{#                    "%d цена была успешно изменена.",#}
-{#                    "%d цены были успешно изменены.",#}
-{#                    updated_count,#}
-{#                ) % updated_count,#}
-{#                messages.SUCCESS#}
-{#            )#}

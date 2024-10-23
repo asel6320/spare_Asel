@@ -7,7 +7,7 @@ class PriceHistory(models.Model):
     date_changed = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Цена на {self.part.name} от {self.date_changed.strftime('%Y-%m-%d')}: {self.price}"
+        return f"Цена: {self.price}, Дата: {self.date_changed.strftime('%Y-%m-%d %H:%M')}"
 
     class Meta:
         verbose_name_plural = "Истории цен"

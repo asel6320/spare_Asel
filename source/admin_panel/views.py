@@ -7,11 +7,10 @@ from django.forms import modelform_factory
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404, redirect
 
-from admin_panel.form import PriceUpdateForm
-
 sys.stdout.reconfigure(encoding='utf-8')
 
 EXCLUDED_APPS = {'auth', 'contenttypes', 'admin', 'sessions'}
+
 
 def staff_required(function):
     return user_passes_test(lambda u: u.is_authenticated and u.is_staff)(function)
@@ -50,6 +49,7 @@ def get_model_or_404(model_name):
         print(f'Ошибка: Модель {model_path} не найдена.')  # Отладка
         raise Http404(f'Модель {model_name} не найдена.')
 
+
 @staff_required
 def admin_home(request):
     models = [
@@ -66,6 +66,7 @@ def admin_home(request):
     ]
 
     return render(request, 'home.html', {'models': models_data})
+
 
 @staff_required
 def model_list(request, model_name):
@@ -127,4 +128,3 @@ def model_delete(request, model_name, pk):
 def get_model_form(model):
     """Генерация формы для модели."""
     return modelform_factory(model, fields='__all__')
-

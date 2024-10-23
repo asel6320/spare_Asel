@@ -1,9 +1,14 @@
-{% load static %}
+{
+%
+load
+static
+%
+}
 
 *,
 *::after,
-*::before{
-  box-sizing: border-box;
+*::before {
+    box-sizing: border-box;
 }
 
 body {
@@ -36,9 +41,9 @@ body {
 }
 
 .main-block {
-	color: #fff;
-	text-align: center;
-	margin-bottom: 100px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 100px;
 }
 
 .main-block-1 {
@@ -57,7 +62,7 @@ body {
 }
 
 .main-block-inner {
-	padding: 16.9% 0 17%;
+    padding: 16.9% 0 17%;
 }
 
 .carousel-item {
@@ -223,10 +228,10 @@ body {
 }
 
 .partCarousel .carousel-indicators button {
-   width: 8px;
-   height: 8px;
-   border-radius: 100%;
-   border: 1px solid gray;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    border: 1px solid gray;
 }
 
 .card-review {
