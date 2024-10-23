@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
     const favoriteForms = document.querySelectorAll('.favorite-form'); // Выбираем все формы с классом "favorite-form"
+
     favoriteForms.forEach(form => {
         form.addEventListener('submit', function (event) {
             event.preventDefault();
             const formData = new FormData(form);
             const partId = form.getAttribute('data-part-id');
+
             fetch(form.action, {
                 method: 'POST',
                 body: formData,
@@ -22,6 +24,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     form.querySelector('i').classList.remove('bi-heart-fill', 'text-danger');
                     form.querySelector('i').classList.add('bi-heart', 'text-black-50');
                 }
+
+
                 const favoriteCountElement = document.querySelector('.favorites-count');
                 if (favoriteCountElement) {
                     favoriteCountElement.textContent = data.favorite_count;
@@ -31,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('Ошибка:', error);
             });
         });
+
         const isFavorite = form.querySelector('i').classList.contains('bi-heart-fill');
         if (isFavorite) {
             form.querySelector('i').classList.add('bi-heart-fill', 'text-danger');
