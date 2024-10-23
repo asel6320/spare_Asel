@@ -32,6 +32,7 @@ urlpatterns = [
                   path('admin_panel/', include("admin_panel.urls")),
                   path('lang/', include("lang.urls")),
                   path('contacts/', include('contacts.urls')),
+                  path('django_crm/', include('django_crm.urls')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + debug_toolbar_urls() + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
