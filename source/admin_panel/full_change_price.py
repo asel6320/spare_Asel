@@ -33,7 +33,7 @@ class UpdatePricesView(View):
         return render(request, 'admin/set_new_price.html', {'form': form, 'parts': parts})
 
     def get_parts(self):
-        return Part.objects.all()
+        return Part.objects.order_by('category')
 
     def update_part_prices(self, selected_parts, new_price):
         with transaction.atomic():
