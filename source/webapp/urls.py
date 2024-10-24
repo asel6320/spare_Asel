@@ -19,7 +19,6 @@ urlpatterns = [
     path('favorites/add/<int:pk>/', FavoriteAdd.as_view(), name='favorite_add'),
     path('favorites/<int:pk>/delete/', FavoriteDelete.as_view(), name='favorite_delete'),
 
-    path('', news.LatestNewsView.as_view(), name='latest_news'),
     path('news/', news.news_list, name='news_list'),
     path('news/<int:news_id>/', news.news_detail, name='news_detail'),
 

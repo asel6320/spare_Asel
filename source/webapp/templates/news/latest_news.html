@@ -1,6 +1,5 @@
 <div class="news-list">
-    <p>Количество новостей: {{ latest|length }}</p>  
-    <p>Контекст новостей: {{ latest }}</p>
+
     {% for news in latest %}
         <div class="news-item">
             <h3>{{ news.title }}</h3>
@@ -10,13 +9,13 @@
             {% endif %}
             <a href="{% url 'webapp:news_detail' news.id %}">Читать далее</a>
         </div>
-    {% empty %}
+        {% empty %}
         <p>Отладка: Новости не найдены</p>
     {% endfor %}
 </div>
 
 </div>
-    <div style="text-align: center;">
-        <a href="{% url 'webapp:news_list' %}" class="btn btn-danger">Посмотреть все новости</a>
-    </div>
+<div style="text-align: center;">
+    <a href="{% url 'webapp:news_list' %}" class="btn btn-danger">Посмотреть все новости</a>
+</div>
 </div>
