@@ -1,0 +1,27 @@
+services:
+  db:
+    image: postgres:14.3
+    ports:
+      - "5434:5432"
+    env_file:
+      - ./source/.env
+    restart: always
+    container_name: ESDP
+    volumes:
+      - ./.volumes/db:/var/lib/postgresql/data/
+
+  web:
+    build:
+      context: .
+      dockerfile: source/Dockerfile
+    env_file:
+      - ./source/.env
+    ports:
+      - "8000:8000"
+    restart: always
+    container_name: spare_parts_web
+    volumes:
+      - ./source/:/code
+    depends_on:
+      - db
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
