@@ -32,6 +32,7 @@ def get_model_or_404(model_name):
         'orderpart': 'orders.OrderPart',
         'review': 'webapp.Review',
         'news': 'webapp.News',
+        'partdocument': 'documents.PartDocument',
 
     }
 
@@ -84,17 +85,21 @@ def model_list(request, model_name):
 
 @staff_required
 def model_add(request, model_name):
-    """Добавление нового объекта в модель."""
+    """Добавление нового объекта модели."""
     model = get_model_or_404(model_name)
     if request.method == 'POST':
-        form = get_model_form(model)(request.POST)
+        form = get_model_form(model)(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Запись добавлена в {model_name}')
+            messages.success(request, f'Запись успешно добавлена в {model_name}')  # Убедитесь, что это есть
             return redirect('admin_panel:model_list', model_name=model_name)
+        else:
+            messages.error(request, 'Пожалуйста, исправьте ошибки в форме.')  # Информируем о невалидной форме
     else:
         form = get_model_form(model)()
+
     return render(request, 'model_form.html', {'form': form, 'model_name': model_name})
+
 
 
 @staff_required
