@@ -9,4 +9,12 @@ class CustomerListView(ListView):
     queryset = User.objects.all()
     context_object_name = 'customers'
 
+class OrderListView(ListView):
+    template_name = 'order_list.html'
+    model = Order
+    context_object_name = 'orders'
+    paginate_by = 10
+
+
+
 
