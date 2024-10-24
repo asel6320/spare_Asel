@@ -28,19 +28,20 @@
                 <!-- Поля для ввода данных -->
                 <div class="mb-3" id="price_field" style="display: none;">
                     <label for="price" class="form-label">Введите новую цену:</label>
-                    <input type="text" class="form-control" name="price" id="price" placeholder="Новая цена"
+                    <input type="number" class="form-control" name="price" id="price" placeholder="Новая цена"
                            step="0.01">
                 </div>
 
                 <div class="mb-3" id="percentage_field" style="display: none;">
                     <label for="percentage" class="form-label">Введите процент изменения:</label>
-                    <input type="text" class="form-control" name="percentage" id="percentage"
+                    <input type="number" class="form-control" name="percentage" id="percentage"
                            placeholder="Процент изменения" step="0.01">
                 </div>
 
                 <div class="mb-3" id="price_to_field" style="display: none;">
                     <label for="price_to" class="form-label">Введите сумму изменения:</label>
-                    <input type="text" class="form-control" name="price_to" id="price_to" placeholder="Сумма изменения"
+                    <input type="number" class="form-control" name="price_to" id="price_to"
+                           placeholder="Сумма изменения"
                            step="0.01">
                 </div>
 
@@ -72,4 +73,5 @@
             color: white;
         }
     </style>
+    
 {% endblock %}
