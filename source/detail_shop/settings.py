@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'admin_panel',
     'lang',
     'contacts',
-    'django_crm',
+    'crm',
 ]
 
 MIDDLEWARE = [
