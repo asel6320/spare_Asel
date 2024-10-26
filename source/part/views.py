@@ -6,6 +6,7 @@ from webapp.forms import SearchForm
 from part.form import PartsFilterForm
 from webapp.models import Country, CarBrand, CarModel, Category, PriceHistory
 from part.models import Part
+from webapp.models.news import News
 from webapp.models.review import Review
 
 
@@ -62,6 +63,7 @@ class PartsListView(BasePartView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['latest'] = News.objects.order_by("-published_at")[:5]
         context.pop('search_form', None)
         return context
 

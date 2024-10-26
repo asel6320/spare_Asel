@@ -2,28 +2,76 @@
 
 {% block content %}
     <div class="container mt-5">
-        <h1 class="text-center">Массовая смена цен</h1>
-        <form method="post">
-            {% csrf_token %}
-            <div class="mb-3">
-                <label for="price">Новая цена:</label>
-                {{ form.price }}
-                <br><br>
-                <button type="submit" class="btn btn-primary">Применить</button>
-            </div>
+        <div class="card shadow-sm p-4">
+            <h1 class="text-center mb-4">Массовая смена цен</h1>
+            <form method="post">
+                {% csrf_token %}
 
-            <h4>Выберите запчасти для обновления:</h4>
-            <ul class="list-group mb-3">
-                {% for part in parts %}
-                    <li class="list-group-item">
-                        <input type="checkbox" name="selected_parts" value="{{ part.id }}">
-                        {{ part.name }} - {{ part.current_price  }}
-                    </li>
-                {% endfor %}
-            </ul>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Выберите тип изменения:</label>
+                    <div class="btn-group w-100" role="group" aria-label="Change type">
+                        <input type="radio" class="btn-check" name="change_type" id="change_price" value="price"
+                               onclick="toggleOptions('price')" autocomplete="off">
+                        <label class="btn btn-outline-primary w-100" for="change_price">Поменять в цене</label>
 
+                        <input type="radio" class="btn-check" name="change_type" id="change_percentage"
+                               value="percentage" onclick="toggleOptions('percentage')" autocomplete="off">
+                        <label class="btn btn-outline-primary w-100" for="change_percentage">Поменять в
+                            процентах</label>
 
-        </form>
-        <a href="{% url 'admin_panel:admin_home' %}" class="btn btn-secondary mt-3">Назад</a>
+                        <input type="radio" class="btn-check" name="change_type" id="change_price_to" value="price_to"
+                               onclick="toggleOptions('price_to')" autocomplete="off">
+                        <label class="btn btn-outline-primary w-100" for="change_price_to">Поменять цену НА</label>
+                    </div>
+                </div>
+
+                <!-- Поля для ввода данных -->
+                <div class="mb-3" id="price_field" style="display: none;">
+                    <label for="price" class="form-label">Введите новую цену:</label>
+                    <input type="number" class="form-control" name="price" id="price" placeholder="Новая цена"
+                           step="0.01">
+                </div>
+
+                <div class="mb-3" id="percentage_field" style="display: none;">
+                    <label for="percentage" class="form-label">Введите процент изменения:</label>
+                    <input type="number" class="form-control" name="percentage" id="percentage"
+                           placeholder="Процент изменения" step="0.01">
+                </div>
+
+                <div class="mb-3" id="price_to_field" style="display: none;">
+                    <label for="price_to" class="form-label">Введите сумму изменения:</label>
+                    <input type="number" class="form-control" name="price_to" id="price_to"
+                           placeholder="Сумма изменения"
+                           step="0.01">
+                </div>
+
+                <!-- Список запчастей для выбора -->
+                <h4 class="fw-bold mt-4">Выберите запчасти для обновления:</h4>
+                <ul class="list-group mb-3">
+                    {% for part in parts %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <input type="checkbox" name="selected_parts" value="{{ part.id }}">
+                                {{ part.name }}
+                            </div>
+                            <span class="badge bg-secondary rounded-pill price-tag">{{ part.current_price }} сом</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                <button type="submit" class="btn btn-success w-100">Применить изменения</button>
+            </form>
+
+            <a href="{% url 'admin_panel:admin_home' %}" class="btn btn-secondary mt-3 w-100">Назад</a>
+        </div>
     </div>
+    <style>
+        .price-tag {
+            font-size: 1rem;
+            padding: 5px;
+            background-color: #6c757d;
+            color: white;
+        }
+    </style>
+    
 {% endblock %}
