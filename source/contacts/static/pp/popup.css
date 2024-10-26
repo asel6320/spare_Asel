@@ -1,13 +1,13 @@
 
 .popup-container {
     position: fixed;
-    bottom: 250px;
-    left: 200px;
-    width: 375px;
-    height: 570px;
-    background-color: #f9f9f9;
+    bottom: 20px;
+    right: 20px;
+    width: 285px;
+    height: 585px;
+    background-color: #e3e3e3;
     border-radius: 10px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     border: 1px solid #ddd;
     font-family: 'Arial', sans-serif;
@@ -16,7 +16,7 @@
 
 
 .popup-form {
-    padding: 30px;
+    padding: 20px;
 }
 
 
@@ -30,8 +30,8 @@
 
 .popup-header h2 {
     margin: 0;
-    font-size: 36px;
-    color: green;
+    font-size: 16px;
+    color: #800000;
 }
 
 
@@ -39,7 +39,7 @@
     border: none;
     background: none;
     font-size: 24px;
-    color: #aaa;
+    color: black;
     cursor: pointer;
 }
 
@@ -63,10 +63,18 @@
     border-radius: 4px;
 }
 
+.popup-body input[type="email"], .popup-body textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0 16px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 
 .submit-btn {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: red;
     color: white;
     padding: 10px;
     font-size: 16px;
