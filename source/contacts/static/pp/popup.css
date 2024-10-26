@@ -1,10 +1,10 @@
 
 .popup-container {
     position: fixed;
-    bottom: 0;
+    bottom: 20px;
     right: 20px;
-    width: 400px;
-    height: 600px;
+    width: 285px;
+    height: 585px;
     background-color: #e3e3e3;
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -16,7 +16,7 @@
 
 
 .popup-form {
-    padding: 30px;
+    padding: 20px;
 }
 
 
@@ -30,7 +30,7 @@
 
 .popup-header h2 {
     margin: 0;
-    font-size: 25px;
+    font-size: 16px;
     color: #800000;
 }
 
@@ -56,6 +56,14 @@
 
 
 .popup-body input[type="text"], .popup-body textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0 16px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.popup-body input[type="email"], .popup-body textarea {
     width: 100%;
     padding: 8px;
     margin: 8px 0 16px 0;
