@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'part',
     'admin_panel',
     'lang',
-    'contacts'
+    'contacts',
+    "documents"
 ]
 
 MIDDLEWARE = [
@@ -157,6 +158,8 @@ LOCALE_PATHS = [
 STATIC_URL = 'static/'
 
 MEDIA_URL = '/parts/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'parts')
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static'

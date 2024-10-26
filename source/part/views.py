@@ -1,7 +1,7 @@
 from django.db.models import Q, Subquery, OuterRef, DecimalField
 from django.utils.http import urlencode
 from django.views.generic import ListView, DetailView
-
+from documents.models import PartDocument
 from webapp.forms import SearchForm
 from part.form import PartsFilterForm
 from webapp.models import Country, CarBrand, CarModel, Category, PriceHistory
@@ -152,13 +152,16 @@ class PartsDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         part_category = self.object.category
-        related_parts = Part.objects.filter(category=part_category).exclude(pk=self.object.pk)[
-                        :5]  # Получаем похожие запчасти по категории
+        related_parts = Part.objects.filter(category=part_category).exclude(pk=self.object.pk)[:5]  # Get related parts
         context['related_parts'] = related_parts
         context['category'] = part_category
         context['reviews'] = Review.objects.all()
 
+        # Fetch documents related to the part
+        context['documents'] = PartDocument.objects.filter(part=self.object)  # Assuming a ForeignKey from Document to Part
+
         return context
+
 
 
 
