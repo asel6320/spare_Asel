@@ -15,12 +15,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/media.css' %}">
     <link rel="stylesheet" href="{% static 'css/popup.css' %}">
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <link rel="stylesheet" href="{% static 'pp/popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/subcribe.css' %}">
     {% block title %}
         <title>{% trans "Web Title" %}</title>
     {% endblock %}
@@ -154,7 +156,7 @@
             {% include "cart/cart_button.html" %}
         {% endblock %}
     </main>
-
+{% include 'subcribe.html' %}
 <footer class="footer bg-footer-custom py-4">
     <div class="container">
         <p class="footer-text text-center mb-3">{% trans "© 2021 Автосалон 'ABC AUTO'. Официальный дилер" %}</p>
