@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'part',
     'admin_panel',
     'lang',
-    'contacts'
+    'contacts',
+    'newsletter'
 ]
 
 MIDDLEWARE = [
