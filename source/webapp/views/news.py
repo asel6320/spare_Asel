@@ -12,5 +12,5 @@ def news_detail(request, news_id):
 
 def news_list(request):
     news_list = News.objects.order_by("-published_at")
-    a = ""
+    aa = ""
     return render(request, "news/news_list.html", {"news_list": news_list})
