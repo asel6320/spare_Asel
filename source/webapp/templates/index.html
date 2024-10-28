@@ -60,7 +60,14 @@
         {% include 'partial/pagination.html' %}
     {% endif %}
 
-    {% include 'news/latest_news.html' %}
+    <div class="news container">
+        <div>
+            <h3 class="all-headers">Последние новости</h3>
+        </div>
+        {% include 'news/latest_news.html' %}
+    </div>
+
+
 
     <div class="container py-5">
         <div class="our-partners">
