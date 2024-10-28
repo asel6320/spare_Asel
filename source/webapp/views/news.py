@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import math
 from webapp.models.news import News
 from django.shortcuts import get_object_or_404
 
@@ -10,5 +11,5 @@ def news_detail(request, news_id):
 
 def news_list(request):
     news_list = News.objects.order_by("-published_at")
-    a = ""
+    l = ""
     return render(request, "news/news_list.html", {"news_list": news_list})
