@@ -6,26 +6,26 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('webapp', '0018_alter_pricehistory_price_delete_cart'),
+        ("webapp", "0018_alter_pricehistory_price_delete_cart"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='orderpart',
-            name='order',
+            model_name="orderpart",
+            name="order",
         ),
         migrations.RemoveField(
-            model_name='orderpart',
-            name='part',
+            model_name="orderpart",
+            name="part",
         ),
         migrations.RemoveField(
-            model_name='orderpart',
-            name='user',
+            model_name="orderpart",
+            name="user",
         ),
         migrations.DeleteModel(
-            name='Order',
+            name="Order",
         ),
         migrations.DeleteModel(
-            name='OrderPart',
+            name="OrderPart",
         ),
     ]

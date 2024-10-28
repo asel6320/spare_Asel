@@ -7,18 +7,36 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='ContactRequest',
+            name="ContactRequest",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('last_name', models.CharField(max_length=100, verbose_name='Фамилия')),
-                ('phone_number', models.CharField(max_length=20, verbose_name='Номер телефона')),
-                ('comments', models.TextField(blank=True, null=True, verbose_name='Комментарии')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Дата запроса')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("last_name", models.CharField(max_length=100, verbose_name="Фамилия")),
+                (
+                    "phone_number",
+                    models.CharField(max_length=20, verbose_name="Номер телефона"),
+                ),
+                (
+                    "comments",
+                    models.TextField(blank=True, null=True, verbose_name="Комментарии"),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="Дата запроса"
+                    ),
+                ),
             ],
         ),
     ]

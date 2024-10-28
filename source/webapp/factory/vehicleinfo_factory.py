@@ -7,10 +7,10 @@ from webapp.models import VehicleInfo
 
 
 class VehicleInfoFactory(factory.django.DjangoModelFactory):
-    vehicle_type = factory.Sequence(lambda n: f'Vehicle_type {n}')
+    vehicle_type = factory.Sequence(lambda n: f"Vehicle_type {n}")
     model = factory.SubFactory(CarModelFactory)
     year_of_manufacture = factory.Faker("random_int", min=1990, max=2024)
-    body_type = factory.Sequence(lambda n: f'Body_type {n}')
+    body_type = factory.Sequence(lambda n: f"Body_type {n}")
     engine = factory.SubFactory(EngineFactory)
 
     @factory.post_generation

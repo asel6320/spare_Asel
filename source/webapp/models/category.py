@@ -11,6 +11,6 @@ class Category(models.Model):
         return self.name
 
     class Meta:
-        verbose_name_plural = 'Категории деталей'
-        verbose_name = 'Категория детали'
-        db_table = 'car_categories'
+        verbose_name_plural = "Категории деталей"
+        verbose_name = "Категория детали"
+        db_table = "car_categories"

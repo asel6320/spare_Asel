@@ -8,4 +8,4 @@ from django.contrib.auth import logout
 def custom_logout_view(request):
     messages.success(request, f"{request.user.username} - Вы вышли из аккаунта")
     logout(request)
-    return redirect('part:parts_list')
+    return redirect("part:parts_list")

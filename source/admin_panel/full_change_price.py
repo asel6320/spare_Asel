@@ -8,41 +8,49 @@ from admin_panel.form import PriceUpdateForm
 from part.models import Part
 
 
-@method_decorator(staff_member_required, name='dispatch')
+@method_decorator(staff_member_required, name="dispatch")
 class UpdatePricesView(View):
     def get(self, request):
         parts = self.get_parts()
         form = PriceUpdateForm()
-        return render(request, 'admin/set_new_price.html', {'form': form, 'parts': parts})
+        return render(
+            request, "admin/set_new_price.html", {"form": form, "parts": parts}
+        )
 
     def post(self, request):
         form = PriceUpdateForm(request.POST)
         if form.is_valid():
-            change_type = request.POST.get('change_type')
-            selected_parts = request.POST.getlist('selected_parts')
+            change_type = request.POST.get("change_type")
+            selected_parts = request.POST.getlist("selected_parts")
 
             if not selected_parts:
-                messages.error(request, 'Выберите хотя бы одну запчасть для обновления цен')
-                return redirect('admin_panel:update_prices')
+                messages.error(
+                    request, "Выберите хотя бы одну запчасть для обновления цен"
+                )
+                return redirect("admin_panel:update_prices")
 
-            if change_type == 'price':
-                new_price = form.cleaned_data.get('price')
+            if change_type == "price":
+                new_price = form.cleaned_data.get("price")
                 self.update_part_prices(selected_parts, new_price)
-            elif change_type == 'percentage':
-                percentage = form.cleaned_data.get('percentage')
+            elif change_type == "percentage":
+                percentage = form.cleaned_data.get("percentage")
                 self.update_part_percentage(selected_parts, percentage)
-            elif change_type == 'price_to':
-                change_to = form.cleaned_data.get('price_to')
+            elif change_type == "price_to":
+                change_to = form.cleaned_data.get("price_to")
                 self.update_part_to(selected_parts, change_to)
 
-            messages.success(request, f'Успешно обновлено цен на {len(selected_parts)} запчастей')
-            return redirect('admin_panel:admin_home')
+            messages.success(
+                request, f"Успешно обновлено цен на {len(selected_parts)} запчастей"
+            )
+            return redirect("admin_panel:admin_home")
 
         parts = self.get_parts()
-        return render(request, 'admin/set_new_price.html', {'form': form, 'parts': parts})
+        return render(
+            request, "admin/set_new_price.html", {"form": form, "parts": parts}
+        )
 
     def get_parts(self):
-        return Part.objects.order_by('-category')
+        return Part.objects.order_by("-category")
 
     def update_part_prices(self, selected_parts, new_price):
         with transaction.atomic():

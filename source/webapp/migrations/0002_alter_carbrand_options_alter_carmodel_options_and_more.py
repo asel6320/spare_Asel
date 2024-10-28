@@ -6,64 +6,70 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('webapp', '0001_initial'),
+        ("webapp", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='carbrand',
-            options={'verbose_name': 'car_brand', 'verbose_name_plural': 'car_brands'},
+            name="carbrand",
+            options={"verbose_name": "car_brand", "verbose_name_plural": "car_brands"},
         ),
         migrations.AlterModelOptions(
-            name='carmodel',
-            options={'verbose_name': 'car_model', 'verbose_name_plural': 'car_models'},
+            name="carmodel",
+            options={"verbose_name": "car_model", "verbose_name_plural": "car_models"},
         ),
         migrations.AlterModelOptions(
-            name='category',
-            options={'verbose_name': 'car_category', 'verbose_name_plural': 'car_categories'},
+            name="category",
+            options={
+                "verbose_name": "car_category",
+                "verbose_name_plural": "car_categories",
+            },
         ),
         migrations.AlterModelOptions(
-            name='country',
-            options={'verbose_name': 'car_countries', 'verbose_name_plural': 'car_countries'},
+            name="country",
+            options={
+                "verbose_name": "car_countries",
+                "verbose_name_plural": "car_countries",
+            },
         ),
         migrations.AlterModelOptions(
-            name='engine',
-            options={'verbose_name': 'engine', 'verbose_name_plural': 'engines'},
+            name="engine",
+            options={"verbose_name": "engine", "verbose_name_plural": "engines"},
         ),
         migrations.AlterModelOptions(
-            name='part',
-            options={'verbose_name': 'car_part', 'verbose_name_plural': 'car_parts'},
+            name="part",
+            options={"verbose_name": "car_part", "verbose_name_plural": "car_parts"},
         ),
         migrations.AlterModelOptions(
-            name='vehicleinfo',
-            options={'verbose_name': 'vehicle', 'verbose_name_plural': 'vehicles'},
+            name="vehicleinfo",
+            options={"verbose_name": "vehicle", "verbose_name_plural": "vehicles"},
         ),
         migrations.AlterModelTable(
-            name='carbrand',
-            table='car_brand',
+            name="carbrand",
+            table="car_brand",
         ),
         migrations.AlterModelTable(
-            name='carmodel',
-            table='car_model',
+            name="carmodel",
+            table="car_model",
         ),
         migrations.AlterModelTable(
-            name='category',
-            table='car_categories',
+            name="category",
+            table="car_categories",
         ),
         migrations.AlterModelTable(
-            name='country',
-            table='countries',
+            name="country",
+            table="countries",
         ),
         migrations.AlterModelTable(
-            name='engine',
-            table='engine',
+            name="engine",
+            table="engine",
         ),
         migrations.AlterModelTable(
-            name='part',
-            table='car_parts',
+            name="part",
+            table="car_parts",
         ),
         migrations.AlterModelTable(
-            name='vehicleinfo',
-            table='vehicle',
+            name="vehicleinfo",
+            table="vehicle",
         ),
     ]

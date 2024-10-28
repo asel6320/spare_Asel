@@ -11,10 +11,10 @@ class OrderForm(forms.Form):
     requires_delivery = forms.ChoiceField(
         label="Требуется доставка?",
         choices=[
-            ("0", 'Нет'),
-            ("1", 'Да'),
+            ("0", "Нет"),
+            ("1", "Да"),
         ],
-        required=True
+        required=True,
     )
 
     delivery_address = forms.CharField(label="Адрес доставки", required=False)
@@ -22,19 +22,19 @@ class OrderForm(forms.Form):
     payment_on_get = forms.ChoiceField(
         label="Оплата при получении?",
         choices=[
-            ("0", 'Нет'),
-            ("1", 'Да'),
+            ("0", "Нет"),
+            ("1", "Да"),
         ],
-        required=True
+        required=True,
     )
 
     def clean_phone(self):
-        data = self.cleaned_data['phone']
+        data = self.cleaned_data["phone"]
 
         if not data.isdigit():
             raise forms.ValidationError("Номер телефона должен содержать только цифры")
 
-        pattern = re.compile(r'^\d{10}$')
+        pattern = re.compile(r"^\d{10}$")
         if not pattern.match(data):
             raise forms.ValidationError("Неверный формат номера")
 

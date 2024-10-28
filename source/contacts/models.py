@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class ContactRequest(models.Model):
     last_name = models.CharField(max_length=100, verbose_name="Фамилия")
     phone_number = models.CharField(max_length=20, verbose_name="Номер телефона")

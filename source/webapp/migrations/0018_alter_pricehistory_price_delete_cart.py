@@ -6,16 +6,16 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('webapp', '0017_alter_pricehistory_price'),
+        ("webapp", "0017_alter_pricehistory_price"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='pricehistory',
-            name='price',
+            model_name="pricehistory",
+            name="price",
             field=models.DecimalField(decimal_places=2, max_digits=100),
         ),
         migrations.DeleteModel(
-            name='Cart',
+            name="Cart",
         ),
     ]

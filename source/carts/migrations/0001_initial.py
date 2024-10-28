@@ -11,25 +11,67 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('webapp', '0018_alter_pricehistory_price_delete_cart'),
+        ("webapp", "0018_alter_pricehistory_price_delete_cart"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Cart',
+            name="Cart",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('session_key', models.CharField(blank=True, max_length=40, null=True, verbose_name='Ключ сессии')),
-                ('created_timestamp', models.DateTimeField(auto_now_add=True, verbose_name='Дата добавления')),
-                ('quantity', models.PositiveIntegerField(default=1, validators=[django.core.validators.MinValueValidator(1)], verbose_name='Количество')),
-                ('part', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='carts', to='part.part', verbose_name='запчасти')),
-                ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='Пользователь')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "session_key",
+                    models.CharField(
+                        blank=True, max_length=40, null=True, verbose_name="Ключ сессии"
+                    ),
+                ),
+                (
+                    "created_timestamp",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="Дата добавления"
+                    ),
+                ),
+                (
+                    "quantity",
+                    models.PositiveIntegerField(
+                        default=1,
+                        validators=[django.core.validators.MinValueValidator(1)],
+                        verbose_name="Количество",
+                    ),
+                ),
+                (
+                    "part",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="carts",
+                        to="part.part",
+                        verbose_name="запчасти",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Пользователь",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Товар в корзине',
-                'verbose_name_plural': 'Товары в корзине',
-                'db_table': 'cart',
+                "verbose_name": "Товар в корзине",
+                "verbose_name_plural": "Товары в корзине",
+                "db_table": "cart",
             },
         ),
     ]

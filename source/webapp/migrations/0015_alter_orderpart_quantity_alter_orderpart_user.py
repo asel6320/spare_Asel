@@ -8,19 +8,21 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('webapp', '0014_alter_carbrand_options_alter_carmodel_options_and_more'),
+        ("webapp", "0014_alter_carbrand_options_alter_carmodel_options_and_more"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='orderpart',
-            name='quantity',
-            field=models.PositiveIntegerField(verbose_name='Количество'),
+            model_name="orderpart",
+            name="quantity",
+            field=models.PositiveIntegerField(verbose_name="Количество"),
         ),
         migrations.AlterField(
-            model_name='orderpart',
-            name='user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            model_name="orderpart",
+            name="user",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL
+            ),
         ),
     ]
