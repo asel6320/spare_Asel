@@ -113,7 +113,8 @@
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     {% if user.is_authenticated %}
                                         {% if user.is_staff %}
-                                            <li><a class="dropdown-item" href="{% url 'admin_panel:admin_home' %}">{% trans "CRM" %}</a></li>
+                                            <li><a class="dropdown-item" href="{% url 'admin_panel:admin_home' %}">{% trans "Админ-панель" %}</a></li>
+                                            <li><a class="dropdown-item" href="{% url 'crm:orders' %}">{% trans "CRM" %}</a></li>
                                             <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">{% trans "Выйти" %}</a></li>
                                         {% else %}
                                             <li><a class="dropdown-item" href="{% url 'accounts:profile' %}">{% trans "Личный кабинет" %}</a></li>
@@ -129,7 +130,8 @@
 
                         {% cache 500 cart %}
                             <li class="nav-item px-3">
-                                <a class="btn btn-light ms-2" href="{% url "accounts:cart" %}">Корзина
+                                <a class="btn btn-light ms-2" href="{% url "accounts:cart" %}">
+                                        Корзина
                                     <i class="bi bi-cart"></i>
                                 </a>
                             </li>
@@ -137,7 +139,8 @@
 
                         <li class="nav-item px-3">
                                 <a class="btn btn-light-emphasis ms-2" href="{% url 'webapp:favorites' %}">
-                                    Избранное <i class="bi bi-heart"></i>
+                                        Избранное
+                                    <i class="bi bi-heart"></i>
                                 </a>
                         </li>
                     </ul>
@@ -145,101 +148,6 @@
             </div>
         </nav>
     </header>
-    {#<header class="header">#}
-    {#        <nav class="navbar navbar-expand-lg py-3">#}
-    {#            <div class="container">#}
-    {#                <div class="logo-custom">#}
-    {#                    <a class="navbar-brand d-flex align-items-center" href="{% url "part:parts_list" %}">#}
-    {#                        <img src="{% static 'images/logo.png' %}" alt="Avrora" class="logo-img">#}
-    {#                        <span>AVRORA</span>#}
-    {#                    </a>#}
-    {#                </div>#}
-    {#                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"#}
-    {#                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">#}
-    {#                    <span class="navbar-toggler-icon"></span>#}
-    {#                </button>#}
-    {#                <div class="collapse navbar-collapse flex-grow-0 ms-auto" id="navbarNav">#}
-    {#                    <ul class="navbar-nav d-block d-md-flex ms-auto">#}
-    {#                        <li class="nav-item px-3">#}
-    {#                            <a class="nav-link" href="{% url 'part:parts_main' %}">Запчасти</a>#}
-    {#                        </li>#}
-    {#                        {% cache 1000 about_us %}#}
-    {#                            <li class="nav-item px-3">#}
-    {#                                <a class="nav-link" href="{% url 'webapp:about_us' %}">О компании</a>#}
-    {#                            </li>#}
-    {#                        {% endcache %}#}
-    {#                        <li class="nav-item px-3">#}
-    {#                            <a class="nav-link" href="#">Контакты</a>#}
-    {#                        </li>#}
-    {#                        <li class="nav-item dropdown px-3">#}
-    {#                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"#}
-    {#                               data-bs-toggle="dropdown" aria-expanded="false">#}
-    {#                                РУ#}
-    {#                            </a>#}
-    {#                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">#}
-    {#                                <li><a class="dropdown-item" href="#">English</a></li>#}
-    {#                                <li><a class="dropdown-item" href="#">한국어</a></li>#}
-    {#                            </ul>#}
-    {#                        </li>#}
-    {#                        {% cache 500 valutes %}#}
-    {#                            <li class="nav-item dropdown px-3">#}
-    {#                                <a class="nav-link dropdown-toggle" href="#" id="currencyDropdown" role="button"#}
-    {#                                   data-bs-toggle="dropdown" aria-expanded="false">#}
-    {#                                    USD#}
-    {#                                </a>#}
-    {#                                <ul class="dropdown-menu" aria-labelledby="currencyDropdown">#}
-    {#                                    <li><a class="dropdown-item" href="#">KGZ</a></li>#}
-    {#                                    <li><a class="dropdown-item" href="#">RUB</a></li>#}
-    {#                                    <li><a class="dropdown-item" href="#">WON</a></li>#}
-    {#                                </ul>#}
-    {#                            </li>#}
-    {#                        {% endcache %}#}
-    {#                        {% cache 500 log %}#}
-    {##}
-    {#                            <li class="nav-item dropdown">#}
-    {#                                <a class="nav-link dropdown-toggle btn btn-light ms-2" href="#" id="navbarDropdown"#}
-    {#                                   role="button" data-bs-toggle="dropdown" aria-expanded="false">#}
-    {#                                    <i class="bi bi-person-circle fs-5"></i>#}
-    {#                                </a>#}
-    {#                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">#}
-    {#                                    {% if user.is_authenticated %}#}
-    {#                                        {% if user.is_staff %}#}
-    {#                                            <li><a class="dropdown-item" href="/admin/">CRM</a></li>#}
-    {#                                            <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Выйти</a>#}
-    {#                                            </li>#}
-    {#                                        {% else %}#}
-    {#                                            <li><a class="dropdown-item" href="{% url 'accounts:profile' %}">Личный#}
-    {#                                                кабинет</a></li>#}
-    {#                                            <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Выйти</a>#}
-    {#                                            </li>#}
-    {#                                        {% endif %}#}
-    {#                                    {% else %}#}
-    {#                                        <li><a class="dropdown-item" href="{% url 'accounts:login' %}">Войти</a></li>#}
-    {#                                        <li><a class="dropdown-item"#}
-    {#                                               href="{% url 'accounts:register' %}">Зарегистрироваться</a></li>#}
-    {#                                    {% endif %}#}
-    {#                                </ul>#}
-    {#                            </li>#}
-    {#                        {% endcache %}#}
-    {##}
-    {#                        {% cache 500 cart %}#}
-    {#                            <li class="nav-item px-3">#}
-    {#                                <a class="btn btn-light ms-2" href="{% url "accounts:cart" %}">Корзина#}
-    {#                                    <i class="bi bi-cart"></i>#}
-    {#                                </a>#}
-    {#                            </li>#}
-    {#                        {% endcache %}#}
-    {##}
-    {#                        <li class="nav-item px-3">#}
-    {#                                <a class="btn btn-light-emphasis ms-2" href="{% url 'webapp:favorites' %}">#}
-    {#                                    Избранное <i class="bi bi-heart"></i>#}
-    {#                                </a>#}
-    {#                        </li>#}
-    {#                    </ul>#}
-    {#                </div>#}
-    {#            </div>#}
-    {#        </nav>#}
-    {#    </header>#}
 
     <main class="flex-grow-1">
         {% include "partial/notifications.html" %}
