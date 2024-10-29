@@ -6,13 +6,15 @@ from accounts.views.profile import UserProfileView
 from accounts.views.profile import UserCartView
 from accounts.views.password_change_view import CustomPasswordChangeView
 
-app_name = 'accounts'
+app_name = "accounts"
 
 urlpatterns = [
-    path('register/', UserRegistrationView.as_view(), name='register'),
-    path('login/', CustomLoginView.as_view(), name='login'),
-    path('logout/', custom_logout_view, name='logout'),
-    path('user/cart', UserCartView.as_view(), name='cart'),
-    path('profile/', UserProfileView.as_view(), name='profile'),
-    path('password_change/', CustomPasswordChangeView.as_view(), name='password_change'),
+    path("register/", UserRegistrationView.as_view(), name="register"),
+    path("login/", CustomLoginView.as_view(), name="login"),
+    path("logout/", custom_logout_view, name="logout"),
+    path("user/cart", UserCartView.as_view(), name="cart"),
+    path("profile/", UserProfileView.as_view(), name="profile"),
+    path(
+        "password_change/", CustomPasswordChangeView.as_view(), name="password_change"
+    ),
 ]

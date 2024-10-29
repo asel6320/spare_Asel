@@ -7,14 +7,16 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('orders', '0001_initial'),
-        ('part', '0001_initial'),
+        ("orders", "0001_initial"),
+        ("part", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='orderpart',
-            name='part',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='part.part'),
+            model_name="orderpart",
+            name="part",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to="part.part"
+            ),
         ),
     ]

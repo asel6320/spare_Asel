@@ -8,49 +8,112 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('part', '0001_initial'),
-        ('webapp', '0021_alter_pricehistory_price'),
+        ("part", "0001_initial"),
+        ("webapp", "0021_alter_pricehistory_price"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='News',
+            name="News",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255, verbose_name='Заголовок')),
-                ('short_description', models.TextField(verbose_name='Краткое описание')),
-                ('full_text', models.TextField(verbose_name='Полный текст')),
-                ('image', models.ImageField(blank=True, null=True, upload_to='news_images/', verbose_name='Изображение')),
-                ('published_at', models.DateTimeField(auto_now_add=True, verbose_name='Дата публикации')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=255, verbose_name="Заголовок")),
+                (
+                    "short_description",
+                    models.TextField(verbose_name="Краткое описание"),
+                ),
+                ("full_text", models.TextField(verbose_name="Полный текст")),
+                (
+                    "image",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="news_images/",
+                        verbose_name="Изображение",
+                    ),
+                ),
+                (
+                    "published_at",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="Дата публикации"
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Новость',
-                'verbose_name_plural': 'Новости',
-                'ordering': ['-published_at'],
+                "verbose_name": "Новость",
+                "verbose_name_plural": "Новости",
+                "ordering": ["-published_at"],
             },
         ),
         migrations.CreateModel(
-            name='Favorite',
+            name="Favorite",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('session_key', models.CharField(blank=True, max_length=40, null=True, verbose_name='Ключ сессии')),
-                ('part', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='favorites', to='part.part', verbose_name='Запчасть')),
-                ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='Пользователь')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "session_key",
+                    models.CharField(
+                        blank=True, max_length=40, null=True, verbose_name="Ключ сессии"
+                    ),
+                ),
+                (
+                    "part",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="favorites",
+                        to="part.part",
+                        verbose_name="Запчасть",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Пользователь",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Избранное',
-                'verbose_name_plural': 'Избранные',
-                'db_table': 'favorite',
-                'indexes': [models.Index(fields=['session_key'], name='favorite_session_e6f48f_idx'), models.Index(fields=['user'], name='favorite_user_id_3c90f9_idx')],
+                "verbose_name": "Избранное",
+                "verbose_name_plural": "Избранные",
+                "db_table": "favorite",
+                "indexes": [
+                    models.Index(
+                        fields=["session_key"], name="favorite_session_e6f48f_idx"
+                    ),
+                    models.Index(fields=["user"], name="favorite_user_id_3c90f9_idx"),
+                ],
             },
         ),
         migrations.AddConstraint(
-            model_name='favorite',
-            constraint=models.UniqueConstraint(fields=('user', 'part'), name='unique_user_favorite'),
+            model_name="favorite",
+            constraint=models.UniqueConstraint(
+                fields=("user", "part"), name="unique_user_favorite"
+            ),
         ),
         migrations.AddConstraint(
-            model_name='favorite',
-            constraint=models.UniqueConstraint(fields=('session_key', 'part'), name='unique_session_favorite'),
+            model_name="favorite",
+            constraint=models.UniqueConstraint(
+                fields=("session_key", "part"), name="unique_session_favorite"
+            ),
         ),
     ]

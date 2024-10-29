@@ -10,9 +10,9 @@ from orders.models import Order, OrderPart
 
 
 class UserProfileView(LoginRequiredMixin, UpdateView):
-    template_name = 'profile.html'
+    template_name = "profile.html"
     form_class = ProfileForm
-    success_url = reverse_lazy('accounts:profile')
+    success_url = reverse_lazy("accounts:profile")
 
     def get_object(self, queryset=None):
         return self.request.user
@@ -27,14 +27,18 @@ class UserProfileView(LoginRequiredMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Home - Кабинет'
+        context["title"] = "Home - Кабинет"
 
-        orders = Order.objects.filter(user=self.request.user).prefetch_related(
-            Prefetch(
-                "orderpart_set",
-                queryset=OrderPart.objects.select_related("part"),
+        orders = (
+            Order.objects.filter(user=self.request.user)
+            .prefetch_related(
+                Prefetch(
+                    "orderpart_set",
+                    queryset=OrderPart.objects.select_related("part"),
+                )
             )
-        ).order_by("-id")
+            .order_by("-id")
+        )
 
         total = 0
 
@@ -52,15 +56,15 @@ class UserProfileView(LoginRequiredMixin, UpdateView):
 
             order.total = order_total
 
-        context['orders'] = orders
-        context['total'] = total
+        context["orders"] = orders
+        context["total"] = total
         return context
 
 
 class UserCartView(TemplateView):
-    template_name = 'user_cart.html'
+    template_name = "user_cart.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Корзина'
+        context["title"] = "Корзина"
         return context

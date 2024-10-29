@@ -6,49 +6,72 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('webapp', '0013_merge_0010_review_0012_alter_order_user'),
+        ("webapp", "0013_merge_0010_review_0012_alter_order_user"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='carbrand',
-            options={'verbose_name': 'Марка машины', 'verbose_name_plural': 'Марки машин'},
+            name="carbrand",
+            options={
+                "verbose_name": "Марка машины",
+                "verbose_name_plural": "Марки машин",
+            },
         ),
         migrations.AlterModelOptions(
-            name='carmodel',
-            options={'verbose_name': 'Модель машины', 'verbose_name_plural': 'Модели машины'},
+            name="carmodel",
+            options={
+                "verbose_name": "Модель машины",
+                "verbose_name_plural": "Модели машины",
+            },
         ),
         migrations.AlterModelOptions(
-            name='category',
-            options={'verbose_name': 'Категория детали', 'verbose_name_plural': 'Категории деталей'},
+            name="category",
+            options={
+                "verbose_name": "Категория детали",
+                "verbose_name_plural": "Категории деталей",
+            },
         ),
         migrations.AlterModelOptions(
-            name='country',
-            options={'verbose_name': 'Страна', 'verbose_name_plural': 'Страны'},
+            name="country",
+            options={"verbose_name": "Страна", "verbose_name_plural": "Страны"},
         ),
         migrations.AlterModelOptions(
-            name='engine',
-            options={'verbose_name': 'Двигатель', 'verbose_name_plural': 'Двигатели'},
+            name="engine",
+            options={"verbose_name": "Двигатель", "verbose_name_plural": "Двигатели"},
         ),
         migrations.AlterModelOptions(
-            name='orderpart',
-            options={'verbose_name': 'Заказ', 'verbose_name_plural': 'Заказы'},
+            name="orderpart",
+            options={"verbose_name": "Заказ", "verbose_name_plural": "Заказы"},
         ),
         migrations.AlterModelOptions(
-            name='part',
-            options={'verbose_name': 'Запчасть', 'verbose_name_plural': 'Запчасти'},
+            name="part",
+            options={"verbose_name": "Запчасть", "verbose_name_plural": "Запчасти"},
         ),
         migrations.AlterModelOptions(
-            name='review',
-            options={'verbose_name': 'Отзыв', 'verbose_name_plural': 'Отзывы'},
+            name="review",
+            options={"verbose_name": "Отзыв", "verbose_name_plural": "Отзывы"},
         ),
         migrations.AlterModelOptions(
-            name='vehicleinfo',
-            options={'verbose_name': 'Тип транспорта', 'verbose_name_plural': 'Типы транспорта'},
+            name="vehicleinfo",
+            options={
+                "verbose_name": "Тип транспорта",
+                "verbose_name_plural": "Типы транспорта",
+            },
         ),
         migrations.AlterField(
-            model_name='vehicleinfo',
-            name='vehicle_type',
-            field=models.CharField(choices=[('passenger', 'Легковые автомобили'), ('truck', 'Грузовые автомобили'), ('special', 'Спецтехника'), ('bus', 'Автобусы'), ('engine', 'Двигатели'), ('railroad', 'Ж/Д техника'), ('bicycle', 'Мотоцыкли')], max_length=50),
+            model_name="vehicleinfo",
+            name="vehicle_type",
+            field=models.CharField(
+                choices=[
+                    ("passenger", "Легковые автомобили"),
+                    ("truck", "Грузовые автомобили"),
+                    ("special", "Спецтехника"),
+                    ("bus", "Автобусы"),
+                    ("engine", "Двигатели"),
+                    ("railroad", "Ж/Д техника"),
+                    ("bicycle", "Мотоцыкли"),
+                ],
+                max_length=50,
+            ),
         ),
     ]

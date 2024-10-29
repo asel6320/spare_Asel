@@ -8,38 +8,98 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('webapp', '0006_delete_user'),
+        ("webapp", "0006_delete_user"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Order',
+            name="Order",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('first_name', models.CharField(blank=False, max_length=100, null=False, verbose_name='Имя')),
-                ('last_name', models.CharField(blank=False, max_length=100, null=False, verbose_name='Фамилия')),
-                ('phone', models.CharField(blank=False, max_length=20, null=False, verbose_name='Телефон')),
-                ('email', models.EmailField(blank=False, max_length=200, null=False, verbose_name='Email')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')),
-                ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL, verbose_name='Пользователь')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "first_name",
+                    models.CharField(
+                        blank=False, max_length=100, null=False, verbose_name="Имя"
+                    ),
+                ),
+                (
+                    "last_name",
+                    models.CharField(
+                        blank=False, max_length=100, null=False, verbose_name="Фамилия"
+                    ),
+                ),
+                (
+                    "phone",
+                    models.CharField(
+                        blank=False, max_length=20, null=False, verbose_name="Телефон"
+                    ),
+                ),
+                (
+                    "email",
+                    models.EmailField(
+                        blank=False, max_length=200, null=False, verbose_name="Email"
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="Дата создания"
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Пользователь",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Заказ оформления',
-                'verbose_name_plural': 'Заказы оформления',
-                'db_table': 'order',
+                "verbose_name": "Заказ оформления",
+                "verbose_name_plural": "Заказы оформления",
+                "db_table": "order",
             },
         ),
         migrations.CreateModel(
-            name='OrderPart',
+            name="OrderPart",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('quantity', models.PositiveIntegerField()),
-                ('order', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='webapp.order')),
-                ('part', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='webapp.part')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("quantity", models.PositiveIntegerField()),
+                (
+                    "order",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="webapp.order"
+                    ),
+                ),
+                (
+                    "part",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="webapp.part"
+                    ),
+                ),
             ],
             options={
-                'db_table': 'order_part',
+                "db_table": "order_part",
             },
         ),
     ]

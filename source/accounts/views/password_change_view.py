@@ -7,9 +7,9 @@ from django.contrib import messages
 
 class CustomPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     form_class = PasswordChangeForm
-    template_name = 'change_password.html'
-    success_url = reverse_lazy('profile_view')
+    template_name = "change_password.html"
+    success_url = reverse_lazy("profile_view")
 
     def form_valid(self, form):
-        messages.success(self.request, 'Ваш пароль был успешно изменён.')
+        messages.success(self.request, "Ваш пароль был успешно изменён.")
         return super().form_valid(form)

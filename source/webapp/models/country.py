@@ -12,5 +12,5 @@ class Country(models.Model):
 
     class Meta:
         verbose_name_plural = "Страны"
-        verbose_name = 'Страна'
-        db_table = 'countries'
+        verbose_name = "Страна"
+        db_table = "countries"

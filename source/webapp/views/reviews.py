@@ -13,7 +13,7 @@ class CreateReviewView(LoginRequiredMixin, CreateView):
     form_class = ReviewForm
 
     def form_valid(self, form):
-        part = get_object_or_404(Part, pk=self.kwargs['pk'])
+        part = get_object_or_404(Part, pk=self.kwargs["pk"])
         review = form.save(commit=False)
         review.part = part
         review.author = self.request.user
