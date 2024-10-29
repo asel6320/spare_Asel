@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'admin_panel',
     'lang',
     'contacts',
-    "documents"
+    "documents",
+    'crm',
 ]
 
 MIDDLEWARE = [

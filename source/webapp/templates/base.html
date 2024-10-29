@@ -112,7 +112,8 @@
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     {% if user.is_authenticated %}
                                         {% if user.is_staff %}
-                                            <li><a class="dropdown-item" href="{% url 'admin_panel:admin_home' %}">{% trans "CRM" %}</a></li>
+                                            <li><a class="dropdown-item" href="{% url 'admin_panel:admin_home' %}">{% trans "Админ-панель" %}</a></li>
+                                            <li><a class="dropdown-item" href="{% url 'crm:orders' %}">{% trans "CRM" %}</a></li>
                                             <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">{% trans "Выйти" %}</a></li>
                                         {% else %}
                                             <li><a class="dropdown-item" href="{% url 'accounts:profile' %}">{% trans "Личный кабинет" %}</a></li>
@@ -128,7 +129,8 @@
 
                         {% cache 500 cart %}
                             <li class="nav-item px-3">
-                                <a class="btn btn-light ms-2" href="{% url "accounts:cart" %}">Корзина
+                                <a class="btn btn-light ms-2" href="{% url "accounts:cart" %}">
+                                        Корзина
                                     <i class="bi bi-cart"></i>
                                 </a>
                             </li>
@@ -136,7 +138,8 @@
 
                         <li class="nav-item px-3">
                                 <a class="btn btn-light-emphasis ms-2" href="{% url 'webapp:favorites' %}">
-                                    Избранное <i class="bi bi-heart"></i>
+                                        Избранное
+                                    <i class="bi bi-heart"></i>
                                 </a>
                         </li>
                     </ul>
