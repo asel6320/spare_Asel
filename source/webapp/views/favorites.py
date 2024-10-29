@@ -1,10 +1,10 @@
-from django.db.models import Subquery, OuterRef
-from webapp.models.favorites import Favorite
+from django.db.models import OuterRef, Subquery
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 from part.models import Part
 from webapp.models import PriceHistory
+from webapp.models.favorites import Favorite
 
 
 class FavoriteAdd(View):

@@ -1,15 +1,16 @@
 from django.contrib.auth.views import LoginView
 from django.urls import path
-
-# from django.views.decorators.cache import cache_page
-
-from webapp.about_us_view import get_models, AboutUs
-from webapp.views.favorites import FavoriteView, FavoriteAdd, FavoriteDelete
+from webapp.about_us_view import AboutUs, get_models
 from webapp.views import news
+from webapp.views.contact_offer import (
+    brand_style,
+    contract_offer,
+    privacy_policy,
+    product_docs,
+    terms_of_use,
+)
+from webapp.views.favorites import FavoriteAdd, FavoriteDelete, FavoriteView
 from webapp.views.reviews import CreateReviewView
-
-from webapp.views.contact_offer import *
-
 
 app_name = "webapp"
 

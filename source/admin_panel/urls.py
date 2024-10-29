@@ -1,7 +1,7 @@
 from django.urls import path
 
 from .full_change_price import UpdatePricesView
-from .views import *
+from .views import admin_home, model_add, model_delete, model_edit, model_list
 
 app_name = "admin_panel"
 

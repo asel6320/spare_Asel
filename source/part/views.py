@@ -1,11 +1,11 @@
-from django.db.models import Q, Subquery, OuterRef, DecimalField
+from django.db.models import DecimalField, OuterRef, Q, Subquery
+from django.http import JsonResponse
 from django.utils.http import urlencode
-from django.views.generic import ListView, DetailView
-
-from webapp.forms import SearchForm
+from django.views.generic import DetailView, ListView
 from part.form import PartsFilterForm
-from webapp.models import Country, CarBrand, CarModel, Category, PriceHistory
 from part.models import Part
+from webapp.forms import SearchForm
+from webapp.models import CarBrand, CarModel, Category, Country, PriceHistory
 from webapp.models.news import News
 from webapp.models.review import Review
 
@@ -81,9 +81,6 @@ class PartsMainView(ListView):
         self.form = self.get_form()
         self.search_value = self.get_search_value()
         return super().dispatch(request, *args, **kwargs)
-
-    def get_filter_form(self):
-        return PartsFilterForm(self.request.GET)
 
     def get_search_value(self):
         form = self.form
@@ -169,10 +166,6 @@ class PartsDetailView(DetailView):
         context["reviews"] = Review.objects.all()
 
         return context
-
-
-def about_us(request):
-    return render(request, "part/about_us.html")
 
 
 def get_models(request):
