@@ -9,6 +9,8 @@ from part.models import Part
 from webapp.models.news import News
 from webapp.models.review import Review
 
+from contacts.models import ContactRequest
+
 
 class BasePartView(ListView):
     model = Part
