@@ -1,34 +1,34 @@
+from admin_panel.form import PriceUpdateForm
+from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from django.db import transaction
+from django.db.models import Q
+from django.shortcuts import redirect, render
 from django.utils.decorators import method_decorator
-from django.contrib import messages
-from django.shortcuts import render, redirect
-from django.views.generic import View
-from admin_panel.form import PriceUpdateForm
 from part.models import Part
+from part.views import BasePartView
 
 
 @method_decorator(staff_member_required, name="dispatch")
-class UpdatePricesView(View):
-    def get(self, request):
-        parts = self.get_parts()
-        form = PriceUpdateForm()
-        return render(
-            request, "admin/set_new_price.html", {"form": form, "parts": parts}
-        )
+class UpdatePricesView(BasePartView):
+    paginate_by = 10
+    context_object_name = "parts"
+    template_name = "admin/set_new_price.html"
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        search_value = self.request.GET.get("search", "")
+
+        return queryset.filter(
+            Q(name__icontains=search_value) | Q(latest_price__icontains=search_value)
+        ).order_by("-category")
 
     def post(self, request):
         form = PriceUpdateForm(request.POST)
-        if form.is_valid():
+        selected_parts = request.POST.getlist("selected_parts")
+
+        if form.is_valid() and selected_parts:
             change_type = request.POST.get("change_type")
-            selected_parts = request.POST.getlist("selected_parts")
-
-            if not selected_parts:
-                messages.error(
-                    request, "Выберите хотя бы одну запчасть для обновления цен"
-                )
-                return redirect("admin_panel:update_prices")
-
             if change_type == "price":
                 new_price = form.cleaned_data.get("price")
                 self.update_part_prices(selected_parts, new_price)
@@ -46,13 +46,17 @@ class UpdatePricesView(View):
 
         parts = self.get_parts()
         return render(
-            request, "admin/set_new_price.html", {"form": form, "parts": parts}
+            request,
+            self.template_name,
+            {"form": form, "parts": parts, "selected_parts": selected_parts},
         )
 
-    def get_parts(self):
+    @staticmethod
+    def get_parts():
         return Part.objects.order_by("-category")
 
-    def update_part_prices(self, selected_parts, new_price):
+    @staticmethod
+    def update_part_prices(selected_parts, new_price):
         with transaction.atomic():
             for part_id in selected_parts:
                 part = Part.objects.get(id=part_id)
@@ -63,7 +67,8 @@ class UpdatePricesView(View):
                 else:
                     part.price_history.create(price=new_price)
 
-    def update_part_percentage(self, selected_parts, percentage):
+    @staticmethod
+    def update_part_percentage(selected_parts, percentage):
         with transaction.atomic():
             for part_id in selected_parts:
                 part = Part.objects.get(id=part_id)
@@ -75,7 +80,8 @@ class UpdatePricesView(View):
                 else:
                     part.price_history.create(price=new_price)
 
-    def update_part_to(self, selected_parts, change_to):
+    @staticmethod
+    def update_part_to(selected_parts, change_to):
         with transaction.atomic():
             for part_id in selected_parts:
                 part = Part.objects.get(id=part_id)
