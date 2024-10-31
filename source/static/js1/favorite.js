@@ -1,47 +1,59 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const favoriteForms = document.querySelectorAll('.favorite-form');
+$(document).ready(function () {
+    var successMessage = $("#jq-notification");
 
-    favoriteForms.forEach(form => {
-        const heartIcon = form.querySelector('i');
+    $(document).off("click", ".add-to-favorite").on("click", ".add-to-favorite", function (e) {
+        e.preventDefault();
 
-        if (heartIcon.classList.contains('fa-solid')) {
-            heartIcon.style.color = '#e81111';
-        } else {
-            heartIcon.style.color = '#4CAF50';
-        }
+        var part_id = $(this).data("part-id");
+        var add_to_favorite_url = $(this).attr("href");
 
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-            const formData = new FormData(form);
+        $.ajax({
+            type: "POST",
+            url: add_to_favorite_url,
+            data: {
+                part_id: part_id,
+                csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
+            },
+            cache: false,
+            success: function (data) {
+                successMessage.html(data.message);
+                successMessage.fadeIn(400);
+                setTimeout(function () {
+                    successMessage.fadeOut(400);
+                }, 2000);
+            },
+            error: function () {
+                console.log("Ошибка при добавлении товара в избранное");
+            },
+        });
+    });
 
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'X-CSRFToken': formData.get('csrfmiddlewaretoken')
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'added') {
-                    heartIcon.classList.remove('fa-regular', 'fa-heart');
-                    heartIcon.classList.add('fa-solid', 'fa-heart');
-                    heartIcon.style.color = '#e81111';
-                } else if (data.status === 'removed') {
-                    heartIcon.classList.remove('fa-solid', 'fa-heart');
-                    heartIcon.classList.add('fa-regular', 'fa-heart');
-                    heartIcon.style.color = '#4CAF50';
-                }
+    $(document).on("click", ".favorite-delete", function (e) {
+        e.preventDefault();
 
-                const favoriteCountElement = document.querySelector('.favorites-count');
-                if (favoriteCountElement) {
-                    favoriteCountElement.textContent = data.favorite_count;
-                }
-            })
-            .catch(error => {
-                console.error('Ошибка:', error);
-            });
+        var favorite_id = $(this).data("favorite-id");
+        var remove_from_favorite_url = $(this).attr("href");
+
+        $.ajax({
+            type: "POST",
+            url: remove_from_favorite_url,
+            data: {
+                favorite_id: favorite_id,
+                csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
+            },
+            cache: false,
+            success: function (data) {
+                successMessage.html(data.message);
+                successMessage.fadeIn(400);
+                setTimeout(function () {
+                    successMessage.fadeOut(400);
+                }, 2000);
+
+                $(`.row>div[data-card="${favorite_id}"]`).remove();
+            },
+            error: function () {
+                console.log("Ошибка при удалении товара из избранного");
+            },
         });
     });
 });

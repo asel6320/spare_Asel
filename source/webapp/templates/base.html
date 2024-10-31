@@ -91,7 +91,6 @@
                                 </li>
                             </ul>
                         </li>
-                        {% cache 500 valutes %}
                             <li class="nav-item dropdown px-3">
                                 <a class="nav-link dropdown-toggle" href="#" id="currencyDropdown" role="button"
                                    data-bs-toggle="dropdown" aria-expanded="false">
@@ -103,7 +102,6 @@
                                     <li><a class="dropdown-item" href="#">WON</a></li>
                                 </ul>
                             </li>
-                        {% endcache %}
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle btn btn-light ms-2" href="#" id="navbarDropdown"
@@ -136,20 +134,18 @@
                             </ul>
                         </li>
 
-                        {% cache 500 cart %}
                             <li class="nav-item px-3">
                                 <a class="btn btn-light ms-2" href="{% url "accounts:cart" %}">
                                     Корзина
                                     <i class="bi bi-cart"></i>
                                 </a>
                             </li>
-                        {% endcache %}
 
 
                         {% if user.is_staff %}
                         {% else %}
                             <li class="nav-item px-3">
-                                <a class="btn btn-light-emphasis ms-2" href="{% url 'webapp:favorites' %}">
+                                <a class="btn btn-light-emphasis ms-2" href="{% url 'favorite:favorite_template' %}">
                                     Избранное
                                     <i class="bi bi-heart"></i>
                                 </a>
@@ -206,6 +202,7 @@
 <script src="{% static 'js1/favorite.js' %}"></script>
 <script src="{% static 'popup.js' %}"></script>
 <script src="{% static 'js1/change_price.js' %}"></script>
+<script src="{% static 'js1/favorite.js' %}"></script>
 
 </body>
 </html>

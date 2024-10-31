@@ -9,7 +9,6 @@ from webapp.views.contact_offer import (
     product_docs,
     terms_of_use,
 )
-from webapp.views.favorites import FavoriteAdd, FavoriteDelete, FavoriteView
 from webapp.views.reviews import CreateReviewView
 
 app_name = "webapp"
@@ -18,11 +17,6 @@ urlpatterns = [
     path("parts/about_us/", AboutUs.as_view(), name="about_us"),
     path("get-models/", get_models, name="get_models"),
     path("logins/", LoginView.as_view(template_name=""), name="login"),
-    path("favorites/", FavoriteView.as_view(), name="favorites"),
-    path("favorites/add/<int:pk>/", FavoriteAdd.as_view(), name="favorite_add"),
-    path(
-        "favorites/<int:pk>/delete/", FavoriteDelete.as_view(), name="favorite_delete"
-    ),
     path("news/", news.news_list, name="news_list"),
     path("news/<int:news_id>/", news.news_detail, name="news_detail"),
     path(
