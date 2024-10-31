@@ -11,12 +11,15 @@ jobs:
       - uses: actions/checkout@v2
       - name: Set up Docker Buildx
         id: buildx
+
         uses: docker/setup-buildx-action@master
       - name: Add environ
         run: cp .env.test ./source/.env
+
       - name: Run Tests
         run: |
           docker compose run -T --rm web bash -c "/code/manage.py test"
+
   publish:
     needs: tests
     name: Publish Image
@@ -24,6 +27,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run publish
+
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.SSH_HOST }}
