@@ -9,8 +9,7 @@
             placeholder="{{ form.search.label }}" 
             aria-label="Search" 
             aria-describedby="search-addon" 
-            value="{{ request.GET.search|default:'' }}" 
-            required
+            value="{{ request.GET.search|default:'' }}"
         >
     </div>
     <button type="submit" class="btn btn-primary">

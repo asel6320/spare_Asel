@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 import os
 from pathlib import Path
+
 import environ
 
 env = environ.Env()
@@ -51,7 +52,6 @@ INSTALLED_APPS = [
     "lang",
     "contacts",
 ]
-
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",

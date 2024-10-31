@@ -18,7 +18,6 @@ class UpdatePricesView(BasePartView):
     def get_queryset(self):
         queryset = super().get_queryset()
         search_value = self.request.GET.get("search", "")
-
         return queryset.filter(
             Q(name__icontains=search_value) | Q(latest_price__icontains=search_value)
         ).order_by("-category")
@@ -42,14 +41,8 @@ class UpdatePricesView(BasePartView):
             messages.success(
                 request, f"Успешно обновлено цен на {len(selected_parts)} запчастей"
             )
-            return redirect("admin_panel:admin_home")
 
-        parts = self.get_parts()
-        return render(
-            request,
-            self.template_name,
-            {"form": form, "parts": parts, "selected_parts": selected_parts},
-        )
+            return redirect("admin_panel:admin_home")
 
     @staticmethod
     def get_parts():

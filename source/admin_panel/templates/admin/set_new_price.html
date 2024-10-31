@@ -13,7 +13,7 @@
             <form method="get">
                 {% include "partial/search_form.html" with form=search_form %}
             </form>
-            <form method="post">
+            <form id="updateForm" method="post">
                 {% csrf_token %}
 
                 <div class="mb-4">
@@ -59,17 +59,20 @@
                     {% for part in parts %}
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <div>
-                                <input type="checkbox" name="selected_parts" value="{{ part.id }}" class="part-checkbox"
-                                       {% if part.id|stringformat:"s" in selected_parts %}checked{% endif %}>
-                                {{ part.name }}
+                                <input type="checkbox" name="selected_parts" value="{{ part.id }}"
+                                       id="part-{{ part.id }}" class="part-checkbox"
+                                       {% if part.id in selected_parts %}checked{% endif %}>
+                                <label for="part-{{ part.id }}">{{ part.name }}</label>
                             </div>
                             <span class="badge bg-secondary rounded-pill price-tag">{{ part.current_price }} сом</span>
                         </li>
                     {% endfor %}
                 </ul>
+
                 {% if is_paginated %}
                     {% include 'partial/pagination.html' %}
                 {% endif %}
+
                 <button type="submit" class="btn btn-success w-100">Применить изменения</button>
             </form>
 
@@ -86,18 +89,29 @@
         }
     </style>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"][name="selected_parts"]');
 
-            checkboxes.forEach(checkbox => {
-                const isChecked = localStorage.getItem(checkbox.value);
-                if (isChecked === 'true') {
-                    checkbox.checked = true;
-                }
-                checkbox.addEventListener('change', () => {
-                    localStorage.setItem(checkbox.value, checkbox.checked);
-                });
+    <script>
+        function saveCheckboxState() {
+            document.querySelectorAll('.part-checkbox').forEach(checkbox => {
+                localStorage.setItem(`checkbox-${checkbox.value}`, checkbox.checked);
+            });
+        }
+
+        function restoreCheckboxState() {
+            document.querySelectorAll('.part-checkbox').forEach(checkbox => {
+                checkbox.checked = localStorage.getItem(`checkbox-${checkbox.value}`) === 'true';
+            });
+        }
+
+        document.getElementById('updateForm').addEventListener('submit', () => {
+            localStorage.clear();
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            restoreCheckboxState();
+
+            document.querySelectorAll('.part-checkbox').forEach(checkbox => {
+                checkbox.addEventListener('change', saveCheckboxState);
             });
         });
     </script>
