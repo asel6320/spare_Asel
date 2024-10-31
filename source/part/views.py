@@ -167,7 +167,7 @@ class PartsDetailView(DetailView):
         ]  # Получаем похожие запчасти по категории
         context["related_parts"] = related_parts
         context["category"] = part_category
-        context["reviews"] = Review.objects.all()
+        context["reviews"] = Review.objects.filter(part=self.object)
 
         # Fetch documents related to the part
         context['documents'] = PartDocument.objects.filter(part=self.object)  # Assuming a ForeignKey from Document to Part
