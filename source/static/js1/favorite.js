@@ -1,11 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const favoriteForms = document.querySelectorAll('.favorite-form'); // Выбираем все формы с классом "favorite-form"
+    const favoriteForms = document.querySelectorAll('.favorite-form');
 
     favoriteForms.forEach(form => {
+        const heartIcon = form.querySelector('i');
+
+        if (heartIcon.classList.contains('fa-solid')) {
+            heartIcon.style.color = '#e81111';
+        } else {
+            heartIcon.style.color = '#4CAF50';
+        }
+
         form.addEventListener('submit', function (event) {
             event.preventDefault();
             const formData = new FormData(form);
-            const partId = form.getAttribute('data-part-id');
 
             fetch(form.action, {
                 method: 'POST',
@@ -18,13 +25,14 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => response.json())
             .then(data => {
                 if (data.status === 'added') {
-                    form.querySelector('i').classList.remove('bi-heart');
-                    form.querySelector('i').classList.add('bi-heart-fill', 'text-danger');
+                    heartIcon.classList.remove('fa-regular', 'fa-heart');
+                    heartIcon.classList.add('fa-solid', 'fa-heart');
+                    heartIcon.style.color = '#e81111';
                 } else if (data.status === 'removed') {
-                    form.querySelector('i').classList.remove('bi-heart-fill', 'text-danger');
-                    form.querySelector('i').classList.add('bi-heart', 'text-black-50');
+                    heartIcon.classList.remove('fa-solid', 'fa-heart');
+                    heartIcon.classList.add('fa-regular', 'fa-heart');
+                    heartIcon.style.color = '#4CAF50';
                 }
-
 
                 const favoriteCountElement = document.querySelector('.favorites-count');
                 if (favoriteCountElement) {
@@ -35,10 +43,5 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('Ошибка:', error);
             });
         });
-
-        const isFavorite = form.querySelector('i').classList.contains('bi-heart-fill');
-        if (isFavorite) {
-            form.querySelector('i').classList.add('bi-heart-fill', 'text-danger');
-        }
     });
 });
