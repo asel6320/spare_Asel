@@ -16,7 +16,7 @@
 }
 
 .subscription-section .u-group h2 {
-    font-size: 2rem;
+    font-size: 4rem;
     font-weight: 600;
     margin-bottom: 10px;
     text-align: center;
@@ -48,6 +48,7 @@
     color: #ffffff;
     font-size: 1rem;
     outline: none;
+    border-radius: 30px;
 }
 
 
