@@ -19,6 +19,7 @@ class Review(models.Model):
         default=1,
     )
     text = models.TextField(max_length=400, verbose_name="Отзыв")
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.text[:20]
