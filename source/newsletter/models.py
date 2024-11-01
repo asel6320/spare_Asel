@@ -9,4 +9,4 @@ class Subscription(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.email
+        return f"{self.name} <{self.email}>"
