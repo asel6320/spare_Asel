@@ -1,0 +1,160 @@
+{% extends 'crm_base.html' %}
+{% load static %}
+
+{% block title %}Аналитика{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1>Панель Аналитики CRM</h1>
+
+        <!-- Общая статистика заказов -->
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Всего заказов</h5>
+                        <p class="card-text">{{ orders_count }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Завершённые заказы</h5>
+                        <p class="card-text">{{ completed_orders }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Ожидающие заказы</h5>
+                        <p class="card-text">{{ pending_orders }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Аналитика по доставке и оплате -->
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Заказы с доставкой</h5>
+                        <p class="card-text">{{ delivery_orders }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Оплаченные заказы</h5>
+                        <p class="card-text">{{ paid_orders }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Общие доходы и количество -->
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Общее количество проданных товаров</h5>
+                        <p class="card-text">{{ total_quantity_sold }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Общий доход</h5>
+                        <p class="card-text">${{ total_revenue }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Средняя стоимость заказа</h5>
+                        <p class="card-text">${{ average_order_value }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- График заказов за последние 30 дней -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h3>Заказы за последние 30 дней</h3>
+                <canvas id="ordersChart" data-labels="{{ orders_labels|safe }}" data-data="{{ orders_data|safe }}"></canvas>
+            </div>
+        </div>
+
+        <!-- График новых пользователей за последние 30 дней -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h3>Новые пользователи за последние 30 дней</h3>
+                <canvas id="newUsersChart" data-labels="{{ new_users_labels|safe }}" data-data="{{ new_users_data|safe }}"></canvas>
+            </div>
+        </div>
+
+        <!-- Топ-5 популярных товаров -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h3>Топ-5 популярных товаров</h3>
+                <ul class="list-group">
+                    {% for part in popular_parts %}
+                        <li class="list-group-item">
+                            {{ part.part__name }} - Количество продано: {{ part.total_sold }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Orders Chart
+        const ordersLabels = JSON.parse(document.getElementById('ordersChart').dataset.labels);
+        const ordersData = JSON.parse(document.getElementById('ordersChart').dataset.data);
+        const ordersCtx = document.getElementById('ordersChart').getContext('2d');
+        new Chart(ordersCtx, {
+            type: 'line',
+            data: {
+                labels: ordersLabels,
+                datasets: [{
+                    label: 'Заказы',
+                    data: ordersData,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true,
+                    tension: 0.1
+                }]
+            }
+        });
+
+        // New Users Chart
+        const newUsersLabels = JSON.parse(document.getElementById('newUsersChart').dataset.labels);
+        const newUsersData = JSON.parse(document.getElementById('newUsersChart').dataset.data);
+        const newUsersCtx = document.getElementById('newUsersChart').getContext('2d');
+        new Chart(newUsersCtx, {
+            type: 'line',
+            data: {
+                labels: newUsersLabels,
+                datasets: [{
+                    label: 'Новые пользователи',
+                    data: newUsersData,
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    fill: true,
+                    tension: 0.1
+                }]
+            }
+        });
+    });
+</script>
+{% endblock %}
