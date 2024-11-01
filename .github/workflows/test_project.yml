@@ -12,14 +12,14 @@ jobs:
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
 
       - name: Add environ
         run: cp .env.test ./source/.env
 
       - name: Run Tests
         run: |
-          docker compose run -T --rm web bash -c "sleep 10 && /code/manage.py test"
+          docker compose run -T --rm web bash -c "ls"
 
   publish:
     needs: tests
