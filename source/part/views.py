@@ -1,17 +1,15 @@
 from django.db.models import DecimalField, OuterRef, Q, Subquery
 from django.http import JsonResponse
+from django.shortcuts import render
 from django.utils.http import urlencode
-from django.views.generic import ListView, DetailView
+from django.views.generic import DetailView, ListView
 from documents.models import PartDocument
-from webapp.forms import SearchForm
 from part.form import PartsFilterForm
 from part.models import Part
 from webapp.forms import SearchForm
 from webapp.models import CarBrand, CarModel, Category, Country, PriceHistory
 from webapp.models.news import News
 from webapp.models.review import Review
-
-from contacts.models import ContactRequest
 
 
 class BasePartView(ListView):
@@ -170,16 +168,15 @@ class PartsDetailView(DetailView):
         context["reviews"] = Review.objects.all()
 
         # Fetch documents related to the part
-        context['documents'] = PartDocument.objects.filter(part=self.object)  # Assuming a ForeignKey from Document to Part
+        context["documents"] = PartDocument.objects.filter(
+            part=self.object
+        )  # Assuming a ForeignKey from Document to Part
 
         return context
 
 
-
-
-
 def about_us(request):
-    return render(request, 'part/about_us.html')
+    return render(request, "part/about_us.html")
 
 
 def get_models(request):

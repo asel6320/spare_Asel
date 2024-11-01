@@ -1,44 +1,71 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const favoriteForms = document.querySelectorAll('.favorite-form'); // Выбираем все формы с классом "favorite-form"
+$(document).ready(function () {
+    var successMessage = $("#jq-notification");
 
-    favoriteForms.forEach(form => {
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-            const formData = new FormData(form);
-            const partId = form.getAttribute('data-part-id');
+    $(document).off("click", ".add-to-favorite").on("click", ".add-to-favorite", function (e) {
+        e.preventDefault();
 
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+        var $this = $(this);
+        var part_id = $this.data("part-id");
+        var add_to_favorite_url = $this.attr("href");
+
+        $.ajax({
+            type: "POST",
+            url: add_to_favorite_url,
+            data: {
+                part_id: part_id,
+                csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
+            },
+            cache: false,
+            success: function (data) {
+                successMessage.html(data.message);
+                successMessage.fadeIn(400);
+                setTimeout(function () {
+                    successMessage.fadeOut(400);
+                }, 2000);
+
+                var icon = $this.find("i");
+                if (data.status === "added") {
+                    icon.removeClass("fa-regular").addClass("fa-solid").css("color", "#e81111");
+                } else {
+                    icon.removeClass("fa-solid").addClass("fa-regular").css("color", "#4CAF50");
                 }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'added') {
-                    form.querySelector('i').classList.remove('bi-heart');
-                    form.querySelector('i').classList.add('bi-heart-fill', 'text-danger');
-                } else if (data.status === 'removed') {
-                    form.querySelector('i').classList.remove('bi-heart-fill', 'text-danger');
-                    form.querySelector('i').classList.add('bi-heart', 'text-black-50');
-                }
-
-
-                const favoriteCountElement = document.querySelector('.favorites-count');
-                if (favoriteCountElement) {
-                    favoriteCountElement.textContent = data.favorite_count;
-                }
-            })
-            .catch(error => {
-                console.error('Ошибка:', error);
-            });
+            },
+            error: function () {
+                console.log("Ошибка при добавлении товара в избранное");
+            },
         });
+    });
 
-        const isFavorite = form.querySelector('i').classList.contains('bi-heart-fill');
-        if (isFavorite) {
-            form.querySelector('i').classList.add('bi-heart-fill', 'text-danger');
-        }
+    $(document).on("click", ".favorite-delete", function (e) {
+        e.preventDefault();
+
+        var favorite_id = $(this).data("favorite-id");
+        var remove_from_favorite_url = $(this).attr("href");
+
+        $.ajax({
+            type: "POST",
+            url: remove_from_favorite_url,
+            data: {
+                favorite_id: favorite_id,
+                csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
+            },
+            cache: false,
+            success: function (data) {
+                successMessage.html(data.message);
+                successMessage.fadeIn(400);
+                setTimeout(function () {
+                    successMessage.fadeOut(400);
+                }, 2000);
+
+                $(`.row > div[data-card="${favorite_id}"]`).remove();
+            },
+            error: function () {
+                console.log("Ошибка при удалении товара из избранного");
+            },
+        });
     });
 });
+
+
+
+

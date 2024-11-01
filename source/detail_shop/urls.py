@@ -20,14 +20,13 @@ from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include
-from django.conf.urls.static import static
+from django.urls import include, path
 
 urlpatterns = (
     [
         path("", include("part.urls")),
         path("admin/", admin.site.urls, name="admin"),
-        path("about/", include("webapp.urls")),
+        path("user/", include("webapp.urls")),
         path("cart/", include("carts.urls")),
         path("order/", include("orders.urls")),
         path("accounts/", include("accounts.urls")),
@@ -35,6 +34,7 @@ urlpatterns = (
         path("lang/", include("lang.urls")),
         path("contacts/", include("contacts.urls")),
         path("crm/", include("crm.urls")),
+        path("favorite/", include("favorite.urls")),
     ]
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     + debug_toolbar_urls()

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 import os
 from pathlib import Path
+
 import environ
 
 env = environ.Env()
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
     "contacts",
     "documents",
     "crm",
+    "favorite",
 ]
 
 MIDDLEWARE = [
@@ -90,13 +92,13 @@ WSGI_APPLICATION = "detail_shop.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env.str("POSTGRES_DB"),
-        'USER': env.str("POSTGRES_USER"),
-        'PASSWORD': env.str("POSTGRES_PASSWORD"),
-        'HOST': env.str("HOST"),
-        'PORT': env.int("PORT"),
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": env.str("POSTGRES_DB"),
+        "USER": env.str("POSTGRES_USER"),
+        "PASSWORD": env.str("POSTGRES_PASSWORD"),
+        "HOST": env.str("HOST"),
+        "PORT": env.int("PORT"),
     }
 }
 
@@ -165,7 +167,7 @@ STATIC_URL = "static/"
 
 MEDIA_URL = "/parts/"
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'parts')
+MEDIA_ROOT = os.path.join(BASE_DIR, "parts")
 
 STATICFILES_DIRS = [BASE_DIR / "static"]
 

@@ -6,16 +6,19 @@
         <div id="partCarousel{{ part.pk }}" class="carousel slide" data-bs-interval="false">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{ part.image1.url }}" alt="{{ part.name }}" class="card-img-top img-fluid custom-carousel-img-main">
+                    <img src="{{ part.image1.url }}" alt="{{ part.name }}"
+                         class="card-img-top img-fluid custom-carousel-img-main">
                 </div>
                 {% if part.image2 %}
                     <div class="carousel-item">
-                        <img src="{{ part.image2.url }}" alt="{{ part.name }}" class="card-img-top img-fluid custom-carousel-img-main">
+                        <img src="{{ part.image2.url }}" alt="{{ part.name }}"
+                             class="card-img-top img-fluid custom-carousel-img-main">
                     </div>
                 {% endif %}
                 {% if part.image3 %}
                     <div class="carousel-item">
-                        <img src="{{ part.image3.url }}" alt="{{ part.name }}" class="card-img-top img-fluid custom-carousel-img-main">
+                        <img src="{{ part.image3.url }}" alt="{{ part.name }}"
+                             class="card-img-top img-fluid custom-carousel-img-main">
                     </div>
                 {% endif %}
             </div>
@@ -34,12 +37,17 @@
             </div>
         </div>
 
-        {% if part.discount %}
-            <span class="badge bg-danger position-absolute top-0 start-0 m-2">-{{ part.discount }}%</span>
-        {% endif %}
-        <button class="btn btn-light position-absolute top-0 end-0 m-2">
-            <i class="bi bi-heart"></i>
-        </button>
+
+        <a href="{% url 'favorite:favorite_add' %}"
+           class="btn btn-light position-absolute top-0 end-0 m-2 btn add-to-favorite" data-part-id="{{ part.id }}">
+            {% if part.pk in favorites %}
+                <i class="fa-solid fa-heart" style="color: #e81111;"></i>
+            {% else %}
+                <i class="fa-regular fa-heart" style="color: #4CAF50;"></i>
+            {% endif %}
+        </a>
+
+
     </div>
 
     <div class="p-2 h-100 d-flex flex-column py-3 px-4">
@@ -68,31 +76,20 @@
             <span class="text-success fw-bold me-auto">В наличии <i class="bi bi-check-circle-fill"></i></span>
 
             <div class="mt-auto d-flex justify-content-end pt-2">
-            <span class="text-secondary fw-bold me-auto">{{ part.reviews.count}} отзывов</span>
-            <button class="btn btn-warning ms-2"><a href="{% url "webapp:create_review" part.pk %}"><i class="bi bi-chat text-white"></i></a></button>
-            <a href="{% url "cart:cart_add" %}" class="btn add-to-cart"
-               data-part-id="{{ part.id }}">
-                {% csrf_token %}
-                <img class="mx-1" src="{% static "icons/cart-plus.svg" %}" alt="Catalog Icon"
-                     width="32" height="32">
-            </a>
-        </div>
+                <span class="text-secondary fw-bold me-auto">{{ part.reviews.count }} отзывов</span>
+                <button class="btn btn-warning ms-2"><a href="{% url "webapp:create_review" part.pk %}"><i
+                        class="bi bi-chat text-white"></i></a></button>
+                <a href="{% url "cart:cart_add" %}" class="btn add-to-cart"
+                   data-part-id="{{ part.id }}">
+                    {% csrf_token %}
+                    <img class="mx-1" src="{% static "icons/cart-plus.svg" %}" alt="Catalog Icon"
+                         width="32" height="32">
+                </a>
+            </div>
 
         </div>
-        <form method="post" action="{% url 'webapp:favorite_add' part.pk %}" class="favorite-form" data-part-id="{{ part.pk }}">
-    {% csrf_token %}
-    <button class="btn position-absolute top-0 end-0 m-2" type="submit" title="Добавить в избранные">
-        <!-- Если товар в избранном, показываем красное сердечко -->
-        {% if part.pk in favorites %}
-            <i class="bi bi-heart-fill text-danger"></i> <!-- Красное сердечко для добавленных товаров -->
-        {% else %}
-            <i class="bi bi-heart text-black-50"></i> <!-- Белое сердечко для остальных товаров -->
-        {% endif %}
 
-
-    </button>
-</form>
-    <meta name="csrf-token" content="{{ csrf_token }}">
+        <meta name="csrf-token" content="{{ csrf_token }}">
         <meta name="csrf-token" content="{{ csrf_token }}">
     </div>
 
