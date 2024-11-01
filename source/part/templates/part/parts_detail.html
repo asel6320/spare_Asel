@@ -55,52 +55,51 @@
                     {% endif %}
                     <p>Модель: <span class="fw-bold">{{ part.vehicle_info.model }}</span></p>
                     <p>Мощность: <span class="fw-bold">{{ part.vehicle_info.engine.horsepower }} л.с.</span></p>
-                    <form method="post" action="{% url 'webapp:favorite_add' part.pk %}" class="favorite-form"
-                          data-part-id="{{ part.pk }}">
-                        {% csrf_token %}
-                        <button class="btn position-absolute top-0 end-0 m-2" type="submit"
-                                title="Добавить в избранные">
-                            {% if part.pk in favorites %}
-                                <i class="bi bi-heart-fill text-danger"></i>
-                            {% else %}
-                                <i class="bi bi-heart text-black-50"></i>
-                            {% endif %}
-
-                        </button>
-                    </form>
-                <div class="mt-auto d-flex justify-content-end pt-2">
-                    <span class="text-success fw-bold me-auto">В наличии <i class="bi bi-check-circle-fill"></i></span>
-
+                    <a href="{% url 'favorite:favorite_add' %}"
+                       class="btn btn-light position-absolute top-0 end-0 m-2 btn add-to-favorite"
+                       data-part-id="{{ part.id }}">
+                        {% if part.pk in favorites %}
+                            <i class="fa-solid fa-heart" style="color: #e81111;"></i>
+                        {% else %}
+                            <i class="fa-regular fa-heart" style="color: #4CAF50;"></i>
+                        {% endif %}
+                    </a>
                     <div class="mt-auto d-flex justify-content-end pt-2">
-                        <span class="text-secondary fw-bold me-auto">{{ part.reviews.count}} отзывов</span>
-                        <button class="btn btn-warning ms-2"><a href="{% url "webapp:create_review" part.pk %}"><i class="bi bi-chat text-white"></i></a></button>
-                        <a href="{% url "cart:cart_add" %}" class="btn add-to-cart"
-                           data-part-id="{{ part.id }}">
-                            {% csrf_token %}
-                            <img class="mx-1" src="{% static "icons/cart-plus.svg" %}" alt="Catalog Icon"
-                                 width="32" height="32">
-                        </a>
-                    </div>
+                        <span class="text-success fw-bold me-auto">В наличии <i
+                                class="bi bi-check-circle-fill"></i></span>
 
-                </div>
+                        <div class="mt-auto d-flex justify-content-end pt-2">
+                            <span class="text-secondary fw-bold me-auto">{{ part.reviews.count }} отзывов</span>
+                            <button class="btn btn-warning ms-2"><a href="{% url "webapp:create_review" part.pk %}"><i
+                                    class="bi bi-chat text-white"></i></a></button>
+                            <a href="{% url "cart:cart_add" %}" class="btn add-to-cart"
+                               data-part-id="{{ part.id }}">
+                                {% csrf_token %}
+                                <img class="mx-1" src="{% static "icons/cart-plus.svg" %}" alt="Catalog Icon"
+                                     width="32" height="32">
+                            </a>
+                        </div>
+
+                    </div>
                     {% include 'partial/review_partial.html' %}
                 </div>
             </div>
         </div>
-<div class="documents my-5">
-    <h3 class="all-headers pb-4">Документы</h3>
-    {% if documents %}
-        <ul class="list-group">
-            {% for document in documents %}
-                <li class="list-group-item">
-                    <a href="{{ document.document.url }}" target="_blank">{{ document.description|default:document.document.name }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p class="text-muted">Документы не найдены.</p>
-    {% endif %}
-</div>
+        <div class="documents my-5">
+            <h3 class="all-headers pb-4">Документы</h3>
+            {% if documents %}
+                <ul class="list-group">
+                    {% for document in documents %}
+                        <li class="list-group-item">
+                            <a href="{{ document.document.url }}" target="_blank">
+                                {{ document.description|default:document.document.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-muted">Документы не найдены.</p>
+            {% endif %}
+        </div>
 
         {% if part.video_url %}
             <iframe width="560" height="315" src="{{ part.video_url }}" title="YouTube video player" frameborder="0"
@@ -123,23 +122,14 @@
                                     <img src="{{ related_part.image1.url }}" alt="{{ related_part.name }}"
                                          class="card-img-top img-fluid">
                                 </div>
-                                <form method="post" action="{% url 'webapp:favorite_add' part.pk %}"
-                                      class="favorite-form" data-part-id="{{ part.pk }}">
-                                    {% csrf_token %}
-                                    <button class="btn position-absolute top-0 end-0 m-2" type="submit"
-                                            title="Добавить в избранные">
-                                        <!-- Если товар в избранном, показываем красное сердечко -->
-                                        {% if part.pk in favorites %}
-                                            <i class="bi bi-heart-fill text-danger"></i>
-                                            <!-- Красное сердечко для добавленных товаров -->
-                                        {% else %}
-                                            <i class="bi bi-heart text-black-50"></i>
-                                            <!-- Белое сердечко для остальных товаров -->
-                                        {% endif %}
-
-
-                                    </button>
-                                </form>
+                                <a href="{% url 'favorite:favorite_add' %}"
+           class="btn btn-light position-absolute top-0 end-0 m-2 btn add-to-favorite" data-part-id="{{ part.id }}">
+            {% if part.pk in favorites %}
+                <i class="fa-solid fa-heart" style="color: #e81111;"></i>
+            {% else %}
+                <i class="fa-regular fa-heart" style="color: #4CAF50;"></i>
+            {% endif %}
+        </a>
                             </div>
                             <div class="p-2 h-100 d-flex flex-column py-3 px-4">
                                 <h4 class="mb-4">
@@ -157,20 +147,24 @@
                                 {% endif %}
 
                                 <div class="mt-auto d-flex justify-content-end pt-2">
-                                    <span class="text-success fw-bold me-auto">В наличии <i class="bi bi-check-circle-fill"></i></span>
+                                    <span class="text-success fw-bold me-auto">В наличии <i
+                                            class="bi bi-check-circle-fill"></i></span>
 
-                                <div class="mt-auto d-flex justify-content-end pt-2">
-                                    <span class="text-secondary fw-bold me-auto">{{ part.reviews.count}} отзывов</span>
-                                    <button class="btn btn-warning ms-2"><a href="{% url "webapp:create_review" part.pk %}"><i class="bi bi-chat text-white"></i></a></button>
-                                    <a href="{% url "cart:cart_add" %}" class="btn add-to-cart"
-                                       data-part-id="{{ part.id }}">
-                                        {% csrf_token %}
-                                        <img class="mx-1" src="{% static "icons/cart-plus.svg" %}" alt="Catalog Icon"
-                                             width="32" height="32">
-                                    </a>
+                                    <div class="mt-auto d-flex justify-content-end pt-2">
+                                        <span class="text-secondary fw-bold me-auto">{{ part.reviews.count }} отзывов</span>
+                                        <button class="btn btn-warning ms-2"><a
+                                                href="{% url "webapp:create_review" part.pk %}"><i
+                                                class="bi bi-chat text-white"></i></a></button>
+                                        <a href="{% url "cart:cart_add" %}" class="btn add-to-cart"
+                                           data-part-id="{{ part.id }}">
+                                            {% csrf_token %}
+                                            <img class="mx-1" src="{% static "icons/cart-plus.svg" %}"
+                                                 alt="Catalog Icon"
+                                                 width="32" height="32">
+                                        </a>
+                                    </div>
+
                                 </div>
-
-                            </div>
                                 {% include 'partial/review_partial.html' %}
                             </div>
                         </div>

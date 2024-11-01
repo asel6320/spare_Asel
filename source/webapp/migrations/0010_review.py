@@ -26,6 +26,7 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 ("text", models.TextField(max_length=400, verbose_name="Отзыв")),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
                 (
                     "part",
                     models.ForeignKey(
