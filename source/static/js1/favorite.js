@@ -4,8 +4,9 @@ $(document).ready(function () {
     $(document).off("click", ".add-to-favorite").on("click", ".add-to-favorite", function (e) {
         e.preventDefault();
 
-        var part_id = $(this).data("part-id");
-        var add_to_favorite_url = $(this).attr("href");
+        var $this = $(this);
+        var part_id = $this.data("part-id");
+        var add_to_favorite_url = $this.attr("href");
 
         $.ajax({
             type: "POST",
@@ -21,6 +22,13 @@ $(document).ready(function () {
                 setTimeout(function () {
                     successMessage.fadeOut(400);
                 }, 2000);
+
+                var icon = $this.find("i");
+                if (data.status === "added") {
+                    icon.removeClass("fa-regular").addClass("fa-solid").css("color", "#e81111");
+                } else {
+                    icon.removeClass("fa-solid").addClass("fa-regular").css("color", "#4CAF50");
+                }
             },
             error: function () {
                 console.log("Ошибка при добавлении товара в избранное");
@@ -49,7 +57,7 @@ $(document).ready(function () {
                     successMessage.fadeOut(400);
                 }, 2000);
 
-                $(`.row>div[data-card="${favorite_id}"]`).remove();
+                $(`.row > div[data-card="${favorite_id}"]`).remove();
             },
             error: function () {
                 console.log("Ошибка при удалении товара из избранного");
@@ -57,3 +65,7 @@ $(document).ready(function () {
         });
     });
 });
+
+
+
+
