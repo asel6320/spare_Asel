@@ -160,10 +160,10 @@
                                     <span class="text-success fw-bold me-auto">В наличии <i class="bi bi-check-circle-fill"></i></span>
 
                                 <div class="mt-auto d-flex justify-content-end pt-2">
-                                    <span class="text-secondary fw-bold me-auto">{{ part.reviews.count}} отзывов</span>
-                                    <button class="btn btn-warning ms-2"><a href="{% url "webapp:create_review" part.pk %}"><i class="bi bi-chat text-white"></i></a></button>
+                                    <span class="text-secondary fw-bold me-auto">{{ related_part.reviews.count}} отзывов</span>
+                                    <button class="btn btn-warning ms-2"><a href="{% url "webapp:create_review" related_part.pk %}"><i class="bi bi-chat text-white"></i></a></button>
                                     <a href="{% url "cart:cart_add" %}" class="btn add-to-cart"
-                                       data-part-id="{{ part.id }}">
+                                       data-part-id="{{ related_part.id }}">
                                         {% csrf_token %}
                                         <img class="mx-1" src="{% static "icons/cart-plus.svg" %}" alt="Catalog Icon"
                                              width="32" height="32">
@@ -171,7 +171,7 @@
                                 </div>
 
                             </div>
-                                {% include 'partial/review_partial.html' %}
+                                {% include 'partial/related_part_review_partial.html' %}
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,34 @@
+<div class="review-container">
+    {% if related_part.reviews.exists %}
+        <div id="reviewCarousel{{ related_part.pk }}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner">
+                {% for review in related_part.reviews.all|slice:":3" %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="card p-3">
+                            <p class="mb-1">{{ review.text }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <button class="review-carousel-btn carousel-control-prev" type="button" data-bs-target="#reviewCarousel{{ related_part.pk }}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="review-carousel-btn carousel-control-next" type="button" data-bs-target="#reviewCarousel{{ related_part.pk }}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <div id="extraReviews{{ related_part.pk }}" class="extra-reviews d-none">
+            {% for review in related_part.reviews.all|slice:"3:" %}
+                <div class="extra-review card p-3 mt-2">
+                    <p class="mb-1">{{ review.text }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <button id="toggleReviewsBtn{{ related_part.pk }}" class="btn btn-secondary mt-2" onclick="toggleReviews({{ related_part.pk }})">Еще отзывы</button>
+    {% endif %}
+</div>
