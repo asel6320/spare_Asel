@@ -8,17 +8,18 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+
       - name: Set up Docker Buildx
         id: buildx
+        uses: docker/setup-buildx-action@v2
 
-        uses: docker/setup-buildx-action@master
       - name: Add environ
         run: cp .env.test ./source/.env
 
       - name: Run Tests
         run: |
-          docker compose run -T --rm web bash -c "/code/manage.py test"
+          docker compose run -T --rm web bash -c "sleep 10 && /code/manage.py test"
 
   publish:
     needs: tests
@@ -26,8 +27,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Run publish
 
+      - name: Run publish
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -40,5 +41,5 @@ jobs:
             echo "" > ./source/.env
             echo TEST="TEST" >> ./source/.env   
             echo DATABASE_URL="psql://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@${{ secrets.POSTGRES_HOST }}:${{ secrets.POSTGRES_PORT }}/${{ secrets.POSTGRES_DB }}" >> ./source/.env
-            git pull     
+            git pull || { echo "Git pull failed"; exit 1; }
             exit
