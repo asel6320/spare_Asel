@@ -1,0 +1,158 @@
+.user-col {
+    display: inline-block;
+    padding: 0 10px;
+    vertical-align: top;
+}
+
+.user-col.username {
+    width: 150px;
+}
+
+.user-col.email {
+    width: 200px;
+}
+
+.user-col.date {
+    width: 150px;
+}
+
+.cart-col {
+    display: inline-block;
+    padding: 0 10px;
+    vertical-align: top;
+}
+
+.cart-col.user {
+    width: 150px;
+}
+
+.cart-col.part-name {
+    width: 200px;
+}
+
+.cart-col.quantity {
+    width: 100px;
+}
+
+.cart-col.part-price {
+    width: 150px;
+}
+
+.cart-col.total-price {
+    width: 150px;
+}
+
+.car-col {
+    display: inline-block;
+    padding: 0 10px;
+    vertical-align: top;
+}
+
+.car-col.brand {
+    width: 150px;
+}
+
+.car-col.model {
+    width: 200px;
+}
+
+.car-col.year {
+    width: 100px;
+}
+
+.ap-col {
+    display: inline-block;
+    padding: 0 10px;
+    vertical-align: top;
+}
+
+.ap-col.col1 {
+    width: 150px;
+}
+
+.ap-col.col2 {
+    width: 200px;
+}
+
+.ap-col.col3 {
+    width: 100px;
+}
+
+.engine-col {
+    display: inline-block;
+    padding: 0 10px;
+    vertical-align: top;
+}
+
+.engine-col.type {
+    width: 150px;
+}
+
+.engine-col.displacement {
+    width: 100px;
+}
+
+.engine-col.horsepower {
+    width: 100px;
+}
+
+.engine-col.torque {
+    width: 100px;
+}
+
+.vehicle-col {
+    display: inline-block;
+    padding: 0 10px;
+    vertical-align: top;
+}
+
+.vehicle-col.type {
+    width: 150px;
+}
+
+.vehicle-col.model {
+    width: 200px;
+}
+
+.vehicle-col.year {
+    width: 100px;
+}
+
+.vehicle-col.body-type {
+    width: 150px;
+}
+
+.vehicle-col.countries {
+    width: 150px;
+}
+
+.vehicle-col.engine {
+    width: 150px;
+}
+
+.vehicle-info {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.vehicle-info h2 {
+    text-align: center;
+    color: #333;
+}
+
+.vehicle-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.vehicle-info li {
+    margin: 10px 0;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #fff;
+}

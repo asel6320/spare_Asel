@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
     <div class="container mt-5">
-        <h1 class="text-center">Список объектов модели: {{ model_name|capfirst }}</h1>
+        <h1 class="text-center">Список объектов: {{ verbose_name_plural|capfirst }}</h1>
 
         <a href="{% url 'admin_panel:model_add' model_name=model_name %}" class="btn btn-primary mb-3">Добавить
             объект</a>
@@ -11,7 +11,7 @@
             <ul class="list-group">
                 {% for obj in objects %}
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        {{ obj }}
+                        {{ obj.to_display|safe }}
                         <div>
                             <a href="{% url 'admin_panel:model_edit' model_name=model_name pk=obj.pk %}"
                                class="btn btn-sm btn-outline-warning">Редактировать</a>

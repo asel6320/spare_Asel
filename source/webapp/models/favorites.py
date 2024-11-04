@@ -1,6 +1,8 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.core.exceptions import ValidationError
+from django.utils.html import format_html
+
 
 User = get_user_model()
 
@@ -11,6 +13,15 @@ class Favorite(models.Model):
 
     def __str__(self):
         return f"Избранное: {self.part}"
+
+    def to_display(self):
+        return format_html(
+                '<div class="ap-col col1" style="font-weight: bold;">{}</div>'
+                '<div class="ap-col col2" >{}</div>',
+
+                self.user,
+                self.part,
+            )
 
     def clean(self):
         if not self.user and not self.session_key:

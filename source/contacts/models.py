@@ -10,3 +10,8 @@ class ContactRequest(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} {self.email}({self.phone_number})"
+
+    class Meta:
+        verbose_name_plural = "Контакты"
+        verbose_name = 'Контакт'
+

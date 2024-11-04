@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.html import format_html
 
 from webapp.models.car import CarModel
 from webapp.models.country import Country
@@ -11,22 +12,39 @@ TYPE_CHOICES = [
     ('bus', 'Автобусы'),
     ('engine', 'Двигатели'),
     ('railroad', 'Ж/Д техника'),
-    ('bicycle', 'Мотоцыкли')
+    ('bicycle', 'Мотоциклы')
 ]
 
 
-# Модель для хранения марок, моделей и другой информации
 class VehicleInfo(models.Model):
-    vehicle_type = models.CharField(max_length=50, choices=TYPE_CHOICES)  # тип транспортного средства
-    model = models.ForeignKey(CarModel, on_delete=models.CASCADE, related_name="vehicle_infos")  # модель автомобиля
-    year_of_manufacture = models.PositiveIntegerField()  # год выпуска
-    body_type = models.CharField(max_length=255, blank=True, null=True)  # кузов
-    countries = models.ManyToManyField(Country, related_name="vehicle_infos")  # страны производства
+    vehicle_type = models.CharField(max_length=50, choices=TYPE_CHOICES)
+    model = models.ForeignKey(CarModel, on_delete=models.CASCADE, related_name="vehicle_infos")
+    year_of_manufacture = models.PositiveIntegerField()
+    body_type = models.CharField(max_length=255, blank=True, null=True)
+    countries = models.ManyToManyField(Country, related_name="vehicle_infos")
     engine = models.ForeignKey(Engine, null=True, blank=True, related_name="vehicle_infos",
-                               on_delete=models.CASCADE)  # связь с двигателем
+                               on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.model.brand.name} {self.model.name} ({self.year_of_manufacture})"
+
+    def to_display(self):
+        countries_display = ', '.join(country.name for country in self.countries.all())
+
+        return format_html(
+            '<div class="vehicle-col type">{}</div>'
+            '<div class="vehicle-col model">{}</div>'
+            '<div class="vehicle-col year">{}</div>'
+            '<div class="vehicle-col body-type">{}</div>'
+            '<div class="vehicle-col countries">{}</div>'
+            '<div class="vehicle-col engine">{}</div>',
+            self.get_vehicle_type_display(),
+            self.model,
+            self.year_of_manufacture,
+            self.body_type if self.body_type else 'Не указано',
+            countries_display if countries_display else 'Не указано',
+            self.engine if self.engine else 'Не указано'
+        )
 
     class Meta:
         verbose_name_plural = "Типы транспорта"

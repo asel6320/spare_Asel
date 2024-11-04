@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils.html import format_html
+
 
 class News(models.Model):
     title = models.CharField(max_length=255, verbose_name="Заголовок")
@@ -14,3 +16,14 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+
+    def to_display(self):
+        return format_html(
+                '<div class="ap-col col1" style="font-weight: bold;">{}</div>'
+                '<div class="ap-col col2" >{}</div>'
+                '<div class="ap-col col3" >{}</div>',
+
+                self.title[:30],
+                self.short_description[:20],
+                self.published_at,
+            )

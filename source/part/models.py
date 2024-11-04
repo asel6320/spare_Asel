@@ -1,22 +1,22 @@
 from django.db import models
 from django.urls import reverse
+from django.utils.html import format_html
 
 from webapp.models.category import Category
 from webapp.models.vehicleinfo import VehicleInfo
 
 
-# Модель запчастей
 class Part(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="parts")  # категория запчасти
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="parts")
     vehicle_info = models.ForeignKey(VehicleInfo, on_delete=models.CASCADE,
-                                     related_name="parts")  # информация о транспортном средстве
-    name = models.CharField(max_length=255)  # название запчасти
-    description = models.TextField()  # описание запчасти
-    amount = models.PositiveIntegerField(verbose_name="Остаток", default=0)  # количество
+                                     related_name="parts")
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    amount = models.PositiveIntegerField(verbose_name="Остаток", default=0)
     video_url = models.URLField(max_length=255, blank=True, null=True)
-    image1 = models.ImageField(default='default.jpg', upload_to='parts/')  # изображение
-    image2 = models.ImageField(blank=True, null=True, upload_to='parts/')  # изображение 2 (опционально)
-    image3 = models.ImageField(blank=True, null=True, upload_to='parts/')  # изображение 3 (опционально)
+    image1 = models.ImageField(default='default.jpg', upload_to='parts/')
+    image2 = models.ImageField(blank=True, null=True, upload_to='parts/')
+    image3 = models.ImageField(blank=True, null=True, upload_to='parts/')
 
     @property
     def current_price(self):
@@ -37,6 +37,18 @@ class Part(models.Model):
 
     def __str__(self):
         return f"{self.name} for {self.vehicle_info.model.brand.name} {self.vehicle_info.model.name}"
+
+    def to_display(self):
+        return format_html(
+                '<div class="ap-col col1" style="font-weight: bold;">{}</div>'
+                '<div class="ap-col col2" >{}</div>'
+                '<div class="ap-col col3" >{}</div>',
+
+                self.name,
+                self.vehicle_info.model.brand.name,
+                self.vehicle_info.model.name,
+            )
+
 
     class Meta:
         verbose_name_plural = "Запчасти"

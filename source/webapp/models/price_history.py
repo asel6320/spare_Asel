@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.html import format_html
 
 
 class PriceHistory(models.Model):
@@ -7,7 +8,7 @@ class PriceHistory(models.Model):
     date_changed = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Цена: {self.price}, Дата: {self.date_changed.strftime('%Y-%m-%d %H:%M')}"
+        return f"{self.part} - {self.price}, {self.date_changed.strftime('%Y-%m-%d %H:%M')}"
 
     class Meta:
         verbose_name_plural = "Истории цен"
@@ -17,3 +18,12 @@ class PriceHistory(models.Model):
         app_label = 'webapp'
 
 
+    def to_display(self):
+        return format_html(
+            '<strong ">{}</strong> - '
+            '<span style="color: green; font-weight: bold;">{} ₽</span> '
+            '<span style="color: gray;">{}</span>',
+            self.part,
+            self.price,
+            self.date_changed.strftime('%Y-%m-%d %H:%M')
+        )
