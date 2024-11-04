@@ -8,6 +8,7 @@ from django.db.models import Count, Sum, F, Avg
 from accounts.models import User
 from orders.models import Order, OrderPart
 from crm.form import OrderForm
+import json
 
 from django.views.generic import ListView, TemplateView, CreateView
 
@@ -55,8 +56,8 @@ class AnalyticsView(TemplateView):
             .annotate(count=Count('id'))
             .order_by('day')
         )
-        context['orders_labels'] = [entry['day'].strftime('%Y-%m-%d') for entry in orders_last_30_days]
-        context['orders_data'] = [entry['count'] for entry in orders_last_30_days]
+        context['orders_labels'] = json.dumps([entry['day'].strftime('%Y-%m-%d') for entry in orders_last_30_days])
+        context['orders_data'] = json.dumps([entry['count'] for entry in orders_last_30_days])
 
         # Новые пользователи за последние 30 дней
         new_users_last_30_days = (
@@ -66,8 +67,8 @@ class AnalyticsView(TemplateView):
             .annotate(count=Count('id'))
             .order_by('day')
         )
-        context['new_users_labels'] = [entry['day'].strftime('%Y-%m-%d') for entry in new_users_last_30_days]
-        context['new_users_data'] = [entry['count'] for entry in new_users_last_30_days]
+        context['new_users_labels'] = json.dumps([entry['day'].strftime('%Y-%m-%d') for entry in new_users_last_30_days])
+        context['new_users_data'] = json.dumps([entry['count'] for entry in new_users_last_30_days])
 
         # Топ-5 популярных товаров
         popular_parts = (
