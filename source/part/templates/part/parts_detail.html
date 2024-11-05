@@ -122,23 +122,14 @@
                                     <img src="{{ related_part.image1.url }}" alt="{{ related_part.name }}"
                                          class="card-img-top img-fluid">
                                 </div>
-                                <form method="post" action="{% url 'webapp:favorite_add' part.pk %}"
-                                      class="favorite-form" data-part-id="{{ part.pk }}">
-                                    {% csrf_token %}
-                                    <button class="btn position-absolute top-0 end-0 m-2" type="submit"
-                                            title="Добавить в избранные">
-                                        <!-- Если товар в избранном, показываем красное сердечко -->
-                                        {% if part.pk in favorites %}
-                                            <i class="bi bi-heart-fill text-danger"></i>
-                                            <!-- Красное сердечко для добавленных товаров -->
-                                        {% else %}
-                                            <i class="bi bi-heart text-black-50"></i>
-                                            <!-- Белое сердечко для остальных товаров -->
-                                        {% endif %}
-
-
-                                    </button>
-                                </form>
+                                <a href="{% url 'favorite:favorite_add' %}"
+           class="btn btn-light position-absolute top-0 end-0 m-2 btn add-to-favorite" data-part-id="{{ part.id }}">
+            {% if part.pk in favorites %}
+                <i class="fa-solid fa-heart" style="color: #e81111;"></i>
+            {% else %}
+                <i class="fa-regular fa-heart" style="color: #4CAF50;"></i>
+            {% endif %}
+        </a>
                             </div>
                             <div class="p-2 h-100 d-flex flex-column py-3 px-4">
                                 <h4 class="mb-4">
@@ -156,21 +147,25 @@
                                 {% endif %}
 
                                 <div class="mt-auto d-flex justify-content-end pt-2">
-                                    <span class="text-success fw-bold me-auto">В наличии <i class="bi bi-check-circle-fill"></i></span>
+                                    <span class="text-success fw-bold me-auto">В наличии <i
+                                            class="bi bi-check-circle-fill"></i></span>
 
-                                <div class="mt-auto d-flex justify-content-end pt-2">
-                                    <span class="text-secondary fw-bold me-auto">{{ related_part.reviews.count}} отзывов</span>
-                                    <button class="btn btn-warning ms-2"><a href="{% url "webapp:create_review" related_part.pk %}"><i class="bi bi-chat text-white"></i></a></button>
-                                    <a href="{% url "cart:cart_add" %}" class="btn add-to-cart"
-                                       data-part-id="{{ related_part.id }}">
-                                        {% csrf_token %}
-                                        <img class="mx-1" src="{% static "icons/cart-plus.svg" %}" alt="Catalog Icon"
-                                             width="32" height="32">
-                                    </a>
+                                    <div class="mt-auto d-flex justify-content-end pt-2">
+                                        <span class="text-secondary fw-bold me-auto">{{ part.reviews.count }} отзывов</span>
+                                        <button class="btn btn-warning ms-2"><a
+                                                href="{% url "webapp:create_review" part.pk %}"><i
+                                                class="bi bi-chat text-white"></i></a></button>
+                                        <a href="{% url "cart:cart_add" %}" class="btn add-to-cart"
+                                           data-part-id="{{ part.id }}">
+                                            {% csrf_token %}
+                                            <img class="mx-1" src="{% static "icons/cart-plus.svg" %}"
+                                                 alt="Catalog Icon"
+                                                 width="32" height="32">
+                                        </a>
+                                    </div>
+
                                 </div>
-
-                            </div>
-                                {% include 'partial/related_part_review_partial.html' %}
+                                {% include 'partial/review_partial.html' %}
                             </div>
                         </div>
                     </div>
