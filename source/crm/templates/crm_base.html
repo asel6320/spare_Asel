@@ -10,31 +10,56 @@
     <link rel="stylesheet" href="{% static 'css/media.css' %}">
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa; /* Светлый фон для лучшей читаемости */
+        }
+        .sidebar {
+            background-color: #343a40; /* Темный фон для бокового меню */
+            height: 100vh; /* Задаем высоту боковой панели на весь экран */
+            position: fixed; /* Фиксируем боковую панель */
+            padding-top: 20px; /* Отступ сверху */
+        }
+        .sidebar a {
+            color: #ffffff; /* Белый цвет текста */
+            padding: 10px 15px; /* Отступы для ссылок */
+            text-decoration: none; /* Убираем подчеркивание */
+            border-radius: 5px; /* Закругленные углы */
+        }
+        .sidebar a:hover {
+            background-color: #495057; /* Изменение цвета при наведении */
+        }
+        .content {
+            margin-left: 250px; /* Отступ для контента, чтобы не накладывался на боковое меню */
+            padding: 20px; /* Отступы внутри контента */
+        }
+        h2 {
+            color: #343a40; /* Цвет заголовков */
+        }
+    </style>
 </head>
 <body>
-    <div class="d-flex">
-        <nav class="sidebar d-flex flex-column p-3">
-            <div class="sidebar-header">
-                <h4 class="text-white">CRM Dashboard</h4>
-            </div>
+    <nav class="sidebar d-flex flex-column">
+        <div class="sidebar-header text-center">
+            <h4 class="text-white">CRM Dashboard</h4>
+        </div>
+        <div class="d-flex flex-column">
             <a href="{% url 'crm:analytics' %}">Аналитика</a>
             <a href="{% url 'crm:customers' %}">Клиенты</a>
             <a href="{% url 'crm:orders' %}">Заказы</a>
             <a href="#">Запчасти</a>
             <a href="{% url 'part:parts_list' %}">Выйти</a>
-        </nav>
+        </div>
+    </nav>
 
-        <div class="content">
-            <div class="container-fluid">
-                <h2>{% block title %}CRM Dashboard{% endblock %}</h2>
-
-                {% block content %}
-                {% endblock %}
-            </div>
+    <div class="content">
+        <div class="container-fluid">
+            <h2>{% block title %}CRM Dashboard{% endblock %}</h2>
+            {% block content %}
+            {% endblock %}
         </div>
     </div>
 
-    <script src="{% static 'js1/analytics.js' %}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

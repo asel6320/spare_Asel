@@ -1,30 +1,115 @@
 from datetime import timedelta
+
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.core.exceptions import PermissionDenied
 from django.utils import timezone
 from django.urls import reverse_lazy
 
 from django.db.models.functions.datetime import TruncDay
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Count, Sum, F, Avg
 from accounts.models import User
 from orders.models import Order, OrderPart
-from crm.form import OrderForm
-from django.views.generic import ListView, TemplateView, CreateView
+from crm.form import AdminOrderForm, CustomerFor, OrderForm
+import json
+
+from django.views.generic import ListView, TemplateView, CreateView, DetailView, UpdateView, DeleteView, FormView, View
 
 
 
 
 
 class CustomerListView(ListView):
-    template_name = "customer_list.html"
+    template_name = 'customer/customer_list.html'
     queryset = User.objects.all()
     context_object_name = "customers"
 
 
 class OrderListView(ListView):
-    template_name = "order_list.html"
+    template_name = 'order/order_list.html'
     model = Order
     context_object_name = "orders"
     paginate_by = 10
+    def get_queryset(self):
+        return Order.objects.select_related('user').prefetch_related('orderpart_set').all()
+
+class OrderDetailView(DetailView):
+    model = Order
+    template_name = 'order/order_detail.html'
+    context_object_name = 'order'
+
+class OrderUpdateView(UpdateView):
+    model = Order
+    form_class = AdminOrderForm
+    template_name = 'order/orders_form.html'
+    success_url = reverse_lazy('crm:orders')
+
+    def form_valid(self, form):
+        order = form.save(commit=False)
+        print("Updating Order:", order)
+        order.save()
+
+        part_ids = form.cleaned_data.get('part_ids', [])
+        print("Selected parts for update:", part_ids)
+
+        existing_parts = order.orderpart_set.all()
+        print("Existing parts before update:", existing_parts)
+
+        for part in existing_parts:
+            if part.part_id not in [p.id for p in part_ids]:
+                print(f"Deleting part {part}")
+                part.delete()
+
+        for part in part_ids:
+            if not existing_parts.filter(part_id=part.id).exists():
+                print(f"Adding new part {part}")
+                OrderPart.objects.create(
+                    order=order,
+                    part=part,
+                    quantity=1,
+                    name=part.name,
+                    price=part.current_price,
+                )
+
+        return super().form_valid(form)
+
+class OrderDeleteView(DeleteView):
+    model = Order
+    template_name = 'order/order_confirm_delete.html'
+    success_url = reverse_lazy('crm:orders')
+
+
+class AdminOrderCreateView(LoginRequiredMixin, UserPassesTestMixin, FormView):
+    form_class = AdminOrderForm
+    template_name = "order/create_order.html"
+    success_url = reverse_lazy("crm:orders")
+
+    def test_func(self):
+        return self.request.user.is_staff
+
+    def handle_no_permission(self):
+        raise PermissionDenied("У вас нет прав.")
+
+    def form_valid(self, form):
+
+        try:
+            order = form.save(commit=False)
+            order.user = self.request.user
+            order.save()
+
+            part_ids = form.cleaned_data['part_ids']
+            for part in part_ids:
+                OrderPart.objects.create(
+                    order=order,
+                    part=part,
+                    quantity=1,
+                    name=part.name,
+                    price=part.current_price,
+                )
+            return super().form_valid(form)
+        except Exception as e:
+            print(f"Ошибка: {e}")
+            return self.form_invalid(form)
 
 
 class AnalyticsView(TemplateView):
@@ -35,8 +120,8 @@ class AnalyticsView(TemplateView):
 
         # Общая статистика заказов
         context['orders_count'] = Order.objects.count()
-        context['completed_orders'] = Order.objects.filter(status="Completed").count()
-        context['pending_orders'] = Order.objects.filter(status="Pending").count()
+        context['completed_orders'] = Order.objects.filter(status="in_process").count()  # Adjusted for consistency
+        context['pending_orders'] = Order.objects.filter(status="completed").count()
         context['delivery_orders'] = Order.objects.filter(requires_delivery=True).count()
         context['paid_orders'] = Order.objects.filter(is_paid=True).count()
 
@@ -58,8 +143,8 @@ class AnalyticsView(TemplateView):
             .annotate(count=Count('id'))
             .order_by('day')
         )
-        context['orders_labels'] = [entry['day'].strftime('%Y-%m-%d') for entry in orders_last_30_days]
-        context['orders_data'] = [entry['count'] for entry in orders_last_30_days]
+        context['orders_labels'] = json.dumps([entry['day'].strftime('%Y-%m-%d') for entry in orders_last_30_days])
+        context['orders_data'] = json.dumps([entry['count'] for entry in orders_last_30_days])
 
         # Новые пользователи за последние 30 дней
         new_users_last_30_days = (
@@ -69,8 +154,9 @@ class AnalyticsView(TemplateView):
             .annotate(count=Count('id'))
             .order_by('day')
         )
-        context['new_users_labels'] = [entry['day'].strftime('%Y-%m-%d') for entry in new_users_last_30_days]
-        context['new_users_data'] = [entry['count'] for entry in new_users_last_30_days]
+        context['new_users_labels'] = json.dumps(
+            [entry['day'].strftime('%Y-%m-%d') for entry in new_users_last_30_days])
+        context['new_users_data'] = json.dumps([entry['count'] for entry in new_users_last_30_days])
 
         # Топ-5 популярных товаров
         popular_parts = (
@@ -83,15 +169,31 @@ class AnalyticsView(TemplateView):
         return context
 
 
-class AddOrderView(CreateView):
-    model = Order
-    form_class = OrderForm
-    template_name = 'add_order.html'
-    success_url = reverse_lazy('crm:orders')
+class CustomerDetailView(DetailView):
+    model = User
+    template_name = 'customer/customer_detail.html'
+    context_object_name = 'customer'
 
-    def form_valid(self, form):
-        # Assign the logged-in user to the order
-        form.instance.user = self.request.user  # This line assigns the user
-        return super().form_valid(form)
+class CustomerUpdateView(View):
+    def get(self, request, pk):
+        customer = get_object_or_404(User, pk=pk)
+        form = CustomerForm(instance=customer)
+        return render(request, 'customer/customer_form.html', {'form': form, 'customer': customer})
+
+    def post(self, request, pk):
+        customer = get_object_or_404(User, pk=pk)
+        form = CustomerForm(request.POST, instance=customer)
+        if form.is_valid():
+            form.save()
+            return redirect('crm:customer_detail', pk=customer.pk)
+        return render(request, 'customer/customer_form.html', {'form': form, 'customer': customer})
+
+class CustomerDeleteView(View):
+    def post(self, request, pk):
+        customer = get_object_or_404(User, pk=pk)
+        customer.delete()
+        return redirect('crm:customers')
+
+
 
 

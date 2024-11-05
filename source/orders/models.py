@@ -6,6 +6,11 @@ User = get_user_model()
 
 
 class Order(models.Model):
+    STATUS_CHOICES = [
+        ('in_process', 'В обработке'),
+        ('completed', 'Выполнен'),
+    ]
+
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -40,7 +45,10 @@ class Order(models.Model):
     )
     is_paid = models.BooleanField(default=False, verbose_name="Оплачено")
     status = models.CharField(
-        max_length=50, default="В обработке", verbose_name="Статус заказа"
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='in_process',
+        verbose_name="Статус заказа"
     )
 
     def __str__(self):
@@ -61,6 +69,10 @@ class OrderPart(models.Model):
     name = models.CharField(max_length=150, verbose_name="Название")
     price = models.DecimalField(max_digits=7, decimal_places=2, verbose_name="Цена")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата продажи")
+
+    @property
+    def total_price(self):
+        return sum(order_part.price * order_part.quantity for order_part in self.orderpart_set.all())
 
     def get_latest_price(self):
         price_history = self.part.price_history.order_by("-date_changed").first()
