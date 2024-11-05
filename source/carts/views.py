@@ -1,12 +1,16 @@
-from django.http import JsonResponse
-from django.views import View
+from accounts.forms.profile import ProfileForm
 from carts.mixins import CartMixin
 from carts.models import Cart
+from django.core.mail import EmailMultiAlternatives
+from django.http import JsonResponse
+from django.template.loader import render_to_string
+from django.views import View
 from part.models import Part
 
 
 class CartAddView(CartMixin, View):
     def post(self, request):
+
         part_id = request.POST.get("part_id")
         part = Part.objects.get(id=part_id)
 
@@ -16,6 +20,7 @@ class CartAddView(CartMixin, View):
             cart.quantity += 1
             cart.save()
         else:
+
             Cart.objects.create(
                 user=request.user if request.user.is_authenticated else None,
                 session_key=(
@@ -27,12 +32,12 @@ class CartAddView(CartMixin, View):
                 quantity=1,
             )
 
-        response_data = {
-            "message": "Товар добавлен в корзину",
-            "cart_items_html": self.render_cart(request),
-        }
+            response_data = {
+                "message": "Товар добавлен в корзину",
+                "cart_items_html": self.render_cart(request),
+            }
 
-        return JsonResponse(response_data)
+            return JsonResponse(response_data)
 
 
 class CartChangeView(CartMixin, View):

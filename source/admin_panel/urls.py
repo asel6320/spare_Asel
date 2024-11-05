@@ -1,5 +1,4 @@
 from django.urls import path
-from part.views import BasePartView
 
 from .full_change_price import UpdatePricesView
 from .views import admin_home, model_add, model_delete, model_edit, model_list

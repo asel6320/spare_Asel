@@ -26,23 +26,46 @@ class UpdatePricesView(BasePartView):
         form = PriceUpdateForm(request.POST)
         selected_parts = request.POST.getlist("selected_parts")
 
-        if form.is_valid() and selected_parts:
-            change_type = request.POST.get("change_type")
-            if change_type == "price":
-                new_price = form.cleaned_data.get("price")
-                self.update_part_prices(selected_parts, new_price)
-            elif change_type == "percentage":
-                percentage = form.cleaned_data.get("percentage")
-                self.update_part_percentage(selected_parts, percentage)
-            elif change_type == "price_to":
-                change_to = form.cleaned_data.get("price_to")
-                self.update_part_to(selected_parts, change_to)
-
-            messages.success(
-                request, f"Успешно обновлено цен на {len(selected_parts)} запчастей"
+        if not form.is_valid():
+            messages.error(
+                request, "Форма содержит ошибки. Проверьте введенные данные."
             )
+            return redirect("admin_panel:update_prices")
 
-            return redirect("admin_panel:admin_home")
+        if not selected_parts:
+            messages.error(request, "Не выбраны запчасти для обновления.")
+            return redirect("admin_panel:update_prices")
+
+        change_type = request.POST.get("change_type")
+        if change_type == "price":
+            new_price = form.cleaned_data.get("price")
+            if new_price is None or new_price <= 0:
+                messages.error(request, "Некорректное значение цены.")
+                return redirect("admin_panel:update_prices")
+            self.update_part_prices(selected_parts, new_price)
+
+        elif change_type == "percentage":
+            percentage = form.cleaned_data.get("percentage")
+            if percentage is None:
+                messages.error(request, "Некорректное значение процента.")
+                return redirect("admin_panel:update_prices")
+            self.update_part_percentage(selected_parts, percentage)
+
+        elif change_type == "price_to":
+            change_to = form.cleaned_data.get("price_to")
+            if change_to is None or change_to <= 0:
+                messages.error(request, "Некорректное значение для новой цены.")
+                return redirect("admin_panel:update_prices")
+            self.update_part_to(selected_parts, change_to)
+
+        else:
+            messages.error(request, "Некорректный тип изменения.")
+            return redirect("admin_panel:update_prices")
+
+        messages.success(
+            request, f"Успешно обновлено цен на {len(selected_parts)} запчастей"
+        )
+        return redirect("admin_panel:admin_home")
 
     @staticmethod
     def get_parts():

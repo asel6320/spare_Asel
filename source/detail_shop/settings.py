@@ -90,9 +90,9 @@ WSGI_APPLICATION = "detail_shop.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": env.str("NAME"),
-        "USER": env.str("USER"),
-        "PASSWORD": env.str("PASSWORD"),
+        "NAME": env.str("POSTGRES_DB"),
+        "USER": env.str("POSTGRES_USER"),
+        "PASSWORD": env.str("POSTGRES_PASSWORD"),
         "HOST": env.str("HOST"),
         "PORT": env.int("PORT"),
     }
