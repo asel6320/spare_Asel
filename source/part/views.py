@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.utils.http import urlencode
 from django.views.generic import DetailView, ListView
 from documents.models import PartDocument
+from favorite.models import Favorite
 from part.form import PartsFilterForm
 from part.models import Part
 from webapp.forms import SearchForm
@@ -71,6 +72,25 @@ class PartsListView(BasePartView):
         context["latest"] = News.objects.order_by("-published_at")[:5]
         context.pop("search_form", None)
         return context
+
+    def get(self, request, *args, **kwargs):
+        parts = Part.objects.all()
+        favorites = (
+            Favorite.objects.filter(user=request.user)
+            if request.user.is_authenticated
+            else Favorite.objects.filter(session_key=request.session.session_key)
+        )
+
+        favorite_part_ids = favorites.values_list("part_id", flat=True)
+
+        return render(
+            request,
+            "index.html",
+            {
+                "parts": parts,
+                "favorites": favorite_part_ids,
+            },
+        )
 
 
 class PartsMainView(ListView):

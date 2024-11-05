@@ -57,7 +57,7 @@
                     {% if user.is_staff %}
                         {% else %}
                             <li class="nav-item px-3">
-                                <a class="btn btn-light-emphasis ms-2" href="{% url 'webapp:favorites' %}">
+                                <a class="btn btn-light-emphasis ms-2" href="{% url 'favorite:favorite_template' %}">
                                     Избранное
                                     <i class="bi bi-heart"></i>
                                 </a>
