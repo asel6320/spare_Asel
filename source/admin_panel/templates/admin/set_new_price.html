@@ -89,30 +89,48 @@
         }
     </style>
 
-
     <script>
-        function saveCheckboxState() {
-            document.querySelectorAll('.part-checkbox').forEach(checkbox => {
-                localStorage.setItem(`checkbox-${checkbox.value}`, checkbox.checked);
-            });
-        }
+    document.addEventListener('DOMContentLoaded', () => {
+        const selectedParts = JSON.parse(localStorage.getItem('selectedParts')) || [];
 
-        function restoreCheckboxState() {
-            document.querySelectorAll('.part-checkbox').forEach(checkbox => {
-                checkbox.checked = localStorage.getItem(`checkbox-${checkbox.value}`) === 'true';
+        const updateCheckboxes = () => {
+            const checkboxes = document.querySelectorAll('.part-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = selectedParts.includes(checkbox.value);
             });
-        }
+        };
 
-        document.getElementById('updateForm').addEventListener('submit', () => {
-            localStorage.clear();
+        updateCheckboxes();
+
+        const checkboxes = document.querySelectorAll('.part-checkbox');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                if (checkbox.checked) {
+                    if (!selectedParts.includes(checkbox.value)) {
+                        selectedParts.push(checkbox.value);
+                    }
+                } else {
+                    const index = selectedParts.indexOf(checkbox.value);
+                    if (index > -1) {
+                        selectedParts.splice(index, 1);
+                    }
+                }
+                localStorage.setItem('selectedParts', JSON.stringify(selectedParts));
+            });
         });
 
-        document.addEventListener('DOMContentLoaded', () => {
-            restoreCheckboxState();
-
-            document.querySelectorAll('.part-checkbox').forEach(checkbox => {
-                checkbox.addEventListener('change', saveCheckboxState);
-            });
+        const updateForm = document.getElementById('updateForm');
+        updateForm.addEventListener('submit', () => {
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'selected_parts';
+            hiddenInput.value = JSON.stringify(selectedParts);
+            updateForm.appendChild(hiddenInput);
+            localStorage.removeItem('selectedParts');
         });
-    </script>
+    });
+</script>
+
+
+
 {% endblock %}

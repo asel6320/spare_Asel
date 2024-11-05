@@ -1,9 +1,11 @@
+import json
+
 from admin_panel.form import PriceUpdateForm
 from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from django.db import transaction
 from django.db.models import Q
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect
 from django.utils.decorators import method_decorator
 from part.models import Part
 from part.views import BasePartView
@@ -24,7 +26,7 @@ class UpdatePricesView(BasePartView):
 
     def post(self, request):
         form = PriceUpdateForm(request.POST)
-        selected_parts = request.POST.getlist("selected_parts")
+        selected_parts = json.loads(request.POST.get("selected_parts", "[]"))
 
         if not form.is_valid():
             messages.error(
