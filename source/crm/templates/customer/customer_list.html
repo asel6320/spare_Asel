@@ -1,17 +1,17 @@
 {% extends 'crm_base.html' %}
 
-{% block title %}Информация о клиенте{% endblock %}
-
 {% block content %}
-    <div class="card mt-4">
-        <div class="card-header">
-            <h4 class="card-title">Информация</h4>
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
+            <h4 class="card-title mb-0">Список клиентов</h4>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
-                    <thead class="table-dark">
+                    <thead class="table-light">
                         <tr>
+                            <th>#</th>
                             <th>Имя</th>
                             <th>Фамилия</th>
                             <th>Эл. почта</th>
@@ -22,22 +22,25 @@
                     <tbody>
                         {% for customer in customers %}
                         <tr>
+                            <td>{{ forloop.counter }}</td>
                             <td>{{ customer.first_name }}</td>
                             <td>{{ customer.last_name }}</td>
                             <td>{{ customer.email }}</td>
                             <td>{{ customer.phone_number }}</td>
-                            <td>
-                                <a href="{% url 'crm:customer_detail' customer.pk %}" class="btn btn-sm btn-primary">Просмотр</a>
-                                <a href="{% url 'crm:customer_edit' customer.pk %}" class="btn btn-sm btn-warning">Изменить</a>
-                                <form action="{% url 'crm:customer_delete' customer.pk %}" method="post" style="display:inline;">
+                            <td class="d-flex">
+                                <a href="{% url 'crm:customer_detail' customer.pk %}" class="btn btn-sm btn-info me-2">Просмотр</a>
+                                <a href="{% url 'crm:customer_edit' customer.pk %}" class="btn btn-sm btn-warning me-2">Изменить</a>
+                                <form action="{% url 'crm:customer_delete' customer.pk %}" method="post" class="d-inline">
                                     {% csrf_token %}
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Вы уверены, что хотите удалить этого клиента?');">Удалить</button>
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Вы уверены, что хотите удалить этого клиента?');">
+                                        Удалить
+                                    </button>
                                 </form>
                             </td>
                         </tr>
                         {% empty %}
                         <tr>
-                            <td colspan="5">Не найдено пользователей.</td>
+                            <td colspan="6" class="text-center">Не найдено клиентов.</td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -45,4 +48,5 @@
             </div>
         </div>
     </div>
+</div>
 {% endblock %}

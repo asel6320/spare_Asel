@@ -7,13 +7,12 @@ from part.models import Part
 
 User = get_user_model()
 
-
 class AdminOrderForm(forms.ModelForm):
     part_ids = forms.ModelMultipleChoiceField(
         queryset=Part.objects.all(),
         widget=forms.CheckboxSelectMultiple,
         required=True,
-        label="Select Parts",
+        label="Выбрать запчасти",
     )
 
     class Meta:

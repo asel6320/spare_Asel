@@ -1,0 +1,82 @@
+{% extends 'crm_base.html' %}
+
+{% block title %}Детали заказа{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg border-light">
+        <div class="card-header bg-primary text-white">
+            <h4 class="card-title">Детали заказа № {{ order.pk }}</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Информация о клиенте</h5>
+                    <ul class="list-unstyled">
+                        <li><strong>Имя:</strong> {{ order.first_name }}</li>
+                        <li><strong>Фамилия:</strong> {{ order.last_name }}</li>
+                        <li><strong>Эл. почта:</strong> {{ order.email }}</li>
+                        <li><strong>Телефон:</strong> {{ order.phone }}</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6">
+                    <h5>Информация о заказе</h5>
+                    <ul class="list-unstyled">
+                        <li><strong>Дата заказа:</strong> {{ order.created_at|date:"d.m.Y H:i" }}</li>
+                        <li><strong>Статус:</strong>
+                            {% if order.status == 'completed' %}
+                                <span class="badge bg-success">Завершен</span>
+                            {% elif order.status == 'in_process' %}
+                                <span class="badge bg-warning">В обработке</span>
+                            {% else %}
+                                <span class="badge bg-secondary">{{ order.get_status_display }}</span>
+                            {% endif %}
+                        </li>
+                        <li><strong>Требуется доставка:</strong> {% if order.requires_delivery %}Да{% else %}Нет{% endif %}</li>
+                        <li><strong>Адрес доставки:</strong> {% if order.delivery_address %}{{ order.delivery_address }}{% else %}Не указан{% endif %}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- Ordered Parts Information -->
+            <h5>Запчасти в заказе</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Запчасть</th>
+                            <th>Количество</th>
+                            <th>Цена за штуку</th>
+                            <th>Общая цена</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order_part in order.orderpart_set.all %}
+                        <tr>
+                            <td>{{ order_part.name }}</td>
+                            <td>{{ order_part.quantity }}</td>
+                            <td>{{ order_part.price|floatformat:2 }} сом</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-md-6 offset-md-6 text-end">
+                    <h5><strong>Общая сумма заказа:</strong>
+                        {{ order.total_price|floatformat:2 }} сом
+                    </h5>
+                </div>
+            </div>
+
+            <a href="{% url 'crm:orders' %}" class="btn btn-secondary mt-3">Назад</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

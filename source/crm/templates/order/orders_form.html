@@ -4,10 +4,16 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h4>{{ view.object.pk|default:"Создание" }} заказа</h4>
+    <h4>Редактирование заказа № {{ view.object.pk }}</h4>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
+        <div class="form-group">
+            <label for="part-quantity">Количество запчастей:</label>
+            <input type="number" id="part-quantity" name="part_quantity" value="1" min="1" class="form-control">
+        </div>
         <button type="submit" class="btn btn-success">Сохранить</button>
         <a href="{% url 'crm:orders' %}" class="btn btn-secondary">Отмена</a>
     </form>
