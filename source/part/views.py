@@ -90,6 +90,7 @@ class PartsMainView(ListView):
         form = self.form
         if form.is_valid():
             return form.cleaned_data["search"]
+        return None
 
     def get_form(self):
         return SearchForm(self.request.GET)
@@ -104,6 +105,7 @@ class PartsMainView(ListView):
             output_field=DecimalField(),
         )
         queryset = queryset.annotate(latest_price=latest_price)
+
         if self.search_value:
             queryset = queryset.filter(
                 Q(name__icontains=self.search_value)
@@ -132,7 +134,16 @@ class PartsMainView(ListView):
             if max_price:
                 queryset = queryset.filter(latest_price__lte=max_price)
 
-        return queryset.order_by("-latest_price")
+                # Обработка сортировки
+            order_by = self.request.GET.get("order_by")
+            if order_by == "price":
+                queryset = queryset.order_by("latest_price")  # От дешевых к дорогим
+            elif order_by == "-price":
+                queryset = queryset.order_by("-latest_price")  # От дорогих к дешевым
+            else:
+                queryset = queryset.order_by("-latest_price")  # По умолчанию
+
+            return queryset
 
     def get_filter_form(self):
         return PartsFilterForm(self.request.GET)
@@ -146,6 +157,17 @@ class PartsMainView(ListView):
         context["models"] = CarModel.objects.all()
         context["categories"] = Category.objects.all()
         context["reviews"] = Review.objects.all()
+
+        # Сохранение выбранных значений
+        filter_form = self.get_filter_form()
+        if filter_form.is_valid():
+            context["selected_country"] = filter_form.cleaned_data.get("country")
+            context["selected_brand"] = filter_form.cleaned_data.get("brand")
+            context["selected_model"] = filter_form.cleaned_data.get("model")
+            context["selected_part_type"] = filter_form.cleaned_data.get("part_type")
+            context["min_price"] = filter_form.cleaned_data.get("min_price")
+            context["max_price"] = filter_form.cleaned_data.get("max_price")
+
         if self.search_value:
             context["search"] = urlencode({"search": self.search_value})
             context["search_value"] = self.search_value
