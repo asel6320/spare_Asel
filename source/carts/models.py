@@ -1,5 +1,6 @@
 from django.core.validators import MinValueValidator
 from django.db import models
+from django.utils.html import format_html
 
 
 class CartQueryset(models.QuerySet):
@@ -43,6 +44,21 @@ class Cart(models.Model):
 
         return (
             f"Анонимная корзина | Товар {self.part.name} | Количество {self.quantity}"
+        )
+
+    def to_display(self):
+        user_display = f"Пользователь: {self.user.username}" if self.user else "Анонимный пользователь"
+        return format_html(
+            '<span class="cart-col user" style="font-weight: bold; color: #2b2b2b;">{}</span>'
+            '<span class="cart-col part-name" style="font-weight: bold; color: #0056b3;">{}</span>'
+            '<span class="cart-col quantity">Количество: {} шт.</span>'
+            '<span class="cart-col part-price">Цена за шт.: {} ₽</span>'
+            '<span class="cart-col total-price">Общая цена: <span style="font-weight: bold;">{}</span> ₽</span>',
+            user_display,
+            self.part.name,
+            self.quantity,
+            self.part.current_price,
+            self.part_price()
         )
 
     def part_price(self):

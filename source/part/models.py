@@ -1,11 +1,11 @@
 from django.db import models
 from django.urls import reverse
+from django.utils.html import format_html
 
 from webapp.models.category import Category
 from webapp.models.vehicleinfo import VehicleInfo
 
 
-# Модель запчастей
 class Part(models.Model):
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, related_name="parts"
@@ -50,6 +50,18 @@ class Part(models.Model):
 
     def __str__(self):
         return f"{self.name} for {self.vehicle_info.model.brand.name} {self.vehicle_info.model.name}"
+
+    def to_display(self):
+        return format_html(
+                '<div class="ap-col col1" style="font-weight: bold;">{}</div>'
+                '<div class="ap-col col2" >{}</div>'
+                '<div class="ap-col col3" >{}</div>',
+
+                self.name,
+                self.vehicle_info.model.brand.name,
+                self.vehicle_info.model.name,
+            )
+
 
     class Meta:
         verbose_name_plural = "Запчасти"

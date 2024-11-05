@@ -1,8 +1,8 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.utils.html import format_html
 
 User = get_user_model()
-
 
 class Review(models.Model):
     part = models.ForeignKey(
@@ -23,6 +23,17 @@ class Review(models.Model):
 
     def __str__(self):
         return self.text[:20]
+
+    def to_display(self):
+        return format_html(
+            '<div class="ap-col col1" style="font-weight: bold;">{}</div>'
+            '<div class="ap-col col2" >{}</div>'
+            '<div class="ap-col col3" >{}</div>',
+
+            self.user,
+            self.part,
+            self.text[:20]
+        )
 
     class Meta:
         db_table = "reviews"
