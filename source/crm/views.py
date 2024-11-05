@@ -1,16 +1,19 @@
 from datetime import timedelta
+
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.core.exceptions import PermissionDenied
 from django.utils import timezone
 from django.urls import reverse_lazy
 
 from django.db.models.functions.datetime import TruncDay
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Count, Sum, F, Avg
 from accounts.models import User
 from orders.models import Order, OrderPart
-from crm.form import OrderForm
+from crm.form import AdminOrderForm, CustomerForm
 import json
 
-from django.views.generic import ListView, TemplateView, CreateView
+from django.views.generic import ListView, TemplateView, CreateView, DetailView, UpdateView, DeleteView, FormView, View
 
 
 class CustomerListView(ListView):
@@ -23,6 +26,57 @@ class OrderListView(ListView):
     model = Order
     context_object_name = 'orders'
     paginate_by = 10
+
+class OrderDetailView(DetailView):
+    model = Order
+    template_name = 'order_detail.html'
+    context_object_name = 'order'
+
+class OrderUpdateView(UpdateView):
+    model = Order
+    form_class = AdminOrderForm
+    template_name = 'orders_form.html'
+    success_url = reverse_lazy('crm:orders')
+
+class OrderDeleteView(DeleteView):
+    model = Order
+    template_name = 'order_confirm_delete.html'
+    success_url = reverse_lazy('crm:orders')
+
+
+class AdminOrderCreateView(LoginRequiredMixin, UserPassesTestMixin, FormView):
+    form_class = AdminOrderForm
+    template_name = "create_order.html"
+    success_url = reverse_lazy("crm:orders")
+
+    def test_func(self):
+        return self.request.user.is_staff
+
+    def handle_no_permission(self):
+        raise PermissionDenied("You do not have permission to create orders.")
+
+    def form_valid(self, form):
+        print("Cleaned data in form_valid:", form.cleaned_data)
+
+        try:
+
+            order = form.save(commit=False)
+            order.user = self.request.user
+            order.save()
+
+            part_ids = form.cleaned_data['part_ids']
+            for part in part_ids:
+                OrderPart.objects.create(
+                    order=order,
+                    part=part,
+                    quantity=1,
+                    name=part.name,
+                    price=part.current_price,
+                )
+            return super().form_valid(form)
+        except Exception as e:
+            print(f"Error while saving the order: {e}")
+            return self.form_invalid(form)
 
 
 class AnalyticsView(TemplateView):
@@ -81,15 +135,31 @@ class AnalyticsView(TemplateView):
         return context
 
 
-class AddOrderView(CreateView):
-    model = Order
-    form_class = OrderForm
-    template_name = 'add_order.html'
-    success_url = reverse_lazy('crm:orders')
+class CustomerDetailView(DetailView):
+    model = User
+    template_name = 'customer_detail.html'
+    context_object_name = 'customer'
 
-    def form_valid(self, form):
-        # Assign the logged-in user to the order
-        form.instance.user = self.request.user  # This line assigns the user
-        return super().form_valid(form)
+class CustomerUpdateView(View):
+    def get(self, request, pk):
+        customer = get_object_or_404(User, pk=pk)
+        form = CustomerForm(instance=customer)
+        return render(request, 'customer_form.html', {'form': form, 'customer': customer})
+
+    def post(self, request, pk):
+        customer = get_object_or_404(User, pk=pk)
+        form = CustomerForm(request.POST, instance=customer)
+        if form.is_valid():
+            form.save()
+            return redirect('crm:customer_detail', pk=customer.pk)
+        return render(request, 'customer_form.html', {'form': form, 'customer': customer})
+
+class CustomerDeleteView(View):
+    def post(self, request, pk):
+        customer = get_object_or_404(User, pk=pk)
+        customer.delete()
+        return redirect('crm:customers')
+
+
 
 

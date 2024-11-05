@@ -1,0 +1,15 @@
+{% extends 'crm_base.html' %}
+
+{% block title %}{{ view.object.pk|default:"Новый" }} Заказ{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h4>{{ view.object.pk|default:"Создание" }} заказа</h4>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Сохранить</button>
+        <a href="{% url 'crm:orders' %}" class="btn btn-secondary">Отмена</a>
+    </form>
+</div>
+{% endblock %}
