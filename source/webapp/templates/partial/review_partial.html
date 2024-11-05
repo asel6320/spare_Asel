@@ -3,11 +3,10 @@
 {% if reviews.exists %}
     <div id="reviewCarousel{{ part.pk }}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
         <div class="carousel-inner">
-            {% for review in reviews %}
+            {% for review in reviews|slice:":3" %}
                 <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                    <div class="card card-review p-3">
-                        <p class="mb-1"><strong>Отзыв:</strong> {{ review.text }}</p>
-                        <p class="mb-1"><strong>Автор:</strong> {{ review.author }}</p>
+                    <div class="card p-3">
+                        <p class="mb-1">{{ review.text }}</p>
                     </div>
                 </div>
             {% endfor %}
@@ -22,4 +21,14 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+
+    <div id="extraReviews{{ part.pk }}" class="extra-reviews d-none">
+        {% for review in reviews|slice:"3:" %}
+            <div class="card p-3 mt-2">
+                <p class="mb-1">{{ review.text }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <button id="toggleReviewsBtn{{ part.pk }}" class="btn btn-secondary mt-2" onclick="toggleReviews({{ part.pk }})">Еще отзывы</button>
 {% endif %}
