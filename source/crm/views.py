@@ -10,7 +10,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Count, Sum, F, Avg
 from accounts.models import User
 from orders.models import Order, OrderPart
-from crm.form import AdminOrderForm, CustomerFor, OrderForm
+from crm.form import AdminOrderForm, CustomerForm
 import json
 
 from django.views.generic import ListView, TemplateView, CreateView, DetailView, UpdateView, DeleteView, FormView, View
