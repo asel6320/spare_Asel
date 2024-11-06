@@ -14,5 +14,4 @@ class ContactRequest(models.Model):
 
     class Meta:
         verbose_name_plural = "Контакты"
-        verbose_name = 'Контакт'
-
+        verbose_name = "Контакт"

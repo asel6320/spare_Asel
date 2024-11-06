@@ -14,11 +14,10 @@ class PriceHistory(models.Model):
 
     class Meta:
         verbose_name_plural = "Истории цен"
-        verbose_name = 'История цены'
-        db_table = 'price_histories'
-        ordering = ['-date_changed']
-        app_label = 'webapp'
-
+        verbose_name = "История цены"
+        db_table = "price_histories"
+        ordering = ["-date_changed"]
+        app_label = "webapp"
 
     def to_display(self):
         return format_html(
@@ -27,5 +26,5 @@ class PriceHistory(models.Model):
             '<span style="color: gray;">{}</span>',
             self.part,
             self.price,
-            self.date_changed.strftime('%Y-%m-%d %H:%M')
+            self.date_changed.strftime("%Y-%m-%d %H:%M"),
         )

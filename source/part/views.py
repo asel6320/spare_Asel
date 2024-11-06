@@ -104,6 +104,25 @@ class PartsMainView(ListView):
         self.search_value = self.get_search_value()
         return super().dispatch(request, *args, **kwargs)
 
+    def get(self, request, *args, **kwargs):
+        parts = Part.objects.all()
+        favorites = (
+            Favorite.objects.filter(user=request.user)
+            if request.user.is_authenticated
+            else Favorite.objects.filter(session_key=request.session.session_key)
+        )
+
+        favorite_part_ids = favorites.values_list("part_id", flat=True)
+
+        return render(
+            request,
+            "part/parts_main.html",
+            {
+                "parts": parts,
+                "favorites": favorite_part_ids,
+            },
+        )
+
     def get_search_value(self):
         form = self.form
         if form.is_valid():

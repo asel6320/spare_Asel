@@ -14,7 +14,6 @@ class CarBrand(models.Model):
         verbose_name = "Марка машины"
         db_table = "car_brand"
 
-
     def to_display(self):
         return format_html(
             '<strong ">{}</strong>',
@@ -37,7 +36,7 @@ class CarModel(models.Model):
             '<div class="car-col year" style="color: gray">({})</div>',
             self.brand.name,
             self.name,
-            self.year_of_manufacture if self.year_of_manufacture else "N/A"
+            self.year_of_manufacture if self.year_of_manufacture else "N/A",
         )
 
     class Meta:

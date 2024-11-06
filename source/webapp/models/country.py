@@ -2,7 +2,6 @@ from django.db import models
 from django.utils.html import format_html
 
 
-
 class Country(models.Model):
     name = models.CharField(max_length=255)
 

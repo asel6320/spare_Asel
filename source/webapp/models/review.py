@@ -4,6 +4,7 @@ from django.utils.html import format_html
 
 User = get_user_model()
 
+
 class Review(models.Model):
     part = models.ForeignKey(
         "part.Part",
@@ -29,10 +30,9 @@ class Review(models.Model):
             '<div class="ap-col col1" style="font-weight: bold;">{}</div>'
             '<div class="ap-col col2" >{}</div>'
             '<div class="ap-col col3" >{}</div>',
-
             self.user,
             self.part,
-            self.text[:20]
+            self.text[:20],
         )
 
     class Meta:
