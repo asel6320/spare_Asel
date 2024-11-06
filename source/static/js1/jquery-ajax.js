@@ -23,7 +23,7 @@ $(document).ready(function () {
                 successMessage.fadeIn(400);
                 setTimeout(function () {
                     successMessage.fadeOut(400);
-                }, 2000);
+                }, 4000);
 
                 cartCount++;
                 goodsInCartCount.text(cartCount);
@@ -63,7 +63,7 @@ $(document).ready(function () {
                 successMessage.fadeIn(400);
                 setTimeout(function () {
                     successMessage.fadeOut(400);
-                }, 2000);
+                }, 4000);
 
                 cartCount -= data.quantity_deleted;
                 goodsInCartCount.text(cartCount);
@@ -120,7 +120,7 @@ $(document).ready(function () {
                 successMessage.fadeIn(400);
                 setTimeout(function () {
                     successMessage.fadeOut(400);
-                }, 7000);
+                }, 4000);
 
                 var goodsInCartCount = $("#goods-in-cart-count");
                 var cartCount = parseInt(goodsInCartCount.text() || 0);
@@ -142,7 +142,7 @@ $(document).ready(function () {
     if (notification.length > 0) {
         setTimeout(function () {
             notification.alert('close');
-        }, 1000);
+        }, 4000);
     }
 
     $('#modalButton').click(function () {
