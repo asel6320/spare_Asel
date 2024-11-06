@@ -15,13 +15,16 @@ class Favorite(models.Model):
         return f"Избранное: {self.part}"
 
     def to_display(self):
-        return format_html(
-                '<div class="ap-col col1" style="font-weight: bold;">{}</div>'
-                '<div class="ap-col col2" >{}</div>',
-
+        return [
                 self.user,
                 self.part,
-            )
+        ]
+
+    def get_column_headers(self):
+        return [
+            'Пользователь',
+            'Товар',
+        ]
 
     def clean(self):
         if not self.user and not self.session_key:

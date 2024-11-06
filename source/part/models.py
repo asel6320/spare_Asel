@@ -39,15 +39,18 @@ class Part(models.Model):
         return f"{self.name} for {self.vehicle_info.model.brand.name} {self.vehicle_info.model.name}"
 
     def to_display(self):
-        return format_html(
-                '<div class="ap-col col1" style="font-weight: bold;">{}</div>'
-                '<div class="ap-col col2" >{}</div>'
-                '<div class="ap-col col3" >{}</div>',
-
+        return [
                 self.name,
                 self.vehicle_info.model.brand.name,
                 self.vehicle_info.model.name,
-            )
+            ]
+
+    def get_column_headers(self):
+        return [
+            'Запчасть',
+            'Марка',
+            'Навзание',
+        ]
 
 
     class Meta:

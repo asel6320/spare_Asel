@@ -60,10 +60,13 @@ def model_list(request, model_name):
     model = get_model_or_404(model_name)
     objects = model.objects.all()
 
+    column_headers = model().get_column_headers()
+
     return render(request, 'model_list.html', {
         'objects': objects,
         'model_name': model_name,
         'verbose_name_plural': model._meta.verbose_name_plural,
+        'column_headers': column_headers,
     })
 
 @staff_required

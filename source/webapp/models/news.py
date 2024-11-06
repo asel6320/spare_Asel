@@ -18,12 +18,15 @@ class News(models.Model):
         return self.title
 
     def to_display(self):
-        return format_html(
-                '<div class="ap-col col1" style="font-weight: bold;">{}</div>'
-                '<div class="ap-col col2" >{}</div>'
-                '<div class="ap-col col3" >{}</div>',
-
+        return [
                 self.title[:30],
                 self.short_description[:20],
                 self.published_at,
-            )
+            ]
+
+    def get_column_headers(self):
+        return [
+            'Заголовок',
+            'Описание',
+            'Год выпуска',
+        ]

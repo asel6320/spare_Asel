@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.html import format_html
 
 
 class CarBrand(models.Model):
@@ -16,10 +15,14 @@ class CarBrand(models.Model):
 
 
     def to_display(self):
-        return format_html(
-            '<strong ">{}</strong>',
+        return [
             self.name,
-        )
+        ]
+
+    def get_column_headers(self):
+        return [
+            'Марка',
+        ]
 
 
 class CarModel(models.Model):
@@ -31,14 +34,18 @@ class CarModel(models.Model):
         return f"{self.brand.name} {self.name} ({self.year_of_manufacture})"
 
     def to_display(self):
-        return format_html(
-            '<div class="car-col brand" style="font-weight: bold;">{}</div>'
-            '<div class="car-col model">{}</div>'
-            '<div class="car-col year" style="color: gray">({})</div>',
+        return [
             self.brand.name,
             self.name,
-            self.year_of_manufacture if self.year_of_manufacture else "N/A"
-        )
+            self.year_of_manufacture if self.year_of_manufacture else "Неуказано"
+        ]
+
+    def get_column_headers(self):
+        return [
+            'Марка',
+            'Название',
+            'Год выпуска',
+        ]
 
     class Meta:
         verbose_name_plural = 'Модели машины'

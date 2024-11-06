@@ -31,20 +31,24 @@ class VehicleInfo(models.Model):
     def to_display(self):
         countries_display = ', '.join(country.name for country in self.countries.all())
 
-        return format_html(
-            '<div class="vehicle-col type">{}</div>'
-            '<div class="vehicle-col model">{}</div>'
-            '<div class="vehicle-col year">{}</div>'
-            '<div class="vehicle-col body-type">{}</div>'
-            '<div class="vehicle-col countries">{}</div>'
-            '<div class="vehicle-col engine">{}</div>',
+        return [
             self.get_vehicle_type_display(),
             self.model,
             self.year_of_manufacture,
             self.body_type if self.body_type else 'Не указано',
             countries_display if countries_display else 'Не указано',
             self.engine if self.engine else 'Не указано'
-        )
+        ]
+
+    def get_column_headers(self):
+        return [
+            'Тип ТС',  # vehicle_type
+            'Модель',  # model
+            'Год выпуска',  # year_of_manufacture
+            'Тип кузова',  # body_type
+            'Страны',  # countries
+            'Двигатель'  # engine
+        ]
 
     class Meta:
         verbose_name_plural = "Типы транспорта"

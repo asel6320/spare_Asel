@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.html import format_html
 
 
 class Category(models.Model):
@@ -10,10 +9,10 @@ class Category(models.Model):
         return self.name
 
     def to_display(self):
-        return format_html(
-            '<div style="font-weight: bold;">{}</div>',
-            self.name,
-        )
+        return [self.name]
+
+    def get_column_headers(self):
+        return ['Название']
 
     class Meta:
         verbose_name_plural = 'Категории деталей'

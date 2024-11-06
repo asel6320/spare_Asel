@@ -27,19 +27,23 @@ class Cart(models.Model):
         return f'Анонимная корзина | Товар {self.part.name} | Количество {self.quantity}'
 
     def to_display(self):
-        user_display = f"Пользователь: {self.user.username}" if self.user else "Анонимный пользователь"
-        return format_html(
-            '<span class="cart-col user" style="font-weight: bold; color: #2b2b2b;">{}</span>'
-            '<span class="cart-col part-name" style="font-weight: bold; color: #0056b3;">{}</span>'
-            '<span class="cart-col quantity">Количество: {} шт.</span>'
-            '<span class="cart-col part-price">Цена за шт.: {} ₽</span>'
-            '<span class="cart-col total-price">Общая цена: <span style="font-weight: bold;">{}</span> ₽</span>',
+        user_display = f"{self.user.username}" if self.user else "Анонимный пользователь"
+        return [
             user_display,
             self.part.name,
             self.quantity,
-            self.part.current_price,
+            self.part.current_price if self.part.current_price else "Неуказано",
             self.part_price()
-        )
+        ]
+
+    def get_column_headers(self):
+        return [
+            'Пользователи',
+            'Товар',
+            'Кол-во',
+            'Текущая Цена',
+            'Общая Цена',
+        ]
 
     def part_price(self):
         return round(self.part.current_price * self.quantity) if self.part.current_price else 0

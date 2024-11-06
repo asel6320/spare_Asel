@@ -18,14 +18,18 @@ class User(AbstractUser):
         return self.phone_number
 
     def to_display(self):
-        return format_html(
-            '<span class="user-col username"><strong>{}</strong></span>'
-            '<span class="user-col email" style="color: green; font-weight: bold;">{}</span>'
-            '<span class="user-col date" style="color: gray;">{}</span>',
+        return [
             self.username,
             self.email,
             self.date_joined.strftime('%Y-%m-%d %H:%M')
-        )
+        ]
+
+    def get_column_headers(self):
+        return [
+            'Имя пользователя',
+            'Почта',
+            'Дата регестрации',
+        ]
 
     class Meta:
         verbose_name_plural = "пользователи"

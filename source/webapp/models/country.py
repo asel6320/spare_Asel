@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.html import format_html
 
 
 
@@ -10,10 +9,13 @@ class Country(models.Model):
         return self.name
 
     def to_display(self):
-        return format_html(
-            '<div style="font-weight: bold;">{}</div>',
+        return [
             self.name,
-        )
+
+        ]
+
+    def get_column_headers(self):
+        return ['Страна']
 
     class Meta:
         verbose_name_plural = "Страны"

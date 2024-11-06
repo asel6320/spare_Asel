@@ -22,15 +22,15 @@ class Order(models.Model):
     def __str__(self):
         return f"Заказ № {self.pk} | Покупатель {self.first_name} {self.last_name}"
 
-    def clean(self):
-        cleaned_data = super().clean()
-        required_fields = ["email", "phone", "last_name", "first_name"]
-
-        for field in required_fields:
-            if not cleaned_data.get(field):
-                raise ValidationError(f"Поле {field} не может быть пустым.")
-
-        return cleaned_data
+    # def clean(self):
+    #     cleaned_data = super().clean()
+    #     required_fields = ["email", "phone", "last_name", "first_name"]
+    #
+    #     for field in required_fields:
+    #         if not cleaned_data.get(field):
+    #             raise ValidationError(f"Поле {field} не может быть пустым.")
+    #
+    #     return cleaned_data
 
     class Meta:
         db_table = "order"

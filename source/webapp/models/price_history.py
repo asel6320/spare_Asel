@@ -19,11 +19,15 @@ class PriceHistory(models.Model):
 
 
     def to_display(self):
-        return format_html(
-            '<strong ">{}</strong> - '
-            '<span style="color: green; font-weight: bold;">{} ₽</span> '
-            '<span style="color: gray;">{}</span>',
+        return [
             self.part,
             self.price,
             self.date_changed.strftime('%Y-%m-%d %H:%M')
-        )
+        ]
+
+    def get_column_headers(self):
+        return [
+            'Запчасть',
+            'Цена',
+            'Дата изменения',
+        ]
