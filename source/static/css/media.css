@@ -119,4 +119,25 @@
     }
 }
 
+@media (max-width: 768px) {
+    .footer {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
 
+    .footer-title {
+        font-size: 1.1rem;
+    }
+
+    .footer-links a {
+        font-size: 0.85rem;
+    }
+
+    .contact-info p {
+        font-size: 0.85rem;
+    }
+
+    .social-media-links a {
+        font-size: 1.5rem;
+    }
+}
