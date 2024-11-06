@@ -54,6 +54,16 @@ class Order(models.Model):
     def __str__(self):
         return f"Заказ № {self.pk} | Покупатель {self.first_name} {self.last_name}"
 
+    # def clean(self):
+    #     cleaned_data = super().clean()
+    #     required_fields = ["email", "phone", "last_name", "first_name"]
+    #
+    #     for field in required_fields:
+    #         if not cleaned_data.get(field):
+    #             raise ValidationError(f"Поле {field} не может быть пустым.")
+    #
+    #     return cleaned_data
+
     class Meta:
         db_table = "order"
         verbose_name = "Заказ оформления"
@@ -68,22 +78,14 @@ class OrderPart(models.Model):
     quantity = models.PositiveIntegerField(verbose_name="Количество", default=0)
     name = models.CharField(max_length=150, verbose_name="Название")
     price = models.DecimalField(max_digits=7, decimal_places=2, verbose_name="Цена")
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата продажи")
-
-    @property
-    def total_price(self):
-        return sum(order_part.price * order_part.quantity for order_part in self.orderpart_set.all())
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата продажи')
 
     def get_latest_price(self):
         price_history = self.part.price_history.order_by("-date_changed").first()
         return price_history.price if price_history else None
 
     def part_price(self):
-        return (
-            round(self.part.current_price * self.quantity)
-            if self.part.current_price
-            else 0
-        )
+        return round(self.part.current_price * self.quantity) if self.part.current_price else 0
 
     def __str__(self):
         return f"Товар {self.name} | Заказ № {self.order.pk}"

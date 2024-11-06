@@ -26,14 +26,18 @@ class Review(models.Model):
         return self.text[:20]
 
     def to_display(self):
-        return format_html(
-            '<div class="ap-col col1" style="font-weight: bold;">{}</div>'
-            '<div class="ap-col col2" >{}</div>'
-            '<div class="ap-col col3" >{}</div>',
+        return [
             self.user,
             self.part,
-            self.text[:20],
-        )
+            self.text[:20]
+        ]
+
+    def get_column_headers(self):
+        return [
+            'Пользователь',
+            'Товар',
+            'Отзыв',
+        ]
 
     class Meta:
         db_table = "reviews"

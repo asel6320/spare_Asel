@@ -13,13 +13,17 @@ class PartDocument(models.Model):
         return f"Document for {self.part.name}"
 
     def to_display(self):
-        return format_html(
-                '<div class="ap-col col1" style="font-weight: bold;">{}</div>'
-                '<div class="ap-col col2" >{}</div>',
-
+        return [
                 self.description,
                 self.part,
-            )
+            ]
+
+    def get_column_headers(self):
+        return [
+            'Описание',
+            'Запчасть',
+        ]
+
 
     class Meta:
         verbose_name = 'Документ'

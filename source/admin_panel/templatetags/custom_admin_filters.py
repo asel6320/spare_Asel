@@ -4,6 +4,5 @@ register = template.Library()
 
 
 @register.filter
-def get_field_value(obj, field_name):
-    """Получает значение поля объекта по имени."""
-    return getattr(obj, field_name, None)
+def getattr(obj, attr):
+    return getattr(obj, attr, None)

@@ -6,12 +6,8 @@ class News(models.Model):
     title = models.CharField(max_length=255, verbose_name="Заголовок")
     short_description = models.TextField(verbose_name="Краткое описание")
     full_text = models.TextField(verbose_name="Полный текст")
-    image = models.ImageField(
-        upload_to="news_images/", verbose_name="Изображение", blank=True, null=True
-    )
-    published_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="Дата публикации"
-    )
+    image = models.ImageField(upload_to='news_images/', verbose_name="Изображение", blank=True, null=True)
+    published_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата публикации")
 
     class Meta:
         verbose_name = "Новость"
@@ -22,11 +18,15 @@ class News(models.Model):
         return self.title
 
     def to_display(self):
-        return format_html(
-            '<div class="ap-col col1" style="font-weight: bold;">{}</div>'
-            '<div class="ap-col col2" >{}</div>'
-            '<div class="ap-col col3" >{}</div>',
-            self.title[:30],
-            self.short_description[:20],
-            self.published_at,
-        )
+        return [
+                self.title[:30],
+                self.short_description[:20],
+                self.published_at,
+            ]
+
+    def get_column_headers(self):
+        return [
+            'Заголовок',
+            'Описание',
+            'Год выпуска',
+        ]

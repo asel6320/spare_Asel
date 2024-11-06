@@ -19,16 +19,14 @@ class Engine(models.Model):
         return f"{self.get_engine_type_display()} {self.displacement}L, {self.horsepower} HP"
 
     def to_display(self):
-        return format_html(
-            '<div class="engine-col type">{}</div>'
-            '<div class="engine-col displacement">{}</div>'
-            '<div class="engine-col horsepower">{} HP</div>'
-            '<div class="engine-col torque">{} Hm</div>',
+        return [
             self.get_engine_type_display(),
             self.displacement,
             self.horsepower,
             self.torque,
-        )
+        ]
+    def get_column_headers(self):
+        return ['тип двигателя', 'Объем', 'Лошадиные силы', 'Крутящий момент' ]
 
     class Meta:
         verbose_name_plural = "Двигатели"
