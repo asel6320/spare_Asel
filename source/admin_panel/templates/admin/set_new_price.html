@@ -1,10 +1,19 @@
 {% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    <title>{% trans "Массовая смена цен" %}</title>
+{% endblock %}
 
 {% block content %}
     <div class="container mt-5">
         <div class="card shadow-sm p-4">
             <h1 class="text-center mb-4">Массовая смена цен</h1>
-            <form method="post">
+            <form method="get">
+                {% include "partial/search_form.html" with form=search_form %}
+            </form>
+            <form id="updateForm" method="post">
                 {% csrf_token %}
 
                 <div class="mb-4">
@@ -41,8 +50,7 @@
                 <div class="mb-3" id="price_to_field" style="display: none;">
                     <label for="price_to" class="form-label">Введите сумму изменения:</label>
                     <input type="number" class="form-control" name="price_to" id="price_to"
-                           placeholder="Сумма изменения"
-                           step="0.01">
+                           placeholder="Сумма изменения" step="0.01">
                 </div>
 
                 <!-- Список запчастей для выбора -->
@@ -51,13 +59,19 @@
                     {% for part in parts %}
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <div>
-                                <input type="checkbox" name="selected_parts" value="{{ part.id }}">
-                                {{ part.name }}
+                                <input type="checkbox" name="selected_parts" value="{{ part.id }}"
+                                       id="part-{{ part.id }}" class="part-checkbox"
+                                       {% if part.id in selected_parts %}checked{% endif %}>
+                                <label for="part-{{ part.id }}">{{ part.name }}</label>
                             </div>
                             <span class="badge bg-secondary rounded-pill price-tag">{{ part.current_price }} сом</span>
                         </li>
                     {% endfor %}
                 </ul>
+
+                {% if is_paginated %}
+                    {% include 'partial/pagination.html' %}
+                {% endif %}
 
                 <button type="submit" class="btn btn-success w-100">Применить изменения</button>
             </form>
@@ -65,6 +79,7 @@
             <a href="{% url 'admin_panel:admin_home' %}" class="btn btn-secondary mt-3 w-100">Назад</a>
         </div>
     </div>
+
     <style>
         .price-tag {
             font-size: 1rem;
@@ -73,5 +88,49 @@
             color: white;
         }
     </style>
-    
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const selectedParts = JSON.parse(localStorage.getItem('selectedParts')) || [];
+
+        const updateCheckboxes = () => {
+            const checkboxes = document.querySelectorAll('.part-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = selectedParts.includes(checkbox.value);
+            });
+        };
+
+        updateCheckboxes();
+
+        const checkboxes = document.querySelectorAll('.part-checkbox');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                if (checkbox.checked) {
+                    if (!selectedParts.includes(checkbox.value)) {
+                        selectedParts.push(checkbox.value);
+                    }
+                } else {
+                    const index = selectedParts.indexOf(checkbox.value);
+                    if (index > -1) {
+                        selectedParts.splice(index, 1);
+                    }
+                }
+                localStorage.setItem('selectedParts', JSON.stringify(selectedParts));
+            });
+        });
+
+        const updateForm = document.getElementById('updateForm');
+        updateForm.addEventListener('submit', () => {
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'selected_parts';
+            hiddenInput.value = JSON.stringify(selectedParts);
+            updateForm.appendChild(hiddenInput);
+            localStorage.removeItem('selectedParts');
+        });
+    });
+</script>
+
+
+
 {% endblock %}

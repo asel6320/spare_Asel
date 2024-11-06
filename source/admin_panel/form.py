@@ -19,7 +19,6 @@ class PriceUpdateForm(forms.Form):
         label="Введите процент изменения",
     )
 
-    # Поле для изменения цены до определенного значения
     price_to = forms.DecimalField(
         required=False,
         decimal_places=2,
