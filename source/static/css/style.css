@@ -477,3 +477,38 @@ body {
     padding: 0.5rem 1rem;
 }
 
+
+
+#modalButton {
+    position: fixed;
+    bottom: 50px;
+    left: 20px;
+    z-index: 500;
+}
+
+#openPopup {
+    position: fixed;
+    bottom: 90px;
+    left: 20px;
+    z-index: 500;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar {
+    padding: 1rem 2rem;
+}
+
+
+
+
