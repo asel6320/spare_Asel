@@ -106,8 +106,9 @@
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         {% else %}
-            <p>No video available for this product.</p>
+            <p>Нет видеоматериала для этой запчасти</p>
         {% endif %}
+
 
 
         {# Похожие запасти #}
@@ -123,13 +124,14 @@
                                          class="card-img-top img-fluid">
                                 </div>
                                 <a href="{% url 'favorite:favorite_add' %}"
-           class="btn btn-light position-absolute top-0 end-0 m-2 btn add-to-favorite" data-part-id="{{ part.id }}">
-            {% if part.pk in favorites %}
-                <i class="fa-solid fa-heart" style="color: #e81111;"></i>
-            {% else %}
-                <i class="fa-regular fa-heart" style="color: #4CAF50;"></i>
-            {% endif %}
-        </a>
+                                   class="btn btn-light position-absolute top-0 end-0 m-2 btn add-to-favorite"
+                                   data-part-id="{{ part.id }}">
+                                    {% if part.pk in favorites %}
+                                        <i class="fa-solid fa-heart" style="color: #e81111;"></i>
+                                    {% else %}
+                                        <i class="fa-regular fa-heart" style="color: #4CAF50;"></i>
+                                    {% endif %}
+                                </a>
                             </div>
                             <div class="p-2 h-100 d-flex flex-column py-3 px-4">
                                 <h4 class="mb-4">
@@ -179,4 +181,6 @@
     {% block search %}
 
     {% endblock %}
+
 {% endblock %}
+

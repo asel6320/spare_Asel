@@ -100,14 +100,12 @@
             </div>
         </div>
     </div>
-    
+
     {% include 'popup.html' %}
 
 
-<i id="openPopup" class="bi bi-chat-dots-fill" style="font-size: 2rem; cursor: pointer;"></i>
-
-
-
-
-    
+    <i id="openPopup" class="bi bi-chat-dots-fill" style="font-size: 2rem; cursor: pointer;"></i>
+{% endblock %}
+{% block modal_cart %}
+    {% include "cart/cart_button.html" %}
 {% endblock %}
