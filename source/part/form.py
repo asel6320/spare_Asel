@@ -1,5 +1,5 @@
 from django import forms
-from webapp.models import Country, CarBrand, CarModel, Category
+from webapp.models import CarBrand, CarModel, Category, Country
 
 
 class PartsFilterForm(forms.Form):
@@ -12,8 +12,8 @@ class PartsFilterForm(forms.Form):
     model = forms.ModelChoiceField(
         queryset=CarModel.objects.all(), required=False, label="Модель машины"
     )
-    part_type = forms.ModelChoiceField(
-        queryset=Category.objects.all(), required=False, label="Тип запчасти"
+    category = forms.ModelChoiceField(
+        queryset=Category.objects.all(), required=False, label="Категория запчасти"
     )
     min_price = forms.DecimalField(
         required=False, label="Минимальная цена", min_value=0

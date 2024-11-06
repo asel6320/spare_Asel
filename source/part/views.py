@@ -1,3 +1,4 @@
+from contacts.models import ContactRequest
 from django.db.models import DecimalField, OuterRef, Q, Subquery
 from django.http import JsonResponse
 from django.shortcuts import render
@@ -127,6 +128,7 @@ class PartsMainView(ListView):
         form = self.form
         if form.is_valid():
             return form.cleaned_data["search"]
+        return None
 
     def get_form(self):
         return SearchForm(self.request.GET)
@@ -141,6 +143,7 @@ class PartsMainView(ListView):
             output_field=DecimalField(),
         )
         queryset = queryset.annotate(latest_price=latest_price)
+
         if self.search_value:
             queryset = queryset.filter(
                 Q(name__icontains=self.search_value)
@@ -152,7 +155,7 @@ class PartsMainView(ListView):
             country = form.cleaned_data.get("country")
             brand = form.cleaned_data.get("brand")
             model = form.cleaned_data.get("model")
-            part_type = form.cleaned_data.get("part_type")
+            category = form.cleaned_data.get("category")
             min_price = form.cleaned_data.get("min_price")
             max_price = form.cleaned_data.get("max_price")
 
@@ -162,14 +165,23 @@ class PartsMainView(ListView):
                 queryset = queryset.filter(vehicle_info__model__brand=brand)
             if model:
                 queryset = queryset.filter(vehicle_info__model=model)
-            if part_type:
-                queryset = queryset.filter(category=part_type)
+            if category:
+                queryset = queryset.filter(category=category)
             if min_price:
                 queryset = queryset.filter(latest_price__gte=min_price)
             if max_price:
                 queryset = queryset.filter(latest_price__lte=max_price)
 
-        return queryset.order_by("-latest_price")
+                # Обработка сортировки
+            order_by = self.request.GET.get("order_by")
+            if order_by == "price":
+                queryset = queryset.order_by("latest_price")  # От дешевых к дорогим
+            elif order_by == "-price":
+                queryset = queryset.order_by("-latest_price")  # От дорогих к дешевым
+            else:
+                queryset = queryset.order_by("-latest_price")  # По умолчанию
+
+            return queryset
 
     def get_filter_form(self):
         return PartsFilterForm(self.request.GET)
@@ -183,9 +195,7 @@ class PartsMainView(ListView):
         context["models"] = CarModel.objects.all()
         context["categories"] = Category.objects.all()
         context["reviews"] = Review.objects.all()
-        if self.search_value:
-            context["search"] = urlencode({"search": self.search_value})
-            context["search_value"] = self.search_value
+
         return context
 
 
