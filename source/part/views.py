@@ -1,17 +1,15 @@
+from contacts.models import ContactRequest
 from django.db.models import DecimalField, OuterRef, Q, Subquery
 from django.http import JsonResponse
 from django.utils.http import urlencode
-from django.views.generic import ListView, DetailView
+from django.views.generic import DetailView, ListView
 from documents.models import PartDocument
-from webapp.forms import SearchForm
 from part.form import PartsFilterForm
 from part.models import Part
 from webapp.forms import SearchForm
 from webapp.models import CarBrand, CarModel, Category, Country, PriceHistory
 from webapp.models.news import News
 from webapp.models.review import Review
-
-from contacts.models import ContactRequest
 
 
 class BasePartView(ListView):
@@ -117,7 +115,7 @@ class PartsMainView(ListView):
             country = form.cleaned_data.get("country")
             brand = form.cleaned_data.get("brand")
             model = form.cleaned_data.get("model")
-            part_type = form.cleaned_data.get("part_type")
+            category = form.cleaned_data.get("category")
             min_price = form.cleaned_data.get("min_price")
             max_price = form.cleaned_data.get("max_price")
 
@@ -127,8 +125,8 @@ class PartsMainView(ListView):
                 queryset = queryset.filter(vehicle_info__model__brand=brand)
             if model:
                 queryset = queryset.filter(vehicle_info__model=model)
-            if part_type:
-                queryset = queryset.filter(category=part_type)
+            if category:
+                queryset = queryset.filter(category=category)
             if min_price:
                 queryset = queryset.filter(latest_price__gte=min_price)
             if max_price:
@@ -158,19 +156,6 @@ class PartsMainView(ListView):
         context["categories"] = Category.objects.all()
         context["reviews"] = Review.objects.all()
 
-        # Сохранение выбранных значений
-        filter_form = self.get_filter_form()
-        if filter_form.is_valid():
-            context["selected_country"] = filter_form.cleaned_data.get("country")
-            context["selected_brand"] = filter_form.cleaned_data.get("brand")
-            context["selected_model"] = filter_form.cleaned_data.get("model")
-            context["selected_part_type"] = filter_form.cleaned_data.get("part_type")
-            context["min_price"] = filter_form.cleaned_data.get("min_price")
-            context["max_price"] = filter_form.cleaned_data.get("max_price")
-
-        if self.search_value:
-            context["search"] = urlencode({"search": self.search_value})
-            context["search_value"] = self.search_value
         return context
 
 
@@ -192,16 +177,11 @@ class PartsDetailView(DetailView):
         context["reviews"] = Review.objects.all()
 
         # Fetch documents related to the part
-        context['documents'] = PartDocument.objects.filter(part=self.object)  # Assuming a ForeignKey from Document to Part
+        context["documents"] = PartDocument.objects.filter(
+            part=self.object
+        )  # Assuming a ForeignKey from Document to Part
 
         return context
-
-
-
-
-
-def about_us(request):
-    return render(request, 'part/about_us.html')
 
 
 def get_models(request):
