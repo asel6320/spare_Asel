@@ -1,11 +1,9 @@
 from contacts.models import ContactRequest
 from django.db.models import DecimalField, OuterRef, Q, Subquery
 from django.http import JsonResponse
-from django.shortcuts import render
 from django.utils.http import urlencode
 from django.views.generic import DetailView, ListView
 from documents.models import PartDocument
-from favorite.models import Favorite
 from part.form import PartsFilterForm
 from part.models import Part
 from webapp.forms import SearchForm
@@ -74,25 +72,6 @@ class PartsListView(BasePartView):
         context.pop("search_form", None)
         return context
 
-    def get(self, request, *args, **kwargs):
-        parts = Part.objects.all()
-        favorites = (
-            Favorite.objects.filter(user=request.user)
-            if request.user.is_authenticated
-            else Favorite.objects.filter(session_key=request.session.session_key)
-        )
-
-        favorite_part_ids = favorites.values_list("part_id", flat=True)
-
-        return render(
-            request,
-            "index.html",
-            {
-                "parts": parts,
-                "favorites": favorite_part_ids,
-            },
-        )
-
 
 class PartsMainView(ListView):
     model = Part
@@ -104,25 +83,6 @@ class PartsMainView(ListView):
         self.form = self.get_form()
         self.search_value = self.get_search_value()
         return super().dispatch(request, *args, **kwargs)
-
-    def get(self, request, *args, **kwargs):
-        parts = Part.objects.all()
-        favorites = (
-            Favorite.objects.filter(user=request.user)
-            if request.user.is_authenticated
-            else Favorite.objects.filter(session_key=request.session.session_key)
-        )
-
-        favorite_part_ids = favorites.values_list("part_id", flat=True)
-
-        return render(
-            request,
-            "part/parts_main.html",
-            {
-                "parts": parts,
-                "favorites": favorite_part_ids,
-            },
-        )
 
     def get_search_value(self):
         form = self.form
@@ -214,7 +174,7 @@ class PartsDetailView(DetailView):
         ]  # Получаем похожие запчасти по категории
         context["related_parts"] = related_parts
         context["category"] = part_category
-        context["reviews"] = Review.objects.filter(part=self.object)
+        context["reviews"] = Review.objects.all()
 
         # Fetch documents related to the part
         context["documents"] = PartDocument.objects.filter(
@@ -222,10 +182,6 @@ class PartsDetailView(DetailView):
         )  # Assuming a ForeignKey from Document to Part
 
         return context
-
-
-def about_us(request):
-    return render(request, "part/about_us.html")
 
 
 def get_models(request):
