@@ -62,6 +62,9 @@
                             <i class="fa-regular fa-heart" style="color: #4CAF50;"></i>
                         {% endif %}
                     </a>
+
+                <div id="copy-notification" class="copy-notification d-none">Ссылка успешно скопирована!</div>
+
                     <div class="mt-auto d-flex justify-content-end pt-2">
                         <span class="text-success fw-bold me-auto">В наличии <i
                                 class="bi bi-check-circle-fill"></i></span>
@@ -74,6 +77,9 @@
                                 <img class="mx-1" src="{% static "icons/cart-plus.svg" %}" alt="Catalog Icon" width="32"
                                      height="32">
                             </a>
+                            <button class="btn btn-share mt-2" onclick="shareProduct('{{ request.build_absolute_uri }}')">
+                        <i class="bi bi-box-arrow-up text-green-700"></i>
+                    </button>
                         </div>
                     </div>
                     {% include 'partial/review_partial.html' %}
