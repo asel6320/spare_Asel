@@ -22,13 +22,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+    - name: Load .env
+      run: |
+        cp .env source/.env
     - name: Run Tests
       env:
-        POSTGRES_DB: ${{ secrets.POSTGRES_DB}}
-        POSTGRES_USER: ${{ secrets.POSTGRES_DB }}
-        POSTGRES_PASSWORD: ${{ secrets.POSTGRES_DB }}
-        DATABASE_URL: ${{ secrets.DATATBASE_URL.POSTGRES_DB }}
-        SECRET_KEY: ${{ secrets.SECRET_KEY }}
       run: |
         cd source/
         python manage.py test
