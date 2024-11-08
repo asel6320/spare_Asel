@@ -1,11 +1,10 @@
 name: Django CI
 
-on:
-  #workflow_dispatch
-  push:
-    branches: [ "SCRUM-94" ]
-  pull_request:
-    branches: [ "SCRUM-94" ]
+on: workflow_dispatch
+#  push:
+#    branches: [ "SCRUM-94" ]
+#  pull_request:
+#    branches: [ "SCRUM-94" ]
 
 jobs:
   tests_project:
@@ -43,6 +42,9 @@ jobs:
           command_timeout: 30m
           script: |
             cd ${{ secrets.WORK_DIR }}
+            echo "" > ./source/.env
+            echo TEST="TEST" >> ./source/.env   
+            echo DATABASE_URL="psql://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@${{ secrets.POSTGRES_HOST }}:${{ secrets.POSTGRES_PORT }}/${{ secrets.POSTGRES_DB }}" >> ./source/.env
             git pull
             echo "" > .env
             exit
