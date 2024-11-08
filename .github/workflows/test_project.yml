@@ -24,7 +24,7 @@ jobs:
         pip install -r requirements.txt
     - name: Load .env
       run: |
-        cp .env source/.env
+        cp .env.test ./source/.env
     - name: Run Tests
       run: |
         cd source/
