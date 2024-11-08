@@ -8,27 +8,19 @@ on:
     branches: [ "SCRUM-94" ]
 
 jobs:
-  tests_project:
-
+  build:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.12
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.12"
-    - name: Install Dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    - name: Load .env
-      run: |
-        cp .env.test ./source/.env
-    - name: Run Tests
-      run: |
-        cd source/
-        python manage.py test
+      - uses: actions/checkout@v3
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@master
+      - name: Add environ
+        run: cp .env.test .env
+      - name: Run Tests
+        run: |
+          docker compose run -T --rm backend bash -c "/code/manage.py test"
+          
 
 #  publish:
 #    needs: tests_project
