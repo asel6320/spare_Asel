@@ -5,5 +5,4 @@ WORKDIR /code
 COPY requirements.txt requirements.txt
 RUN pip install --no-cache -r requirements.txt
 COPY . .
-RUN chmod +x /code/source/manage.py
 EXPOSE 8000
