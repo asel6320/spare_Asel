@@ -26,7 +26,6 @@ jobs:
       run: |
         cp .env source/.env
     - name: Run Tests
-      env:
       run: |
         cd source/
         python manage.py test
