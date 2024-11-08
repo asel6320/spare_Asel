@@ -17,9 +17,6 @@ jobs:
         uses: docker/setup-buildx-action@master
       - name: Add environ
         run: cp .env.test ./source/.env
-      - name: Set permissions for .volumes directory
-        run: |
-          sudo chmod -R 777 .volumes
       - name: Run Tests
         run: |
           docker compose run -T --rm web bash -c "/code/manage.py test"
