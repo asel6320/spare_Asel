@@ -54,16 +54,8 @@ class Order(models.Model):
     def __str__(self):
         return f"Заказ № {self.pk} | Покупатель {self.first_name} {self.last_name}"
 
-    # def clean(self):
-    #     cleaned_data = super().clean()
-    #     required_fields = ["email", "phone", "last_name", "first_name"]
-    #
-    #     for field in required_fields:
-    #         if not cleaned_data.get(field):
-    #             raise ValidationError(f"Поле {field} не может быть пустым.")
-    #
-    #     return cleaned_data
-
+    def total_price(self):
+        return sum(order_part.quantity * order_part.price for order_part in self.orderpart_set.all())
     class Meta:
         db_table = "order"
         verbose_name = "Заказ оформления"
@@ -78,7 +70,7 @@ class OrderPart(models.Model):
     quantity = models.PositiveIntegerField(verbose_name="Количество", default=0)
     name = models.CharField(max_length=150, verbose_name="Название")
     price = models.DecimalField(max_digits=7, decimal_places=2, verbose_name="Цена")
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата продажи')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата продажи")
 
     def get_latest_price(self):
         price_history = self.part.price_history.order_by("-date_changed").first()
@@ -98,7 +90,6 @@ class OrderPart(models.Model):
 
 
 class OrderPartQueryset(models.QuerySet):
-
     def total_quantity(self):
         if self:
             return sum(cart.quantity for cart in self)

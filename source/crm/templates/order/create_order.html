@@ -6,13 +6,43 @@
 <div class="container mt-4">
     <form method="post">
         {% csrf_token %}
+
         <div class="form-group">
-            {{ form.as_p }}
+            <fieldset>
+                <legend>Выберите запчасти и укажите количество</legend>
+
+                {% for part in parts %}
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="part_ids" value="{{ part.id }}"
+                                   {% if part.id in form.cleaned_data.part_ids %}checked{% endif %}>
+                            {{ part.name }}
+                        </label>
+                        <label for="quantity_{{ part.id }}">Количество:</label>
+                        <input type="number" name="quantity_{{ part.id }}" id="quantity_{{ part.id }}"
+                               min="1" max="{{ part.amount }}" value="1">
+                    </div>
+                {% endfor %}
+            </fieldset>
         </div>
+
+        <!-- Render all other form fields except part_ids -->
         <div class="form-group">
-            <label for="part-quantity">Количество запчастей:</label>
-            <input type="number" id="part-quantity" name="part_quantity" value="1" min="1" class="form-control">
+            {% for field in form.visible_fields %}
+                {% if field.name != "part_ids" %}
+                    <div class="form-group">
+                        {{ field.label_tag }} {{ field }}
+                        {% if field.help_text %}
+                            <small class="form-text text-muted">{{ field.help_text }}</small>
+                        {% endif %}
+                        {% for error in field.errors %}
+                            <div class="invalid-feedback">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
+
         <button type="submit" class="btn btn-success">Сохранить</button>
         <a href="{% url 'crm:orders' %}" class="btn btn-secondary">Отмена</a>
     </form>

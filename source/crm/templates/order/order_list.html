@@ -36,7 +36,6 @@
                             </td>
                             <td class="d-flex">
                                 <a href="{% url 'crm:order_detail' order.pk %}" class="btn btn-sm btn-info me-2">Просмотр</a>
-                                <a href="{% url 'crm:order_edit' order.pk %}" class="btn btn-sm btn-warning me-2">Изменить</a>
                                 <form method="post" action="{% url 'crm:order_delete' order.pk %}" class="d-inline">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Удалить заказ?')">
