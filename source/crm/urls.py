@@ -8,7 +8,6 @@ from crm.views import (
     OrderDeleteView,
     OrderDetailView,
     OrderListView,
-    OrderUpdateView,
 )
 from django.urls import path
 from django.views.decorators.cache import cache_page
