@@ -1,7 +1,7 @@
 from datetime import datetime
-import factory.fuzzy
 
-from webapp.factory.part_factory import PartFactory
+import factory.fuzzy
+from part.factory import PartFactory
 from webapp.models import PriceHistory
 
 MIN_DECIMAL = 1
