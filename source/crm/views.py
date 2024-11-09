@@ -12,6 +12,7 @@ from accounts.models import User
 from orders.models import Order, OrderPart
 from part.models import Part
 from crm.form import AdminOrderForm, CustomerForm
+from contacts.models import ContactRequest
 import json
 
 from django.views.generic import ListView, TemplateView, DetailView, UpdateView, DeleteView, FormView, View
@@ -20,6 +21,7 @@ class CustomerListView(ListView):
     template_name = 'customer/customer_list.html'
     queryset = User.objects.all()
     context_object_name = 'customers'
+    paginate_by = 10
 
 class OrderListView(ListView):
     template_name = 'order/order_list.html'
@@ -171,6 +173,10 @@ class CustomerDeleteView(View):
         customer.delete()
         return redirect('crm:customers')
 
-
+class ContactRequestListView(ListView):
+    model = ContactRequest
+    template_name = 'call/contact_request_list.html'
+    context_object_name = 'contact_requests'
+    paginate_by = 10
 
 

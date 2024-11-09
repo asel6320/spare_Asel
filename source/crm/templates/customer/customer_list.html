@@ -47,6 +47,9 @@
                 </table>
             </div>
         </div>
+        {% if is_paginated %}
+            {% include 'partial/pagination.html' %}
+        {% endif %}
     </div>
 </div>
 {% endblock %}
