@@ -1,5 +1,11 @@
 name: Django CI
-on: workflow_dispatch
+on:
+  #workflow_dispatch
+  push:
+    branches: [ "SCRUM-94" ]
+  pull_request:
+    branches: [ "SCRUM-94" ]
+
 jobs:
   tests:
     runs-on: ubuntu-latest
