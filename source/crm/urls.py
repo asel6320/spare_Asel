@@ -1,17 +1,4 @@
-from crm.views import (
-    AdminOrderCreateView,
-    AnalyticsView,
-    CustomerDeleteView,
-    CustomerDetailView,
-    CustomerListView,
-    CustomerUpdateView,
-    OrderDeleteView,
-    OrderDetailView,
-    OrderListView,
-)
 from django.urls import path
-from django.views.decorators.cache import cache_page
-
 from crm.views import (CustomerListView, OrderListView, AnalyticsView, OrderDetailView, OrderDeleteView,AdminOrderCreateView,
                        CustomerDetailView, CustomerUpdateView, CustomerDeleteView, ContactRequestListView)
 
