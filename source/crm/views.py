@@ -10,11 +10,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Count, Sum, F, Avg
 from accounts.models import User
 from orders.models import Order, OrderPart
+from part.models import Part
 from crm.form import AdminOrderForm, CustomerForm
 import json
 
-from django.views.generic import ListView, TemplateView, CreateView, DetailView, UpdateView, DeleteView, FormView, View
-
+from django.views.generic import ListView, TemplateView, DetailView, UpdateView, DeleteView, FormView, View
 
 class CustomerListView(ListView):
     template_name = 'customer/customer_list.html'
@@ -34,40 +34,10 @@ class OrderDetailView(DetailView):
     template_name = 'order/order_detail.html'
     context_object_name = 'order'
 
-class OrderUpdateView(UpdateView):
-    model = Order
-    form_class = AdminOrderForm
-    template_name = 'order/orders_form.html'
-    success_url = reverse_lazy('crm:orders')
-
-    def form_valid(self, form):
-        order = form.save(commit=False)
-        print("Updating Order:", order)
-        order.save()
-
-        part_ids = form.cleaned_data.get('part_ids', [])
-        print("Selected parts for update:", part_ids)
-
-        existing_parts = order.orderpart_set.all()
-        print("Existing parts before update:", existing_parts)
-
-        for part in existing_parts:
-            if part.part_id not in [p.id for p in part_ids]:
-                print(f"Deleting part {part}")
-                part.delete()
-
-        for part in part_ids:
-            if not existing_parts.filter(part_id=part.id).exists():
-                print(f"Adding new part {part}")
-                OrderPart.objects.create(
-                    order=order,
-                    part=part,
-                    quantity=1,
-                    name=part.name,
-                    price=part.current_price,
-                )
-
-        return super().form_valid(form)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['total_price'] = self.object.total_price()
+        return context
 
 class OrderDeleteView(DeleteView):
     model = Order
@@ -86,8 +56,12 @@ class AdminOrderCreateView(LoginRequiredMixin, UserPassesTestMixin, FormView):
     def handle_no_permission(self):
         raise PermissionDenied("У вас нет прав.")
 
-    def form_valid(self, form):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['parts'] = Part.objects.all()
+        return context
 
+    def form_valid(self, form):
         try:
             order = form.save(commit=False)
             order.user = self.request.user
@@ -95,18 +69,25 @@ class AdminOrderCreateView(LoginRequiredMixin, UserPassesTestMixin, FormView):
 
             part_ids = form.cleaned_data['part_ids']
             for part in part_ids:
+                quantity = form.cleaned_data.get(f'quantity_{part.id}')
+
+                if quantity > part.amount:
+                    form.add_error(f'quantity_{part.id}',
+                                   f"Недостаточно количества для детали: {part.name}. Доступно: {part.amount}.")
+                    return self.form_invalid(form)
+
                 OrderPart.objects.create(
                     order=order,
                     part=part,
-                    quantity=1,
+                    quantity=quantity,
                     name=part.name,
                     price=part.current_price,
                 )
+
             return super().form_valid(form)
         except Exception as e:
             print(f"Ошибка: {e}")
             return self.form_invalid(form)
-
 
 class AnalyticsView(TemplateView):
     template_name = 'analytics.html'
