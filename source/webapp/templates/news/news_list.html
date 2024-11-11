@@ -1,23 +1,25 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
     
+<link rel="stylesheet" href="{% static 'css/news.css' %}">
+    
     <div class="news-list container">
-    <h2 style="text-align: center">Все новости</h2>
-    <div>
-        {% for news in news_list %}
-        <div class="card">
-        <div class="card-header">
-            <h5>{{ news.title }}</h5>
+        <div>
+            <div class="news-feed" style="margin-top: 50px">
+                {% for news in news_list %}
+                    <div class="news-card">
+                        {% if news_item.image %}
+                            <img src="{{ news.image }}" alt="{{ news.title }}" class="news-image">
+                        {% endif %}
+                        <h2 class="news-title">{{ news.title }}</h2>
+                        <p class="news-description">{{ news.short_description }}</p>
+                        <a href="{% url 'webapp:news_detail' news.pk %}" class="news-button">Читать далее</a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-        <div class="card-body">
-        <p class="card-title">{{ news.short_description }}</p>
-        <a href="{% url 'webapp:news_detail' news.id %}" style="">Читать далее</a>
-        </div>
     </div>
-        {% endfor %}
-    </div>
-    </div>
-	
+    
 {% endblock %}
 
