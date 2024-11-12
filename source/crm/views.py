@@ -15,7 +15,9 @@ from crm.form import AdminOrderForm, CustomerForm
 from contacts.models import ContactRequest
 import json
 
-from django.views.generic import ListView, TemplateView, DetailView, UpdateView, DeleteView, FormView, View
+from django.views.generic import ListView, TemplateView, DetailView, UpdateView, DeleteView, FormView, View, \
+    RedirectView
+
 
 class CustomerListView(ListView):
     template_name = 'customer/customer_list.html'
@@ -30,6 +32,15 @@ class OrderListView(ListView):
     paginate_by = 10
     def get_queryset(self):
         return Order.objects.select_related('user').prefetch_related('orderpart_set').all()
+
+class UpdateOrderStatusView(View):
+    def post(self, request, pk):
+        order = get_object_or_404(Order, pk=pk)
+        status = request.POST.get('status')
+        if status in ['completed', 'in_process']:
+            order.status = status
+            order.save()
+        return redirect('crm:orders')
 
 class OrderDetailView(DetailView):
     model = Order

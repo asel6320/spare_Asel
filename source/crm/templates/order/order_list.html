@@ -26,13 +26,15 @@
                             <td>{{ order.first_name }}</td>
                             <td>{{ order.created_at|date:"d.m.Y H:i" }}</td>
                             <td>
-                                {% if order.status == 'completed' %}
-                                    <span class="badge bg-success">{{ order.get_status_display }}</span>
-                                {% elif order.status == 'in_process' %}
-                                    <span class="badge bg-warning text-dark">{{ order.get_status_display }}</span>
-                                {% else %}
-                                    <span class="badge bg-secondary">{{ order.status }}</span>
-                                {% endif %}
+                                <form method="post" action="{% url 'crm:update_order_status' order.pk %}">
+                                    {% csrf_token %}
+                                    <select name="status"
+                                            class="form-select form-select-sm {% if order.status == 'completed' %}bg-success text-white{% elif order.status == 'in_process' %}bg-warning text-dark{% endif %}"
+                                            onchange="this.form.submit()">
+                                        <option value="in_process" {% if order.status == 'in_process' %}selected{% endif %}>В обработке</option>
+                                        <option value="completed" {% if order.status == 'completed' %}selected{% endif %}>Завершен</option>
+                                    </select>
+                                </form>
                             </td>
                             <td class="d-flex">
                                 <a href="{% url 'crm:order_detail' order.pk %}" class="btn btn-sm btn-info me-2">Просмотр</a>

@@ -2,7 +2,7 @@ from django.urls import path
 from django.views.decorators.cache import cache_page
 
 from crm.views import (CustomerListView, OrderListView, AnalyticsView, OrderDetailView, OrderDeleteView,AdminOrderCreateView,
-                       CustomerDetailView, CustomerUpdateView, CustomerDeleteView, ContactRequestListView)
+                       CustomerDetailView, CustomerUpdateView, CustomerDeleteView, ContactRequestListView, UpdateOrderStatusView)
 
 
 
@@ -17,6 +17,7 @@ urlpatterns = [
     path('orders/<int:pk>/', OrderDetailView.as_view(), name='order_detail'),
     path('orders/<int:pk>/delete/', OrderDeleteView.as_view(), name='order_delete'),
     path('orders/create/', AdminOrderCreateView.as_view(), name='create_order'),
+    path('orders/<int:pk>/update-status/', UpdateOrderStatusView.as_view(), name='update_order_status'),
     path('analytics/', AnalyticsView.as_view(), name='analytics'),
     path('contact-requests/', ContactRequestListView.as_view(), name='contact_requests'),
 ]
