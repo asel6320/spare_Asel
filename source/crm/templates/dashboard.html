@@ -1,0 +1,119 @@
+{% extends 'crm_base.html' %}
+{% load static %}
+
+{% block title %}
+    CRM Dashboard
+{% endblock %}
+
+{% block content %}
+    <div class="mb-4">
+        <div class="card shadow-sm border-light rounded-3 p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 class="text-primary fw-bold">Добро пожаловать в CRM, {{ user.first_name }}!</h3>
+                <img src="{% static 'images/logo.png' %}" alt="Welcome" class="img-fluid" style="max-width: 50px;">
+            </div>
+            <p class="lead text-muted">Вы находитесь на главной странице администрирования, где вы можете отслеживать статистику и управлять заказами, клиентами и заявками на звонки.</p>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card shadow h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Всего заказов</h5>
+                    <p class="card-text display-6">{{ total_orders_count }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card shadow h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Активных заказов</h5>
+                    <p class="card-text display-6">{{ active_orders_count }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card shadow h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Новых клиентов</h5>
+                    <p class="card-text display-6">{{ new_users_count }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card shadow h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Сегодняшние заказы</h5>
+                    <p class="card-text display-6">{{ todays_orders_count }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-lg-6 col-md-12">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Ожидающие задачи</h5>
+                    <ul class="list-unstyled">
+                        <li>Непросмотренные заказы: {{ new_orders_count }}</li>
+                        <li>Новые заявки на звонок: {{ new_contacts_count }}</li>
+                        <li><a href="{% url 'crm:analytics' %}">Просмотреть отчёты</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Быстрые ссылки</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'crm:create_order' %}">Добавить новый заказ</a></li>
+                        <li><a href="{% url 'crm:customer_create' %}">Добавить нового клиента</a></li>
+                        <li><a href="{% url 'crm:contact_request_create' %}">Добавить заявку на звонки</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card shadow mb-4 h-100">
+                <div class="card-header">
+                    <h5 class="mb-0">Последние заказы</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        {% for order in recent_orders %}
+                            <li>Заказ №{{ order.id }} от {{ order.created_at }} ({{ order.get_status_display }})</li>
+                        {% empty %}
+                            <p>Нет новых заказов.</p>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card shadow mb-4 h-100">
+                <div class="card-header">
+                    <h5 class="mb-0">Новые заявки на звонки</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        {% for contact in recent_contacts %}
+                            <li>{{ contact.first_name }} ({{ contact.phone_number }}) - {{ contact.created_at }}</li>
+                        {% empty %}
+                            <p>Нет новых заявок.</p>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

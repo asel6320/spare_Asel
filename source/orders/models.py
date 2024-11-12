@@ -4,11 +4,14 @@ from django.db import models
 
 User = get_user_model()
 
-
 class Order(models.Model):
     STATUS_CHOICES = [
         ('in_process', 'В обработке'),
         ('completed', 'Выполнен'),
+        ('declined', 'Отменен'),
+        ('return', 'Возврат'),
+        ('postpone', 'Отложен'),
+        ('has_defect', 'Есть брак')
     ]
 
     user = models.ForeignKey(
@@ -50,6 +53,7 @@ class Order(models.Model):
         default='in_process',
         verbose_name="Статус заказа"
     )
+    is_new = models.BooleanField(default=True,verbose_name="Новый")
 
     def __str__(self):
         return f"Заказ № {self.pk} | Покупатель {self.first_name} {self.last_name}"

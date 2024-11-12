@@ -5,14 +5,15 @@
 {% block content %}
 <div class="container mt-4">
     <div class="card shadow-sm">
-        <div class="card-header">
-            <h4 class="card-title">Информация о клиенте</h4>
+        <div class="card-header bg-primary text-white">
+            <h4 class="card-title mb-0">Информация о клиенте</h4>
         </div>
         <div class="card-body">
             <p><strong>Имя:</strong> {{ customer.first_name }}</p>
             <p><strong>Фамилия:</strong> {{ customer.last_name }}</p>
             <p><strong>Эл. почта:</strong> {{ customer.email }}</p>
             <p><strong>Номер:</strong> {{ customer.phone_number }}</p>
+            <p><strong>Имя пользователя:</strong> {{ customer.username }}</p>
             <a href="{% url 'crm:customers' %}" class="btn btn-secondary">Назад к списку</a>
         </div>
     </div>
