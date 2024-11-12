@@ -1,0 +1,96 @@
+{% extends 'crm_base.html' %}
+{% load static %}
+
+{% block title %}
+    CRM Dashboard
+{% endblock %}
+
+{% block content %}
+    <div class="mb-4">
+        <div class="card shadow-sm border-light rounded-3 p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 class="text-primary fw-bold">Добро пожаловать в CRM, {{ user.first_name }}!</h3>
+                <img src="{% static 'images/logo.png' %}" alt="Welcome" class="img-fluid" style="max-width: 50px;">
+            </div>
+            <p class="lead text-muted">Вы находитесь на главной странице администрирования, где вы можете отслеживать статистику и управлять заказами, клиентами и заявками на звонки.</p>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Активных заказов</h5>
+                    <p class="card-text">{{ active_orders_count }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Новых клиентов</h5>
+                    <p class="card-text">{{ new_users_count }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Новых заявок</h5>
+                    <p class="card-text">{{ new_contacts_count }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Сегодняшние заказы</h5>
+                    <p class="card-text">{{ todays_orders_count }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overview Cards -->
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-box"></i> Заказы
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Новые Заказы</h5>
+                    <p class="card-text">Количество новых заказов: {{ new_orders_count }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-users"></i> Клиенты
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Новые Клиенты</h5>
+                    <p class="card-text">Количество новых клиентов: {{ new_users_count }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-phone"></i> Заявки на звонки
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Новые Заявки</h5>
+                    <p class="card-text">Количество новых заявок на звонки: {{ new_contacts_count }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

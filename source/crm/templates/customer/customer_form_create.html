@@ -1,0 +1,18 @@
+{% extends 'crm_base.html' %}
+
+{% block title %}Добавить нового клиента{% endblock %}
+
+{% block content %}
+    <div class="card mt-4">
+        <div class="card-header bg-primary text-white">
+            <h4 class="card-title mb-0">Добавить нового клиента</h4>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success">Создать клиента</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

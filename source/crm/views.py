@@ -11,13 +11,22 @@ from django.db.models import Count, Sum, F, Avg
 from accounts.models import User
 from orders.models import Order, OrderPart
 from part.models import Part
-from crm.form import AdminOrderForm, CustomerForm
+from crm.form import AdminOrderForm, CustomerForm, ContactRequestForm
 from contacts.models import ContactRequest
 import json
 
 from django.views.generic import ListView, TemplateView, DetailView, UpdateView, DeleteView, FormView, View, \
-    RedirectView
+    RedirectView, CreateView
 
+
+class DashboardView(TemplateView):
+    template_name = 'dashboard.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['new_orders_count'] = min(Order.objects.filter(is_new=True).count(), 10)
+        context['new_contacts_count'] = min(ContactRequest.objects.filter(is_new=True).count(), 10)
+        context['new_users_count'] = min(User.objects.filter(is_new=True).count(), 10)
+        return context
 
 class CustomerListView(ListView):
     template_name = 'customer/customer_list.html'
@@ -25,13 +34,29 @@ class CustomerListView(ListView):
     context_object_name = 'customers'
     paginate_by = 10
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset.filter(is_new=True).update(is_new=False)
+        return queryset
+
+class CustomerCreateView(CreateView):
+    model = User
+    form_class = CustomerForm
+    template_name = 'customer/customer_form_create.html'
+    success_url = reverse_lazy('crm:customers')
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+
 class OrderListView(ListView):
     template_name = 'order/order_list.html'
     model = Order
     context_object_name = 'orders'
     paginate_by = 10
     def get_queryset(self):
-        return Order.objects.select_related('user').prefetch_related('orderpart_set').all()
+        queryset = super().get_queryset()
+        queryset.filter(is_new=True).update(is_new=False)
+        return queryset
 
 class UpdateOrderStatusView(View):
     def post(self, request, pk):
@@ -189,5 +214,19 @@ class ContactRequestListView(ListView):
     template_name = 'call/contact_request_list.html'
     context_object_name = 'contact_requests'
     paginate_by = 10
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset.filter(is_new=True).update(is_new=False)
+        return queryset
+
+class ContactRequestCreateView(CreateView):
+    model = ContactRequest
+    form_class = ContactRequestForm
+    template_name = 'call/contact_request_create.html'
+    success_url = reverse_lazy('crm:contact_requests')
+
+    def form_valid(self, form):
+        return super().form_valid(form)
 
 

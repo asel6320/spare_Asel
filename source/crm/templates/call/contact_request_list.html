@@ -1,12 +1,11 @@
 {% extends 'crm_base.html' %}
 
-{% block title %}Заявки на звонки{% endblock %}
-
 {% block content %}
 <div class="container mt-4">
     <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
             <h4 class="card-title mb-0">Заявки на звонки</h4>
+            <a href="{% url 'crm:contact_request_create' %}" class="btn btn-light btn-sm">Добавить заявку</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">

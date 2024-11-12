@@ -53,6 +53,7 @@ class Order(models.Model):
         default='in_process',
         verbose_name="Статус заказа"
     )
+    is_new = models.BooleanField(default=True,verbose_name="Новый")
 
     def __str__(self):
         return f"Заказ № {self.pk} | Покупатель {self.first_name} {self.last_name}"
