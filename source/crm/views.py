@@ -1,4 +1,4 @@
-from datetime import timedelta
+from datetime import timedelta, date
 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.exceptions import PermissionDenied
@@ -19,46 +19,67 @@ from django.views.generic import ListView, TemplateView, DetailView, UpdateView,
     RedirectView, CreateView
 
 
-class DashboardView(TemplateView):
+class DashboardView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     template_name = 'dashboard.html'
+
+    def test_func(self):
+        return self.request.user.is_staff
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['new_orders_count'] = min(Order.objects.filter(is_new=True).count(), 10)
-        context['new_contacts_count'] = min(ContactRequest.objects.filter(is_new=True).count(), 10)
-        context['new_users_count'] = min(User.objects.filter(is_new=True).count(), 10)
+        context.update({
+            'total_orders_count': Order.objects.count(),
+            'active_orders_count': Order.objects.filter(status='in_process').count(),
+            'todays_orders_count': Order.objects.filter(created_at__date=date.today()).count(),
+            'new_orders_count': min(Order.objects.filter(is_new=True).count(), 10),
+            'new_contacts_count': min(ContactRequest.objects.filter(is_new=True).count(), 10),
+            'new_users_count': min(User.objects.filter(is_new=True).count(), 10),
+            'recent_orders': Order.objects.order_by('-created_at')[:5],
+            'recent_contacts': ContactRequest.objects.order_by('-created_at')[:5],
+        })
         return context
 
-class CustomerListView(ListView):
+class CustomerListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     template_name = 'customer/customer_list.html'
     queryset = User.objects.all()
     context_object_name = 'customers'
     paginate_by = 10
 
+    def test_func(self):
+        return self.request.user.is_staff
+
     def get_queryset(self):
         queryset = super().get_queryset()
         queryset.filter(is_new=True).update(is_new=False)
         return queryset
 
-class CustomerCreateView(CreateView):
+class CustomerCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = User
     form_class = CustomerForm
     template_name = 'customer/customer_form_create.html'
-    success_url = reverse_lazy('crm:customers')
+    success_url = reverse_lazy('crm:dashboard')
 
-    def form_valid(self, form):
-        return super().form_valid(form)
+    def test_func(self):
+        return self.request.user.is_staff
 
-class OrderListView(ListView):
+class OrderListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     template_name = 'order/order_list.html'
     model = Order
     context_object_name = 'orders'
     paginate_by = 10
+
+    def test_func(self):
+        return self.request.user.is_staff
+
     def get_queryset(self):
         queryset = super().get_queryset()
         queryset.filter(is_new=True).update(is_new=False)
         return queryset
 
-class UpdateOrderStatusView(View):
+class UpdateOrderStatusView(LoginRequiredMixin, UserPassesTestMixin, View):
+    def test_func(self):
+        return self.request.user.is_staff
+
     def post(self, request, pk):
         order = get_object_or_404(Order, pk=pk)
         status = request.POST.get('status')
@@ -77,16 +98,18 @@ class OrderDetailView(DetailView):
         context['total_price'] = self.object.total_price()
         return context
 
-class OrderDeleteView(DeleteView):
+class OrderDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Order
     template_name = 'order/order_confirm_delete.html'
     success_url = reverse_lazy('crm:orders')
 
+    def test_func(self):
+        return self.request.user.is_staff
 
 class AdminOrderCreateView(LoginRequiredMixin, UserPassesTestMixin, FormView):
     form_class = AdminOrderForm
     template_name = "order/create_order.html"
-    success_url = reverse_lazy("crm:orders")
+    success_url = reverse_lazy("crm:dashboard")
 
     def test_func(self):
         return self.request.user.is_staff
@@ -127,8 +150,11 @@ class AdminOrderCreateView(LoginRequiredMixin, UserPassesTestMixin, FormView):
             print(f"Ошибка: {e}")
             return self.form_invalid(form)
 
-class AnalyticsView(TemplateView):
+class AnalyticsView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     template_name = 'analytics.html'
+
+    def test_func(self):
+        return self.request.user.is_staff
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -189,7 +215,10 @@ class CustomerDetailView(DetailView):
     template_name = 'customer/customer_detail.html'
     context_object_name = 'customer'
 
-class CustomerUpdateView(View):
+class CustomerUpdateView(LoginRequiredMixin, UserPassesTestMixin, View):
+    def test_func(self):
+        return self.request.user.is_staff
+
     def get(self, request, pk):
         customer = get_object_or_404(User, pk=pk)
         form = CustomerForm(instance=customer)
@@ -203,28 +232,49 @@ class CustomerUpdateView(View):
             return redirect('crm:customer_detail', pk=customer.pk)
         return render(request, 'customer/customer_form.html', {'form': form, 'customer': customer})
 
-class CustomerDeleteView(View):
+
+    def post(self, request, pk):
+        customer = get_object_or_404(User, pk=pk)
+        form = CustomerForm(request.POST, instance=customer)
+        if form.is_valid():
+            form.save()
+            return redirect('crm:customer_detail', pk=customer.pk)
+        return render(request, 'customer/customer_form.html', {'form': form, 'customer': customer})
+
+class CustomerDeleteView(LoginRequiredMixin, UserPassesTestMixin, View):
+    def test_func(self):
+        return self.request.user.is_staff
+
     def post(self, request, pk):
         customer = get_object_or_404(User, pk=pk)
         customer.delete()
         return redirect('crm:customers')
 
-class ContactRequestListView(ListView):
+class ContactRequestListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     model = ContactRequest
     template_name = 'call/contact_request_list.html'
     context_object_name = 'contact_requests'
     paginate_by = 10
+
+    def test_func(self):
+        return self.request.user.is_staff
 
     def get_queryset(self):
         queryset = super().get_queryset()
         queryset.filter(is_new=True).update(is_new=False)
         return queryset
 
-class ContactRequestCreateView(CreateView):
+class ContactRequestCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = ContactRequest
     form_class = ContactRequestForm
     template_name = 'call/contact_request_create.html'
-    success_url = reverse_lazy('crm:contact_requests')
+    success_url = reverse_lazy('crm:dashboard')
+
+    def test_func(self):
+        return self.request.user.is_staff
+
+    def handle_no_permission(self):
+        raise PermissionDenied("У вас нет прав для выполнения этого действия.")
 
     def form_valid(self, form):
         return super().form_valid(form)

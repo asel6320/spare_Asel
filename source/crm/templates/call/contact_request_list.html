@@ -5,7 +5,7 @@
     <div class="card shadow-sm">
         <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
             <h4 class="card-title mb-0">Заявки на звонки</h4>
-            <a href="{% url 'crm:contact_request_create' %}" class="btn btn-light btn-sm">Добавить заявку</a>
+            <a href="{% url 'crm:contact_request_create' %}" class="btn btn-light btn-sm">Добавить новую заявку</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -27,7 +27,7 @@
                             <td>{{ contact_request.first_name }} {{ contact_request.last_name }}</td>
                             <td>{{ contact_request.phone_number }}</td>
                             <td>{{ contact_request.email }}</td>
-                            <td>{{ contact_request.created_at|date:"d.m.Y H:i" }}</td>
+                            <td>{{ contact_request.created_at|date:"d.m.Y H:i"}}</td>
                             <td>{{ contact_request.comments }}</td>
                         </tr>
                         {% empty %}
