@@ -29,10 +29,21 @@
                                 <form method="post" action="{% url 'crm:update_order_status' order.pk %}">
                                     {% csrf_token %}
                                     <select name="status"
-                                            class="form-select form-select-sm {% if order.status == 'completed' %}bg-success text-white{% elif order.status == 'in_process' %}bg-warning text-dark{% endif %}"
+                                            class="form-select form-select-sm
+                                            {% if order.status == 'completed' %}bg-success text-white
+                                            {% elif order.status == 'in_process' %}bg-warning text-dark
+                                            {% elif order.status == 'declined' %}bg-danger text-white
+                                            {% elif order.status == 'return' %}bg-info text-white
+                                            {% elif order.status == 'postpone' %}bg-secondary text-white
+                                            {% elif order.status == 'has_defect' %}bg-dark text-white
+                                            {% endif %}"
                                             onchange="this.form.submit()">
                                         <option value="in_process" {% if order.status == 'in_process' %}selected{% endif %}>В обработке</option>
-                                        <option value="completed" {% if order.status == 'completed' %}selected{% endif %}>Завершен</option>
+                                        <option value="completed" {% if order.status == 'completed' %}selected{% endif %}>Выполнен</option>
+                                        <option value="declined" {% if order.status == 'declined' %}selected{% endif %}>Отменен</option>
+                                        <option value="return" {% if order.status == 'return' %}selected{% endif %}>Возврат</option>
+                                        <option value="postpone" {% if order.status == 'postpone' %}selected{% endif %}>Отложен</option>
+                                        <option value="has_defect" {% if order.status == 'has_defect' %}selected{% endif %}>Есть брак</option>
                                     </select>
                                 </form>
                             </td>

@@ -37,7 +37,7 @@ class UpdateOrderStatusView(View):
     def post(self, request, pk):
         order = get_object_or_404(Order, pk=pk)
         status = request.POST.get('status')
-        if status in ['completed', 'in_process']:
+        if status in ['completed', 'in_process', 'declined', 'return', 'postpone', 'has_defect']:
             order.status = status
             order.save()
         return redirect('crm:orders')
@@ -110,7 +110,7 @@ class AnalyticsView(TemplateView):
 
         # Общая статистика заказов
         context['orders_count'] = Order.objects.count()
-        context['completed_orders'] = Order.objects.filter(status="in_process").count()  # Adjusted for consistency
+        context['completed_orders'] = Order.objects.filter(status="in_process").count()
         context['pending_orders'] = Order.objects.filter(status="completed").count()
         context['delivery_orders'] = Order.objects.filter(requires_delivery=True).count()
         context['paid_orders'] = Order.objects.filter(is_paid=True).count()

@@ -4,11 +4,14 @@ from django.core.exceptions import ValidationError
 
 User = get_user_model()
 
-
 class Order(models.Model):
     STATUS_CHOICES = [
         ('in_process', 'В обработке'),
         ('completed', 'Выполнен'),
+        ('declined', 'Отменен'),
+        ('return', 'Возврат'),
+        ('postpone', 'Отложен'),
+        ('has_defect', 'Есть брак')
     ]
 
     user = models.ForeignKey(

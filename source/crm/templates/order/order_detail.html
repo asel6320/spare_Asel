@@ -26,9 +26,17 @@
                         <li><strong>Дата заказа:</strong> {{ order.created_at|date:"d.m.Y H:i" }}</li>
                         <li><strong>Статус:</strong>
                             {% if order.status == 'completed' %}
-                                <span class="badge bg-success">Завершен</span>
+                                <span class="badge bg-success text-white">Выполнен</span>
                             {% elif order.status == 'in_process' %}
-                                <span class="badge bg-warning">В обработке</span>
+                                <span class="badge bg-warning text-dark">В обработке</span>
+                            {% elif order.status == 'declined' %}
+                                <span class="badge bg-danger text-white">Отменен</span>
+                            {% elif order.status == 'return' %}
+                                <span class="badge bg-info text-white">Возврат</span>
+                            {% elif order.status == 'postpone' %}
+                                <span class="badge bg-secondary text-white">Отложен</span>
+                            {% elif order.status == 'has_defect' %}
+                                <span class="badge bg-dark text-white">Есть брак</span>
                             {% else %}
                                 <span class="badge bg-secondary">{{ order.get_status_display }}</span>
                             {% endif %}
