@@ -1,4 +1,4 @@
 [flake8]
 max-line-length = 88
 extend-ignore = E501, W503, F401, F405, Q000, F841
-exclude = .env, .env_example, cache, .venv/
+exclude = .env, .env_example, cache, .venv/, test

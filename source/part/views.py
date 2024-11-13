@@ -71,26 +71,13 @@ class PartsListView(BasePartView):
         context = super().get_context_data(**kwargs)
         context["latest"] = News.objects.order_by("-published_at")[:5]
         context.pop("search_form", None)
-        return context
-
-    def get(self, request, *args, **kwargs):
-        parts = Part.objects.all()
         favorites = (
-            Favorite.objects.filter(user=request.user)
-            if request.user.is_authenticated
-            else Favorite.objects.filter(session_key=request.session.session_key)
+            Favorite.objects.filter(user=self.request.user)
+            if self.request.user.is_authenticated
+            else Favorite.objects.filter(session_key=self.request.session.session_key)
         )
-
-        favorite_part_ids = favorites.values_list("part_id", flat=True)
-
-        return render(
-            request,
-            "index.html",
-            {
-                "parts": parts,
-                "favorites": favorite_part_ids,
-            },
-        )
+        context["favorites"] = favorites.values_list("part_id", flat=True)
+        return context
 
 
 class PartsMainView(ListView):
