@@ -37,7 +37,8 @@
             </div>
         </div>
 
-
+        {% if user.is_staff %}
+        {% else %}
         <a href="{% url 'favorite:favorite_add' %}"
            class="btn btn-light position-absolute top-0 end-0 m-2 btn add-to-favorite" data-part-id="{{ part.id }}">
             {% if part.pk in favorites %}
@@ -46,6 +47,7 @@
                 <i class="fa-regular fa-heart" style="color: #4CAF50;"></i>
             {% endif %}
         </a>
+        {% endif %}
 
 
     </div>
@@ -77,6 +79,8 @@
 
             <div class="mt-auto d-flex justify-content-end pt-2">
                 <span class="text-secondary fw-bold me-auto">{{ part.reviews.count }} отзывов</span>
+                {% if user.is_staff %}
+                {% else %}
                 <button class="btn btn-warning ms-2"><a href="{% url "webapp:create_review" part.pk %}"><i
                         class="bi bi-chat text-white"></i></a></button>
                 <a href="{% url "cart:cart_add" %}" class="btn add-to-cart"
@@ -85,6 +89,7 @@
                     <img class="mx-1" src="{% static "icons/cart-plus.svg" %}" alt="Catalog Icon"
                          width="32" height="32">
                 </a>
+                {% endif %}
             </div>
 
         </div>

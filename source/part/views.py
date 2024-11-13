@@ -15,7 +15,6 @@ from webapp.models.review import Review
 
 class BasePartView(ListView):
     model = Part
-    paginate_by = 6
 
     def dispatch(self, request, *args, **kwargs):
         self.form = self.get_form()
@@ -66,31 +65,19 @@ class BasePartView(ListView):
 class PartsListView(BasePartView):
     context_object_name = "parts"
     template_name = "index.html"
+    paginate_by = 9
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["latest"] = News.objects.order_by("-published_at")[:5]
         context.pop("search_form", None)
-        return context
-
-    def get(self, request, *args, **kwargs):
-        parts = Part.objects.all()
         favorites = (
-            Favorite.objects.filter(user=request.user)
-            if request.user.is_authenticated
-            else Favorite.objects.filter(session_key=request.session.session_key)
+            Favorite.objects.filter(user=self.request.user)
+            if self.request.user.is_authenticated
+            else Favorite.objects.filter(session_key=self.request.session.session_key)
         )
-
-        favorite_part_ids = favorites.values_list("part_id", flat=True)
-
-        return render(
-            request,
-            "index.html",
-            {
-                "parts": parts,
-                "favorites": favorite_part_ids,
-            },
-        )
+        context["favorites"] = favorites.values_list("part_id", flat=True)
+        return context
 
 
 class PartsMainView(ListView):
@@ -190,8 +177,8 @@ class PartsDetailView(DetailView):
         related_parts = Part.objects.filter(category=part_category).exclude(
             pk=self.object.pk
         )[
-            :5
-        ]  # Получаем похожие запчасти по категории
+                        :5
+                        ]  # Получаем похожие запчасти по категории
         context["related_parts"] = related_parts
         context["category"] = part_category
         context["reviews"] = Review.objects.all()

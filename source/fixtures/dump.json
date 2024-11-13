@@ -3,39 +3,494 @@
     "model": "admin.logentry",
     "pk": 1,
     "fields": {
-        "action_time": "2024-10-26T05:26:16.143Z",
-        "user": 1,
+        "action_time": "2024-11-06T14:06:23.012Z",
+        "user": 2,
         "content_type": 20,
-        "object_id": "6",
-        "object_repr": "Toyota Camry Battery for Toyota Camry",
+        "object_id": "45",
+        "object_repr": "Рычаг подвески for Mercedes X5",
         "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Video url\"]}}]"
+        "change_message": "[]"
     }
 },
 {
     "model": "admin.logentry",
     "pk": 2,
     "fields": {
-        "action_time": "2024-10-26T05:27:22.566Z",
-        "user": 1,
+        "action_time": "2024-11-06T14:07:09.665Z",
+        "user": 2,
         "content_type": 20,
-        "object_id": "11",
-        "object_repr": "Toyota together detail for Toyota Camry",
+        "object_id": "45",
+        "object_repr": "Рычаг подвески for Mercedes X5",
         "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Video url\"]}}]"
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
     }
 },
 {
     "model": "admin.logentry",
     "pk": 3,
     "fields": {
-        "action_time": "2024-10-26T06:42:30.243Z",
-        "user": 1,
+        "action_time": "2024-11-06T14:07:38.918Z",
+        "user": 2,
         "content_type": 20,
-        "object_id": "8",
-        "object_repr": "Svechi za menya for Toyota Camry",
+        "object_id": "44",
+        "object_repr": "Водяной насос for Toyota Mustang",
         "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Video url\"]}}]"
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2024-11-06T14:07:48.245Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "43",
+        "object_repr": "Генератор for Nissan Sorento",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2024-11-06T14:07:59.675Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "42",
+        "object_repr": "Топливный насос for Hyundai Altima",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2024-11-06T14:08:22.274Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "34",
+        "object_repr": "Фара передняя правая for Nissan Sorento",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2024-11-06T14:08:22.500Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "34",
+        "object_repr": "Фара передняя правая for Nissan Sorento",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2024-11-06T14:09:02.457Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "44",
+        "object_repr": "Водяной насос for Toyota Mustang",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2024-11-06T14:09:29.518Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "41",
+        "object_repr": "Фильтр салона for Toyota Mustang",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2024-11-06T14:10:16.735Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "40",
+        "object_repr": "Прокладка ГБЦ for Hyundai Sorento",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2024-11-06T14:10:16.797Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "40",
+        "object_repr": "Прокладка ГБЦ for Hyundai Sorento",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2024-11-06T14:10:39.313Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "31",
+        "object_repr": "Сцепление for Nissan Sorento",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2024-11-06T14:11:01.908Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "37",
+        "object_repr": "Подшипник ступицы for Hyundai Sorento",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2024-11-06T14:11:19.090Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "33",
+        "object_repr": "Фара передняя левая for Volkswagen Mustang",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2024-11-06T14:11:35.070Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "38",
+        "object_repr": "Радиатор охлаждения for Toyota Mustang",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2024-11-06T14:12:03.937Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "35",
+        "object_repr": "Зеркало боковое левое for Mercedes X5",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2024-11-06T14:12:19.074Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "39",
+        "object_repr": "Термостат for Nissan Altima",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2024-11-06T14:28:22.748Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "45",
+        "object_repr": "Рычаг подвески for Mercedes X5",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2024-11-06T14:28:51.238Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "44",
+        "object_repr": "Водяной насос for Toyota Mustang",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2024-11-06T14:29:00.169Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "43",
+        "object_repr": "Генератор for Nissan Sorento",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2024-11-06T14:29:26.157Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "42",
+        "object_repr": "Топливный насос for Hyundai Altima",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2024-11-06T14:29:46.337Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "41",
+        "object_repr": "Фильтр салона for Toyota Mustang",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2024-11-06T14:30:12.236Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "40",
+        "object_repr": "Прокладка ГБЦ for Hyundai Sorento",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2024-11-06T14:30:27.527Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "39",
+        "object_repr": "Термостат for Nissan Altima",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2024-11-06T14:30:46.279Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "38",
+        "object_repr": "Радиатор охлаждения for Toyota Mustang",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2024-11-06T14:30:56.815Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "37",
+        "object_repr": "Подшипник ступицы for Hyundai Sorento",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2024-11-06T14:31:10.128Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "36",
+        "object_repr": "Зеркало боковое правое for Mercedes X5",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2024-11-06T14:31:22.519Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "34",
+        "object_repr": "Фара передняя правая for Nissan Sorento",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2024-11-06T14:31:32.988Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "33",
+        "object_repr": "Фара передняя левая for Volkswagen Mustang",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2024-11-06T14:31:47.831Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "32",
+        "object_repr": "Ремень ГРМ for Toyota Mustang",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2024-11-06T14:32:12.180Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "31",
+        "object_repr": "Сцепление for Nissan Sorento",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2024-11-06T14:32:26.996Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "30",
+        "object_repr": "Свечи зажигания for Mercedes Civic",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2024-11-06T14:32:40.424Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "29",
+        "object_repr": "Амортизатор for Toyota Mustang",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2024-11-06T14:32:51.721Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "28",
+        "object_repr": "Тормозные колодки for Toyota Mustang",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2024-11-06T14:33:05.412Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "27",
+        "object_repr": "Фильтр воздушный for Toyota Mustang",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2024-11-06T14:34:11.863Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "35",
+        "object_repr": "Зеркало боковое левое for Mercedes X5",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2024-11-06T14:34:37.169Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "33",
+        "object_repr": "Фара передняя левая for Volkswagen Mustang",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+        "action_time": "2024-11-06T14:34:58.508Z",
+        "user": 2,
+        "content_type": 20,
+        "object_id": "41",
+        "object_repr": "Фильтр салона for Toyota Mustang",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
     }
 },
 {
@@ -510,287 +965,323 @@
     "model": "auth.permission",
     "pk": 53,
     "fields": {
-        "name": "Can add user",
+        "name": "Can add Новость",
         "content_type": 14,
-        "codename": "add_user"
+        "codename": "add_news"
     }
 },
 {
     "model": "auth.permission",
     "pk": 54,
     "fields": {
-        "name": "Can change user",
+        "name": "Can change Новость",
         "content_type": 14,
-        "codename": "change_user"
+        "codename": "change_news"
     }
 },
 {
     "model": "auth.permission",
     "pk": 55,
     "fields": {
-        "name": "Can delete user",
+        "name": "Can delete Новость",
         "content_type": 14,
-        "codename": "delete_user"
+        "codename": "delete_news"
     }
 },
 {
     "model": "auth.permission",
     "pk": 56,
     "fields": {
-        "name": "Can view user",
+        "name": "Can view Новость",
         "content_type": 14,
-        "codename": "view_user"
+        "codename": "view_news"
     }
 },
 {
     "model": "auth.permission",
     "pk": 57,
     "fields": {
-        "name": "Can add Товар в корзине",
+        "name": "Can add Избранное",
         "content_type": 15,
-        "codename": "add_cart"
+        "codename": "add_favorite"
     }
 },
 {
     "model": "auth.permission",
     "pk": 58,
     "fields": {
-        "name": "Can change Товар в корзине",
+        "name": "Can change Избранное",
         "content_type": 15,
-        "codename": "change_cart"
+        "codename": "change_favorite"
     }
 },
 {
     "model": "auth.permission",
     "pk": 59,
     "fields": {
-        "name": "Can delete Товар в корзине",
+        "name": "Can delete Избранное",
         "content_type": 15,
-        "codename": "delete_cart"
+        "codename": "delete_favorite"
     }
 },
 {
     "model": "auth.permission",
     "pk": 60,
     "fields": {
-        "name": "Can view Товар в корзине",
+        "name": "Can view Избранное",
         "content_type": 15,
-        "codename": "view_cart"
+        "codename": "view_favorite"
     }
 },
 {
     "model": "auth.permission",
     "pk": 61,
     "fields": {
-        "name": "Can add Заказ оформления",
+        "name": "Can add user",
         "content_type": 16,
-        "codename": "add_order"
+        "codename": "add_user"
     }
 },
 {
     "model": "auth.permission",
     "pk": 62,
     "fields": {
-        "name": "Can change Заказ оформления",
+        "name": "Can change user",
         "content_type": 16,
-        "codename": "change_order"
+        "codename": "change_user"
     }
 },
 {
     "model": "auth.permission",
     "pk": 63,
     "fields": {
-        "name": "Can delete Заказ оформления",
+        "name": "Can delete user",
         "content_type": 16,
-        "codename": "delete_order"
+        "codename": "delete_user"
     }
 },
 {
     "model": "auth.permission",
     "pk": 64,
     "fields": {
-        "name": "Can view Заказ оформления",
+        "name": "Can view user",
         "content_type": 16,
-        "codename": "view_order"
+        "codename": "view_user"
     }
 },
 {
     "model": "auth.permission",
     "pk": 65,
     "fields": {
-        "name": "Can add Проданный товар",
+        "name": "Can add Товар в корзине",
         "content_type": 17,
-        "codename": "add_orderpart"
+        "codename": "add_cart"
     }
 },
 {
     "model": "auth.permission",
     "pk": 66,
     "fields": {
-        "name": "Can change Проданный товар",
+        "name": "Can change Товар в корзине",
         "content_type": 17,
-        "codename": "change_orderpart"
+        "codename": "change_cart"
     }
 },
 {
     "model": "auth.permission",
     "pk": 67,
     "fields": {
-        "name": "Can delete Проданный товар",
+        "name": "Can delete Товар в корзине",
         "content_type": 17,
-        "codename": "delete_orderpart"
+        "codename": "delete_cart"
     }
 },
 {
     "model": "auth.permission",
     "pk": 68,
     "fields": {
-        "name": "Can view Проданный товар",
+        "name": "Can view Товар в корзине",
         "content_type": 17,
-        "codename": "view_orderpart"
+        "codename": "view_cart"
     }
 },
 {
     "model": "auth.permission",
     "pk": 69,
     "fields": {
-        "name": "Can add Запчасть",
+        "name": "Can add Заказ оформления",
         "content_type": 18,
-        "codename": "add_part"
+        "codename": "add_order"
     }
 },
 {
     "model": "auth.permission",
     "pk": 70,
     "fields": {
-        "name": "Can change Запчасть",
+        "name": "Can change Заказ оформления",
         "content_type": 18,
-        "codename": "change_part"
+        "codename": "change_order"
     }
 },
 {
     "model": "auth.permission",
     "pk": 71,
     "fields": {
-        "name": "Can delete Запчасть",
+        "name": "Can delete Заказ оформления",
         "content_type": 18,
-        "codename": "delete_part"
+        "codename": "delete_order"
     }
 },
 {
     "model": "auth.permission",
     "pk": 72,
     "fields": {
-        "name": "Can view Запчасть",
+        "name": "Can view Заказ оформления",
         "content_type": 18,
-        "codename": "view_part"
+        "codename": "view_order"
     }
 },
 {
     "model": "auth.permission",
     "pk": 73,
     "fields": {
-        "name": "Can add contact request",
+        "name": "Can add Проданный товар",
         "content_type": 19,
-        "codename": "add_contactrequest"
+        "codename": "add_orderpart"
     }
 },
 {
     "model": "auth.permission",
     "pk": 74,
     "fields": {
-        "name": "Can change contact request",
+        "name": "Can change Проданный товар",
         "content_type": 19,
-        "codename": "change_contactrequest"
+        "codename": "change_orderpart"
     }
 },
 {
     "model": "auth.permission",
     "pk": 75,
     "fields": {
-        "name": "Can delete contact request",
+        "name": "Can delete Проданный товар",
         "content_type": 19,
-        "codename": "delete_contactrequest"
+        "codename": "delete_orderpart"
     }
 },
 {
     "model": "auth.permission",
     "pk": 76,
     "fields": {
-        "name": "Can view contact request",
+        "name": "Can view Проданный товар",
         "content_type": 19,
-        "codename": "view_contactrequest"
+        "codename": "view_orderpart"
     }
 },
 {
     "model": "auth.permission",
     "pk": 77,
     "fields": {
-        "name": "Can add Новость",
+        "name": "Can add Запчасть",
         "content_type": 20,
-        "codename": "add_news"
+        "codename": "add_part"
     }
 },
 {
     "model": "auth.permission",
     "pk": 78,
     "fields": {
-        "name": "Can change Новость",
+        "name": "Can change Запчасть",
         "content_type": 20,
-        "codename": "change_news"
+        "codename": "change_part"
     }
 },
 {
     "model": "auth.permission",
     "pk": 79,
     "fields": {
-        "name": "Can delete Новость",
+        "name": "Can delete Запчасть",
         "content_type": 20,
-        "codename": "delete_news"
+        "codename": "delete_part"
     }
 },
 {
     "model": "auth.permission",
     "pk": 80,
     "fields": {
-        "name": "Can view Новость",
+        "name": "Can view Запчасть",
         "content_type": 20,
-        "codename": "view_news"
+        "codename": "view_part"
     }
 },
 {
     "model": "auth.permission",
     "pk": 81,
     "fields": {
-        "name": "Can add Избранное",
+        "name": "Can add contact request",
         "content_type": 21,
-        "codename": "add_favorite"
+        "codename": "add_contactrequest"
     }
 },
 {
     "model": "auth.permission",
     "pk": 82,
     "fields": {
-        "name": "Can change Избранное",
+        "name": "Can change contact request",
         "content_type": 21,
-        "codename": "change_favorite"
+        "codename": "change_contactrequest"
     }
 },
 {
     "model": "auth.permission",
     "pk": 83,
     "fields": {
-        "name": "Can delete Избранное",
+        "name": "Can delete contact request",
         "content_type": 21,
-        "codename": "delete_favorite"
+        "codename": "delete_contactrequest"
     }
 },
 {
     "model": "auth.permission",
     "pk": 84,
     "fields": {
-        "name": "Can view Избранное",
+        "name": "Can view contact request",
         "content_type": 21,
+        "codename": "view_contactrequest"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 85,
+    "fields": {
+        "name": "Can add Избранное",
+        "content_type": 22,
+        "codename": "add_favorite"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 86,
+    "fields": {
+        "name": "Can change Избранное",
+        "content_type": 22,
+        "codename": "change_favorite"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 87,
+    "fields": {
+        "name": "Can delete Избранное",
+        "content_type": 22,
+        "codename": "delete_favorite"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 88,
+    "fields": {
+        "name": "Can view Избранное",
+        "content_type": 22,
         "codename": "view_favorite"
     }
 },
@@ -963,177 +1454,169 @@
     }
 },
 {
-    "model": "sessions.session",
-    "pk": "77p927pcjbz9w5xyj4zgnetm5914mf4y",
+    "model": "contenttypes.contenttype",
+    "pk": 22,
     "fields": {
-        "session_data": ".eJxVjDEOwjAMRe-SGUWxaRzKyM4ZItsJpIBSqWknxN1ppQ6wvvf-f5vIy1zi0vIUh2TOBszhlwnrM9dNpAfX-2h1rPM0iN0Su9tmr2PKr8ve_h0UbmVdq--8MAYFTNIxKAgJEin1Tj2CC7ByuEnIrgcPmrJTBDqxIzoimM8X3VI3Pw:1t4ZIP:KAB3OYZmG7Ir3k0TeYnvkvese2UZIXV-A4RdQg7h5rw",
-        "expire_date": "2024-11-09T05:25:05.081Z"
+        "app_label": "favorite",
+        "model": "favorite"
     }
 },
 {
     "model": "sessions.session",
-    "pk": "f20zyu35gnzxbq2fjic8cru99kkaft46",
+    "pk": "f7amp7mhjw8rihivgbjxzjr7ijnkq76z",
     "fields": {
-        "session_data": "e30:1t2ZgT:SSHGgjylLB1MxtXTYjbnNdqA38SOPfhClD07-9aq124",
-        "expire_date": "2024-11-03T17:25:41.576Z"
+        "session_data": ".eJxVjDkOwjAUBe_iGll24pWSnjNYf3FwANlSnFSIu0OkFNC-mXkvkWBbS9p6XtLM4iy0OP1uCPTIdQd8h3prklpdlxnlrsiDdnltnJ-Xw_07KNDLt44xoo3BR3Z5mCiowVBgw4ompy0QY9Co3OgscbY-II2YwarRWK9NAPH-AOSYN-M:1t5NLR:yfOU2trwRN5FLayfO_0mVjyrUWwHZWvPq2_HmHryMTk",
+        "expire_date": "2024-11-11T10:51:33.891Z"
     }
 },
 {
     "model": "sessions.session",
-    "pk": "h3n1gamj3tz87wxaokge5l8r89g1g1q2",
+    "pk": "n1unft0b1ws4c4esz7tch8gyhyxcr52i",
     "fields": {
-        "session_data": ".eJxVjDEOwjAMRe-SGUWxaRzKyM4ZItsJpIBSqWknxN1ppQ6wvvf-f5vIy1zi0vIUh2TOBszhlwnrM9dNpAfX-2h1rPM0iN0Su9tmr2PKr8ve_h0UbmVdq--8MAYFTNIxKAgJEin1Tj2CC7ByuEnIrgcPmrJTBDqxIzoimM8X3VI3Pw:1t2ouU:1QWplhiat9KriI_DgtK4fzx6ttTxiPyZZqC-dky9AbQ",
-        "expire_date": "2024-11-04T09:41:10.365Z"
+        "session_data": ".eJxVjDsOwjAQBe_iGlmO4y8lPWewvN5dHECOFCcV4u4QKQW0b2beS6S8rTVtnZY0oTgLLU6_G-TyoLYDvOd2m2WZ27pMIHdFHrTL64z0vBzu30HNvX7rwXLx5D3lEpj06CCo6C3Z4oERR6NicE7Z4iwENoBmiGws6xDRgGbx_gD0Gjgq:1t8gop:VKiPZYbdko4fF6J2_Fcxvh-jBSU9RcUDFKUh4s173lQ",
+        "expire_date": "2024-11-20T14:15:35.174Z"
     }
 },
 {
     "model": "webapp.carbrand",
     "pk": 1,
     "fields": {
-        "name": "BMW",
-        "description": "bmwbmwbmw"
+        "name": "Toyota",
+        "description": "Описание для Toyota"
     }
 },
 {
     "model": "webapp.carbrand",
     "pk": 2,
     "fields": {
-        "name": "LEXUS",
-        "description": "lexuslssdsd"
+        "name": "Ford",
+        "description": "Описание для Ford"
     }
 },
 {
     "model": "webapp.carbrand",
     "pk": 3,
     "fields": {
-        "name": "KIA",
-        "description": "sssasas"
+        "name": "Volkswagen",
+        "description": "Описание для Volkswagen"
     }
 },
 {
     "model": "webapp.carbrand",
     "pk": 4,
     "fields": {
-        "name": "Toyota",
-        "description": "Японский производитель автомобилей"
+        "name": "Honda",
+        "description": "Описание для Honda"
     }
 },
 {
     "model": "webapp.carbrand",
     "pk": 5,
     "fields": {
-        "name": "Ford",
-        "description": "Американский производитель автомобилей"
+        "name": "BMW",
+        "description": "Описание для BMW"
     }
 },
 {
     "model": "webapp.carbrand",
     "pk": 6,
     "fields": {
-        "name": "BMW",
-        "description": "Немецкий производитель автомобилей премиум-класса"
+        "name": "Mercedes",
+        "description": "Описание для Mercedes"
     }
 },
 {
     "model": "webapp.carbrand",
     "pk": 7,
     "fields": {
-        "name": "Renault",
-        "description": "Французский производитель автомобилей"
+        "name": "Chevrolet",
+        "description": "Описание для Chevrolet"
     }
 },
 {
     "model": "webapp.carbrand",
     "pk": 8,
     "fields": {
-        "name": "Fiat",
-        "description": "Итальянский производитель автомобилей"
+        "name": "Nissan",
+        "description": "Описание для Nissan"
     }
 },
 {
     "model": "webapp.carbrand",
     "pk": 9,
     "fields": {
-        "name": "Renault",
-        "description": "Французский производитель автомобилей"
+        "name": "Hyundai",
+        "description": "Описание для Hyundai"
     }
 },
 {
     "model": "webapp.carbrand",
     "pk": 10,
     "fields": {
-        "name": "Fiat",
-        "description": "Итальянский производитель автомобилей"
-    }
-},
-{
-    "model": "webapp.carbrand",
-    "pk": 11,
-    "fields": {
-        "name": "Hyundai",
-        "description": "Южнокорейский производитель автомобилей"
+        "name": "Kia",
+        "description": "Описание для Kia"
     }
 },
 {
     "model": "webapp.carmodel",
     "pk": 1,
     "fields": {
-        "name": "m5",
-        "brand": 1,
-        "year_of_manufacture": 2012
+        "name": "Altima",
+        "brand": 9,
+        "year_of_manufacture": 2000
     }
 },
 {
     "model": "webapp.carmodel",
     "pk": 2,
     "fields": {
-        "name": "3",
-        "brand": 2,
-        "year_of_manufacture": 2010
+        "name": "Sorento",
+        "brand": 10,
+        "year_of_manufacture": 2004
     }
 },
 {
     "model": "webapp.carmodel",
     "pk": 3,
     "fields": {
-        "name": "Morning",
-        "brand": 3,
-        "year_of_manufacture": 2018
+        "name": "Mustang",
+        "brand": 1,
+        "year_of_manufacture": 2009
     }
 },
 {
     "model": "webapp.carmodel",
     "pk": 4,
     "fields": {
-        "name": "Camry",
-        "brand": 4,
-        "year_of_manufacture": 2020
+        "name": "Sorento",
+        "brand": 6,
+        "year_of_manufacture": 2008
     }
 },
 {
     "model": "webapp.carmodel",
     "pk": 5,
     "fields": {
-        "name": "Mustang",
-        "brand": 5,
-        "year_of_manufacture": 2019
+        "name": "Civic",
+        "brand": 6,
+        "year_of_manufacture": 2016
     }
 },
 {
     "model": "webapp.carmodel",
     "pk": 6,
     "fields": {
-        "name": "Clio",
-        "brand": 7,
-        "year_of_manufacture": 2018
+        "name": "Elantra",
+        "brand": 8,
+        "year_of_manufacture": 1999
     }
 },
 {
     "model": "webapp.carmodel",
     "pk": 7,
     "fields": {
-        "name": "500",
-        "brand": 8,
+        "name": "Sorento",
+        "brand": 9,
         "year_of_manufacture": 2022
     }
 },
@@ -1141,8 +1624,8 @@
     "model": "webapp.carmodel",
     "pk": 8,
     "fields": {
-        "name": "Elantra",
-        "brand": 11,
+        "name": "Mustang",
+        "brand": 3,
         "year_of_manufacture": 2020
     }
 },
@@ -1150,29 +1633,128 @@
     "model": "webapp.carmodel",
     "pk": 9,
     "fields": {
-        "name": "3 Series",
+        "name": "Sorento",
+        "brand": 7,
+        "year_of_manufacture": 2018
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 10,
+    "fields": {
+        "name": "Elantra",
+        "brand": 7,
+        "year_of_manufacture": 2010
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 11,
+    "fields": {
+        "name": "Altima",
+        "brand": 9,
+        "year_of_manufacture": 2013
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 12,
+    "fields": {
+        "name": "Sorento",
+        "brand": 9,
+        "year_of_manufacture": 2023
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 13,
+    "fields": {
+        "name": "Altima",
+        "brand": 8,
+        "year_of_manufacture": 2014
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 14,
+    "fields": {
+        "name": "Sorento",
+        "brand": 8,
+        "year_of_manufacture": 2014
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 15,
+    "fields": {
+        "name": "Civic",
+        "brand": 7,
+        "year_of_manufacture": 2010
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 16,
+    "fields": {
+        "name": "Corolla",
+        "brand": 6,
+        "year_of_manufacture": 2020
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 17,
+    "fields": {
+        "name": "X5",
+        "brand": 6,
+        "year_of_manufacture": 2005
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 18,
+    "fields": {
+        "name": "Mustang",
         "brand": 1,
-        "year_of_manufacture": 2021
+        "year_of_manufacture": 2012
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 19,
+    "fields": {
+        "name": "Accord",
+        "brand": 4,
+        "year_of_manufacture": 2011
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 20,
+    "fields": {
+        "name": "Corolla",
+        "brand": 8,
+        "year_of_manufacture": 2009
     }
 },
 {
     "model": "webapp.engine",
     "pk": 1,
     "fields": {
-        "engine_type": "electric",
-        "displacement": "222.00",
-        "horsepower": 22,
-        "torque": 222
+        "engine_type": "hybrid",
+        "displacement": "1.91",
+        "horsepower": 179,
+        "torque": 767
     }
 },
 {
     "model": "webapp.engine",
     "pk": 2,
     "fields": {
-        "engine_type": "gasoline",
-        "displacement": "2.50",
-        "horsepower": 203,
-        "torque": 250
+        "engine_type": "diesel",
+        "displacement": "3.47",
+        "horsepower": 128,
+        "torque": 735
     }
 },
 {
@@ -1180,19 +1762,19 @@
     "pk": 3,
     "fields": {
         "engine_type": "diesel",
-        "displacement": "3.00",
-        "horsepower": 255,
-        "torque": 400
+        "displacement": "1.99",
+        "horsepower": 288,
+        "torque": 553
     }
 },
 {
     "model": "webapp.engine",
     "pk": 4,
     "fields": {
-        "engine_type": "electric",
-        "displacement": "0.00",
-        "horsepower": 150,
-        "torque": 300
+        "engine_type": "hybrid",
+        "displacement": "5.99",
+        "horsepower": 310,
+        "torque": 681
     }
 },
 {
@@ -1200,9 +1782,9 @@
     "pk": 5,
     "fields": {
         "engine_type": "hybrid",
-        "displacement": "2.00",
-        "horsepower": 200,
-        "torque": 320
+        "displacement": "4.50",
+        "horsepower": 415,
+        "torque": 553
     }
 },
 {
@@ -1210,60 +1792,232 @@
     "pk": 6,
     "fields": {
         "engine_type": "gasoline",
-        "displacement": "1.40",
-        "horsepower": 140,
-        "torque": 200
+        "displacement": "4.60",
+        "horsepower": 369,
+        "torque": 416
     }
 },
 {
     "model": "webapp.engine",
     "pk": 7,
     "fields": {
-        "engine_type": "diesel",
-        "displacement": "2.20",
-        "horsepower": 180,
-        "torque": 340
+        "engine_type": "electric",
+        "displacement": "1.12",
+        "horsepower": 339,
+        "torque": 328
     }
 },
 {
-    "model": "webapp.country",
+    "model": "webapp.engine",
+    "pk": 8,
+    "fields": {
+        "engine_type": "electric",
+        "displacement": "3.02",
+        "horsepower": 113,
+        "torque": 152
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 9,
+    "fields": {
+        "engine_type": "hybrid",
+        "displacement": "5.29",
+        "horsepower": 306,
+        "torque": 640
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 10,
+    "fields": {
+        "engine_type": "diesel",
+        "displacement": "3.87",
+        "horsepower": 335,
+        "torque": 593
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 11,
+    "fields": {
+        "engine_type": "gasoline",
+        "displacement": "1.51",
+        "horsepower": 102,
+        "torque": 313
+    }
+},
+{
+    "model": "webapp.engine",
     "pk": 12,
     "fields": {
-        "name": "Китай"
+        "engine_type": "gasoline",
+        "displacement": "3.05",
+        "horsepower": 390,
+        "torque": 354
     }
 },
 {
-    "model": "webapp.country",
+    "model": "webapp.engine",
     "pk": 13,
     "fields": {
-        "name": "Финляндия"
+        "engine_type": "electric",
+        "displacement": "2.72",
+        "horsepower": 373,
+        "torque": 764
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 14,
+    "fields": {
+        "engine_type": "hybrid",
+        "displacement": "1.35",
+        "horsepower": 350,
+        "torque": 678
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 15,
+    "fields": {
+        "engine_type": "diesel",
+        "displacement": "1.47",
+        "horsepower": 399,
+        "torque": 725
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 16,
+    "fields": {
+        "engine_type": "diesel",
+        "displacement": "4.89",
+        "horsepower": 305,
+        "torque": 650
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 17,
+    "fields": {
+        "engine_type": "gasoline",
+        "displacement": "3.84",
+        "horsepower": 479,
+        "torque": 676
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 18,
+    "fields": {
+        "engine_type": "gasoline",
+        "displacement": "1.45",
+        "horsepower": 139,
+        "torque": 764
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 19,
+    "fields": {
+        "engine_type": "hybrid",
+        "displacement": "2.20",
+        "horsepower": 210,
+        "torque": 770
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 20,
+    "fields": {
+        "engine_type": "gasoline",
+        "displacement": "6.35",
+        "horsepower": 244,
+        "torque": 123
     }
 },
 {
     "model": "webapp.country",
-    "pk": 14,
+    "pk": 1,
+    "fields": {
+        "name": "США"
+    }
+},
+{
+    "model": "webapp.country",
+    "pk": 2,
+    "fields": {
+        "name": "Япония"
+    }
+},
+{
+    "model": "webapp.country",
+    "pk": 3,
+    "fields": {
+        "name": "Германия"
+    }
+},
+{
+    "model": "webapp.country",
+    "pk": 4,
     "fields": {
         "name": "Южная Корея"
     }
 },
 {
     "model": "webapp.country",
-    "pk": 15,
+    "pk": 5,
+    "fields": {
+        "name": "Китай"
+    }
+},
+{
+    "model": "webapp.country",
+    "pk": 6,
+    "fields": {
+        "name": "Россия"
+    }
+},
+{
+    "model": "webapp.country",
+    "pk": 7,
+    "fields": {
+        "name": "Франция"
+    }
+},
+{
+    "model": "webapp.country",
+    "pk": 8,
     "fields": {
         "name": "Италия"
     }
 },
 {
+    "model": "webapp.country",
+    "pk": 9,
+    "fields": {
+        "name": "Канада"
+    }
+},
+{
+    "model": "webapp.country",
+    "pk": 10,
+    "fields": {
+        "name": "Мексика"
+    }
+},
+{
     "model": "webapp.vehicleinfo",
     "pk": 1,
     "fields": {
         "vehicle_type": "passenger",
-        "model": 2,
+        "model": 15,
         "year_of_manufacture": 2010,
-        "body_type": "did",
-        "engine": 1,
+        "body_type": "внедорожник",
+        "engine": 6,
         "countries": [
-            12
+            3
         ]
     }
 },
@@ -1271,13 +2025,43 @@
     "model": "webapp.vehicleinfo",
     "pk": 2,
     "fields": {
-        "vehicle_type": "passenger",
-        "model": 4,
-        "year_of_manufacture": 2020,
-        "body_type": "Седан",
-        "engine": 2,
+        "vehicle_type": "engine",
+        "model": 12,
+        "year_of_manufacture": 2018,
+        "body_type": "внедорожник",
+        "engine": 12,
         "countries": [
-            13
+            8,
+            6
+        ]
+    }
+},
+{
+    "model": "webapp.vehicleinfo",
+    "pk": 3,
+    "fields": {
+        "vehicle_type": "bus",
+        "model": 18,
+        "year_of_manufacture": 2003,
+        "body_type": "седан",
+        "engine": 15,
+        "countries": [
+            10,
+            4
+        ]
+    }
+},
+{
+    "model": "webapp.vehicleinfo",
+    "pk": 4,
+    "fields": {
+        "vehicle_type": "engine",
+        "model": 7,
+        "year_of_manufacture": 2000,
+        "body_type": "седан",
+        "engine": 20,
+        "countries": [
+            7
         ]
     }
 },
@@ -1285,267 +2069,291 @@
     "model": "webapp.vehicleinfo",
     "pk": 5,
     "fields": {
-        "vehicle_type": "passenger",
-        "model": 4,
+        "vehicle_type": "bus",
+        "model": 6,
         "year_of_manufacture": 2020,
-        "body_type": "Седан",
-        "engine": 2,
+        "body_type": "хэтчбек",
+        "engine": 18,
         "countries": [
-            14
+            8
         ]
     }
 },
 {
-    "model": "webapp.category",
-    "pk": 1,
-    "fields": {
-        "name": "Легковой",
-        "description": "aaa"
-    }
-},
-{
-    "model": "webapp.category",
-    "pk": 2,
-    "fields": {
-        "name": "Грузовые",
-        "description": "фф"
-    }
-},
-{
-    "model": "webapp.category",
-    "pk": 3,
-    "fields": {
-        "name": "Автобус",
-        "description": "выв"
-    }
-},
-{
-    "model": "webapp.category",
-    "pk": 4,
-    "fields": {
-        "name": "Тормоза",
-        "description": "Тормозные колодки, диски и сопутствующие детали"
-    }
-},
-{
-    "model": "webapp.category",
-    "pk": 5,
-    "fields": {
-        "name": "Подвеска",
-        "description": "Амортизаторы, стойки и элементы подвески"
-    }
-},
-{
-    "model": "webapp.category",
+    "model": "webapp.vehicleinfo",
     "pk": 6,
     "fields": {
-        "name": "Детали двигателя",
-        "description": "Компоненты двигателя и запчасти"
+        "vehicle_type": "bicycle",
+        "model": 18,
+        "year_of_manufacture": 2008,
+        "body_type": "внедорожник",
+        "engine": 18,
+        "countries": [
+            8,
+            5
+        ]
     }
 },
 {
-    "model": "webapp.category",
+    "model": "webapp.vehicleinfo",
     "pk": 7,
     "fields": {
-        "name": "Детали двигателя",
-        "description": "Компоненты двигателя и запчасти"
+        "vehicle_type": "special",
+        "model": 5,
+        "year_of_manufacture": 2018,
+        "body_type": "купе",
+        "engine": 9,
+        "countries": [
+            1,
+            5,
+            7
+        ]
     }
 },
 {
-    "model": "webapp.category",
+    "model": "webapp.vehicleinfo",
     "pk": 8,
     "fields": {
-        "name": "Трансмиссия",
-        "description": "Запчасти трансмиссии и привода"
+        "vehicle_type": "railroad",
+        "model": 12,
+        "year_of_manufacture": 2014,
+        "body_type": "купе",
+        "engine": 13,
+        "countries": [
+            5
+        ]
     }
 },
 {
-    "model": "webapp.category",
+    "model": "webapp.vehicleinfo",
     "pk": 9,
     "fields": {
-        "name": "Кузовные детали",
-        "description": "Детали кузова и ремонтные компоненты"
+        "vehicle_type": "bus",
+        "model": 13,
+        "year_of_manufacture": 2000,
+        "body_type": "универсал",
+        "engine": 11,
+        "countries": [
+            8
+        ]
     }
 },
 {
-    "model": "webapp.category",
+    "model": "webapp.vehicleinfo",
     "pk": 10,
     "fields": {
-        "name": "Интерьер",
-        "description": "Отделка интерьера и аксессуары"
+        "vehicle_type": "special",
+        "model": 14,
+        "year_of_manufacture": 2017,
+        "body_type": "седан",
+        "engine": 16,
+        "countries": [
+            8,
+            1
+        ]
     }
 },
 {
-    "model": "webapp.pricehistory",
-    "pk": 2,
-    "fields": {
-        "part": 1,
-        "price": "100.00",
-        "date_changed": "2024-09-13T20:39:40.451Z"
-    }
-},
-{
-    "model": "webapp.pricehistory",
-    "pk": 3,
-    "fields": {
-        "part": 2,
-        "price": "1000.00",
-        "date_changed": "2024-09-13T21:14:47.246Z"
-    }
-},
-{
-    "model": "webapp.pricehistory",
-    "pk": 4,
-    "fields": {
-        "part": 3,
-        "price": "125.00",
-        "date_changed": "2024-09-13T21:14:55.597Z"
-    }
-},
-{
-    "model": "webapp.pricehistory",
-    "pk": 5,
-    "fields": {
-        "part": 4,
-        "price": "500.00",
-        "date_changed": "2024-09-13T21:15:03.310Z"
-    }
-},
-{
-    "model": "webapp.pricehistory",
-    "pk": 6,
-    "fields": {
-        "part": 5,
-        "price": "4000.00",
-        "date_changed": "2024-09-13T21:15:09.797Z"
-    }
-},
-{
-    "model": "webapp.pricehistory",
-    "pk": 7,
-    "fields": {
-        "part": 6,
-        "price": "4000.00",
-        "date_changed": "2024-09-13T21:15:17.686Z"
-    }
-},
-{
-    "model": "webapp.pricehistory",
-    "pk": 8,
-    "fields": {
-        "part": 7,
-        "price": "2200.00",
-        "date_changed": "2024-09-13T21:15:34.618Z"
-    }
-},
-{
-    "model": "webapp.pricehistory",
-    "pk": 9,
-    "fields": {
-        "part": 8,
-        "price": "4000.00",
-        "date_changed": "2024-09-13T21:15:40.991Z"
-    }
-},
-{
-    "model": "webapp.pricehistory",
-    "pk": 10,
-    "fields": {
-        "part": 9,
-        "price": "99.00",
-        "date_changed": "2024-09-13T21:15:48.174Z"
-    }
-},
-{
-    "model": "webapp.pricehistory",
+    "model": "webapp.vehicleinfo",
     "pk": 11,
     "fields": {
-        "part": 10,
-        "price": "699.00",
-        "date_changed": "2024-09-13T21:15:53.727Z"
+        "vehicle_type": "bus",
+        "model": 18,
+        "year_of_manufacture": 2014,
+        "body_type": "внедорожник",
+        "engine": 9,
+        "countries": [
+            8,
+            1
+        ]
     }
 },
 {
-    "model": "webapp.pricehistory",
+    "model": "webapp.vehicleinfo",
     "pk": 12,
     "fields": {
-        "part": 11,
-        "price": "4000.00",
-        "date_changed": "2024-09-13T21:16:00.077Z"
+        "vehicle_type": "bicycle",
+        "model": 9,
+        "year_of_manufacture": 2004,
+        "body_type": "хэтчбек",
+        "engine": 9,
+        "countries": [
+            4
+        ]
     }
 },
 {
-    "model": "webapp.pricehistory",
+    "model": "webapp.vehicleinfo",
     "pk": 13,
     "fields": {
-        "part": 12,
-        "price": "4000.00",
-        "date_changed": "2024-09-13T21:16:11.575Z"
+        "vehicle_type": "railroad",
+        "model": 18,
+        "year_of_manufacture": 2016,
+        "body_type": "седан",
+        "engine": 15,
+        "countries": [
+            1
+        ]
     }
 },
 {
-    "model": "webapp.pricehistory",
+    "model": "webapp.vehicleinfo",
     "pk": 14,
     "fields": {
-        "part": 13,
-        "price": "30.00",
-        "date_changed": "2024-09-13T21:16:17.886Z"
+        "vehicle_type": "engine",
+        "model": 10,
+        "year_of_manufacture": 2006,
+        "body_type": "внедорожник",
+        "engine": 17,
+        "countries": [
+            8,
+            4
+        ]
     }
 },
 {
-    "model": "webapp.pricehistory",
+    "model": "webapp.vehicleinfo",
     "pk": 15,
     "fields": {
-        "part": 14,
-        "price": "399.00",
-        "date_changed": "2024-09-13T21:16:24.231Z"
+        "vehicle_type": "engine",
+        "model": 8,
+        "year_of_manufacture": 2018,
+        "body_type": "универсал",
+        "engine": 2,
+        "countries": [
+            1,
+            6
+        ]
     }
 },
 {
-    "model": "webapp.pricehistory",
+    "model": "webapp.vehicleinfo",
     "pk": 16,
     "fields": {
-        "part": 15,
-        "price": "55.00",
-        "date_changed": "2024-09-13T21:16:29.988Z"
+        "vehicle_type": "truck",
+        "model": 1,
+        "year_of_manufacture": 2017,
+        "body_type": "седан",
+        "engine": 20,
+        "countries": [
+            3
+        ]
     }
 },
 {
-    "model": "webapp.news",
+    "model": "webapp.vehicleinfo",
+    "pk": 17,
+    "fields": {
+        "vehicle_type": "bicycle",
+        "model": 18,
+        "year_of_manufacture": 2018,
+        "body_type": "седан",
+        "engine": 20,
+        "countries": [
+            1,
+            10,
+            5
+        ]
+    }
+},
+{
+    "model": "webapp.vehicleinfo",
+    "pk": 18,
+    "fields": {
+        "vehicle_type": "bus",
+        "model": 17,
+        "year_of_manufacture": 2016,
+        "body_type": "универсал",
+        "engine": 4,
+        "countries": [
+            4,
+            7
+        ]
+    }
+},
+{
+    "model": "webapp.vehicleinfo",
+    "pk": 19,
+    "fields": {
+        "vehicle_type": "passenger",
+        "model": 14,
+        "year_of_manufacture": 2015,
+        "body_type": "хэтчбек",
+        "engine": 19,
+        "countries": [
+            8,
+            2
+        ]
+    }
+},
+{
+    "model": "webapp.vehicleinfo",
+    "pk": 20,
+    "fields": {
+        "vehicle_type": "bicycle",
+        "model": 3,
+        "year_of_manufacture": 2018,
+        "body_type": "купе",
+        "engine": 13,
+        "countries": [
+            7
+        ]
+    }
+},
+{
+    "model": "webapp.category",
     "pk": 1,
     "fields": {
-        "title": "News1",
-        "short_description": "dmskladklsadn",
-        "full_text": "djsadkjsandash bdhasd has dashb dsiaj doisajd iosaj doisajdiosa jdiosa jdoisa joidj asoi djsaoi djsaoi jdsaoi jdoasi jdosia jdoisa jdsoai jdsoaij dosiadj soaijdsioa",
-        "image": "",
-        "published_at": "2024-10-21T19:02:21.468Z"
+        "name": "Двигатель",
+        "description": "Описание для Двигатель"
     }
 },
 {
-    "model": "webapp.news",
+    "model": "webapp.category",
     "pk": 2,
     "fields": {
-        "title": "News 2",
-        "short_description": "dsnajdsajdnjasbd shb",
-        "full_text": "sahdj bsajbd sja bdsja bd bsadj bsah bsah dbsj abdj asb dhasbjhbdhasb djhbs ajdb sajdb saj bdsajb sajb sjab dhassa bdsajsja dsaj",
-        "image": "",
-        "published_at": "2024-10-23T08:02:00.566Z"
+        "name": "Трансмиссия",
+        "description": "Описание для Трансмиссия"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 3,
+    "fields": {
+        "name": "Подвеска",
+        "description": "Описание для Подвеска"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 4,
+    "fields": {
+        "name": "Кузовные детали",
+        "description": "Описание для Кузовные детали"
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 5,
+    "fields": {
+        "name": "Тормозная система",
+        "description": "Описание для Тормозная система"
     }
 },
 {
     "model": "accounts.user",
-    "pk": 1,
+    "pk": 2,
     "fields": {
-        "password": "pbkdf2_sha256$720000$JMwbOX7tPlYboeTJo6JXv1$PzKMjqB5zpC1hYxxlsfzBcp9mQgd5b+ox3H/QvEsY7Q=",
-        "last_login": "2024-10-26T05:25:05.008Z",
+        "password": "pbkdf2_sha256$870000$CpBgWdeoMpJd1Cz7Q9UNKY$6tDlw1kOL2sqTu5vYIGwV4nfmvZeAhJlhck6kPTHayU=",
+        "last_login": "2024-11-06T14:15:35.129Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "",
         "last_name": "",
         "is_staff": true,
         "is_active": true,
-        "date_joined": "2024-10-21T09:40:53.085Z",
-        "phone_number": "1687577965",
+        "date_joined": "2024-11-06T14:05:53.785Z",
+        "phone_number": "5559744937",
         "email": "admin@gmail.com",
         "groups": [],
         "user_permissions": []
@@ -1553,237 +2361,287 @@
 },
 {
     "model": "part.part",
-    "pk": 1,
-    "fields": {
-        "category": 1,
-        "vehicle_info": 1,
-        "name": "weesd",
-        "description": "dwdsad",
-        "amount": 100,
-        "video_url": null,
-        "image1": "parts/.jpg",
-        "image2": "",
-        "image3": ""
-    }
-},
-{
-    "model": "part.part",
-    "pk": 2,
-    "fields": {
-        "category": 4,
-        "vehicle_info": 2,
-        "name": "Передние тормозные колодки",
-        "description": "Оригинальные передние тормозные колодки",
-        "amount": 50,
-        "video_url": null,
-        "image1": "parts/brake_pads.jpg",
-        "image2": "",
-        "image3": ""
-    }
-},
-{
-    "model": "part.part",
-    "pk": 3,
-    "fields": {
-        "category": 4,
-        "vehicle_info": 2,
-        "name": "Передние тормозные колодки",
-        "description": "Оригинальные передние тормозные колодки",
-        "amount": 50,
-        "video_url": null,
-        "image1": "parts/_𝘍𝘦𝘳𝘯.jpg",
-        "image2": "",
-        "image3": ""
-    }
-},
-{
-    "model": "part.part",
-    "pk": 4,
+    "pk": 27,
     "fields": {
         "category": 5,
-        "vehicle_info": 5,
-        "name": "Abcd",
-        "description": "wdwdsdsad",
-        "amount": 50,
+        "vehicle_info": 6,
+        "name": "Фильтр воздушный",
+        "description": "Описание для Фильтр воздушный",
+        "amount": 17,
         "video_url": null,
-        "image1": "parts/_𝘚𝘵𝘢𝘳𝘬.jpg",
+        "image1": "parts/page1.jpg",
         "image2": "",
         "image3": ""
     }
 },
 {
     "model": "part.part",
-    "pk": 5,
+    "pk": 28,
     "fields": {
-        "category": 7,
-        "vehicle_info": 2,
-        "name": "Hjfwefd",
-        "description": "etsgdqd",
-        "amount": 50,
+        "category": 3,
+        "vehicle_info": 11,
+        "name": "Тормозные колодки",
+        "description": "Описание для Тормозные колодки",
+        "amount": 32,
         "video_url": null,
-        "image1": "parts/99px_ru_wallpaper_356133_makima__makima_iz_anime_chainsaw_man_.jpg",
+        "image1": "parts/page2.jpg",
         "image2": "",
         "image3": ""
     }
 },
 {
     "model": "part.part",
-    "pk": 6,
-    "fields": {
-        "category": 1,
-        "vehicle_info": 2,
-        "name": "Toyota Camry Battery",
-        "description": "Battery",
-        "amount": 50,
-        "video_url": "",
-        "image1": "default.jpg",
-        "image2": "",
-        "image3": ""
-    }
-},
-{
-    "model": "part.part",
-    "pk": 7,
+    "pk": 29,
     "fields": {
         "category": 2,
-        "vehicle_info": 1,
-        "name": "Lexus Battery",
-        "description": "Battery",
-        "amount": 50,
+        "vehicle_info": 20,
+        "name": "Амортизатор",
+        "description": "Описание для Амортизатор",
+        "amount": 5,
         "video_url": null,
-        "image1": "parts/asel.jpeg",
+        "image1": "parts/page3.jpg",
         "image2": "",
         "image3": ""
     }
 },
 {
     "model": "part.part",
-    "pk": 8,
+    "pk": 30,
     "fields": {
         "category": 3,
-        "vehicle_info": 2,
-        "name": "Svechi za menya",
-        "description": "Svechi",
-        "amount": 50,
-        "video_url": "https://www.youtube.com/embed/8ycfiGGbpSM?si=bKANC7RIVdF3IMB7",
-        "image1": "parts/Без_названия.jpeg",
+        "vehicle_info": 7,
+        "name": "Свечи зажигания",
+        "description": "Описание для Свечи зажигания",
+        "amount": 48,
+        "video_url": null,
+        "image1": "parts/page4.jpg",
         "image2": "",
         "image3": ""
     }
 },
 {
     "model": "part.part",
-    "pk": 9,
+    "pk": 31,
     "fields": {
         "category": 3,
-        "vehicle_info": 2,
-        "name": "Ziman svechka",
-        "description": "che",
-        "amount": 50,
+        "vehicle_info": 10,
+        "name": "Сцепление",
+        "description": "Описание для Сцепление",
+        "amount": 24,
         "video_url": null,
-        "image1": "parts/asel_vKJxE8c.jpeg",
+        "image1": "parts/page5.jpg",
         "image2": "",
         "image3": ""
     }
 },
 {
     "model": "part.part",
-    "pk": 10,
+    "pk": 32,
     "fields": {
-        "category": 2,
-        "vehicle_info": 2,
-        "name": "Important detail De",
-        "description": "fgeh and comcast com",
-        "amount": 50,
+        "category": 5,
+        "vehicle_info": 17,
+        "name": "Ремень ГРМ",
+        "description": "Описание для Ремень ГРМ",
+        "amount": 14,
         "video_url": null,
-        "image1": "parts/bl.png",
+        "image1": "parts/page6.jpg",
         "image2": "",
         "image3": ""
     }
 },
 {
     "model": "part.part",
-    "pk": 11,
+    "pk": 33,
     "fields": {
         "category": 1,
-        "vehicle_info": 2,
-        "name": "Toyota together detail",
-        "description": "Together detail and making the world a safer place when being together and trading the dreif and making this one a better place and I have to submit the report",
-        "amount": 50,
-        "video_url": "",
-        "image1": "parts/sh.jpg",
-        "image2": "",
-        "image3": ""
-    }
-},
-{
-    "model": "part.part",
-    "pk": 12,
-    "fields": {
-        "category": 8,
-        "vehicle_info": 1,
-        "name": "Karbyurator poluchaetsya",
-        "description": "Karbyurator i perfarator together",
-        "amount": 50,
+        "vehicle_info": 15,
+        "name": "Фара передняя левая",
+        "description": "Описание для Фара передняя левая",
+        "amount": 23,
         "video_url": null,
-        "image1": "parts/asel_3rwh7wu.jpeg",
+        "image1": "parts/page7.jpg",
         "image2": "",
         "image3": ""
     }
 },
 {
     "model": "part.part",
-    "pk": 13,
+    "pk": 34,
     "fields": {
-        "category": 9,
-        "vehicle_info": 5,
-        "name": "Kusovnoe otdelenie perfaratora",
-        "description": "together",
-        "amount": 50,
+        "category": 1,
+        "vehicle_info": 10,
+        "name": "Фара передняя правая",
+        "description": "Описание для Фара передняя правая",
+        "amount": 3,
         "video_url": null,
-        "image1": "parts/Без_названия_nvgiVvT.jpeg",
+        "image1": "parts/page8.jpg",
         "image2": "",
         "image3": ""
     }
 },
 {
     "model": "part.part",
-    "pk": 14,
+    "pk": 35,
+    "fields": {
+        "category": 5,
+        "vehicle_info": 18,
+        "name": "Зеркало боковое левое",
+        "description": "Описание для Зеркало боковое левое",
+        "amount": 31,
+        "video_url": null,
+        "image1": "parts/page9.jpg",
+        "image2": "",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 36,
+    "fields": {
+        "category": 4,
+        "vehicle_info": 18,
+        "name": "Зеркало боковое правое",
+        "description": "Описание для Зеркало боковое правое",
+        "amount": 6,
+        "video_url": null,
+        "image1": "parts/page10.jpg",
+        "image2": "",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 37,
+    "fields": {
+        "category": 1,
+        "vehicle_info": 8,
+        "name": "Подшипник ступицы",
+        "description": "Описание для Подшипник ступицы",
+        "amount": 47,
+        "video_url": null,
+        "image1": "parts/page11.jpg",
+        "image2": "",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 38,
+    "fields": {
+        "category": 1,
+        "vehicle_info": 17,
+        "name": "Радиатор охлаждения",
+        "description": "Описание для Радиатор охлаждения",
+        "amount": 1,
+        "video_url": null,
+        "image1": "parts/page12.jpg",
+        "image2": "",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 39,
+    "fields": {
+        "category": 4,
+        "vehicle_info": 9,
+        "name": "Термостат",
+        "description": "Описание для Термостат",
+        "amount": 15,
+        "video_url": null,
+        "image1": "parts/page13.jpg",
+        "image2": "",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 40,
+    "fields": {
+        "category": 1,
+        "vehicle_info": 8,
+        "name": "Прокладка ГБЦ",
+        "description": "Описание для Прокладка ГБЦ",
+        "amount": 39,
+        "video_url": null,
+        "image1": "parts/page14.jpg",
+        "image2": "",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 41,
     "fields": {
         "category": 3,
-        "vehicle_info": 2,
-        "name": "Hower of perfarator",
-        "description": "the perfarator of the karbyarator",
-        "amount": 50,
+        "vehicle_info": 11,
+        "name": "Фильтр салона",
+        "description": "Описание для Фильтр салона",
+        "amount": 47,
         "video_url": null,
-        "image1": "parts/car_eRgtRHn.jpg",
+        "image1": "parts/page15.jpg",
         "image2": "",
         "image3": ""
     }
 },
 {
     "model": "part.part",
-    "pk": 15,
+    "pk": 42,
     "fields": {
-        "category": 7,
-        "vehicle_info": 1,
-        "name": "Dvigatel' dvigatelya",
-        "description": "Eto samaya vajnaya chast'",
-        "amount": 50,
+        "category": 4,
+        "vehicle_info": 16,
+        "name": "Топливный насос",
+        "description": "Описание для Топливный насос",
+        "amount": 7,
         "video_url": null,
-        "image1": "parts/car_htoD5Q1.jpg",
+        "image1": "parts/page16.jpg",
         "image2": "",
         "image3": ""
     }
 },
 {
-    "model": "contacts.contactrequest",
-    "pk": 1,
+    "model": "part.part",
+    "pk": 43,
     "fields": {
-        "last_name": "Melisov",
-        "phone_number": "+996707324357",
-        "comments": "Я хочу деньги",
-        "created_at": "2024-10-21T10:40:06.932Z"
+        "category": 4,
+        "vehicle_info": 10,
+        "name": "Генератор",
+        "description": "Описание для Генератор",
+        "amount": 17,
+        "video_url": null,
+        "image1": "parts/page17.jpg",
+        "image2": "",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 44,
+    "fields": {
+        "category": 3,
+        "vehicle_info": 13,
+        "name": "Водяной насос",
+        "description": "Описание для Водяной насос",
+        "amount": 1,
+        "video_url": null,
+        "image1": "parts/page18.jpg",
+        "image2": "",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 45,
+    "fields": {
+        "category": 1,
+        "vehicle_info": 18,
+        "name": "Рычаг подвески",
+        "description": "Описание для Рычаг подвески",
+        "amount": 26,
+        "video_url": null,
+        "image1": "parts/page19.jpg",
+        "image2": "",
+        "image3": ""
     }
 }
 ]
