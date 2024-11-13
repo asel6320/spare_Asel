@@ -17,7 +17,7 @@ from webapp.models.review import Review
 
 class BasePartView(ListView):
     model = Part
-    paginate_by = 12
+    paginate_by = 9
 
     def dispatch(self, request, *args, **kwargs):
         self.form = self.get_form()

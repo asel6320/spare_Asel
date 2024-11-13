@@ -138,12 +138,15 @@
                         </li>
 
                         {% cache 500 cart %}
-                            <li class="nav-item px-3">
-                                <a class="btn btn-light ms-2" href="{% url "accounts:cart" %}">
-                                    Корзина
-                                    <i class="bi bi-cart"></i>
-                                </a>
-                            </li>
+                            {% if user.is_staff %}
+                            {% else %}
+                                <li class="nav-item px-3">
+                                    <a class="btn btn-light ms-2" href="{% url "accounts:cart" %}">
+                                        Корзина
+                                        <i class="bi bi-cart"></i>
+                                    </a>
+                                </li>
+                            {% endif %}    
                         {% endcache %}
 
 

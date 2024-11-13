@@ -250,15 +250,6 @@ class CustomerUpdateView(LoginRequiredMixin, UserPassesTestMixin, View):
             return redirect('crm:customer_detail', pk=customer.pk)
         return render(request, 'customer/customer_form.html', {'form': form, 'customer': customer})
 
-
-    def post(self, request, pk):
-        customer = get_object_or_404(User, pk=pk)
-        form = CustomerForm(request.POST, instance=customer)
-        if form.is_valid():
-            form.save()
-            return redirect('crm:customer_detail', pk=customer.pk)
-        return render(request, 'customer/customer_form.html', {'form': form, 'customer': customer})
-
 class CustomerDeleteView(LoginRequiredMixin, UserPassesTestMixin, View):
     def test_func(self):
         return self.request.user.is_staff
