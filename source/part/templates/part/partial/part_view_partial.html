@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        {% if user.is_staff %}
+        {% if user.is_staff or not user.is_authenticated %}
         {% else %}
         <a href="{% url 'favorite:favorite_add' %}"
            class="btn btn-light position-absolute top-0 end-0 m-2 btn add-to-favorite" data-part-id="{{ part.id }}">
