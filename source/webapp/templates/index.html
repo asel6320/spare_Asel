@@ -45,7 +45,7 @@
         </div>
     </div>
     <div class="sales container my-4">
-        <h3 class="all-headers pb-4">{% trans "Китаец" %}</h3>
+        <h3 class="all-headers pb-4">{% trans "Каталог товаров" %}</h3>
 
         <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
             {% for part in parts %}
@@ -100,9 +100,12 @@
             </div>
         </div>
     </div>
-    
+
     {% include 'popup.html' %}
 
 
-<i id="openPopup" class="bi bi-chat-dots-fill" style="font-size: 2rem; cursor: pointer;"></i>
+    <i id="openPopup" class="bi bi-chat-dots-fill" style="font-size: 2rem; cursor: pointer;"></i>
+{% endblock %}
+{% block modal_cart %}
+    {% include "cart/cart_button.html" %}
 {% endblock %}

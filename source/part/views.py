@@ -1,6 +1,4 @@
 from django.shortcuts import render
-
-from contacts.models import ContactRequest
 from django.db.models import DecimalField, OuterRef, Q, Subquery
 from django.http import JsonResponse
 from django.utils.http import urlencode
@@ -17,7 +15,7 @@ from webapp.models.review import Review
 
 class BasePartView(ListView):
     model = Part
-    paginate_by = 9
+    paginate_by = 6
 
     def dispatch(self, request, *args, **kwargs):
         self.form = self.get_form()
