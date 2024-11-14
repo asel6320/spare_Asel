@@ -1,5 +1,3 @@
-import re
-
 from django import forms
 
 
@@ -34,9 +32,5 @@ class OrderForm(forms.Form):
 
         if not data.isdigit():
             raise forms.ValidationError("Номер телефона должен содержать только цифры")
-
-        pattern = re.compile(r"^\d{10}$")
-        if not pattern.match(data):
-            raise forms.ValidationError("Неверный формат номера")
 
         return data

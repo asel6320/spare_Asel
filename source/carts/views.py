@@ -1,31 +1,43 @@
-from django.http import JsonResponse
-from django.views import View
 from carts.mixins import CartMixin
 from carts.models import Cart
+from django.http import JsonResponse
+from django.views import View
 from part.models import Part
 
 
 class CartAddView(CartMixin, View):
     def post(self, request):
         part_id = request.POST.get("part_id")
-        part = Part.objects.get(id=part_id)
+        try:
+            part = Part.objects.get(id=part_id)
+        except Part.DoesNotExist:
+            return JsonResponse({"message": "Запчасть не найдена"}, status=404)
 
         cart = self.get_cart(request, part=part)
-
         if cart:
-            cart.quantity += 1
-            cart.save()
+            if cart.quantity < part.amount:
+                cart.quantity += 1
+                cart.save()
+            else:
+                return JsonResponse(
+                    {"message": "Недостаточно запчастей на складе"}, status=400
+                )
         else:
-            Cart.objects.create(
-                user=request.user if request.user.is_authenticated else None,
-                session_key=(
-                    request.session.session_key
-                    if not request.user.is_authenticated
-                    else None
-                ),
-                part=part,
-                quantity=1,
-            )
+            if part.amount > 0:
+                Cart.objects.create(
+                    user=request.user if request.user.is_authenticated else None,
+                    session_key=(
+                        request.session.session_key
+                        if not request.user.is_authenticated
+                        else None
+                    ),
+                    part=part,
+                    quantity=1,
+                )
+            else:
+                return JsonResponse(
+                    {"message": "Запчасть закончилась на складе"}, status=400
+                )
 
         response_data = {
             "message": "Товар добавлен в корзину",
@@ -38,17 +50,23 @@ class CartAddView(CartMixin, View):
 class CartChangeView(CartMixin, View):
     def post(self, request):
         cart_id = request.POST.get("cart_id")
+        quantity = int(request.POST.get("quantity"))
 
         cart = self.get_cart(request, cart_id=cart_id)
+        if not cart:
+            return JsonResponse({"message": "Товар в корзине не найден"}, status=404)
 
-        cart.quantity = request.POST.get("quantity")
-        cart.save()
-
-        quantity = cart.quantity
+        if quantity <= cart.part.amount:
+            cart.quantity = quantity
+            cart.save()
+        else:
+            return JsonResponse(
+                {"message": "Недостаточно запчастей на складе"}, status=400
+            )
 
         response_data = {
             "message": "Количество изменено",
-            "quantity": quantity,
+            "quantity": cart.quantity,
             "cart_items_html": self.render_cart(request),
         }
 

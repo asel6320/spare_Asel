@@ -6,7 +6,7 @@ app_name = "part"
 urlpatterns = [
     path("", PartsListView.as_view(), name="parts_list"),
     path(
-        "part/<int:pk>/",
+        "part/detail/<int:pk>/",
         PartsDetailView.as_view(),
         name="part_detail",
     ),

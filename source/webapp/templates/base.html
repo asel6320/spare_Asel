@@ -91,17 +91,17 @@
                                 </li>
                             </ul>
                         </li>
-                            <li class="nav-item dropdown px-3">
-                                <a class="nav-link dropdown-toggle" href="#" id="currencyDropdown" role="button"
-                                   data-bs-toggle="dropdown" aria-expanded="false">
-                                    USD
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="currencyDropdown">
-                                    <li><a class="dropdown-item" href="#">KGZ</a></li>
-                                    <li><a class="dropdown-item" href="#">RUB</a></li>
-                                    <li><a class="dropdown-item" href="#">WON</a></li>
-                                </ul>
-                            </li>
+                        <li class="nav-item dropdown px-3">
+                            <a class="nav-link dropdown-toggle" href="#" id="currencyDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                USD
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="currencyDropdown">
+                                <li><a class="dropdown-item" href="#">KGZ</a></li>
+                                <li><a class="dropdown-item" href="#">RUB</a></li>
+                                <li><a class="dropdown-item" href="#">WON</a></li>
+                            </ul>
+                        </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle btn btn-light ms-2" href="#" id="navbarDropdown"
@@ -134,12 +134,12 @@
                             </ul>
                         </li>
 
-                            <li class="nav-item px-3">
-                                <a class="btn btn-light ms-2" href="{% url "accounts:cart" %}">
-                                    Корзина
-                                    <i class="bi bi-cart"></i>
-                                </a>
-                            </li>
+                        <li class="nav-item px-3">
+                            <a class="btn btn-light ms-2" href="{% url "accounts:cart" %}">
+                                Корзина
+                                <i class="bi bi-cart"></i>
+                            </a>
+                        </li>
 
 
                         {% if user.is_staff %}
@@ -161,11 +161,14 @@
     <main class="flex-grow-1">
         {% include "partial/notifications.html" %}
         {% block content %}
+            {% block order %}
+            {% endblock %}
         {% endblock %}
 
         {% block modal_cart %}
             {% include "cart/cart_button.html" %}
         {% endblock %}
+
     </main>
 
     <footer class="footer bg-footer-custom py-4">
