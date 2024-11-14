@@ -1,7 +1,7 @@
 from django.contrib.auth.views import LoginView
 from django.urls import path
-from webapp.about_us_view import AboutUs, get_models
 from webapp.views import news
+from webapp.views.about_us_view import AboutUs, get_models
 from webapp.views.contact_offer import (
     brand_style,
     contract_offer,
