@@ -77,6 +77,9 @@ class CartDeleteView(CartMixin, View):
     def post(self, request):
         cart_id = request.POST.get("cart_id")
         cart = self.get_cart(request, cart_id=cart_id)
+        if not cart:
+            return JsonResponse({"message": "Товар в корзине не найден"}, status=404)
+
         quantity = cart.quantity
         cart.delete()
         response_data = {
