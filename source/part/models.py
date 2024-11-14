@@ -1,6 +1,5 @@
 from django.db import models
 from django.urls import reverse
-
 from webapp.models.category import Category
 from webapp.models.vehicleinfo import VehicleInfo
 
@@ -14,7 +13,7 @@ class Part(models.Model):
         VehicleInfo, on_delete=models.CASCADE, related_name="parts"
     )  # информация о транспортном средстве
     name = models.CharField(max_length=255)  # название запчасти
-    description = models.TextField()  # описание запчасти
+    description = models.TextField(max_length=255)  # описание запчасти
     amount = models.PositiveIntegerField(
         verbose_name="Остаток", default=0
     )  # количество

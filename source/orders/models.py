@@ -15,13 +15,13 @@ class Order(models.Model):
         null=True,
     )
     first_name = models.CharField(
-        max_length=100, null=False, blank=False, verbose_name="Имя"
+        max_length=255, null=False, blank=False, verbose_name="Имя"
     )
     last_name = models.CharField(
-        max_length=100, null=False, blank=False, verbose_name="Фамилия"
+        max_length=255, null=False, blank=False, verbose_name="Фамилия"
     )
     phone = models.CharField(
-        max_length=20, null=False, blank=False, verbose_name="Телефон"
+        max_length=255, null=False, blank=False, verbose_name="Телефон"
     )
     email = models.EmailField(
         max_length=200, null=False, blank=False, verbose_name="Email"
@@ -40,7 +40,7 @@ class Order(models.Model):
     )
     is_paid = models.BooleanField(default=False, verbose_name="Оплачено")
     status = models.CharField(
-        max_length=50, default="В обработке", verbose_name="Статус заказа"
+        max_length=255, default="В обработке", verbose_name="Статус заказа"
     )
 
     def __str__(self):
