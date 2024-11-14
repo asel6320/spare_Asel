@@ -1,97 +1,84 @@
-from django.test import TestCase
-from django.urls import reverse
 from django.core import mail
-from django.contrib.messages import get_messages
-from .models import Subscription
-from .forms import SubscriptionForm
-from .views import send_confirmation_email
+from django.test import TestCase
+from django.contrib.admin.sites import AdminSite
+from django.contrib.auth import get_user_model
+from django.utils import timezone
+from .models import Subscription, Newsletter
+from .admin import NewsletterAdmin
+
+User = get_user_model()
 
 
-class SubscriptionModelTest(TestCase):
-    def test_create_subscription(self):
-        subscription = Subscription.objects.create(name="John Doe", email="john@example.com")
-        self.assertEqual(subscription.name, "John Doe")
-        self.assertEqual(subscription.email, "john@example.com")
-        self.assertTrue(subscription.is_active)
+class NewsletterModelTests(TestCase):
+    def test_newsletter_creation(self):
+        """Тестирование создания записи Newsletter"""
+        newsletter = Newsletter.objects.create(
+            subject="Тестовая рассылка",
+            body="Это тестовое сообщение."
+        )
+        self.assertEqual(newsletter.subject, "Тестовая рассылка")
+        self.assertEqual(newsletter.body, "Это тестовое сообщение.")
+        self.assertIsNotNone(newsletter.created_at)
 
-    def test_unique_email(self):
-        Subscription.objects.create(name="John Doe", email="john@example.com")
-        with self.assertRaises(Exception):
-            Subscription.objects.create(name="Jane Doe", email="john@example.com")
 
-
-class SubscriptionViewTest(TestCase):
+class NewsletterAdminTests(TestCase):
     def setUp(self):
-        self.url = reverse("newsletter:subscribe")
+        # Создаем администратора для тестирования админки
+        self.admin_user = User.objects.create_superuser('admin', 'admin@test.com', 'password')
+        self.site = AdminSite()
+        self.admin = NewsletterAdmin(Newsletter, self.site)
 
-    def test_get_subscription_form(self):
-        response = self.client.get(self.url)
-        self.assertEqual(response.status_code, 200)
-        self.assertIsInstance(response.context["form"], SubscriptionForm)
+        # Создаем тестовые данные подписчиков и рассылки
+        self.newsletter = Newsletter.objects.create(
+            subject="Тестовая рассылка",
+            body="Это тестовое сообщение для подписчиков."
+        )
+        self.active_subscriber = Subscription.objects.create(
+            name="Активный пользователь",
+            email="active@test.com",
+            is_active=True
+        )
+        self.inactive_subscriber = Subscription.objects.create(
+            name="Неактивный пользователь",
+            email="inactive@test.com",
+            is_active=False
+        )
 
-    def test_successful_subscription(self):
-        response = self.client.post(self.url, {"name": "John Doe", "email": "john@example.com"})
-        self.assertRedirects(response, reverse("part:parts_list"))
-        messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(messages[0].message, "Вы успешно подписались на рассылку!")
-        self.assertEqual(Subscription.objects.count(), 1)
+    def test_send_newsletter_to_active_subscribers(self):
+        """Тест отправки рассылки только активным подписчикам"""
+        queryset = Newsletter.objects.filter(id=self.newsletter.id)
 
-    def test_duplicate_email_subscription(self):
-        Subscription.objects.create(name="John Doe", email="john@example.com")
-        response = self.client.post(self.url, {"name": "Jane Doe", "email": "john@example.com"})
-        self.assertRedirects(response, reverse("part:parts_list"))
-        self.assertEqual(Subscription.objects.count(), 1)
+        # Действие send_newsletter должно отправить письмо только активным подписчикам
+        self.admin.send_newsletter(request=None, queryset=queryset)
 
-        messages = list(get_messages(response.wsgi_request))
-        self.assertGreater(len(messages), 0)
-        self.assertEqual(messages[0].message, "Вы уже подписаны на рассылку!")
-        self.assertEqual(messages[0].level_tag, "warning") 
-
-
-class SendConfirmationEmailTest(TestCase):
-    def test_send_confirmation_email(self):
-        from .views import send_confirmation_email
-
-        send_confirmation_email("John Doe", "john@example.com")
+        # Проверяем, что в почтовом ящике одно письмо
         self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].subject, "Подтверждение подписки")
-        self.assertIn("Здравствуйте, John Doe!", mail.outbox[0].body)
-        self.assertEqual(mail.outbox[0].to, ["john@example.com"])
+        # Убедимся, что письмо было отправлено на адрес активного подписчика
+        self.assertIn(self.active_subscriber.email, mail.outbox[0].to)
+        # Проверяем, что письмо содержит правильные данные
+        self.assertEqual(mail.outbox[0].subject, "Тестовая рассылка")
+        self.assertIn("Это тестовое сообщение для подписчиков.", mail.outbox[0].body)
 
-    def test_send_email_timeout(self):
-        with self.assertRaises(Exception):
-            with self.settings(EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"):
-                send_confirmation_email("John Doe", "invalid_email@example.com")
+    def test_no_email_sent_to_inactive_subscribers(self):
+        """Проверка, что неактивные подписчики не получают письма"""
+        queryset = Newsletter.objects.filter(id=self.newsletter.id)
+        self.admin.send_newsletter(request=None, queryset=queryset)
 
+        # Убедимся, что письмо было отправлено только активному подписчику
+        self.assertNotIn(self.inactive_subscriber.email, mail.outbox[0].to)
 
-class SubscriptionFormTest(TestCase):
-    def test_form_valid_data(self):
-        form = SubscriptionForm(data={
-            "name": "User test",
-            "email": "john@example.com"
-        })
-        self.assertTrue(form.is_valid())
+    def test_send_newsletter_logs_error_on_failure(self):
+        """Тестирование логирования при ошибке отправки письма"""
+        # Устанавливаем неправильный email сервера для принудительной ошибки
+        with self.settings(EMAIL_HOST_USER="invalid_email@test.com"):
+            queryset = Newsletter.objects.filter(id=self.newsletter.id)
 
-    def test_form_empty_data(self):
-        form = SubscriptionForm(data={})
-        self.assertFalse(form.is_valid())
-        self.assertIn("name", form.errors)
-        self.assertIn("email", form.errors)
+            # Действие send_newsletter с несуществующим адресом должно вызвать ошибку
+            with self.assertLogs('newsletter_admin', level='ERROR') as log:
+                self.admin.send_newsletter(request=None, queryset=queryset)
 
-    def test_form_invalid_email(self):
-        form = SubscriptionForm(data={
-            "name": "User test",
-            "email": "invalid-email"
-        })
-        self.assertFalse(form.is_valid())
-        self.assertIn("email", form.errors)
+                # Убедимся, что ошибка была зафиксирована
+                self.assertTrue(any("Ошибка при отправке рассылки" in message for message in log.output))
 
-    def test_form_duplicate_email(self):
-        Subscription.objects.create(name="Existing User", email="duplicate@example.com")
-        form = SubscriptionForm(data={
-            "name": "New User",
-            "email": "duplicate@example.com"
-        })
-        self.assertFalse(form.is_valid())
-        self.assertIn("email", form.errors)
-
+        # Убедимся, что письмо не было отправлено
+        self.assertEqual(len(mail.outbox), 0)
