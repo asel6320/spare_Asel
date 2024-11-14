@@ -36,7 +36,7 @@ def subscribe(request):
             else:
                 messages.error(request, "Произошла ошибка при отправке письма подтверждения.")
 
-    return render(request, "part/parts_main.html")
+    return render(request, "index.html")
 
 
 def send_confirmation_email(name, email):
