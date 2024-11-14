@@ -50,7 +50,7 @@
     width: 30%;
     padding: 14px 10px;
     margin: 5px;
-    background-color: #ff0000;
+    background-color: #f24421;
     color: #ffffff;
     border: none;
     border-radius: 8px;
@@ -61,7 +61,7 @@
 }
 
 .subscription-section .u-form button[type="submit"]:hover {
-    background-color: #cc0000;
+    background-color: #cf3718;
 }
 
 
