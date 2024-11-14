@@ -1,7 +1,7 @@
 import factory
 from accounts.factory import UserFactory
 from django.contrib.auth import get_user_model
-from webapp.factory.part_factory import PartFactory
+from part.factory import PartFactory
 
 from .models import Favorite
 
