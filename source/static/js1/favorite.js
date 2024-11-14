@@ -21,7 +21,7 @@ $(document).ready(function () {
                 successMessage.fadeIn(400);
                 setTimeout(function () {
                     successMessage.fadeOut(400);
-                }, 2000);
+                }, 3000);
 
                 var icon = $this.find("i");
                 if (data.status === "added") {
@@ -55,7 +55,7 @@ $(document).ready(function () {
                 successMessage.fadeIn(400);
                 setTimeout(function () {
                     successMessage.fadeOut(400);
-                }, 2000);
+                }, 3000);
 
                 $(`.row > div[data-card="${favorite_id}"]`).remove();
             },
