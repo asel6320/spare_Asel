@@ -18,7 +18,7 @@ jobs:
         run: cp .env.test ./source/.env
       - name: Run Tests
         run: |
-          docker compose run -T --rm web bash -c "ls ../ && cd /app && ls ../"
+          docker compose run -T --rm web bash -c "ls ../ && cd /app && ls ../ && cd /app && ls ../"
 
 #  publish:
 #    needs: tests
