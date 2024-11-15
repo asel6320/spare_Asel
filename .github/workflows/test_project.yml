@@ -1,0 +1,43 @@
+name: Django CI
+on:
+  #workflow_dispatch
+  push:
+    branches: [ "SCRUM-94" ]
+  pull_request:
+    branches: [ "SCRUM-94" ]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@master
+      - name: Add environ
+        run: cp .env.test ./source/.env
+      - name: Run Tests
+        run: |
+          docker compose run -T --rm web bash -c "python manage.py test"
+
+#  publish:
+#    needs: tests
+#    name: Publish Image
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#      - name: Run publish
+#        uses: appleboy/ssh-action@v0.1.10
+#        with:
+#          host: ${{ secrets.SSH_HOST }}
+#          username: ${{ secrets.SSH_USER }}
+#          key: ${{ secrets.SSH_PRIVATE_KEY }}
+#          port: 22
+#          command_timeout: 30m
+#          script: |
+#            cd ${{ secrets.WORK_DIR }}
+#            echo "" > ./source/.env
+#            echo TEST="TEST" >> ./source/.env
+#            echo DATABASE_URL="psql://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@${{ secrets.POSTGRES_HOST }}:${{ secrets.POSTGRES_PORT }}/${{ secrets.POSTGRES_DB }}" >> ./source/.env
+#            git pull
+#            exit
