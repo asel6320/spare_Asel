@@ -9,7 +9,7 @@ User = get_user_model()
 
 
 class UserFactory(factory.django.DjangoModelFactory):
-    username = factory.Faker("user_name")
+    username = factory.Faker("email")
     password = factory.Sequence(lambda n: f"password{n}")
     phone_number = factory.LazyAttribute(lambda _: faker.phone_number())
 

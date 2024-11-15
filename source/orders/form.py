@@ -1,12 +1,11 @@
-import re
 from django import forms
 
 
 class OrderForm(forms.Form):
     first_name = forms.CharField(label="Имя", max_length=100, required=True)
     last_name = forms.CharField(label="Фамилия", max_length=100, required=True)
-    phone = forms.CharField(label="Телефон", max_length=15, required=True)
-    email = forms.EmailField(label="Электронная почта", required=True)
+    phone = forms.CharField(label="Телефон", max_length=100, required=True)
+    email = forms.EmailField(label="Электронная почта", required=True, max_length=100)
 
     requires_delivery = forms.ChoiceField(
         label="Требуется доставка?",
@@ -33,9 +32,5 @@ class OrderForm(forms.Form):
 
         if not data.isdigit():
             raise forms.ValidationError("Номер телефона должен содержать только цифры")
-
-        pattern = re.compile(r"^\d{10}$")
-        if not pattern.match(data):
-            raise forms.ValidationError("Неверный формат номера")
 
         return data

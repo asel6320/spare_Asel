@@ -8,7 +8,6 @@ $(document).ready(function () {
         var cartCount = parseInt(goodsInCartCount.text() || 0);
 
         var part_id = $(this).data("part-id");
-
         var add_to_cart_url = $(this).attr("href");
 
         $.ajax({
@@ -19,27 +18,30 @@ $(document).ready(function () {
                 csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
             },
             success: function (data) {
-                successMessage.html(data.message);
-                successMessage.fadeIn(400);
+                successMessage.html(data.message).fadeIn(400);
                 setTimeout(function () {
                     successMessage.fadeOut(400);
-                }, 4000);
+                }, 3000);
 
                 cartCount++;
                 goodsInCartCount.text(cartCount);
 
                 var cartItemsContainer = $("#cart-items-container");
                 cartItemsContainer.html(data.cart_items_html);
-
             },
-
-            error: function (data) {
-                console.log("Ошибка при добавлении товара в корзину");
+            error: function (xhr) {
+                // Проверяем код ошибки и выводим соответствующее сообщение
+                if (xhr.status === 400) {
+                    successMessage.html(xhr.responseJSON.message).fadeIn(400);
+                    setTimeout(function () {
+                        successMessage.fadeOut(400);
+                    }, 3000);
+                } else {
+                    console.log("Ошибка при добавлении товара в корзину");
+                }
             },
         });
     });
-
-
 
     $(document).on("click", ".remove-from-cart", function (e) {
         e.preventDefault();
@@ -51,7 +53,6 @@ $(document).ready(function () {
         var remove_from_cart = $(this).attr("href");
 
         $.ajax({
-
             type: "POST",
             url: remove_from_cart,
             data: {
@@ -59,28 +60,22 @@ $(document).ready(function () {
                 csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
             },
             success: function (data) {
-                successMessage.html(data.message);
-                successMessage.fadeIn(400);
+                successMessage.html(data.message).fadeIn(400);
                 setTimeout(function () {
                     successMessage.fadeOut(400);
-                }, 4000);
+                }, 3000);
 
                 cartCount -= data.quantity_deleted;
                 goodsInCartCount.text(cartCount);
 
                 var cartItemsContainer = $("#cart-items-container");
                 cartItemsContainer.html(data.cart_items_html);
-
             },
-
-            error: function (data) {
-                console.log("Ошибка при добавлении товара в корзину");
+            error: function () {
+                console.log("Ошибка при удалении товара из корзины");
             },
         });
     });
-
-
-
 
     $(document).on("click", ".decrement", function () {
         var url = $(this).data("cart-change-url");
@@ -100,7 +95,6 @@ $(document).ready(function () {
         var currentValue = parseInt($input.val());
 
         $input.val(currentValue + 1);
-
         updateCart(cartID, currentValue + 1, 1, url);
     });
 
@@ -113,14 +107,11 @@ $(document).ready(function () {
                 quantity: quantity,
                 csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
             },
-
             success: function (data) {
-                // Сообщение
-                successMessage.html(data.message);
-                successMessage.fadeIn(400);
+                successMessage.html(data.message).fadeIn(400);
                 setTimeout(function () {
                     successMessage.fadeOut(400);
-                }, 4000);
+                }, 3000);
 
                 var goodsInCartCount = $("#goods-in-cart-count");
                 var cartCount = parseInt(goodsInCartCount.text() || 0);
@@ -129,26 +120,29 @@ $(document).ready(function () {
 
                 var cartItemsContainer = $("#cart-items-container");
                 cartItemsContainer.html(data.cart_items_html);
-
             },
-            error: function (data) {
-                console.log("Ошибка при добавлении товара в корзину");
+            error: function (xhr) {
+                if (xhr.status === 400) {
+                    successMessage.html(xhr.responseJSON.message).fadeIn(400);
+                    setTimeout(function () {
+                        successMessage.fadeOut(400);
+                    }, 3000);
+                } else {
+                    console.log("Ошибка при изменении количества товара в корзине");
+                }
             },
         });
     }
-
 
     var notification = $('#notification');
     if (notification.length > 0) {
         setTimeout(function () {
             notification.alert('close');
-        }, 4000);
+        }, 3000);
     }
 
     $('#modalButton').click(function () {
-        $('#exampleModal').appendTo('body');
-
-        $('#exampleModal').modal('show');
+        $('#exampleModal').appendTo('body').modal('show');
     });
 
     $('#exampleModal .btn-close').click(function () {
@@ -161,26 +155,6 @@ $(document).ready(function () {
             $("#deliveryAddressField").show();
         } else {
             $("#deliveryAddressField").hide();
-        }
-    });
-
-    document.getElementById('id_phone_number').addEventListener('input', function (e) {
-        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
-        e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
-    });
-
-    $('#create_order_form').on('submit', function (event) {
-        var phoneNumber = $('#id_phone_number').val();
-        var regex = /^\(\d{3}\) \d{3}-\d{4}$/;
-
-        if (!regex.test(phoneNumber)) {
-            $('#phone_number_error').show();
-            event.preventDefault();
-        } else {
-            $('#phone_number_error').hide();
-
-            var cleanedPhoneNumber = phoneNumber.replace(/[()\-\s]/g, '');
-            $('#id_phone_number').val(cleanedPhoneNumber);
         }
     });
 });

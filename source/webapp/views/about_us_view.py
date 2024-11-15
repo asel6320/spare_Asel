@@ -1,6 +1,5 @@
 from django.http import JsonResponse
 from django.views.generic import TemplateView
-
 from webapp.models import CarModel
 
 

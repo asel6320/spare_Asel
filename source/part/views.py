@@ -162,7 +162,9 @@ class PartsMainView(ListView):
         context["models"] = CarModel.objects.all()
         context["categories"] = Category.objects.all()
         context["reviews"] = Review.objects.all()
-
+        if self.search_value:
+            context["search"] = urlencode({"search": self.search_value})
+            context["search_value"] = self.search_value
         return context
 
 
@@ -176,17 +178,19 @@ class PartsDetailView(DetailView):
         part_category = self.object.category
         related_parts = Part.objects.filter(category=part_category).exclude(
             pk=self.object.pk
-        )[
-                        :5
-                        ]  # Получаем похожие запчасти по категории
+        )[:5]
         context["related_parts"] = related_parts
         context["category"] = part_category
         context["reviews"] = Review.objects.all()
 
-        # Fetch documents related to the part
-        context["documents"] = PartDocument.objects.filter(
-            part=self.object
-        )  # Assuming a ForeignKey from Document to Part
+        context["documents"] = PartDocument.objects.filter(part=self.object)
+
+        favorites = (
+            Favorite.objects.filter(user=self.request.user)
+            if self.request.user.is_authenticated
+            else Favorite.objects.filter(session_key=self.request.session.session_key)
+        )
+        context["favorites"] = favorites.values_list("part_id", flat=True)
 
         return context
 

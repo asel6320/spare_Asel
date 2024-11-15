@@ -21,8 +21,8 @@
                                    readonly>
                             <span class="input-group-btn">
                                  <button type="button" class="btn btn-dark btn-sm increment"
-                                        data-cart-id="{{ cart.id }}"
-                                        data-cart-change-url="{% url "cart:cart_change" %}">
+                                         data-cart-id="{{ cart.id }}"
+                                         data-cart-change-url="{% url "cart:cart_change" %}">
                                     {% csrf_token %}
                                     +</button>
                             </span>
@@ -51,6 +51,5 @@
         <h4 class="float-left"><strong>{{ carts.total_price }} с</strong></h4>
     </div>
 </div>
-<a class="btn btn-dark" href="{% url "order:order_create" %}">
-    Оформить заказ
-</a>
+
+
