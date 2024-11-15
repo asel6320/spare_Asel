@@ -189,23 +189,21 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "partsauto312@gmail.com"
 EMAIL_HOST_PASSWORD = "mmyh csmp tlrj szsa"
 
-#настроено логирование ошибок для записи ошибок, связанных с отправкой писем
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'ERROR',
-            'class': 'logging.FileHandler',
-            'filename': 'newsletter_errors.log',
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "file": {
+            "level": "ERROR",
+            "class": "logging.FileHandler",
+            "filename": "newsletter_errors.log",
         },
     },
-    'loggers': {
-        '': {
-            'handlers': ['file'],
-            'level': 'ERROR',
-            'propagate': True,
+    "loggers": {
+        "": {
+            "handlers": ["file"],
+            "level": "ERROR",
+            "propagate": True,
         },
     },
 }
-

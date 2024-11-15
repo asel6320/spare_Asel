@@ -2,13 +2,16 @@ import logging
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+
+from django.conf import settings
 from django.contrib import messages
-from django.shortcuts import render
+from django.shortcuts import redirect
+
 from .forms import SubscriptionForm
 from .models import Subscription
-from django.conf import settings
 
 logger = logging.getLogger(__name__)
+
 
 def subscribe(request):
     form = SubscriptionForm(request.POST or None)
@@ -18,12 +21,12 @@ def subscribe(request):
         name = form.cleaned_data["name"]
 
         subscription, created = Subscription.objects.get_or_create(
-            email=email, defaults={'name': name, 'is_active': True}
+            email=email, defaults={"name": name, "is_active": True}
         )
 
         if not created:
             if subscription.is_active:
-                subscription.email=email
+                subscription.email = email
                 messages.success(request, "Вы уже подписаны на рассылку!")
             else:
                 subscription.is_active = True
@@ -34,9 +37,11 @@ def subscribe(request):
             if send_confirmation_email(name, email):
                 messages.success(request, "Вы успешно подписались на рассылку!")
             else:
-                messages.error(request, "Произошла ошибка при отправке письма подтверждения.")
+                messages.error(
+                    request, "Произошла ошибка при отправке письма подтверждения."
+                )
 
-    return render(request, "index.html")
+    return redirect("part:parts_list")
 
 
 def send_confirmation_email(name, email):
@@ -50,14 +55,16 @@ def send_confirmation_email(name, email):
         "Бишкек, Малдыбаева 7/1"
     )
     msg = MIMEMultipart()
-    msg['From'] = settings.EMAIL_HOST_USER
-    msg['To'] = email
-    msg['Subject'] = subject
-    msg.attach(MIMEText(message_body, 'plain'))
+    msg["From"] = settings.EMAIL_HOST_USER
+    msg["To"] = email
+    msg["Subject"] = subject
+    msg.attach(MIMEText(message_body, "plain"))
 
     try:
         logger.info("Connecting to SMTP server...")
-        with smtplib.SMTP(settings.EMAIL_HOST, settings.EMAIL_PORT, timeout=30) as server:
+        with smtplib.SMTP(
+            settings.EMAIL_HOST, settings.EMAIL_PORT, timeout=30
+        ) as server:
             logger.info("Starting TLS encryption...")
             server.starttls()
             logger.info("Logging in to SMTP server...")

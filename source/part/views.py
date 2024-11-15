@@ -1,4 +1,3 @@
-from contacts.models import ContactRequest
 from django.db.models import DecimalField, OuterRef, Q, Subquery
 from django.http import JsonResponse
 from django.utils.http import urlencode

@@ -1,10 +1,10 @@
 import logging
 
+from detail_shop import settings
 from django.contrib import admin
 from django.core.mail import send_mail
 
-from detail_shop import settings
-from .models import Subscription, Newsletter
+from .models import Newsletter, Subscription
 
 
 @admin.register(Subscription)
@@ -16,10 +16,11 @@ class SubscriptionAdmin(admin.ModelAdmin):
 
 logger = logging.getLogger(__name__)
 
+
 @admin.register(Newsletter)
 class NewsletterAdmin(admin.ModelAdmin):
-    list_display = ('subject', 'created_at')
-    actions = ['send_newsletter']
+    list_display = ("subject", "created_at")
+    actions = ["send_newsletter"]
 
     def send_newsletter(self, request, queryset):
         subscribers = Subscription.objects.filter(is_active=True)
@@ -36,10 +37,16 @@ class NewsletterAdmin(admin.ModelAdmin):
                     emails,
                     fail_silently=False,
                 )
-                self.message_user(request, f"Рассылка '{subject}' отправлена {len(emails)} подписчикам.")
+                self.message_user(
+                    request,
+                    f"Рассылка '{subject}' отправлена {len(emails)} подписчикам.",
+                )
             except Exception as e:
                 logger.error(f"Ошибка при отправке рассылки: {e}")
-                self.message_user(request, f"Ошибка при отправке рассылки '{subject}': {e}", level="error")
+                self.message_user(
+                    request,
+                    f"Ошибка при отправке рассылки '{subject}': {e}",
+                    level="error",
+                )
 
     send_newsletter.short_description = "Отправить выбранные рассылки подписчикам"
-

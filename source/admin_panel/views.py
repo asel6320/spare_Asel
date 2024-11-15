@@ -73,12 +73,17 @@ def model_list(request, model_name):
 
     column_headers = model().get_column_headers()
 
-    return render(request, 'model_list.html', {
-        'objects': objects,
-        'model_name': model_name,
-        'verbose_name_plural': model._meta.verbose_name_plural,
-        'column_headers': column_headers,
-    })
+    return render(
+        request,
+        "model_list.html",
+        {
+            "objects": objects,
+            "model_name": model_name,
+            "verbose_name_plural": model._meta.verbose_name_plural,
+            "column_headers": column_headers,
+        },
+    )
+
 
 @staff_required
 def model_add(request, model_name):

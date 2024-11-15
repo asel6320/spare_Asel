@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.html import format_html
 
 
 class PriceHistory(models.Model):
@@ -20,15 +19,11 @@ class PriceHistory(models.Model):
         app_label = "webapp"
 
     def to_display(self):
-        return [
-            self.part,
-            self.price,
-            self.date_changed.strftime('%Y-%m-%d %H:%M')
-        ]
+        return [self.part, self.price, self.date_changed.strftime("%Y-%m-%d %H:%M")]
 
     def get_column_headers(self):
         return [
-            'Запчасть',
-            'Цена',
-            'Дата изменения',
+            "Запчасть",
+            "Цена",
+            "Дата изменения",
         ]
