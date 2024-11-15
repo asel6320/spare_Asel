@@ -18,7 +18,7 @@ jobs:
         run: cp .env.test ./source/.env
       - name: Run Tests
         run: |
-          docker compose run -T --rm web bash -c "/app/manage.py test"
+          docker compose run -T --rm web bash -c "python manage.py test"
 
 #  publish:
 #    needs: tests
