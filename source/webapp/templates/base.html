@@ -126,17 +126,17 @@
                             </ul>
                         </li>
 
-{#                        {% cache 500 cart %}#}
-                            {% if user.is_staff %}
-                            {% else %}
-                                <li class="nav-item px-3">
-                                    <a class="btn btn-light ms-2" href="{% url "accounts:cart" %}">
-                                        Корзина
-                                        <i class="bi bi-cart"></i>
-                                    </a>
-                                </li>
-                            {% endif %}
-{#                        {% endcache %}#}
+                        {#                        {% cache 500 cart %}#}
+                        {% if user.is_staff %}
+                        {% else %}
+                            <li class="nav-item px-3">
+                                <a class="btn btn-light ms-2" href="{% url "accounts:cart" %}">
+                                    Корзина
+                                    <i class="bi bi-cart"></i>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {#                        {% endcache %}#}
 
 
                         {% if user.is_staff or not user.is_authenticated %}
@@ -163,53 +163,51 @@
         {% endblock %}
 
         {% block modal_cart %}
-{#            {% include "cart/cart_button.html" %}#}
+            {#            {% include "cart/cart_button.html" %}#}
         {% endblock %}
     </main>
 
     {% include 'subcribe.html' %}
     <footer class="footer bg-footer-custom py-5">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-md-4 mb-2">
-                <h5 class="footer-title">{% trans "Контакты" %}</h5>
-                <div class="contact-info">
-                    <p class="email"><a href="mailto:info@abc-auto.com" class="text-light">info@abc-auto.com</a></p>
-                    <p class="phone"><a href="tel:+996555003539" class="text-light">+996 (555) 003 539</a></p>
-                    <p class="address">Бишкек, Малдыбаева 7/1</p>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 mb-2">
+                    <h5 class="footer-title">{% trans "Контакты" %}</h5>
+                    <div class="contact-info">
+                        <p class="email"><a href="mailto:info@abc-auto.com" class="text-light">info@abc-auto.com</a></p>
+                        <p class="phone"><a href="tel:+996555003539" class="text-light">+996 (555) 003 539</a></p>
+                        <p class="address">Бишкек, Малдыбаева 7/1</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-2">
+                    <h5 class="footer-title">{% trans "Полезные ссылки" %}</h5>
+                    <div class="footer-links">
+                        <a href="{% url 'webapp:contract_offer' %}" class="text-light">{% trans "Договор оферты" %}</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-2">
+                    <h5 class="footer-title">{% trans "Мы в социальных сетях" %}</h5>
+                    <div class="social-media-links">
+                        <a href="https://www.instagram.com" target="_blank" class="text-light me-4">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                        <a href="https://wa.me/123456789" target="_blank" class="text-light me-4">
+                            <i class="fab fa-whatsapp fa-lg"></i>
+                        </a>
+                        <a href="https://www.kakao.com" target="_blank" class="text-light">
+                            <i class="fas fa-comment-dots fa-lg"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-4 mb-2">
-                <h5 class="footer-title">{% trans "Полезные ссылки" %}</h5>
-                <div class="footer-links">
-                    <a href="{% url 'webapp:contract_offer' %}" class="text-light">{% trans "Договор оферты" %}</a>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-2">
-                <h5 class="footer-title">{% trans "Мы в социальных сетях" %}</h5>
-                <div class="social-media-links">
-                    <a href="https://www.instagram.com" target="_blank" class="text-light me-4">
-                        <i class="fab fa-instagram fa-lg"></i>
-                    </a>
-                    <a href="https://wa.me/123456789" target="_blank" class="text-light me-4">
-                        <i class="fab fa-whatsapp fa-lg"></i>
-                    </a>
-                    <a href="https://www.kakao.com" target="_blank" class="text-light">
-                        <i class="fas fa-comment-dots fa-lg"></i>
-                    </a>
-                </div>
+            <div class="text-center mt-1">
+                <p class="footer-text">{% trans "© 2021 Автосалон 'ABC AUTO'. Официальный дилер" %}</p>
             </div>
         </div>
-
-        <div class="text-center mt-1">
-            <p class="footer-text">{% trans "© 2021 Автосалон 'ABC AUTO'. Официальный дилер" %}</p>
-        </div>
-    </div>
-</footer>
-
-
+    </footer>
 
 
 </div>

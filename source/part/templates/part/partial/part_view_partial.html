@@ -66,10 +66,10 @@
         {% if part.previous_price or part.current_price %}
             <p class="card-price mt-2">
                 {% if part.previous_price %}
-                    <del>{{ part.previous_price|intcomma }} руб</del>
+                    <del>{{ part.previous_price|intcomma }} сом</del>
                 {% endif %}
                 {% if part.current_price %}
-                    <span class="fw-bold text-danger">{{ part.current_price|intcomma }} руб</span>
+                    <span class="fw-bold text-danger">{{ part.current_price|intcomma }} сом</span>
                 {% endif %}
             </p>
         {% endif %}
