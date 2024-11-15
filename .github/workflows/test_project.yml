@@ -18,7 +18,7 @@ jobs:
         run: cp .env.test ./source/.env
       - name: Run Tests
         run: |
-          docker compose run -T --rm web bash -c "ls ../ && cd /app && python manage.py makemigrations --merge && python manage.py migrate && python manage.py test"
+          docker compose run -T --rm web bash -c "ls ../ && cd /app && python manage.py makemigrations --merge --noinput && python manage.py migrate && python manage.py test"
 
 #  publish:
 #    needs: tests
