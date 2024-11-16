@@ -91,6 +91,14 @@
     .img-wrapper img {
         height: auto;
     }
+    .footer {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .footer-title {
+        font-size: 1.1rem;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
@@ -117,27 +125,13 @@
     .our-partners .col {
         padding: 20px;
     }
-}
-
-
-@media (min-width: 768px) {
-    .footer {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-    }
-
-    .footer-title {
-        font-size: 1.1rem;
-    }
-
-    @media (min-width: 991px) {
-        .fixed-filter {
+    .fixed-filter {
             position: static;
             max-height: none;
             padding: 15px;
         }
-    }
 }
+
 
 
 
