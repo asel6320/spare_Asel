@@ -67,16 +67,16 @@
             <button class="filter-toggle-btn d-lg-none mb-3" data-bs-toggle="collapse" data-bs-target="#filterCollapse">
                 Показать фильтры
             </button>
-
-            <div id="filterCollapse" class="collapse fixed-filter d-lg-block col-lg-3">
-                <!-- Search Form -->
-                {% block search %}
+            <div>
+            {% block search %}
                     <form class="search-form d-flex justify-content-center align-items-center" method="get">
                         {% include "partial/search_form.html" with form=search_form %}
                     </form>
                 {% endblock %}
+            </div>
 
-                <h5 class="all-headers">Фильтр</h5>
+            <div id="filterCollapse" class="collapse fixed-filter d-lg-block col-lg-3">
+                <h5 class="h-filter">Фильтр</h5>
                 <form method="get" action="{% url 'part:parts_main' %}">
                     <div class="mb-3">
                         <label class="form-label">Страна производства</label>
@@ -157,7 +157,7 @@
                         </label>
                     </div>
 
-                    <button type="submit" class="btn btn-danger w-100 mt-3">Применить фильтр</button>
+                    <button type="submit" class="submit-filter w-100 mt-3">Применить фильтр</button>
                 </form>
             </div>
 
