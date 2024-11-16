@@ -4,13 +4,13 @@
     bottom: 20px;
     right: 20px;
     width: 285px;
-    height: 585px;
-    background-color: #e3e3e3;
+    height: 480px;
+    background-color: #fcf7e3;
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     border: 1px solid #ddd;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: #333;
 }
 
@@ -30,8 +30,9 @@
 
 .popup-header h2 {
     margin: 0;
-    font-size: 16px;
+    font-size: 18px;
     color: #800000;
+    font-family: 'Poppins', sans-serif;
 }
 
 
@@ -45,7 +46,7 @@
 
 
 .popup-body {
-    margin-top: 20px;
+    margin-top: 0;
 }
 
 
@@ -60,7 +61,7 @@
     padding: 8px;
     margin: 8px 0 16px 0;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
 .popup-body input[type="email"], .popup-body textarea {
@@ -74,7 +75,7 @@
 
 .submit-btn {
     width: 100%;
-    background-color: red;
+    background-color: #f24421;
     color: white;
     padding: 10px;
     font-size: 16px;
