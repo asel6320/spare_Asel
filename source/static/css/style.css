@@ -435,19 +435,29 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
 .filter-toggle-btn {
-    background-color: #dc3545;
-    color: white;
+    background-color: #f24421;
+    color: #ffffff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 16px;
     transition: background-color 0.3s ease;
 }
+.submit-filter{
+    background-color: #f24421;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.h-filter{
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
 
-.filter-toggle-btn:hover {
-    background-color: #c82333;
-    cursor: pointer;
 }
 
 .search-form {
@@ -475,6 +485,7 @@ body {
 .search-button {
     white-space: nowrap;
     padding: 0.5rem 1rem;
+    background-color: #f24421;
 }
 
 
