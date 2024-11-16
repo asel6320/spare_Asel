@@ -119,15 +119,8 @@
     }
 }
 
-/* Адаптивный стиль для планшетов и мобильных устройств */
-@media (max-width: 991px) {
-    .fixed-filter {
-        position: static;
-        max-height: none;
-        padding: 15px;
-    }
-}
-@media (max-width: 768px) {
+
+@media (min-width: 768px) {
     .footer {
         padding-top: 1.5rem;
         padding-bottom: 1.5rem;
@@ -137,21 +130,14 @@
         font-size: 1.1rem;
     }
 
-/* Скрываем фильтр по умолчанию на мобильных */
-@media (max-width: 575px) {
-    .fixed-filter {
-        display: none;
+    @media (min-width: 991px) {
+        .fixed-filter {
+            position: static;
+            max-height: none;
+            padding: 15px;
+        }
     }
 }
-    .footer-links a {
-        font-size: 0.85rem;
-    }
 
-    .contact-info p {
-        font-size: 0.85rem;
-    }
 
-    .social-media-links a {
-        font-size: 1.5rem;
-    }
-}
+
