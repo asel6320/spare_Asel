@@ -424,7 +424,7 @@ body {
     margin-top: 2rem;
 }
 
-/* Основной стиль для фильтра на больших экранах */
+/* Основной стиль для фильтра */
 .fixed-filter {
     position: sticky;
     top: 125px;
@@ -434,6 +434,7 @@ body {
     background-color: #f7f8fa;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1050;
 }
 
 .filter-toggle-btn {
@@ -470,7 +471,16 @@ body {
 .search-form {
     max-width: 600px;
     margin: auto;
+    margin-bottom: 20px;
+    padding: 5px;
     gap: 8px;
+    border-radius: 4px;
+    position: sticky;
+    top: 125px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    background-color: #f7f8fa;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
