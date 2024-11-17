@@ -1,9 +1,14 @@
-{% load static %}
+{
+%
+load
+static
+%
+}
 
 *,
 *::after,
-*::before{
-  box-sizing: border-box;
+*::before {
+    box-sizing: border-box;
 }
 
 body {
@@ -386,6 +391,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
 .filter-toggle-btn {
     background-color: #dc3545;
     color: white;
@@ -429,7 +435,6 @@ body {
 }
 
 
-
 #modalButton {
     position: fixed;
     bottom: 50px;
@@ -445,6 +450,7 @@ body {
     font-size: 2rem;
     cursor: pointer;
 }
+
 .header {
     position: fixed;
     top: 0;
@@ -509,4 +515,17 @@ body {
     margin-top: 10px;
 }
 
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.related-item {
+    text-align: center;
+}
+
+.related-item img {
+    max-height: 200px;
+    object-fit: contain;
+}

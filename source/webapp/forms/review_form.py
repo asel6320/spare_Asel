@@ -5,11 +5,12 @@ from webapp.models import Review
 
 
 class ReviewForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for v in self.visible_fields():
-            v.field.widget.attrs["class"] = "form-control"
-
     class Meta:
         model = Review
-        fields = ("text",)
+        fields = ['text']
+
+    def clean_text(self):
+        text = self.cleaned_data.get('text')
+        if not text:
+            raise forms.ValidationError('Отзыв не может быть пустым')
+        return text
