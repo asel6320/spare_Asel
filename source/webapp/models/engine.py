@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.html import format_html
 
 type_choices = [
     ("gasoline", "Бензиновый"),
@@ -25,8 +24,9 @@ class Engine(models.Model):
             self.horsepower,
             self.torque,
         ]
+
     def get_column_headers(self):
-        return ['тип двигателя', 'Объем', 'Лошадиные силы', 'Крутящий момент' ]
+        return ["тип двигателя", "Объем", "Лошадиные силы", "Крутящий момент"]
 
     class Meta:
         verbose_name_plural = "Двигатели"

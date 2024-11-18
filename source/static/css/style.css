@@ -375,7 +375,7 @@ body {
     margin-top: 2rem;
 }
 
-/* Основной стиль для фильтра на больших экранах */
+/* Основной стиль для фильтра */
 .fixed-filter {
     position: sticky;
     top: 125px;
@@ -385,10 +385,21 @@ body {
     background-color: #f7f8fa;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1050;
 }
+
 .filter-toggle-btn {
-    background-color: #dc3545;
-    color: white;
+    background-color: #f24421;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.submit-filter{
+    background-color: #f24421;
+    color: #ffffff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -396,15 +407,31 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.filter-toggle-btn:hover {
-    background-color: #c82333;
-    cursor: pointer;
+.h-filter{
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+
+}
+
+.form-label{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .search-form {
     max-width: 600px;
     margin: auto;
+    margin-bottom: 20px;
+    padding: 5px;
     gap: 8px;
+    border-radius: 4px;
+    position: sticky;
+    top: 125px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    background-color: #f7f8fa;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -426,6 +453,7 @@ body {
 .search-button {
     white-space: nowrap;
     padding: 0.5rem 1rem;
+    background-color: #f24421;
 }
 
 

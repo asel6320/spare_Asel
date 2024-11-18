@@ -130,10 +130,10 @@
                         <div class="card h-100 bg-body d-flex">
                             <div class="position-relative">
                                 <div class="img-wrapper">
-    <a href="{% url 'part:part_detail' related_part.pk %}">
-        <img src="{{ related_part.image1.url }}" alt="{{ related_part.name }}" class="card-img-top img-fluid">
-    </a>
-</div>
+                                     <a href="{% url 'part:part_detail' related_part.pk %}">
+                                        <img src="{{ related_part.image1.url }}" alt="{{ related_part.name }}" class="card-img-top img-fluid">
+                                     </a>
+                                </div>
                                 <a href="{% url 'favorite:favorite_add' %}"
                                    class="btn btn-light position-absolute top-0 end-0 m-2 btn add-to-favorite"
                                    data-part-id="{{ related_part.id }}">
