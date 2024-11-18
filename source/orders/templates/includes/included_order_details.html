@@ -25,8 +25,9 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="id_phone_number" class="form-label">Номер телефона:</label>
-                        <input type="text" class="form-control" id="phone" name="phone"
+                        <input type="number" class="form-control" id="phone" name="phone"
                                placeholder="Введите ваш номер телефона"
+                               value="{% if form.phone_number.value %}{{ form.phone_number.value }}{% endif %}"
                                required>
                         {% if form.phone.errors %}
                             <div class="alert alert-danger alert-dismissible fade show">{{ form.phone.errors }}</div>
