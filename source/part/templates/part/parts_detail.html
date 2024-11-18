@@ -89,26 +89,55 @@
         <hr class="my-5">
 
         <!-- Отзывы -->
-        <div>
-            <h3>Отзывы: <span class="text-secondary fw-bold me-auto">{{ part.reviews.count }}</span></h3>
-            <button id="toggleReviewsBtn" class="btn btn-secondary mb-3">Показать отзывы</button>
+        <div class="reviews-section mt-5">
+            <h3 class="reviews-title">
+                Отзывы <span class="text-secondary">({{ part.reviews.count }})</span>
+            </h3>
 
-            <div id="reviewsSection" class="border p-3 rounded" style="display:none;">
-                {% for review in part.reviews.all %}
-                    <div class="review border p-3 mb-3 rounded">
-                        <strong>{{ review.user.username }}</strong>
-                        <p>{{ review.text }}</p>
-                    </div>
-                {% endfor %}
+            <button id="toggleReviewsBtn" class="btn btn-outline-secondary toggle-reviews-btn my-3">
+                <small>Показать отзывы</small>
+            </button>
+
+            <div id="reviewsSection" class="reviews-container mt-3" style="display:none;">
+                {% if part.reviews.count > 0 %}
+                    {% for review in part.reviews.all %}
+                        <div class="review-item p-3 mb-3 border rounded shadow-sm">
+                            <div class="d-flex align-items-center mb-2">
+                                <div>
+                                    <strong class="review-author d-block">{{ review.user.username }}</strong>
+                                    <span class="review-date text-muted small">{{ review.created_at|date:"d M Y" }}</span>
+                                </div>
+                            </div>
+                            <p class="review-text mb-0">{{ review.text }}</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="text-muted">Отзывов пока нет. Будьте первым, кто оставит отзыв!</p>
+                {% endif %}
             </div>
 
-            <h4>Оставить отзыв</h4>
-            <form id="reviewForm">
-                {% csrf_token %}
-                <textarea name="text" class="form-control" placeholder="Напишите ваш отзыв"></textarea>
-                <button type="submit" id="submitReviewBtn" class="btn btn-secondary mt-2">Отправить</button>
-            </form>
+            {% if user.is_authenticated %}
+                <div class="leave-review mt-4">
+                    <h4>Оставить отзыв</h4>
+                    <form method="post" action="" class="review-form">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            {{ review_form.text.label_tag }}
+                            {{ review_form.text }}
+                            {% for error in review_form.text.errors %}
+                                <small class="text-danger">{{ error }}</small>
+                            {% endfor %}
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </form>
+                </div>
+            {% else %}
+                <p class="mt-3 text-muted">
+                    Для добавления отзыва необходимо <a href="{% url 'accounts:login' %}" class="text-decoration-none">войти</a>.
+                </p>
+            {% endif %}
         </div>
+
 
         <hr class="my-5">
 
@@ -168,62 +197,22 @@
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    const reviewForm = document.getElementById('reviewForm');
-    const reviewsSection = document.getElementById('reviewsSection');
-    const toggleReviewsBtn = document.getElementById('toggleReviewsBtn');
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleBtn = document.getElementById("toggleReviewsBtn");
+            const reviewsSection = document.getElementById("reviewsSection");
 
-    // Обработчик отправки формы
-    reviewForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Отменяем стандартную отправку формы
-
-        const text = reviewForm.querySelector('textarea[name="text"]').value;
-        const partId = "{{ part.id }}"; // Получаем ID запчасти
-
-        // Создание объекта FormData
-        const formData = new FormData();
-        formData.append('text', text);
-
-        // Формируем правильный URL для запроса
-        const url = `/webapp/part/${partId}/review/create/`;
-
-        // AJAX-запрос для создания отзыва
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
-                'X-Requested-With': 'XMLHttpRequest',
-            },
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Добавляем новый отзыв в список
-                const reviewDiv = document.createElement('div');
-                reviewDiv.classList.add('review', 'border', 'p-3', 'mb-3', 'rounded');
-                reviewDiv.innerHTML = `<strong>${data.username}</strong><p>${data.text}</p>`;
-
-                reviewsSection.prepend(reviewDiv); // Добавляем отзыв в начало списка
-                reviewForm.reset(); // Очищаем форму
-            } else {
-                alert(data.error); // Показываем ошибку, если она есть
-            }
-        })
-        .catch(error => console.error('Ошибка:', error));
-    });
-
-    // Обработчик для отображения скрытых отзывов
-    toggleReviewsBtn.addEventListener('click', function() {
-        const isVisible = reviewsSection.style.display !== 'none';
-        reviewsSection.style.display = isVisible ? 'none' : 'block';
-        toggleReviewsBtn.textContent = isVisible ? 'Показать отзывы' : 'Скрыть отзывы';
-    });
-});
+            toggleBtn.addEventListener("click", function () {
+                if (reviewsSection.style.display === "none" || reviewsSection.style.display === "") {
+                    reviewsSection.style.display = "block";
+                    toggleBtn.innerHTML = "<small>Скрыть отзывы</small>";
+                } else {
+                    reviewsSection.style.display = "none";
+                    toggleBtn.innerHTML = "<small>Показать отзывы</small>";
+                }
+            });
+        });
 
     </script>
-
-
     {% block search %}
     {% endblock %}
 {% endblock %}
