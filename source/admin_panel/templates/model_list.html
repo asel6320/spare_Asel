@@ -3,7 +3,7 @@
 {% load custom_admin_filters %}
 
 {% block content %}
-    <div class="container mt-5">
+    <div class="container mt-5 pt-5">
         <h1 class="text-center">Список объектов: {{ verbose_name_plural|capfirst }}</h1>
 
         <a href="{% url 'admin_panel:model_add' model_name=model_name %}" class="btn btn-primary mb-3">Добавить объект</a>

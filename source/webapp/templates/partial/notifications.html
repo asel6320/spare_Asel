@@ -19,8 +19,8 @@
             {% if messages %}
                 {% for message in messages %}
                     <div id="notification" 
-                         class="position-fixed start-50 translate-middle-x top-0 mt-5 z-3 alert fade show custom-popup alert-{{ message.tags }}" 
-                         role="alert" 
+                         class="position-fixed start-50 translate-middle-x top-80 z-6 alert fade show custom-popup alert-{{ message.tags }}"
+                         role="alert"
                          style="animation: fade-slide-down 0.5s ease;">
                         <span class="popup-icon">
                             {% if message.tags == 'success' %}
@@ -36,9 +36,9 @@
                     </div>
                 {% endfor %}
             {% else %}
-                <div id="jq-notification" 
-                     class="position-fixed start-50 translate-middle-x top-0 mt-5 z-3 alert alert-success fade show custom-popup" 
-                     style="display: none; animation: fade-slide-down 0.5s ease;" 
+                <div id="jq-notification"
+                     class="position-fixed start-50 translate-middle-x top-80 z-3 alert alert-success fade show custom-popup"
+                     style="display: none; animation: fade-slide-down 0.5s ease;"
                      role="alert">
                 </div>
             {% endif %}
