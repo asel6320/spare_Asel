@@ -1,7 +1,7 @@
 {% load static %}
 {% load humanize %}
 
-<div class="card h-100 bg-body d-flex">
+<div class="card product-card h-100 bg-body d-flex">
     <div class="position-relative partCarousel">
         <div id="partCarousel{{ part.pk }}" class="carousel slide" data-bs-interval="false">
             <div class="carousel-inner">
@@ -25,14 +25,14 @@
 
             <div class="part carousel-indicators position-absolute">
                 <button type="button" data-bs-target="#partCarousel{{ part.pk }}" data-bs-slide-to="0" class="active"
-                        aria-current="true" style="background-color: green;"></button>
+                        aria-current="true" style="background-color: #c98d48;"></button>
                 {% if part.image2 %}
                     <button type="button" data-bs-target="#partCarousel{{ part.pk }}" data-bs-slide-to="1"
-                            style="background-color: green;"></button>
+                            style="background-color: #c98d48;"></button>
                 {% endif %}
                 {% if part.image3 %}
                     <button type="button" data-bs-target="#partCarousel{{ part.pk }}" data-bs-slide-to="2"
-                            style="background-color: green;"></button>
+                            style="background-color: #c98d48;"></button>
                 {% endif %}
             </div>
         </div>
@@ -40,11 +40,12 @@
         {% if user.is_staff or not user.is_authenticated %}
         {% else %}
         <a href="{% url 'favorite:favorite_add' %}"
-           class="btn btn-light position-absolute top-0 end-0 m-2 btn add-to-favorite" data-part-id="{{ part.id }}">
+           class="btn position-absolute top-0 end-0 m-0 btn add-to-favorite"
+           data-part-id="{{ part.id }}">
             {% if part.pk in favorites %}
-                <i class="fa-solid fa-heart" style="color: #e81111;"></i>
+                <i class="fa-solid fa-heart" style="color:#c98d48"></i> <!-- Filled heart -->
             {% else %}
-                <i class="fa-regular fa-heart" style="color: #4CAF50;"></i>
+                <i class="fa-regular fa-heart" style="color:#c98d48"></i> <!-- Not-filled heart -->
             {% endif %}
         </a>
         {% endif %}
@@ -58,7 +59,6 @@
                class="text-dark text-decoration-none hover-red">{{ part.name }}</a>
         </h4>
         <p>Модель: <span class="fw-bold">{{ part.vehicle_info.model }}</span></p>
-        <p>Мощность: <span class="fw-bold">{{ part.vehicle_info.engine.horsepower }} л.с.</span></p>
 
         {% block content %}
         {% endblock %}
@@ -69,29 +69,24 @@
                     <del>{{ part.previous_price|intcomma }} руб</del>
                 {% endif %}
                 {% if part.current_price %}
-                    <span class="fw-bold text-danger">{{ part.current_price|intcomma }} руб</span>
+                    <span class="fw-bold text-danger">{{ part.current_price|intcomma }} сом</span>
                 {% endif %}
             </p>
         {% endif %}
 
         <div class="mt-auto d-flex justify-content-end pt-2">
-            <span class="text-success fw-bold me-auto">В наличии <i class="bi bi-check-circle-fill"></i></span>
-
-            <div class="mt-auto d-flex justify-content-end pt-2">
-                <span class="text-secondary fw-bold me-auto">{{ part.reviews.count }} отзывов</span>
-                {% if user.is_staff %}
-                {% else %}
-                <button class="btn btn-warning ms-2"><a href="{% url "webapp:create_review" part.pk %}"><i
-                        class="bi bi-chat text-white"></i></a></button>
-                <a href="{% url "cart:cart_add" %}" class="btn add-to-cart"
-                   data-part-id="{{ part.id }}">
-                    {% csrf_token %}
-                    <img class="mx-1" src="{% static "icons/cart-plus.svg" %}" alt="Catalog Icon"
-                         width="32" height="32">
-                </a>
-                {% endif %}
-            </div>
-
+            <span class="text-secondary fw-bold me-auto">{{ part.reviews.count }} отзывов</span>
+              <div class="card-overlay">
+                    <div class="hover-buttons">
+                        <a href="{% url 'webapp:create_review' part.pk %}">
+                            <i class="bi bi-chat"></i> Отзыв
+                        </a>
+                        <a href="{% url 'cart:cart_add' %}" class="add-to-cart" data-part-id="{{ part.id }}">
+                            <i class="bi bi-cart"></i>
+                            Корзина
+                        </a>
+                    </div>
+                </div>
         </div>
 
         <meta name="csrf-token" content="{{ csrf_token }}">
