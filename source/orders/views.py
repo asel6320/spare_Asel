@@ -51,6 +51,7 @@ class OrderCreateView(FormView):
 
         try:
             with transaction.atomic():
+                total = 0
                 order = Order.objects.create(
                     user=user,
                     first_name=form.cleaned_data["first_name"],
@@ -79,13 +80,17 @@ class OrderCreateView(FormView):
                         price=price,
                         quantity=quantity,
                     )
-                    message = f"Новый заказ №{order.id}\nИмя: {order.first_name}\nТелефон: {order.phone}"
-                    chat_id = settings.TELEGRAM_CHAT_ID
-                    send_notifications(chat_id, message)
-                    send_waiting_client(chat_id)
+                    total += quantity
                     part.amount -= quantity
                     part.save()
-
+                message = (f"Новый заказ: {order.id}\n"
+                           f"ФИ: {order.first_name} {order.last_name}\n"
+                           f"Номер: {order.phone}\n"
+                           f"Итоговое количество запчастей: {total}\n"
+                           f"Email: {order.email}")
+                chat_id = settings.TELEGRAM_CHAT_ID
+                send_notifications(chat_id, message)
+                send_waiting_client(chat_id)
                 cart_items.delete()
 
                 messages.success(self.request, "Заказ оформлен!")
