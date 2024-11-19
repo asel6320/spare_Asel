@@ -1,9 +1,9 @@
-{% load static %}
+{  %  load  static  %  }
 
 *,
 *::after,
-*::before{
-  box-sizing: border-box;
+*::before {
+    box-sizing: border-box;
 }
 
 body {
@@ -14,7 +14,7 @@ body {
     line-height: 1.6;
     background-color: #f9f9f9;
     margin: 0;
-    padding: 0;
+    padding-top: 70px;
     overflow-x: hidden;
 }
 
@@ -465,6 +465,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
 .filter-toggle-btn {
     background-color: #dc3545;
     color: white;
@@ -508,7 +509,6 @@ body {
 }
 
 
-
 #modalButton {
     position: fixed;
     bottom: 50px;
@@ -523,16 +523,6 @@ body {
     z-index: 500;
     font-size: 2rem;
     cursor: pointer;
-}
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: #ffffff;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid #ddd;
 }
 
 .navbar {
@@ -628,4 +618,12 @@ body {
 .related-item img {
     max-height: 200px;
     object-fit: contain;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 4px 2px -2px gray;
 }

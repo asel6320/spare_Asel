@@ -78,9 +78,6 @@
             <span class="text-secondary fw-bold me-auto">{{ part.reviews.count }} отзывов</span>
               <div class="card-overlay">
                     <div class="hover-buttons">
-                        <a href="{% url 'webapp:create_review' part.pk %}">
-                            <i class="bi bi-chat"></i> Отзыв
-                        </a>
                         <a href="{% url 'cart:cart_add' %}" class="add-to-cart" data-part-id="{{ part.id }}">
                             <i class="bi bi-cart"></i>
                             Корзина
