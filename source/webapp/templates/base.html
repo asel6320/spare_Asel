@@ -35,111 +35,116 @@
 <body>
 <div class="d-flex flex-column min-vh-100">
     <header class="header">
-    <nav class="navbar navbar-expand-lg py-3">
-        <div class="container d-flex justify-content-between align-items-center">
+        <nav class="navbar navbar-expand-lg py-3">
+            <div class="container d-flex justify-content-between align-items-center">
 
-            <div class="logo-custom">
-                <a class="navbar-brand d-flex align-items-center" href="{% url "part:parts_list" %}">
-                    <img src="{% static 'images/logo.png' %}" alt="{% trans "Avrora" %}" class="logo-img">
-                    <span>{% trans "AVRORA" %}</span>
-                </a>
-            </div>
+                <div class="logo-custom">
+                    <a class="navbar-brand d-flex align-items-center" href="{% url "part:parts_list" %}">
+                        <img src="{% static 'images/logo.png' %}" alt="{% trans "Avrora" %}" class="logo-img">
+                        <span>{% trans "AVRORA" %}</span>
+                    </a>
+                </div>
 
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav d-block d-md-flex">
-                    <li class="nav-item px-3">
-                        <a class="nav-link text-uppercase" href="{% url 'part:parts_main' %}">{% trans "Запчасти" %}</a>
-                    </li>
-                    <li class="nav-item px-3">
-                        <a class="nav-link text-uppercase" href="{% url 'webapp:about_us' %}">{% trans "О компании" %}</a>
-                    </li>
-                    <li class="nav-item dropdown px-3">
-                        <a class="nav-link dropdown-toggle text-uppercase" href="#" id="languageDropdown" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            {% get_current_language as LANGUAGE_CODE %}
-                            {% if LANGUAGE_CODE == 'ru' %}
-                                РУ
-                            {% elif LANGUAGE_CODE == 'en' %}
-                                Eng
-                            {% elif LANGUAGE_CODE == 'ko' %}
-                                한국어
-                            {% endif %}
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav d-block d-md-flex">
+                        <li class="nav-item px-3">
+                            <a class="nav-link text-uppercase"
+                               href="{% url 'part:parts_main' %}">{% trans "Запчасти" %}</a>
+                        </li>
+                        <li class="nav-item px-3">
+                            <a class="nav-link text-uppercase"
+                               href="{% url 'webapp:about_us' %}">{% trans "О компании" %}</a>
+                        </li>
+                        <li class="nav-item dropdown px-3">
+                            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="languageDropdown"
+                               role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                {% get_current_language as LANGUAGE_CODE %}
+                                {% if LANGUAGE_CODE == 'ru' %}
+                                    РУ
+                                {% elif LANGUAGE_CODE == 'en' %}
+                                    Eng
+                                {% elif LANGUAGE_CODE == 'ko' %}
+                                    한국어
+                                {% endif %}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                <li>
+                                    <form action="{% url 'lang:set_language' %}" method="post">
+                                        {% csrf_token %}
+                                        <input name="next" type="hidden" value="{{ request.path }}">
+                                        <input name="language" type="hidden" value="en">
+                                        <button type="submit" class="dropdown-item">{% trans "English" %}</button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="{% url 'lang:set_language' %}" method="post">
+                                        {% csrf_token %}
+                                        <input name="next" type="hidden" value="{{ request.path }}">
+                                        <input name="language" type="hidden" value="ru">
+                                        <button type="submit" class="dropdown-item">{% trans "РУ" %}</button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="{% url 'lang:set_language' %}" method="post">
+                                        {% csrf_token %}
+                                        <input name="next" type="hidden" value="{{ request.path }}">
+                                        <input name="language" type="hidden" value="ko">
+                                        <button type="submit" class="dropdown-item">{% trans "한국어" %}</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center">
+                    {% if user.is_authenticated %}
+                        {% if not user.is_staff %}
+                            <!-- Cart Icon -->
+                            <a class="btn btn-light me-2 custom-icon" href="{% url "accounts:cart" %}">
+                                <i class="bi bi-cart"></i>
+                            </a>
+                            <!-- Favorites Icon -->
+                            <a class="btn btn-light me-2 custom-icon" href="{% url 'favorite:favorite_template' %}">
+                                <i class="bi bi-heart"></i>
+                            </a>
+                        {% endif %}
+                    {% endif %}
+                    <!-- User Icon -->
+                    <div class="dropdown">
+                        <a class="btn btn-light custom-icon" href="#" id="userDropdown" role="button"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            <i class="bi bi-person-circle"></i>
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                            <li>
-                                <form action="{% url 'lang:set_language' %}" method="post">
-                                    {% csrf_token %}
-                                    <input name="next" type="hidden" value="{{ request.path }}">
-                                    <input name="language" type="hidden" value="en">
-                                    <button type="submit" class="dropdown-item">{% trans "English" %}</button>
-                                </form>
-                            </li>
-                            <li>
-                                <form action="{% url 'lang:set_language' %}" method="post">
-                                    {% csrf_token %}
-                                    <input name="next" type="hidden" value="{{ request.path }}">
-                                    <input name="language" type="hidden" value="ru">
-                                    <button type="submit" class="dropdown-item">{% trans "РУ" %}</button>
-                                </form>
-                            </li>
-                            <li>
-                                <form action="{% url 'lang:set_language' %}" method="post">
-                                    {% csrf_token %}
-                                    <input name="next" type="hidden" value="{{ request.path }}">
-                                    <input name="language" type="hidden" value="ko">
-                                    <button type="submit" class="dropdown-item">{% trans "한국어" %}</button>
-                                </form>
-                            </li>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            {% if user.is_authenticated %}
+                                {% if user.is_staff %}
+                                    <li><a class="dropdown-item"
+                                           href="{% url 'admin_panel:admin_home' %}">{% trans "Админ-панель" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'crm:orders' %}">{% trans "CRM" %}</a>
+                                    </li>
+                                    <li><a class="dropdown-item"
+                                           href="{% url 'accounts:logout' %}">{% trans "Выйти" %}</a></li>
+                                {% else %}
+                                    <li><a class="dropdown-item"
+                                           href="{% url 'accounts:profile' %}">{% trans "Личный кабинет" %}</a></li>
+                                    <li><a class="dropdown-item"
+                                           href="{% url 'accounts:logout' %}">{% trans "Выйти" %}</a></li>
+                                {% endif %}
+                            {% else %}
+                                <li><a class="dropdown-item"
+                                       href="{% url 'accounts:login' %}">{% trans "Войти" %}</a></li>
+                                <li><a class="dropdown-item"
+                                       href="{% url 'accounts:register' %}">{% trans "Зарегистрироваться" %}</a></li>
+                            {% endif %}
                         </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="d-flex align-items-center">
-    {% if user.is_authenticated %}
-        {% if not user.is_staff %}
-            <!-- Cart Icon -->
-            <a class="btn btn-light me-2 custom-icon" href="{% url "accounts:cart" %}">
-                <i class="bi bi-cart"></i>
-            </a>
-            <!-- Favorites Icon -->
-            <a class="btn btn-light me-2 custom-icon" href="{% url 'favorite:favorite_template' %}">
-                <i class="bi bi-heart"></i>
-            </a>
-        {% endif %}
-    {% endif %}
-    <!-- User Icon -->
-    <div class="dropdown">
-        <a class="btn btn-light custom-icon" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown"
-           aria-expanded="false">
-            <i class="bi bi-person-circle"></i>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-            {% if user.is_authenticated %}
-                {% if user.is_staff %}
-                    <li><a class="dropdown-item"
-                           href="{% url 'admin_panel:admin_home' %}">{% trans "Админ-панель" %}</a></li>
-                    <li><a class="dropdown-item" href="{% url 'crm:orders' %}">{% trans "CRM" %}</a></li>
-                    <li><a class="dropdown-item"
-                           href="{% url 'accounts:logout' %}">{% trans "Выйти" %}</a></li>
-                {% else %}
-                    <li><a class="dropdown-item"
-                           href="{% url 'accounts:profile' %}">{% trans "Личный кабинет" %}</a></li>
-                    <li><a class="dropdown-item"
-                           href="{% url 'accounts:logout' %}">{% trans "Выйти" %}</a></li>
-                {% endif %}
-            {% else %}
-                <li><a class="dropdown-item"
-                       href="{% url 'accounts:login' %}">{% trans "Войти" %}</a></li>
-                <li><a class="dropdown-item"
-                       href="{% url 'accounts:register' %}">{% trans "Зарегистрироваться" %}</a></li>
-            {% endif %}
-        </ul>
-    </div>
-</div>
+                    </div>
+                </div>
 
-        </div>
-    </nav>
-</header>
+            </div>
+        </nav>
+    </header>
 
     <main class="flex-grow-1">
         {% include "partial/notifications.html" %}
@@ -153,47 +158,45 @@
 
     {% include 'subcribe.html' %}
     <footer class="footer bg-footer-custom py-5">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-md-4 mb-2">
-                <h5 class="footer-title">{% trans "Контакты" %}</h5>
-                <div class="contact-info">
-                    <p class="email"><a href="mailto:info@abc-auto.com" class="text-light">info@abc-auto.com</a></p>
-                    <p class="phone"><a href="tel:+996555003539" class="text-light">+996 (555) 003 539</a></p>
-                    <p class="address">Бишкек, Малдыбаева 7/1</p>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 mb-2">
+                    <h5 class="footer-title">{% trans "Контакты" %}</h5>
+                    <div class="contact-info">
+                        <p class="email"><a href="mailto:info@abc-auto.com" class="text-light">info@abc-auto.com</a></p>
+                        <p class="phone"><a href="tel:+996555003539" class="text-light">+996 (555) 003 539</a></p>
+                        <p class="address">Бишкек, Малдыбаева 7/1</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-2">
+                    <h5 class="footer-title">{% trans "Полезные ссылки" %}</h5>
+                    <div class="footer-links">
+                        <a href="{% url 'webapp:contract_offer' %}" class="text-light">{% trans "Договор оферты" %}</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-2">
+                    <h5 class="footer-title">{% trans "Мы в социальных сетях" %}</h5>
+                    <div class="social-media-links">
+                        <a href="https://www.instagram.com" target="_blank" class="text-light me-4">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                        <a href="https://wa.me/123456789" target="_blank" class="text-light me-4">
+                            <i class="fab fa-whatsapp fa-lg"></i>
+                        </a>
+                        <a href="https://www.kakao.com" target="_blank" class="text-light">
+                            <i class="fas fa-comment-dots fa-lg"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-4 mb-2">
-                <h5 class="footer-title">{% trans "Полезные ссылки" %}</h5>
-                <div class="footer-links">
-                    <a href="{% url 'webapp:contract_offer' %}" class="text-light">{% trans "Договор оферты" %}</a>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-2">
-                <h5 class="footer-title">{% trans "Мы в социальных сетях" %}</h5>
-                <div class="social-media-links">
-                    <a href="https://www.instagram.com" target="_blank" class="text-light me-4">
-                        <i class="fab fa-instagram fa-lg"></i>
-                    </a>
-                    <a href="https://wa.me/123456789" target="_blank" class="text-light me-4">
-                        <i class="fab fa-whatsapp fa-lg"></i>
-                    </a>
-                    <a href="https://www.kakao.com" target="_blank" class="text-light">
-                        <i class="fas fa-comment-dots fa-lg"></i>
-                    </a>
-                </div>
+            <div class="text-center mt-1">
+                <p class="footer-text">{% trans "© 2021 Автосалон 'ABC AUTO'. Официальный дилер" %}</p>
             </div>
         </div>
-
-        <div class="text-center mt-1">
-            <p class="footer-text">{% trans "© 2021 Автосалон 'ABC AUTO'. Официальный дилер" %}</p>
-        </div>
-    </div>
-</footer>
-
-
+    </footer>
 
 
 </div>

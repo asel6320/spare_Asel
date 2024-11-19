@@ -14,7 +14,6 @@ body {
     line-height: 1.6;
     background-color: #f9f9f9;
     margin: 0;
-    padding-top: 70px;
     overflow-x: hidden;
 }
 
@@ -373,12 +372,6 @@ body {
     background-color: #e6ffed;
     color: #256029;
     border-color: #a0e9af;
-}
-
-.alert-danger {
-    background-color: #ffe6e6;
-    color: #8b2d2d;
-    border-color: #f5c6cb;
 }
 
 .alert-info {
