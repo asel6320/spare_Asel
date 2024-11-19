@@ -30,7 +30,6 @@ $(document).ready(function () {
                 cartItemsContainer.html(data.cart_items_html);
             },
             error: function (xhr) {
-                // Проверяем код ошибки и выводим соответствующее сообщение
                 if (xhr.status === 400) {
                     successMessage.html(xhr.responseJSON.message).fadeIn(400);
                     setTimeout(function () {

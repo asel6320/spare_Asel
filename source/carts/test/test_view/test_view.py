@@ -38,7 +38,7 @@ class CartViewsTestCase(TestCase):
             HTTP_REFERER=reverse("order:order_create"),
         )
         self.assertEqual(response.status_code, 400)
-        self.assertIn("Недостаточно запчастей на складе", response.json()["message"])
+        self.assertIn("Запчасть закончилась на складе", response.json()["message"])
 
     def test_cart_add_view_with_nonexistent_part(self):
         self.client.login(username="test@example.com", password="password123")

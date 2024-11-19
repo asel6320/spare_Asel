@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.html import format_html
 
 from webapp.models.car import CarModel
 from webapp.models.country import Country
@@ -10,8 +9,6 @@ TYPE_CHOICES = [
     ('truck', 'Грузовые автомобили'),
     ('special', 'Спецтехника'),
     ('bus', 'Автобусы'),
-    ('engine', 'Двигатели'),
-    ('railroad', 'Ж/Д техника'),
     ('bicycle', 'Мотоциклы')
 ]
 
