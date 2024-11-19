@@ -596,5 +596,23 @@ body {
     padding: 5px;
 }
 
+.custom-icon {
+    background-color: transparent; /* No background */
+    border: none; /* Remove border */
+    color: #c98d48; /* Brown color for the icons */
+    font-size: 1.5rem; /* Adjust size if needed */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.custom-icon:hover {
+    color: #a26e3b; /* Darker brown for hover effect */
+    transform: scale(1.2); /* Slightly enlarge the icon on hover */
+}
+
+.custom-icon i {
+    display: inline-block;
+    vertical-align: middle;
+}
+
 
 
