@@ -68,6 +68,9 @@ MIDDLEWARE = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
+AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
+
+
 ROOT_URLCONF = "detail_shop.urls"
 
 TEMPLATES = [
@@ -81,6 +84,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "crm.context_processors.notification_counts",
             ],
         },
     },
@@ -121,19 +125,19 @@ INTERNAL_IPS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
 # AUTH_PASSWORD_VALIDATORS = [
-# #     {
-# #     #     'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-# #     # # },
-# #     # # {
-# #     # #     'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-# #     # # },
-# #     # # {
-# #     # #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-# #     # # },
-# #     # # {
-# #     # #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-# #     # # },
-# # ]
+#     {
+#         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+#     },
+#     {
+#         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+#     },
+#     {
+#         "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+#     },
+#     {
+#         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+#     },
+# ]
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -165,9 +169,8 @@ LOCALE_PATHS = [
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 STATIC_URL = "static/"
 
-MEDIA_URL = "/parts/"
-
-MEDIA_ROOT = os.path.join(BASE_DIR, "parts")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
 
 STATICFILES_DIRS = [BASE_DIR / "static"]
 

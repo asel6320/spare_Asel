@@ -1,7 +1,7 @@
 from django.contrib.auth.views import LoginView
 from django.urls import path
-from webapp.about_us_view import AboutUs, get_models
 from webapp.views import news
+from webapp.views.about_us_view import AboutUs, get_models
 from webapp.views.contact_offer import (
     brand_style,
     contract_offer,
@@ -9,7 +9,6 @@ from webapp.views.contact_offer import (
     product_docs,
     terms_of_use,
 )
-from webapp.views.reviews import CreateReviewView
 
 app_name = "webapp"
 
@@ -19,9 +18,6 @@ urlpatterns = [
     path("logins/", LoginView.as_view(template_name=""), name="login"),
     path("news/", news.news_list, name="news_list"),
     path("news/<int:news_id>/", news.news_detail, name="news_detail"),
-    path(
-        "part/<int:pk>/review/create/", CreateReviewView.as_view(), name="create_review"
-    ),
     path("contract_offer/", contract_offer, name="contract_offer"),
     path("privacy_policy/", privacy_policy, name="privacy_policy"),
     path("terms_of_use/", terms_of_use, name="terms_of_use"),

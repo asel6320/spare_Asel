@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRM Dashboard</title>
+    <title>{% block title %}CRM Dashboard{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/crm_style.css' %}">
     <link rel="stylesheet" href="{% static 'css/media.css' %}">
@@ -12,49 +12,112 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
-            background-color: #f8f9fa; /* Светлый фон для лучшей читаемости */
+            background-color: #f4f7f6;
+            font-family: 'Arial', sans-serif;
         }
         .sidebar {
-            background-color: #343a40; /* Темный фон для бокового меню */
-            height: 100vh; /* Задаем высоту боковой панели на весь экран */
-            position: fixed; /* Фиксируем боковую панель */
-            padding-top: 20px; /* Отступ сверху */
+            background-color: #2c3e50;
+            height: 100vh;
+            position: fixed;
+            width: 250px;
+            top: 0;
+            left: 0;
+            border-right: 1px solid #ddd;
         }
         .sidebar a {
-            color: #ffffff; /* Белый цвет текста */
-            padding: 10px 15px; /* Отступы для ссылок */
-            text-decoration: none; /* Убираем подчеркивание */
-            border-radius: 5px; /* Закругленные углы */
+            color: #ecf0f1;
+            padding: 15px 25px;
+            text-decoration: none;
+            display: block;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
         }
         .sidebar a:hover {
-            background-color: #495057; /* Изменение цвета при наведении */
+            background-color: #34495e;
+        }
+        .sidebar .badge {
+            font-size: 12px;
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.4em 0.8em;
+            border-radius: 12px;
+            margin-left: 10px;
         }
         .content {
-            margin-left: 250px; /* Отступ для контента, чтобы не накладывался на боковое меню */
-            padding: 20px; /* Отступы внутри контента */
+            margin-left: 270px;
+            padding: 30px;
         }
-        h2 {
-            color: #343a40; /* Цвет заголовков */
+        .content h2 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .card-header {
+            background-color: #3498db;
+            color: white;
+            font-size: 18px;
+            padding: 15px;
+        }
+        .badge-notification {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+        .notification-text {
+            font-size: 1.2rem;
+            color: #34495e;
+            margin-bottom: 30px;
         }
     </style>
 </head>
 <body>
-    <nav class="sidebar d-flex flex-column">
-        <div class="sidebar-header text-center">
-            <h4 class="text-white">CRM Dashboard</h4>
+    <nav class="sidebar">
+        <div class="sidebar-header p-2">
+            <a href="{% url 'crm:dashboard' %}" class="text-center text-white text-decoration-none">
+                <h4>CRM Dashboard</h4>
+            </a>
         </div>
-        <div class="d-flex flex-column">
-            <a href="{% url 'crm:analytics' %}">Аналитика</a>
-            <a href="{% url 'crm:customers' %}">Клиенты</a>
-            <a href="{% url 'crm:orders' %}">Заказы</a>
-            <a href="#">Запчасти</a>
-            <a href="{% url 'part:parts_list' %}">Выйти</a>
-        </div>
+        <a href="{% url 'crm:analytics' %}">Аналитика</a>
+        <a href="{% url 'crm:customers' %}">
+            Клиенты
+            {% if new_users_count > 0 %}
+                <span class="badge">
+                    {% if new_users_count > 10 %}10+{% else %}{{ new_users_count }}{% endif %}
+                </span>
+            {% endif %}
+        </a>
+        <a href="{% url 'crm:orders' %}">
+            Заказы
+            {% if new_orders_count > 0 %}
+                <span class="badge">
+                    {% if new_orders_count > 10 %}10+{% else %}{{ new_orders_count }}{% endif %}
+                </span>
+            {% endif %}
+        </a>
+        <a href="{% url 'crm:contact_requests' %}">
+            Заявки на звонки
+            {% if new_contacts_count > 0 %}
+                <span class="badge">
+                    {% if new_contacts_count > 10 %}10+{% else %}{{ new_contacts_count }}{% endif %}
+                </span>
+            {% endif %}
+        </a>
+        <a href="{% url 'part:parts_list' %}">Выйти</a>
     </nav>
 
     <div class="content">
         <div class="container-fluid">
-            <h2>{% block title %}CRM Dashboard{% endblock %}</h2>
             {% block content %}
             {% endblock %}
         </div>

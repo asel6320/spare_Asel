@@ -26,17 +26,29 @@
                             <td>{{ order.first_name }}</td>
                             <td>{{ order.created_at|date:"d.m.Y H:i" }}</td>
                             <td>
-                                {% if order.status == 'completed' %}
-                                    <span class="badge bg-success">{{ order.get_status_display }}</span>
-                                {% elif order.status == 'in_process' %}
-                                    <span class="badge bg-warning text-dark">{{ order.get_status_display }}</span>
-                                {% else %}
-                                    <span class="badge bg-secondary">{{ order.status }}</span>
-                                {% endif %}
+                                <form method="post" action="{% url 'crm:update_order_status' order.pk %}">
+                                    {% csrf_token %}
+                                    <select name="status"
+                                            class="form-select form-select-sm
+                                            {% if order.status == 'completed' %}bg-success text-white
+                                            {% elif order.status == 'in_process' %}bg-warning text-dark
+                                            {% elif order.status == 'declined' %}bg-danger text-white
+                                            {% elif order.status == 'return' %}bg-info text-white
+                                            {% elif order.status == 'postpone' %}bg-secondary text-white
+                                            {% elif order.status == 'has_defect' %}bg-dark text-white
+                                            {% endif %}"
+                                            onchange="this.form.submit()">
+                                        <option value="in_process" {% if order.status == 'in_process' %}selected{% endif %}>В обработке</option>
+                                        <option value="completed" {% if order.status == 'completed' %}selected{% endif %}>Выполнен</option>
+                                        <option value="declined" {% if order.status == 'declined' %}selected{% endif %}>Отменен</option>
+                                        <option value="return" {% if order.status == 'return' %}selected{% endif %}>Возврат</option>
+                                        <option value="postpone" {% if order.status == 'postpone' %}selected{% endif %}>Отложен</option>
+                                        <option value="has_defect" {% if order.status == 'has_defect' %}selected{% endif %}>Есть брак</option>
+                                    </select>
+                                </form>
                             </td>
                             <td class="d-flex">
                                 <a href="{% url 'crm:order_detail' order.pk %}" class="btn btn-sm btn-info me-2">Просмотр</a>
-                                <a href="{% url 'crm:order_edit' order.pk %}" class="btn btn-sm btn-warning me-2">Изменить</a>
                                 <form method="post" action="{% url 'crm:order_delete' order.pk %}" class="d-inline">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Удалить заказ?')">

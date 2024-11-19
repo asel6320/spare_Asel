@@ -121,7 +121,7 @@
                                                     {% for item in order.orderpart_set.all %}
                                                         <tr>
                                                             <td><a class="text-white"
-                                                                   href="{% url 'part:part_detail' item.pk %}">{{ item.part.name }}</a>
+                                                                   href="{% url 'part:part_detail' item.part.pk %}">{{ item.part.name }}</a>
                                                             </td>
                                                             <td>{{ item.quantity }}</td>
                                                             <td>{{ item.price }}</td>

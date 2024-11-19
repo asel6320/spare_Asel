@@ -5,6 +5,7 @@
     <div class="card shadow-sm">
         <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
             <h4 class="card-title mb-0">Список клиентов</h4>
+            <a href="{% url 'crm:customer_create' %}" class="btn btn-light btn-sm">Добавить нового клиента</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -47,6 +48,9 @@
                 </table>
             </div>
         </div>
+        {% if is_paginated %}
+            {% include 'partial/pagination.html' %}
+        {% endif %}
     </div>
 </div>
 {% endblock %}

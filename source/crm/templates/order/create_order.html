@@ -4,17 +4,56 @@
 
 {% block content %}
 <div class="container mt-4">
-    <form method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            {{ form.as_p }}
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4 class="card-title mb-0">Создать заказ</h4>
         </div>
-        <div class="form-group">
-            <label for="part-quantity">Количество запчастей:</label>
-            <input type="number" id="part-quantity" name="part_quantity" value="1" min="1" class="form-control">
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+
+                <!-- Select Parts Section -->
+                <fieldset>
+                    <legend>Выберите запчасти и укажите количество</legend>
+
+                    {% for part in parts %}
+                        <div class="form-check mb-3">
+                            <label class="form-check-label d-block">
+                                <input type="checkbox" name="part_ids" value="{{ part.id }}"
+                                       {% if part.id in form.cleaned_data.part_ids %}checked{% endif %}>
+                                {{ part.name }}
+                            </label>
+                            <div class="form-group mb-2">
+                                <label for="quantity_{{ part.id }}" class="form-label d-block">Количество:</label>
+                                <input type="number" name="quantity_{{ part.id }}" id="quantity_{{ part.id }}"
+                                       min="1" max="{{ part.amount }}" value="1" class="form-control">
+                            </div>
+                        </div>
+                    {% endfor %}
+                </fieldset>
+
+                <!-- Render all other form fields except part_ids -->
+                <div class="mt-4">
+                    {% for field in form.visible_fields %}
+                        {% if field.name != "part_ids" %}
+                            <div class="form-group mb-3">
+                                <label for="{{ field.id_for_label }}" class="form-label d-block">{{ field.label }}</label>
+                                {{ field }}
+                                {% if field.help_text %}
+                                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                                {% endif %}
+                                {% for error in field.errors %}
+                                    <div class="invalid-feedback">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <button type="submit" class="btn btn-success">Сохранить</button>
+                <a href="{% url 'crm:orders' %}" class="btn btn-secondary">Отмена</a>
+            </form>
         </div>
-        <button type="submit" class="btn btn-success">Сохранить</button>
-        <a href="{% url 'crm:orders' %}" class="btn btn-secondary">Отмена</a>
-    </form>
+    </div>
 </div>
 {% endblock %}

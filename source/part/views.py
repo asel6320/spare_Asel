@@ -1,12 +1,14 @@
-from contacts.models import ContactRequest
+from django.contrib import messages
+from django.shortcuts import redirect
 from django.db.models import DecimalField, OuterRef, Q, Subquery
-from django.http import JsonResponse
 from django.utils.http import urlencode
 from django.views.generic import DetailView, ListView
 from documents.models import PartDocument
+from favorite.models import Favorite
 from part.form import PartsFilterForm
 from part.models import Part
 from webapp.forms import SearchForm
+from webapp.forms.review_form import ReviewForm
 from webapp.models import CarBrand, CarModel, Category, Country, PriceHistory
 from webapp.models.news import News
 from webapp.models.review import Review
@@ -14,7 +16,6 @@ from webapp.models.review import Review
 
 class BasePartView(ListView):
     model = Part
-    paginate_by = 12
 
     def dispatch(self, request, *args, **kwargs):
         self.form = self.get_form()
@@ -65,11 +66,18 @@ class BasePartView(ListView):
 class PartsListView(BasePartView):
     context_object_name = "parts"
     template_name = "index.html"
+    paginate_by = 9
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["latest"] = News.objects.order_by("-published_at")[:5]
         context.pop("search_form", None)
+        favorites = (
+            Favorite.objects.filter(user=self.request.user)
+            if self.request.user.is_authenticated
+            else Favorite.objects.filter(session_key=self.request.session.session_key)
+        )
+        context["favorites"] = favorites.values_list("part_id", flat=True)
         return context
 
 
@@ -155,7 +163,9 @@ class PartsMainView(ListView):
         context["models"] = CarModel.objects.all()
         context["categories"] = Category.objects.all()
         context["reviews"] = Review.objects.all()
-
+        if self.search_value:
+            context["search"] = urlencode({"search": self.search_value})
+            context["search_value"] = self.search_value
         return context
 
 
@@ -169,22 +179,30 @@ class PartsDetailView(DetailView):
         part_category = self.object.category
         related_parts = Part.objects.filter(category=part_category).exclude(
             pk=self.object.pk
-        )[
-            :5
-        ]  # Получаем похожие запчасти по категории
+        )[:5]
         context["related_parts"] = related_parts
         context["category"] = part_category
-        context["reviews"] = Review.objects.all()
+        context["reviews"] = Review.objects.filter(part=self.object).select_related('user')
+        context["documents"] = PartDocument.objects.filter(part=self.object)
 
-        # Fetch documents related to the part
-        context["documents"] = PartDocument.objects.filter(
-            part=self.object
-        )  # Assuming a ForeignKey from Document to Part
+        favorites = (
+            Favorite.objects.filter(user=self.request.user)
+            if self.request.user.is_authenticated
+            else Favorite.objects.filter(session_key=self.request.session.session_key)
+        )
+        context["favorites"] = favorites.values_list("part_id", flat=True)
+        context["review_form"] = ReviewForm()
 
         return context
 
-
-def get_models(request):
-    brand_id = request.GET.get("brand_id")
-    models = CarModel.objects.filter(brand_id=brand_id).values("id", "name")
-    return JsonResponse({"models": list(models)})
+    def post(self, request, *args, **kwargs):
+        part = self.get_object()
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.part = part
+            review.user = request.user
+            review.save()
+            messages.success(request, f'Вы успешно оставили отзыв к запчасти: {review.part}')
+            return redirect('part:part_detail', pk=part.pk)
+        return self.get(request, *args, **kwargs)
