@@ -70,7 +70,6 @@ MIDDLEWARE = [
 
 AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
 
-
 ROOT_URLCONF = "detail_shop.urls"
 
 TEMPLATES = [
@@ -102,7 +101,7 @@ DATABASES = {
         'USER': env.str("POSTGRES_USER"),
         'PASSWORD': env.str("POSTGRES_PASSWORD"),
         'HOST': env.str("HOST"),
-        #'HOST': "db"
+        # 'HOST': "db"
         'PORT': env.int("PORT"),
     }
 }
@@ -174,7 +173,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
 STATICFILES_DIRS = [BASE_DIR / "static"]
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
