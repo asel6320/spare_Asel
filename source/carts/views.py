@@ -7,7 +7,6 @@ from part.models import Part
 
 class CartAddView(CartMixin, View):
     def post(self, request):
-
         part_id = request.POST.get("part_id")
         try:
             part = Part.objects.get(id=part_id)
@@ -19,6 +18,7 @@ class CartAddView(CartMixin, View):
             if cart.quantity < part.amount:
                 cart.quantity += 1
                 cart.save()
+                return JsonResponse({"message": "Количество увеличено"})
             else:
                 return JsonResponse(
                     {"message": "Запчасть закончилась на складе"}, status=400
@@ -35,17 +35,15 @@ class CartAddView(CartMixin, View):
                     part=part,
                     quantity=1,
                 )
+                response_data = {
+                    "message": "Товар добавлен в корзину",
+                    "cart_items_html": self.render_cart(request),
+                }
+                return JsonResponse(response_data)
             else:
                 return JsonResponse(
                     {"message": "Запчасть закончилась на складе"}, status=400
                 )
-
-            response_data = {
-                "message": "Товар добавлен в корзину",
-                "cart_items_html": self.render_cart(request),
-            }
-
-            return JsonResponse(response_data)
 
 
 class CartChangeView(CartMixin, View):
