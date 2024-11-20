@@ -8,7 +8,7 @@ services:
     restart: always
     container_name: ESDP
     volumes:
-      - ./.volumes/db:/var/lib/postgresql/data/
+      - postgres_data:/var/lib/postgresql/data/
 
   web:
     build:
@@ -24,4 +24,7 @@ services:
       - ./source/:/code
     depends_on:
       - db
-    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command: sh -c "python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8000"
+
+volumes:
+  postgres_data:
