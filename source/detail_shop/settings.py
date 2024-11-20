@@ -170,9 +170,9 @@ LOCALE_PATHS = [
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 STATIC_URL = "static/"
 
-MEDIA_URL = "/parts/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'parts')
 
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
