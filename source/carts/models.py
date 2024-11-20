@@ -1,6 +1,5 @@
 from django.core.validators import MinValueValidator
 from django.db import models
-from django.utils.html import format_html
 
 
 class CartQueryset(models.QuerySet):
@@ -52,7 +51,7 @@ class Cart(models.Model):
             user_display,
             self.part.name,
             self.quantity,
-            self.part.current_price if self.part.current_price else "Неуказано",
+            self.part.current_price if self.part.current_price else "Не указано",
             self.part_price()
         ]
 

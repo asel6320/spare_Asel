@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
@@ -36,27 +36,28 @@
 <div class="d-flex flex-column min-vh-100">
     <header class="header">
         <nav class="navbar navbar-expand-lg py-3">
-            <div class="container">
+            <div class="container d-flex justify-content-between align-items-center">
+
                 <div class="logo-custom">
                     <a class="navbar-brand d-flex align-items-center" href="{% url "part:parts_list" %}">
                         <img src="{% static 'images/logo.png' %}" alt="{% trans "Avrora" %}" class="logo-img">
                         <span>{% trans "AVRORA" %}</span>
                     </a>
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="{% trans "Toggle navigation" %}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse flex-grow-0 ms-auto" id="navbarNav">
-                    <ul class="navbar-nav d-block d-md-flex ms-auto">
+
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav d-block d-md-flex">
                         <li class="nav-item px-3">
-                            <a class="nav-link" href="{% url 'part:parts_main' %}">{% trans "Запчасти" %}</a>
+                            <a class="nav-link text-uppercase"
+                               href="{% url 'part:parts_main' %}">{% trans "Запчасти" %}</a>
                         </li>
                         <li class="nav-item px-3">
-                            <a class="nav-link" href="{% url 'webapp:about_us' %}">{% trans "О компании" %}</a>
+                            <a class="nav-link text-uppercase"
+                               href="{% url 'webapp:about_us' %}">{% trans "О компании" %}</a>
                         </li>
                         <li class="nav-item dropdown px-3">
-                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
+                            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="languageDropdown"
+                               role="button"
                                data-bs-toggle="dropdown" aria-expanded="false">
                                 {% get_current_language as LANGUAGE_CODE %}
                                 {% if LANGUAGE_CODE == 'ru' %}
@@ -94,63 +95,53 @@
                                 </li>
                             </ul>
                         </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle btn btn-light ms-2" href="#" id="navbarDropdown"
-                               role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-circle fs-5"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                {% if user.is_authenticated %}
-                                    {% if user.is_staff %}
-                                        <li><a class="dropdown-item"
-                                               href="{% url 'admin_panel:admin_home' %}">{% trans "Админ-панель" %}</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="{% url 'crm:orders' %}">{% trans "CRM" %}</a>
-                                        </li>
-                                        <li><a class="dropdown-item"
-                                               href="{% url 'accounts:logout' %}">{% trans "Выйти" %}</a></li>
-                                    {% else %}
-                                        <li><a class="dropdown-item"
-                                               href="{% url 'accounts:profile' %}">{% trans "Личный кабинет" %}</a></li>
-                                        <li><a class="dropdown-item"
-                                               href="{% url 'accounts:logout' %}">{% trans "Выйти" %}</a></li>
-                                    {% endif %}
-                                {% else %}
-                                    <li><a class="dropdown-item"
-                                           href="{% url 'accounts:login' %}">{% trans "Войти" %}</a></li>
-                                    <li><a class="dropdown-item"
-                                           href="{% url 'accounts:register' %}">{% trans "Зарегистрироваться" %}</a>
-                                    </li>
-                                {% endif %}
-                            </ul>
-                        </li>
-
-                        {#                        {% cache 500 cart %}#}
-                        {% if user.is_staff %}
-                        {% else %}
-                            <li class="nav-item px-3">
-                                <a class="btn btn-light ms-2" href="{% url "accounts:cart" %}">
-                                    Корзина
-                                    <i class="bi bi-cart"></i>
-                                </a>
-                            </li>
-                        {% endif %}
-                        {#                        {% endcache %}#}
-
-
-                        {% if user.is_staff or not user.is_authenticated %}
-                        {% else %}
-                            <li class="nav-item px-3">
-                                <a class="btn btn-light-emphasis ms-2" href="{% url 'favorite:favorite_template' %}">
-                                    Избранное
-                                    <i class="bi bi-heart"></i>
-                                </a>
-                            </li>
-                        {% endif %}
-
                     </ul>
                 </div>
+                <div class="d-flex align-items-center">
+                    {% if user.is_authenticated %}
+                        {% if not user.is_staff %}
+                            <!-- Cart Icon -->
+                            <a class="btn btn-light me-2 custom-icon" href="{% url "accounts:cart" %}">
+                                <i class="bi bi-cart"></i>
+                            </a>
+                            <!-- Favorites Icon -->
+                            <a class="btn btn-light me-2 custom-icon" href="{% url 'favorite:favorite_template' %}">
+                                <i class="bi bi-heart"></i>
+                            </a>
+                        {% endif %}
+                    {% endif %}
+                    <!-- User Icon -->
+                    <div class="dropdown">
+                        <a class="btn btn-light custom-icon" href="#" id="userDropdown" role="button"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            <i class="bi bi-person-circle"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            {% if user.is_authenticated %}
+                                {% if user.is_staff %}
+                                    <li><a class="dropdown-item"
+                                           href="{% url 'admin_panel:admin_home' %}">{% trans "Админ-панель" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'crm:orders' %}">{% trans "CRM" %}</a>
+                                    </li>
+                                    <li><a class="dropdown-item"
+                                           href="{% url 'accounts:logout' %}">{% trans "Выйти" %}</a></li>
+                                {% else %}
+                                    <li><a class="dropdown-item"
+                                           href="{% url 'accounts:profile' %}">{% trans "Личный кабинет" %}</a></li>
+                                    <li><a class="dropdown-item"
+                                           href="{% url 'accounts:logout' %}">{% trans "Выйти" %}</a></li>
+                                {% endif %}
+                            {% else %}
+                                <li><a class="dropdown-item"
+                                       href="{% url 'accounts:login' %}">{% trans "Войти" %}</a></li>
+                                <li><a class="dropdown-item"
+                                       href="{% url 'accounts:register' %}">{% trans "Зарегистрироваться" %}</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </nav>
     </header>
@@ -158,13 +149,11 @@
     <main class="flex-grow-1">
         {% include "partial/notifications.html" %}
         {% block content %}
-            {% block order %}
-            {% endblock %}
+
+
         {% endblock %}
 
-        {% block modal_cart %}
-            {#            {% include "cart/cart_button.html" %}#}
-        {% endblock %}
+
     </main>
 
     {% include 'subcribe.html' %}

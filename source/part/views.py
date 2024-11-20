@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import redirect
 from django.db.models import DecimalField, OuterRef, Q, Subquery
-from django.http import JsonResponse
 from django.utils.http import urlencode
 from django.views.generic import DetailView, ListView
 from documents.models import PartDocument
@@ -8,6 +8,7 @@ from favorite.models import Favorite
 from part.form import PartsFilterForm
 from part.models import Part
 from webapp.forms import SearchForm
+from webapp.forms.review_form import ReviewForm
 from webapp.models import CarBrand, CarModel, Category, Country, PriceHistory
 from webapp.models.news import News
 from webapp.models.review import Review
@@ -181,8 +182,7 @@ class PartsDetailView(DetailView):
         )[:5]
         context["related_parts"] = related_parts
         context["category"] = part_category
-        context["reviews"] = Review.objects.all()
-
+        context["reviews"] = Review.objects.filter(part=self.object).select_related('user')
         context["documents"] = PartDocument.objects.filter(part=self.object)
 
         favorites = (
@@ -191,11 +191,18 @@ class PartsDetailView(DetailView):
             else Favorite.objects.filter(session_key=self.request.session.session_key)
         )
         context["favorites"] = favorites.values_list("part_id", flat=True)
+        context["review_form"] = ReviewForm()
 
         return context
 
-
-def get_models(request):
-    brand_id = request.GET.get("brand_id")
-    models = CarModel.objects.filter(brand_id=brand_id).values("id", "name")
-    return JsonResponse({"models": list(models)})
+    def post(self, request, *args, **kwargs):
+        part = self.get_object()
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.part = part
+            review.user = request.user
+            review.save()
+            messages.success(request, f'Вы успешно оставили отзыв к запчасти: {review.part}')
+            return redirect('part:part_detail', pk=part.pk)
+        return self.get(request, *args, **kwargs)

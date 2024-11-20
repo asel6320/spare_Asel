@@ -21,7 +21,7 @@ class CartAddView(CartMixin, View):
                 cart.save()
             else:
                 return JsonResponse(
-                    {"message": "Недостаточно запчастей на складе"}, status=400
+                    {"message": "Запчасть закончилась на складе"}, status=400
                 )
         else:
             if part.amount > 0:
@@ -87,6 +87,7 @@ class CartDeleteView(CartMixin, View):
             "message": "Товар удален из корзины",
             "quantity_deleted": quantity,
             "cart_items_html": self.render_cart(request),
+            "stock_available": cart.part.amount,
         }
 
         return JsonResponse(response_data)
