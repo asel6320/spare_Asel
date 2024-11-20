@@ -2,9 +2,9 @@ name: Django CI
 on:
   #workflow_dispatch
   push:
-    branches: [ "demo" ]
+    branches: [ "dev" ]
   pull_request:
-    branches: [ "demo" ]
+    branches: [ "dev" ]
 
 jobs:
   tests:
