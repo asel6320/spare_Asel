@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="{% static 'css/share.css' %}">
 
     {% block title %}
-        <title>{% trans "Web Title" %}</title>
+        <title>Web Title</title>
     {% endblock %}
 </head>
 <body>
@@ -165,7 +165,7 @@
                     <div class="contact-info">
                         <p class="email"><a href="mailto:info@abc-auto.com" class="text-light">info@abc-auto.com</a></p>
                         <p class="phone"><a href="tel:+996555003539" class="text-light">+996 (555) 003 539</a></p>
-                        <p class="address">Бишкек, Малдыбаева 7/1</p>
+                        <p class="address">{% trans 'Бишкек, Малдыбаева' %}7/1</p>
                     </div>
                 </div>
 

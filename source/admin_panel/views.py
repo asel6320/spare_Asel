@@ -71,6 +71,17 @@ def model_list(request, model_name):
     model = get_model_or_404(model_name)
     objects = model.objects.all()
 
+    for obj in objects:
+        if hasattr(obj, 'description'):
+            obj.translated_description = getattr(obj, f"description_{request.LANGUAGE_CODE}", obj.description)
+        else:
+            obj.translated_description = None
+
+        if hasattr(obj, 'name'):
+            obj.translated_name = getattr(obj, f"name_{request.LANGUAGE_CODE}", obj.name)
+        else:
+            obj.translated_name = None
+
     column_headers = model().get_column_headers()
 
     return render(

@@ -1,5 +1,6 @@
 {% load static %}
 {% load humanize %}
+{% load i18n %}
 
 <div class="card product-card h-100 bg-body d-flex">
     <div class="position-relative partCarousel">
@@ -61,7 +62,7 @@
             <a href="{% url 'part:part_detail' part.pk %}"
                class="text-dark text-decoration-none hover-red">{{ part.name }}</a>
         </h4>
-        <p>Модель: <span class="fw-bold">{{ part.vehicle_info.model }}</span></p>
+        <p>{% trans 'Модель' %}: <span class="fw-bold">{{ part.vehicle_info.model }}</span></p>
 
         {% block content %}
         {% endblock %}
@@ -83,7 +84,7 @@
                     <div class="hover-buttons">
                         <a href="{% url 'cart:cart_add' %}" class="add-to-cart" data-part-id="{{ part.id }}">
                             <i class="bi bi-cart"></i>
-                            Корзина
+                            {% trans 'Корзина' %}
                         </a>
                     </div>
                 </div>

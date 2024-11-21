@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-18 01:38-0700\n"
+"POT-Creation-Date: 2024-11-21 09:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,139 +18,345 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: webapp/templates/base.html:22
-msgid "Web Title"
-msgstr "Web Title"
+#: admin_panel/templates/admin/set_new_price.html:6
+msgid "Массовая смена цен"
+msgstr "Mass Price Change"
 
-#: webapp/templates/base.html:32
+#: part/models.py:63
+#, fuzzy
+#| msgid "Запчасти"
+msgid "Запчасть"
+msgstr "Spare Parts"
+
+#: part/models.py:64
+msgid "Марка"
+msgstr "Brand:"
+
+#: part/models.py:65
+msgid "Название"
+msgstr "Name:"
+
+#: part/templates/part/partial/part_view_partial.html:64
+msgid "Модель"
+msgstr "Model:"
+
+#: part/templates/part/partial/part_view_partial.html:86
+msgid "Корзина"
+msgstr "Cart:"
+
+#: part/templates/part/parts_detail.html:20
+msgid "Категория:"
+msgstr "Category:"
+
+#: part/templates/part/parts_detail.html:23
+msgid "Цена:"
+msgstr "Price:"
+
+#: part/templates/part/parts_detail.html:24
+#: part/templates/part/parts_detail.html:173
+msgid "сом"
+msgstr "som"
+
+#: part/templates/part/parts_detail.html:27
+msgid "Модель:"
+msgstr "Model:"
+
+#: part/templates/part/parts_detail.html:28
+msgid "Мощность:"
+msgstr "Capacity:"
+
+#: part/templates/part/parts_detail.html:28
+msgid "л.с."
+msgstr "l.s"
+
+#: part/templates/part/parts_detail.html:29
+msgid "Описание:"
+msgstr "Description"
+
+#: part/templates/part/parts_detail.html:41
+msgid "Ссылка успешно скопирована!"
+msgstr "You successfully copied the link"
+
+#: part/templates/part/parts_detail.html:47
+#: part/templates/part/parts_detail.html:181
+msgid "Catalog Icon"
+msgstr "Catalog Icon"
+
+#: part/templates/part/parts_detail.html:58
+#, fuzzy
+#| msgid "Продажа автозапчастей"
+msgid "Видеообзор запчасти"
+msgstr "Full range of spare parts"
+
+#: part/templates/part/parts_detail.html:67
+msgid "Видео отсутствует для этой запчасти"
+msgstr "No video for this part"
+
+#: part/templates/part/parts_detail.html:75
+msgid "Документ"
+msgstr "Document"
+
+#: part/templates/part/parts_detail.html:86
+#, fuzzy
+#| msgid "Продажа автозапчастей"
+msgid "Документов к этой запчасти нет!"
+msgstr "Full range of spare parts"
+
+#: part/templates/part/parts_detail.html:95
+msgid "Отзывы"
+msgstr "Reviews"
+
+#: part/templates/part/parts_detail.html:99
+msgid "Показать отзывы"
+msgstr "Show reviews"
+
+#: part/templates/part/parts_detail.html:116
+msgid "Отзывов пока нет. Будьте первым, кто оставит отзыв!"
+msgstr "It does not have reviews yet. Be first to leave the review"
+
+#: part/templates/part/parts_detail.html:122
+msgid "Оставить отзыв"
+msgstr "Leave review"
+
+#: part/templates/part/parts_detail.html:132
+msgid "Отправить"
+msgstr "Send"
+
+#: part/templates/part/parts_detail.html:137
+msgid "Для добавления отзыва необходимо"
+msgstr "In order to leave review, you should"
+
+#: part/templates/part/parts_detail.html:137
+#, fuzzy
+#| msgid "Войти"
+msgid "войти"
+msgstr "Log In"
+
+#: part/templates/part/parts_detail.html:146
+#, fuzzy
+#| msgid "Запчасти"
+msgid "Еще запчасти:"
+msgstr "Spare Parts"
+
+#: part/templates/part/parts_detail.html:183
+msgid "В корзину"
+msgstr "To cart"
+
+#: part/templates/part/parts_detail.html:190
+msgid "Похожие запчасти не найдены."
+msgstr "Could not find similar parts"
+
+#: part/templates/part/parts_main.html:30 webapp/templates/base.html:43
 msgid "Avrora"
 msgstr "Avrora"
 
-#: webapp/templates/base.html:33
+#: part/templates/part/parts_main.html:31 webapp/templates/base.html:44
 msgid "AVRORA"
 msgstr "AVRORA"
 
-#: webapp/templates/base.html:37
-msgid "Toggle navigation"
-msgstr "Toggle navigation"
-
-#: webapp/templates/base.html:43
+#: part/templates/part/parts_main.html:39 webapp/templates/base.html:52
 msgid "Запчасти"
-msgstr "Spare parts"
+msgstr "Spare Parts"
 
-#: webapp/templates/base.html:46
+#: part/templates/part/parts_main.html:43 webapp/templates/base.html:56
 msgid "О компании"
 msgstr "About Us"
 
-#: webapp/templates/base.html:49
-msgid "Контакты"
-msgstr "Contacts"
-
-#: webapp/templates/base.html:68
+#: part/templates/part/parts_main.html:64 webapp/templates/base.html:77
 msgid "English"
 msgstr "English"
 
-#: webapp/templates/base.html:76
+#: part/templates/part/parts_main.html:72 webapp/templates/base.html:85
 msgid "РУ"
 msgstr "Russian"
 
-#: webapp/templates/base.html:84
+#: part/templates/part/parts_main.html:80 webapp/templates/base.html:93
 msgid "한국어"
 msgstr "Korean"
 
-#: webapp/templates/base.html:92
-msgid "USD"
-msgstr ""
+#: part/templates/part/parts_main.html:111 webapp/templates/base.html:124
+msgid "Админ-панель"
+msgstr "Admin Panel"
 
-#: webapp/templates/base.html:95
-msgid "KGZ"
-msgstr ""
-
-#: webapp/templates/base.html:96
-msgid "RUB"
-msgstr ""
-
-#: webapp/templates/base.html:97
-msgid "WON"
-msgstr ""
-
-#: webapp/templates/base.html:108
+#: part/templates/part/parts_main.html:112 webapp/templates/base.html:125
 msgid "CRM"
-msgstr ""
+msgstr "CRM"
 
-#: webapp/templates/base.html:109 webapp/templates/base.html:112
+#: part/templates/part/parts_main.html:115
+#: part/templates/part/parts_main.html:120 webapp/templates/base.html:128
+#: webapp/templates/base.html:133
 msgid "Выйти"
 msgstr "Log Out"
 
-#: webapp/templates/base.html:111
+#: part/templates/part/parts_main.html:118 webapp/templates/base.html:131
 msgid "Личный кабинет"
 msgstr "Personal Account"
 
-#: webapp/templates/base.html:115
+#: part/templates/part/parts_main.html:124 webapp/templates/base.html:137
 msgid "Войти"
 msgstr "Log In"
 
-#: webapp/templates/base.html:116
+#: part/templates/part/parts_main.html:126 webapp/templates/base.html:139
 msgid "Зарегистрироваться"
 msgstr "Register"
 
-#: webapp/templates/base.html:122
-msgid "Корзина"
-msgstr "Cart"
+#: part/templates/part/parts_main.html:152
+msgid "Фильтр"
+msgstr "Filter"
 
-#: webapp/templates/base.html:139
+#: part/templates/part/parts_main.html:155
+msgid "Страна производства"
+msgstr "By country"
+
+#: part/templates/part/parts_main.html:157
+msgid "Все страны"
+msgstr "All countries"
+
+#: part/templates/part/parts_main.html:166
+msgid "По марке машины"
+msgstr "By brand"
+
+#: part/templates/part/parts_main.html:168
+msgid "Все марки"
+msgstr "All brand"
+
+#: part/templates/part/parts_main.html:177
+msgid "По категории детали"
+msgstr "By part category"
+
+#: part/templates/part/parts_main.html:179
+msgid "Все категории"
+msgstr "All categories"
+
+#: part/templates/part/parts_main.html:188
+msgid "По модели машины"
+msgstr "By car model"
+
+#: part/templates/part/parts_main.html:190
+msgid "Все модели"
+msgstr "All car models"
+
+#: part/templates/part/parts_main.html:199
+msgid "По цене"
+msgstr "By price"
+
+#: part/templates/part/parts_main.html:200
+msgid "Мин. цена"
+msgstr "Min price"
+
+#: part/templates/part/parts_main.html:202
+msgid "Макс. цена"
+msgstr "Max price"
+
+#: part/templates/part/parts_main.html:206
+#, fuzzy
+#| msgid "Зарегистрироваться"
+msgid "Сортировать:"
+msgstr "Register"
+
+#: part/templates/part/parts_main.html:212
+msgid "По умолчанию"
+msgstr "Be Default"
+
+#: part/templates/part/parts_main.html:220
+msgid "От дешевых к дорогим"
+msgstr "From cheapest to expensive"
+
+#: part/templates/part/parts_main.html:228
+msgid "От дорогих к дешевым"
+msgstr "From expensive to cheapest"
+
+#: part/templates/part/parts_main.html:232
+msgid "Применить фильтр"
+msgstr "Filter"
+
+#: part/templates/part/parts_main.html:246
+#, fuzzy
+#| msgid "Продажа автозапчастей"
+msgid "Не найдено запчастей"
+msgstr "Full range of spare parts"
+
+#: webapp/templates/about_us.html:14
+msgid "О нас"
+msgstr "About Us"
+
+#: webapp/templates/about_us.html:27
+msgid "Наша миссия"
+msgstr "Our Mission"
+
+#: webapp/templates/about_us.html:33
+msgid "Поставляем комплектующие от таких автопроизводителей как:"
+msgstr "We have products of:"
+
+#: webapp/templates/about_us.html:37 webapp/templates/about_us.html:40
+#: webapp/templates/about_us.html:43 webapp/templates/about_us.html:46
+#: webapp/templates/about_us.html:49 webapp/templates/about_us.html:52
+#: webapp/templates/about_us.html:55 webapp/templates/about_us.html:58
+msgid "Mercedes"
+msgstr "Mercedes"
+
+#: webapp/templates/base.html:164
+msgid "Контакты"
+msgstr "Contacts"
+
+#: webapp/templates/base.html:168
+msgid "Бишкек, Малдыбаева"
+msgstr "Bishkek, Maldybaeva"
+
+#: webapp/templates/base.html:173
+msgid "Полезные ссылки"
+msgstr "Useful Links"
+
+#: webapp/templates/base.html:175
+msgid "Договор оферты"
+msgstr "Offer Agreement"
+
+#: webapp/templates/base.html:180
+msgid "Мы в социальных сетях"
+msgstr "Find Us on Social Media"
+
+#: webapp/templates/base.html:196
 msgid "© 2021 Автосалон 'ABC AUTO'. Официальный дилер"
 msgstr "© 2021 Auto Spare Parts. Official Dealer"
 
-#: webapp/templates/part/index.html:6
-msgid "Main"
-msgstr "Main"
-
-#: webapp/templates/part/index.html:17
+#: webapp/templates/index.html:17
 msgid "Продажа автозапчастей"
 msgstr "Full range of spare parts"
 
-#: webapp/templates/part/index.html:18
+#: webapp/templates/index.html:18
 msgid "Лучшие решения для вашего автомобиля"
 msgstr "The best solutions for your car"
 
-#: webapp/templates/part/index.html:23
+#: webapp/templates/index.html:23
 msgid "Качество и надежность"
 msgstr "Quality and reliability"
 
-#: webapp/templates/part/index.html:24
+#: webapp/templates/index.html:24
 msgid "Индивидуальные решения для ваших нужд"
 msgstr "Customized solutions for your needs"
 
-#: webapp/templates/part/index.html:29
+#: webapp/templates/index.html:29
 msgid "Инновационные подходы"
 msgstr "Innovative approaches"
 
-#: webapp/templates/part/index.html:30
+#: webapp/templates/index.html:30
 msgid "Повышение эффективности вашего автомобиля"
 msgstr "Improving your car's efficiency"
 
-#: webapp/templates/part/index.html:48
+#: webapp/templates/index.html:48
 msgid "Каталог товаров"
-msgstr "Product catalog"
+msgstr "Products"
 
-#: webapp/templates/part/index.html:67
+#: webapp/templates/index.html:65
+msgid "Последние новости"
+msgstr "Last News"
+
+#: webapp/templates/index.html:74
 msgid "Наши партнеры"
 msgstr "Our partners"
 
-#: webapp/templates/part/index.html:100
-#, python-format
-msgid "Скидка 10%% на первый заказ"
-msgstr "10% discount on first order"
+#~ msgid "Web Title"
+#~ msgstr "Web Title"
 
-#: webapp/templates/part/index.html:101
-msgid "Используйте код"
-msgstr "Use the Promo Code"
-
-#: webapp/templates/part/index.html:101
-msgid "WELCOME10"
-msgstr "WELCOME10"
-
-#: webapp/templates/part/index.html:102
-msgid "Получить скидку"
-msgstr "Get discount"
+#~ msgid "Main"
+#~ msgstr "Main"
