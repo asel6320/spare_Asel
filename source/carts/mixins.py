@@ -10,6 +10,8 @@ class CartMixin:
         if request.user.is_authenticated:
             query_kwargs = {"user": request.user}
         else:
+            if not request.session.session_key:
+                request.session.create()
             query_kwargs = {"session_key": request.session.session_key}
 
         if part:

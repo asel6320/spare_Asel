@@ -15,6 +15,7 @@ class CartAddView(CartMixin, View):
 
         cart = self.get_cart(request, part=part)
         if cart:
+
             if cart.quantity < part.amount:
                 cart.quantity += 1
                 cart.save()
