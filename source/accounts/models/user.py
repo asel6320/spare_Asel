@@ -1,12 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.utils.html import format_html
 
 from accounts.manager import UserManager
 
 
 class User(AbstractUser):
-    phone_number = models.CharField(max_length=20, unique=True)
+    phone_number = models.CharField(max_length=100, unique=True)
     email = models.EmailField(unique=True, max_length=100)
     is_new = models.BooleanField(default=True, verbose_name="Новый")
 
