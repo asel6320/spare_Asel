@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-21 09:21+0000\n"
+"POT-Creation-Date: 2024-11-21 15:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,9 +20,273 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
+#: accounts/templates/change_password.html:5
+msgid "Изменение пароля"
+msgstr ""
+
+#: accounts/templates/change_password.html:9
+msgid "Сменить пароль"
+msgstr ""
+
+#: accounts/templates/login.html:92 accounts/templates/login.html:120
+#: part/templates/part/parts_main.html:123 webapp/templates/base.html:137
+msgid "Войти"
+msgstr "Войти"
+
+#: accounts/templates/login.html:97 accounts/templates/profile.html:51
+#: accounts/templates/register.html:46 contacts/templates/popup.html:19
+#: newsletter/templates/subcribe.html:15 newsletter/templates/subcribe.html:16
+msgid "Email"
+msgstr ""
+
+#: accounts/templates/login.html:109 accounts/templates/register.html:56
+msgid "Пароль"
+msgstr ""
+
+#: accounts/templates/login.html:124
+msgid "Нет аккаунта? Создать аккаунт"
+msgstr ""
+
+#: accounts/templates/profile.html:13
+msgid "Профиль пользователя"
+msgstr ""
+
+#: accounts/templates/profile.html:18 contacts/templates/popup.html:13
+#: newsletter/templates/subcribe.html:12 newsletter/templates/subcribe.html:13
+msgid "Имя"
+msgstr ""
+
+#: accounts/templates/profile.html:21 accounts/templates/register.html:20
+msgid "Введите ваше имя"
+msgstr ""
+
+#: accounts/templates/profile.html:29 accounts/templates/register.html:26
+#: contacts/templates/popup.html:16
+msgid "Фамилия"
+msgstr ""
+
+#: accounts/templates/profile.html:32 accounts/templates/register.html:30
+msgid "Введите вашу фамилию"
+msgstr ""
+
+#: accounts/templates/profile.html:40
+msgid "Имя пользовател"
+msgstr ""
+
+#: accounts/templates/profile.html:43
+msgid "Введите ваше имя пользователя"
+msgstr ""
+
+#: accounts/templates/profile.html:54
+msgid "Введите ваш email "
+msgstr ""
+
+#: accounts/templates/profile.html:62 accounts/templates/register.html:76
+#: accounts/templates/register.html:80 contacts/templates/popup.html:22
+msgid "Номер телефона"
+msgstr ""
+
+#: accounts/templates/profile.html:65
+#: orders/templates/includes/included_order_details.html:31
+msgid "Введите ваш номер телефона"
+msgstr ""
+
+#: accounts/templates/profile.html:73
+msgid "Сохранить"
+msgstr ""
+
+#: accounts/templates/profile.html:81 accounts/templates/user_cart.html:12
+#: part/templates/part/partial/part_view_partial.html:87
+msgid "Корзина"
+msgstr ""
+
+#: accounts/templates/profile.html:93
+msgid "Мои заказы"
+msgstr ""
+
+#: accounts/templates/profile.html:104
+msgid "Заказ №"
+msgstr ""
+
+#: accounts/templates/profile.html:104
+msgid "Статус:"
+msgstr ""
+
+#: accounts/templates/profile.html:115
+msgid "Товар"
+msgstr ""
+
+#: accounts/templates/profile.html:116
+msgid "Количество"
+msgstr ""
+
+#: accounts/templates/profile.html:117
+msgid "Цена"
+msgstr ""
+
+#: accounts/templates/profile.html:118
+msgid "Общая стоимость"
+msgstr ""
+
+#: accounts/templates/register.html:11
+#, fuzzy
+#| msgid "Зарегистрироваться"
+msgid "Регистрация"
+msgstr "Зарегистрироваться"
+
+#: accounts/templates/register.html:36
+msgid "Имя пользователя"
+msgstr ""
+
+#: accounts/templates/register.html:40
+msgid "Введите ваше имя пользовател"
+msgstr ""
+
+#: accounts/templates/register.html:50
+msgid "Введите ваш email"
+msgstr ""
+
+#: accounts/templates/register.html:60
+msgid "Введите пароль"
+msgstr ""
+
+#: accounts/templates/register.html:66
+msgid "Подтверждение пароля"
+msgstr ""
+
+#: accounts/templates/register.html:70
+msgid "Подтвердите пароль"
+msgstr ""
+
+#: accounts/templates/register.html:87 part/templates/part/parts_main.html:125
+#: webapp/templates/base.html:139
+msgid "Зарегистрироваться"
+msgstr "Зарегистрироваться"
+
 #: admin_panel/templates/admin/set_new_price.html:6
 msgid "Массовая смена цен"
 msgstr "Массовая смена цен"
+
+#: carts/templates/cart/includes/included_cart.html:55
+msgid "Итого"
+msgstr ""
+
+#: carts/templates/cart/includes/included_cart.html:55
+msgid "запчасти(ей) на сумму"
+msgstr ""
+
+#: carts/templates/cart/includes/included_cart.html:61
+#: orders/templates/includes/included_order_details.html:93
+msgid "Оформить заказ"
+msgstr ""
+
+#: contacts/templates/popup.html:7
+msgid "Не нашли то, что искали? Сообщите нам!"
+msgstr ""
+
+#: contacts/templates/popup.html:12
+#: orders/templates/includes/included_order_details.html:11
+msgid "Имя:"
+msgstr ""
+
+#: contacts/templates/popup.html:15
+#: orders/templates/includes/included_order_details.html:20
+msgid "Фамилия:"
+msgstr ""
+
+#: contacts/templates/popup.html:18
+#: orders/templates/includes/included_order_details.html:42
+msgid "Email:"
+msgstr ""
+
+#: contacts/templates/popup.html:21
+#: orders/templates/includes/included_order_details.html:29
+msgid "Номер телефона:"
+msgstr ""
+
+#: contacts/templates/popup.html:24
+msgid "Комментарий:"
+msgstr ""
+
+#: contacts/templates/popup.html:25
+msgid "Комментарий"
+msgstr ""
+
+#: contacts/templates/popup.html:27
+msgid "Связаться"
+msgstr ""
+
+#: favorite/templates/favorites.html:12
+msgid "Избранные товары"
+msgstr ""
+
+#: favorite/templates/favorites.html:36
+msgid "Цена не указана"
+msgstr ""
+
+#: favorite/templates/favorites.html:62
+msgid "Список избранных товаров пуст"
+msgstr ""
+
+#: newsletter/templates/subcribe.html:6
+msgid "Подпишитесь на рассылку новостей"
+msgstr ""
+
+#: newsletter/templates/subcribe.html:7
+msgid ""
+"Хотите первыми читать наши новости? Подпишитесь на рассылку, чтобы быть в "
+"курсе всех событий."
+msgstr ""
+
+#: newsletter/templates/subcribe.html:18
+#, fuzzy
+#| msgid "Зарегистрироваться"
+msgid "Подписаться"
+msgstr "Зарегистрироваться"
+
+#: orders/templates/includes/included_order_details.html:4
+msgid "Детали заказа"
+msgstr ""
+
+#: orders/templates/includes/included_order_details.html:38
+msgid "Неверный формат номера"
+msgstr ""
+
+#: orders/templates/includes/included_order_details.html:45
+msgid "Ваш email"
+msgstr ""
+
+#: orders/templates/includes/included_order_details.html:53
+msgid "Способ доставки:"
+msgstr ""
+
+#: orders/templates/includes/included_order_details.html:57
+msgid "Нужна доставка"
+msgstr ""
+
+#: orders/templates/includes/included_order_details.html:62
+msgid "Самовывоз"
+msgstr ""
+
+#: orders/templates/includes/included_order_details.html:66
+msgid "Адрес доставки*:"
+msgstr ""
+
+#: orders/templates/includes/included_order_details.html:77
+msgid "Способ оплаты:"
+msgstr ""
+
+#: orders/templates/includes/included_order_details.html:81
+msgid "Оплата картой"
+msgstr ""
+
+#: orders/templates/includes/included_order_details.html:86
+msgid "Наличными/картой при получении"
+msgstr ""
+
+#: orders/templates/making_order.html:9
+msgid "Выбранные товары"
+msgstr ""
 
 #: part/models.py:63
 #, fuzzy
@@ -38,12 +302,18 @@ msgstr ""
 msgid "Название"
 msgstr ""
 
-#: part/templates/part/partial/part_view_partial.html:64
+#: part/templates/part/partial/part_view_partial.html:65
 msgid "Модель"
 msgstr ""
 
-#: part/templates/part/partial/part_view_partial.html:86
-msgid "Корзина"
+#: part/templates/part/partial/part_view_partial.html:76
+#: part/templates/part/parts_detail.html:24
+#: part/templates/part/parts_detail.html:173
+msgid "сом"
+msgstr ""
+
+#: part/templates/part/partial/part_view_partial.html:82
+msgid "отзывов"
 msgstr ""
 
 #: part/templates/part/parts_detail.html:20
@@ -52,11 +322,6 @@ msgstr ""
 
 #: part/templates/part/parts_detail.html:23
 msgid "Цена:"
-msgstr ""
-
-#: part/templates/part/parts_detail.html:24
-#: part/templates/part/parts_detail.html:173
-msgid "сом"
 msgstr ""
 
 #: part/templates/part/parts_detail.html:27
@@ -144,131 +409,115 @@ msgstr ""
 msgid "Похожие запчасти не найдены."
 msgstr ""
 
-#: part/templates/part/parts_main.html:30 webapp/templates/base.html:43
-msgid "Avrora"
-msgstr "Аврора"
-
-#: part/templates/part/parts_main.html:31 webapp/templates/base.html:44
-msgid "AVRORA"
-msgstr "AVRORA"
-
-#: part/templates/part/parts_main.html:39 webapp/templates/base.html:52
+#: part/templates/part/parts_main.html:38 webapp/templates/base.html:52
 msgid "Запчасти"
 msgstr "Запчасти"
 
-#: part/templates/part/parts_main.html:43 webapp/templates/base.html:56
+#: part/templates/part/parts_main.html:42 webapp/templates/base.html:56
 msgid "О компании"
 msgstr "О компании"
 
-#: part/templates/part/parts_main.html:64 webapp/templates/base.html:77
+#: part/templates/part/parts_main.html:63 webapp/templates/base.html:77
 msgid "English"
 msgstr "Английский"
 
-#: part/templates/part/parts_main.html:72 webapp/templates/base.html:85
+#: part/templates/part/parts_main.html:71 webapp/templates/base.html:85
 msgid "РУ"
 msgstr "Русский"
 
-#: part/templates/part/parts_main.html:80 webapp/templates/base.html:93
+#: part/templates/part/parts_main.html:79 webapp/templates/base.html:93
 msgid "한국어"
 msgstr "Корейский"
 
-#: part/templates/part/parts_main.html:111 webapp/templates/base.html:124
+#: part/templates/part/parts_main.html:110 webapp/templates/base.html:124
 msgid "Админ-панель"
 msgstr "Админ-панель"
 
-#: part/templates/part/parts_main.html:112 webapp/templates/base.html:125
+#: part/templates/part/parts_main.html:111 webapp/templates/base.html:125
 msgid "CRM"
 msgstr ""
 
-#: part/templates/part/parts_main.html:115
-#: part/templates/part/parts_main.html:120 webapp/templates/base.html:128
+#: part/templates/part/parts_main.html:114
+#: part/templates/part/parts_main.html:119 webapp/templates/base.html:128
 #: webapp/templates/base.html:133
 msgid "Выйти"
 msgstr "Выйти"
 
-#: part/templates/part/parts_main.html:118 webapp/templates/base.html:131
+#: part/templates/part/parts_main.html:117 webapp/templates/base.html:131
 msgid "Личный кабинет"
 msgstr "Личный кабинет"
 
-#: part/templates/part/parts_main.html:124 webapp/templates/base.html:137
-msgid "Войти"
-msgstr "Войти"
-
-#: part/templates/part/parts_main.html:126 webapp/templates/base.html:139
-msgid "Зарегистрироваться"
-msgstr "Зарегистрироваться"
-
-#: part/templates/part/parts_main.html:152
+#: part/templates/part/parts_main.html:151
 msgid "Фильтр"
 msgstr ""
 
-#: part/templates/part/parts_main.html:155
+#: part/templates/part/parts_main.html:154
 msgid "Страна производства"
 msgstr ""
 
-#: part/templates/part/parts_main.html:157
+#: part/templates/part/parts_main.html:156
 msgid "Все страны"
 msgstr ""
 
-#: part/templates/part/parts_main.html:166
+#: part/templates/part/parts_main.html:165
 msgid "По марке машины"
 msgstr ""
 
-#: part/templates/part/parts_main.html:168
+#: part/templates/part/parts_main.html:167
 msgid "Все марки"
 msgstr ""
 
-#: part/templates/part/parts_main.html:177
+#: part/templates/part/parts_main.html:176
 msgid "По категории детали"
 msgstr ""
 
-#: part/templates/part/parts_main.html:179
+#: part/templates/part/parts_main.html:178
 msgid "Все категории"
 msgstr ""
 
-#: part/templates/part/parts_main.html:188
+#: part/templates/part/parts_main.html:187
 msgid "По модели машины"
 msgstr ""
 
-#: part/templates/part/parts_main.html:190
+#: part/templates/part/parts_main.html:189
 msgid "Все модели"
 msgstr ""
 
-#: part/templates/part/parts_main.html:199
+#: part/templates/part/parts_main.html:198
 msgid "По цене"
 msgstr ""
 
-#: part/templates/part/parts_main.html:200
+#: part/templates/part/parts_main.html:199
 msgid "Мин. цена"
 msgstr ""
 
-#: part/templates/part/parts_main.html:202
+#: part/templates/part/parts_main.html:201
 msgid "Макс. цена"
 msgstr ""
 
-#: part/templates/part/parts_main.html:206
+#: part/templates/part/parts_main.html:205
 #, fuzzy
 #| msgid "Зарегистрироваться"
 msgid "Сортировать:"
 msgstr "Зарегистрироваться"
 
-#: part/templates/part/parts_main.html:212
+#: part/templates/part/parts_main.html:211
 msgid "По умолчанию"
 msgstr ""
 
-#: part/templates/part/parts_main.html:220
+#: part/templates/part/parts_main.html:219
 msgid "От дешевых к дорогим"
 msgstr ""
 
-#: part/templates/part/parts_main.html:228
+#: part/templates/part/parts_main.html:227
 msgid "От дорогих к дешевым"
 msgstr ""
 
-#: part/templates/part/parts_main.html:232
+#: part/templates/part/parts_main.html:231
 msgid "Применить фильтр"
 msgstr ""
 
-#: part/templates/part/parts_main.html:246
+#: part/templates/part/parts_main.html:245
 msgid "Не найдено запчастей"
 msgstr ""
 
@@ -276,8 +525,31 @@ msgstr ""
 msgid "О нас"
 msgstr ""
 
+#: webapp/templates/about_us.html:15
+msgid ""
+"Общество с ограниченной ответственностью «Аполлон» – это надёжный поставщик "
+"автозапчастей для автомобилей и мотоциклов, успешно работающий на территории "
+"Кыргызской Республики. Наша компания, расположенная в городе Бишкек по "
+"адресу: ул. Тыныбекова, д. 62, предлагает широкий ассортимент качественных "
+"автозапчастей от проверенных производителей. Мы гордимся тем, что "
+"предоставляем клиентам продукцию, соответствующую высоким стандартам "
+"качества, что обеспечивает надёжность и долговечность вашего транспорта."
+msgstr ""
+
 #: webapp/templates/about_us.html:27
 msgid "Наша миссия"
+msgstr ""
+
+#: webapp/templates/about_us.html:28
+msgid ""
+"Мы стремимся к максимальному удобству и удовлетворению потребностей наших "
+"клиентов. В компании «Аполлон» вас ждёт высокий уровень обслуживания, "
+"профессиональная помощь в подборе запчастей и индивидуальный подход. Вы "
+"можете связаться с нами по телефону: +996 555 00 35 39 (отдел продаж) или "
+"+996 777 07 66 92 (финансовый отдел). Также вы можете отправить запрос на "
+"электронную почту: oooapollon@yandex.ru. ООО «Аполлон» готово стать вашим "
+"надёжным партнёром для обеспечения качественного обслуживания вашего "
+"автомобиля или мотоцикла."
 msgstr ""
 
 #: webapp/templates/about_us.html:33
@@ -290,6 +562,10 @@ msgstr ""
 #: webapp/templates/about_us.html:55 webapp/templates/about_us.html:58
 msgid "Mercedes"
 msgstr ""
+
+#: webapp/templates/base.html:43
+msgid "Avrora"
+msgstr "Аврора"
 
 #: webapp/templates/base.html:164
 msgid "Контакты"
@@ -309,10 +585,6 @@ msgstr ""
 
 #: webapp/templates/base.html:180
 msgid "Мы в социальных сетях"
-msgstr ""
-
-#: webapp/templates/base.html:196
-msgid "© 2021 Автосалон 'ABC AUTO'. Официальный дилер"
 msgstr ""
 
 #: webapp/templates/index.html:17
@@ -350,3 +622,44 @@ msgstr ""
 #: webapp/templates/index.html:74
 msgid "Наши партнеры"
 msgstr ""
+
+#: webapp/templates/news/latest_news.html:14
+#: webapp/templates/news/news_list.html:18
+msgid "Читать далее"
+msgstr ""
+
+#: webapp/templates/news/latest_news.html:18
+msgid "Новости не найдены"
+msgstr ""
+
+#: webapp/templates/news/latest_news.html:23
+msgid "Посмотреть все новости"
+msgstr ""
+
+#: webapp/templates/news/news_detail.html:11
+msgid "Опубликовано"
+msgstr ""
+
+#: webapp/templates/news/news_detail.html:12
+msgid "Вернуться ко всем новостям"
+msgstr ""
+
+#: webapp/templates/news/news_detail.html:13
+msgid "На главную"
+msgstr ""
+
+#: webapp/templates/partial/related_part_review_partial.html:33
+#: webapp/templates/partial/review_partial.html:34
+msgid "Еще отзывы"
+msgstr ""
+
+#: webapp/templates/partial/search_form.html:8
+msgid "Поиск"
+msgstr ""
+
+#: webapp/templates/review/create_review.html:8
+msgid "Создание отзыва"
+msgstr ""
+
+#~ msgid "AVRORA"
+#~ msgstr "AVRORA"

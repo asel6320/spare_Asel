@@ -1,20 +1,21 @@
+{% load i18n %}
+
 <div class="subscription-section">
     <div class="u-sheet">
         <div class="u-group">
-            <h2>Подпишитесь на рассылку новостей</h2>
-            <p>Хотите первыми читать наши новости? Подпишитесь на рассылку, чтобы быть в курсе всех событий.</p>
+            <h2>{% trans "Подпишитесь на рассылку новостей" %}</h2>
+            <p>{% trans "Хотите первыми читать наши новости? Подпишитесь на рассылку, чтобы быть в курсе всех событий." %}</p>
         </div>
         <div class="u-form">
             <form action="{% url 'newsletter:subscribe' %}" method="post">
                 {% csrf_token %}
-                <label for="name" class="visually-hidden">Имя</label>
-                <input type="text" id="name" name="name" placeholder="Имя" required>
+                <label for="name" class="visually-hidden">{% trans "Имя" %}</label>
+                <input type="text" id="name" name="name" placeholder="{% trans 'Имя' %}" required>
 
+                <label for="email" class="visually-hidden">{% trans "Email" %}</label>
+                <input type="email" id="email" name="email" placeholder="{% trans 'Email' %}" required>
 
-                <label for="email" class="visually-hidden">Email</label>
-                <input type="email" id="email" name="email" placeholder="Email" required>
-
-                <button type="submit">Подписаться</button>
+                <button type="submit">{% trans "Подписаться" %}</button>
             </form>
 
             {% if messages %}

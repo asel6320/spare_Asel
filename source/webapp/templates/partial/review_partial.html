@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 {% if reviews.exists %}
     <div id="reviewCarousel{{ part.pk }}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
@@ -30,5 +31,5 @@
         {% endfor %}
     </div>
 
-    <button id="toggleReviewsBtn{{ part.pk }}" class="btn btn-secondary mt-2" onclick="toggleReviews({{ part.pk }})">Еще отзывы</button>
+    <button id="toggleReviewsBtn{{ part.pk }}" class="btn btn-secondary mt-2" onclick="toggleReviews({{ part.pk }})">{% trans 'Еще отзывы' %}</button>
 {% endif %}

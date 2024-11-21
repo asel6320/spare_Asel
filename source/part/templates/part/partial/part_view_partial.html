@@ -73,13 +73,13 @@
                     <del>{{ part.previous_price|intcomma }} руб</del>
                 {% endif %}
                 {% if part.current_price %}
-                    <span class="fw-bold text-danger">{{ part.current_price|intcomma }} сом</span>
+                    <span class="fw-bold text-danger">{{ part.current_price|intcomma }} {% trans 'сом' %}</span>
                 {% endif %}
             </p>
         {% endif %}
 
         <div class="mt-auto d-flex justify-content-end pt-2">
-            <span class="text-secondary fw-bold me-auto">{{ part.reviews.count }} отзывов</span>
+            <span class="text-secondary fw-bold me-auto">{{ part.reviews.count }} {% trans 'отзывов' %}</span>
               <div class="card-overlay">
                     <div class="hover-buttons">
                         <a href="{% url 'cart:cart_add' %}" class="add-to-cart" data-part-id="{{ part.id }}">

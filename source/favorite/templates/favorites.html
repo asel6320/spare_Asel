@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load humanize %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
     <title>Избранные товары</title>
@@ -8,7 +9,7 @@
 
 {% block content %}
     <div class="container mt-4" id="favorite-items-container">
-        <h2 class="text-center mb-4">Избранные товары</h2>
+        <h2 class="text-center mb-4">{% trans 'Избранные товары' %}</h2>
 
         {% if favorites %}
             <div class="row">
@@ -32,7 +33,7 @@
                                     {% if favorite.part.current_price %}
                                         <span class="fw-bold text-danger">{{ favorite.part.current_price }} ₽</span>
                                     {% else %}
-                                        <span class="text-muted">Цена не указана</span>
+                                        <span class="text-muted">{% trans 'Цена не указана' %}</span>
                                     {% endif %}
                                 </p>
 
@@ -58,7 +59,7 @@
             </div>
         {% else %}
             <div class="alert alert-warning text-center">
-                <strong>Список избранных товаров пуст.</strong>
+                <strong>{% trans 'Список избранных товаров пуст' %}.</strong>
             </div>
         {% endif %}
     </div>
