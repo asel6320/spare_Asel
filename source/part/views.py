@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import redirect
-from django.db.models import DecimalField, OuterRef, Q, Subquery
+from django.db.models import DecimalField, OuterRef, Q, Subquery, Count
 from django.utils.http import urlencode
 from django.views.generic import DetailView, ListView
 from documents.models import PartDocument
@@ -12,6 +12,9 @@ from webapp.forms.review_form import ReviewForm
 from webapp.models import CarBrand, CarModel, Category, Country, PriceHistory
 from webapp.models.news import News
 from webapp.models.review import Review
+from orders.models import OrderPart
+
+from detail_shop import settings
 
 
 class BasePartView(ListView):
@@ -64,14 +67,23 @@ class BasePartView(ListView):
 
 
 class PartsListView(BasePartView):
+    model = Part
     context_object_name = "parts"
     template_name = "index.html"
-    paginate_by = 9
+    paginate_by = 4
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["latest"] = News.objects.order_by("-published_at")[:5]
         context.pop("search_form", None)
+        popular_parts = (
+            OrderPart.objects.values("part__name", "part__id", "part__image1")
+            .annotate(total_sold=Count("quantity"))
+            .order_by("-total_sold")[:5]
+        )
+        context["popular_parts"] = popular_parts
+        context['MEDIA_URL'] = settings.MEDIA_URL
+
         favorites = (
             Favorite.objects.filter(user=self.request.user)
             if self.request.user.is_authenticated
