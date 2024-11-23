@@ -33,6 +33,8 @@ def get_model_or_404(model_name):
         "news": "webapp.News",
         "partdocument": "documents.PartDocument",
         "favorite": "webapp.Favorite",
+        "newsletter": "webapp.Newsletter",
+        "subscription": "webapp.Subscription",
     }
 
     print(f"Запрос модели: {model_name}")  # Отладка
