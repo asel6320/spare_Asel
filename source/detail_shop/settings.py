@@ -32,6 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['146.190.226.59']
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.humanize",
+    "django_summernote",
     "debug_toolbar",
     "webapp",
     "accounts",
