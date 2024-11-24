@@ -23,7 +23,15 @@
                     {% for obj in objects %}
                         <tr>
                             {% for value in obj.to_display %}
-                                <td class="text-start">{{ value }}</td>
+                                <td class="text-start">
+                                    {% if value == obj.name %}
+                                        {{ obj.translated_name }}
+                                    {% elif value == obj.description %}
+                                        {{ obj.translated_description }}
+                                    {% else %}
+                                        {{ value }}
+                                    {% endif %}
+                                </td>
                             {% endfor %}
                             <td class="text-center">
                                 <a href="{% url 'admin_panel:model_edit' model_name=model_name pk=obj.pk %}"

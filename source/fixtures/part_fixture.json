@@ -1,0 +1,338 @@
+[
+{
+    "model": "part.part",
+    "pk": 1,
+    "fields": {
+        "category": 1,
+        "vehicle_info": 1,
+        "name": "Тормозные колодки",
+        "name_ru": "Тормозные колодки",
+        "name_en": "Brake pads",
+        "name_ko": "브레이크 패드",
+        "description": "Тормозные колодки для замены износившихся элементов системы тормозов. Эти колодки обеспечивают безопасное и эффективное торможение.",
+        "description_ru": "Тормозные колодки для замены износившихся элементов системы тормозов. Эти колодки обеспечивают безопасное и эффективное торможение.",
+        "description_en": "Brake pads for replacing worn out elements of the brake system. These pads provide safe and effective braking.",
+        "description_ko": "브레이크 시스템의 마모된 요소를 교체하기 위한 브레이크 패드입니다. 이 패드는 안전하고 효과적인 제동을 제공합니다.",
+        "amount": 10,
+        "video_url": "https://www.youtube.com/embed/Xr_YPtVgvlg?si=hkLNAGglfEHxW1eS",
+        "image1": "parts/page1.1.jpg",
+        "image2": "parts/page1.2.jpg",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 2,
+    "fields": {
+        "category": 1,
+        "vehicle_info": 1,
+        "name": "Фильтр воздушный",
+        "name_ru": "Фильтр воздушный",
+        "name_en": "Air filter",
+        "name_ko": "에어필터",
+        "description": "Воздушный фильтр, который очищает воздух, поступающий в двигатель. Это способствует улучшению производительности двигателя и экономии топлива.",
+        "description_ru": "Воздушный фильтр, который очищает воздух, поступающий в двигатель. Это способствует улучшению производительности двигателя и экономии топлива.",
+        "description_en": "An air filter that cleans the air entering the engine. This helps improve engine performance and fuel economy.",
+        "description_ko": "엔진으로 들어가는 공기를 정화하는 에어 필터입니다. 이는 엔진 성능과 연비를 향상시키는 데 도움이 됩니다.",
+        "amount": 7,
+        "video_url": "https://www.youtube.com/embed/VJwfX4JGmTY?si=lsA0yAbwAjN9sBV8",
+        "image1": "parts/page2.1.jpg",
+        "image2": "parts/page2.2.jpg",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 3,
+    "fields": {
+        "category": 1,
+        "vehicle_info": 1,
+        "name": "Амортизатор передний\"",
+        "name_ru": "Амортизатор передний\"",
+        "name_en": "Front shock absorber",
+        "name_ko": "프론트 쇼크 업소버",
+        "description": "Амортизаторы, которые поглощают удары и вибрации при движении, улучшая управляемость и комфорт вождения.",
+        "description_ru": "Амортизаторы, которые поглощают удары и вибрации при движении, улучшая управляемость и комфорт вождения.",
+        "description_en": "Shock absorbers that absorb shock and vibration while driving, improving handling and driving comfort.",
+        "description_ko": "주행 중 충격과 진동을 흡수하여 핸들링과 주행 편의성을 향상시키는 충격 흡수 장치입니다.",
+        "amount": 9,
+        "video_url": "https://www.youtube.com/embed/P-4g0JfyIqg?si=--qKOnvlbCpiNUo6",
+        "image1": "parts/page3.1.jpg",
+        "image2": "parts/page3.2.jpeg",
+        "image3": "parts/page3.3.jpg"
+    }
+},
+{
+    "model": "part.part",
+    "pk": 4,
+    "fields": {
+        "category": 2,
+        "vehicle_info": 2,
+        "name": "Топливный фильтр",
+        "name_ru": "Топливный фильтр",
+        "name_en": "Fuel filter",
+        "name_ko": "연료 필터",
+        "description": "Фильтр, который очищает топливо от примесей перед поступлением в двигатель, что способствует его нормальной работе.",
+        "description_ru": "Фильтр, который очищает топливо от примесей перед поступлением в двигатель, что способствует его нормальной работе.",
+        "description_en": "A filter that cleans the fuel of impurities before entering the engine, which contributes to its normal operation.",
+        "description_ko": "엔진에 들어가기 전에 연료의 불순물을 제거하여 정상적인 작동에 기여하는 필터입니다.",
+        "amount": 10,
+        "video_url": "https://www.youtube.com/embed/zsXlyMijRKA?si=-ZC5-05dOYia3229",
+        "image1": "parts/page4.1.jpeg",
+        "image2": "parts/page4.2.jpg",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 5,
+    "fields": {
+        "category": 2,
+        "vehicle_info": 2,
+        "name": "Насос водяной (помпа)",
+        "name_ru": "Насос водяной (помпа)",
+        "name_en": "Water pump (pump)",
+        "name_ko": "워터펌프(펌프)",
+        "description": "Водяной насос, который перекачивает антифриз через двигатель и радиатор, предотвращая перегрев.",
+        "description_ru": "Водяной насос, который перекачивает антифриз через двигатель и радиатор, предотвращая перегрев.",
+        "description_en": "A water pump that moves antifreeze through the engine and radiator, preventing overheating.",
+        "description_ko": "엔진과 라디에이터를 통해 부동액을 이동시켜 과열을 방지하는 워터 펌프입니다.",
+        "amount": 10,
+        "video_url": "https://www.youtube.com/embed/ZwAsgEIqKIg?si=KqZ47YRSb-VuU-3Y",
+        "image1": "parts/page11.1.jpeg",
+        "image2": "parts/page11.2.jpg",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 6,
+    "fields": {
+        "category": 2,
+        "vehicle_info": 2,
+        "name": "Свечи зажигания",
+        "name_ru": "Свечи зажигания",
+        "name_en": "Spark plugs",
+        "name_ko": "점화 플러그",
+        "description": "Свечи, которые создают искру для воспламенения топливной смеси в двигателе. Их регулярная замена необходима для оптимальной работы двигателя",
+        "description_ru": "Свечи, которые создают искру для воспламенения топливной смеси в двигателе. Их регулярная замена необходима для оптимальной работы двигателя",
+        "description_en": "Plugs that create a spark to ignite the fuel mixture in the engine. Their regular replacement is necessary for optimal engine performance.",
+        "description_ko": "엔진의 연료 혼합물을 점화하기 위해 스파크를 생성하는 플러그입니다. 최적의 엔진 성능을 위해서는 정기적인 교체가 필요합니다.",
+        "amount": 11,
+        "video_url": "https://www.youtube.com/embed/1uX5Uxy8iDY?si=QHUCwXKNi361IivV",
+        "image1": "parts/page5.1.jpeg",
+        "image2": "parts/page5.2.jpg",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 7,
+    "fields": {
+        "category": 3,
+        "vehicle_info": 3,
+        "name": "Тормозные диски (передние)",
+        "name_ru": "Тормозные диски (передние)",
+        "name_en": "Brake discs (front)",
+        "name_ko": "브레이크 디스크(앞)",
+        "description": "Передние тормозные диски для эффективного торможения и улучшения безопасности. Заменяются, когда диски изнашиваются или повреждаются",
+        "description_ru": "Передние тормозные диски для эффективного торможения и улучшения безопасности. Заменяются, когда диски изнашиваются или повреждаются",
+        "description_en": "Front brake discs for effective braking and improved safety. Replaced when discs wear out or become damaged",
+        "description_ko": "효과적인 제동과 향상된 안전성을 위한 앞 브레이크 디스크. 디스크가 마모되거나 손상되면 교체됩니다.",
+        "amount": 3,
+        "video_url": "https://www.youtube.com/embed/O9YgYXwqcNI?si=CNjzeYR7WJrW7KD6",
+        "image1": "parts/page6.1.jpg",
+        "image2": "parts/page6.2.jpg",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 8,
+    "fields": {
+        "category": 3,
+        "vehicle_info": 3,
+        "name": "Насос турбонаддува",
+        "name_ru": "Насос турбонаддува",
+        "name_en": "Turbocharger pump",
+        "name_ko": "터보차저 펌프",
+        "description": "Насос, который помогает в подаче воздуха в турбину, повышая мощность двигателя. Заменяется при выходе из строя",
+        "description_ru": "Насос, который помогает в подаче воздуха в турбину, повышая мощность двигателя. Заменяется при выходе из строя",
+        "description_en": "A pump that helps in supplying air to the turbine, increasing engine power. Replaced when damaged",
+        "description_ko": "터빈에 공기를 공급하여 엔진 출력을 높이는 데 도움이 되는 펌프입니다. 파손시 교체",
+        "amount": 4,
+        "video_url": null,
+        "image1": "parts/page12.1.jpg",
+        "image2": "",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 9,
+    "fields": {
+        "category": 3,
+        "vehicle_info": 3,
+        "name": "Маховик",
+        "name_ru": "Маховик",
+        "name_en": "Flywheel",
+        "name_ko": "플라이휠",
+        "description": "Маховик, который помогает синхронизировать вращение двигателя и поддерживает стабильную работу трансмиссии",
+        "description_ru": "Маховик, который помогает синхронизировать вращение двигателя и поддерживает стабильную работу трансмиссии",
+        "description_en": "Flywheel that helps synchronize engine rotation and keeps the transmission running smoothly",
+        "description_ko": "엔진 회전을 동기화하고 변속기의 원활한 작동을 유지하는 데 도움이 되는 플라이휠",
+        "amount": 11,
+        "video_url": "https://www.youtube.com/embed/K93pVlscnkA?si=v3GK6dgCaRDa14Sc",
+        "image1": "parts/page7.1.jpg",
+        "image2": "",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 10,
+    "fields": {
+        "category": 4,
+        "vehicle_info": 4,
+        "name": "Турбина",
+        "name_ru": "Турбина",
+        "name_en": "Turbine",
+        "name_ko": "터빈",
+        "description": "Турбокомпрессор, который увеличивает мощность двигателя, сжимая воздух, поступающий в цилиндры. Регулярная проверка и замена турбины важны для поддержания производительности.",
+        "description_ru": "Турбокомпрессор, который увеличивает мощность двигателя, сжимая воздух, поступающий в цилиндры. Регулярная проверка и замена турбины важны для поддержания производительности.",
+        "description_en": "A turbocharger, which increases engine power by compressing the air entering the cylinders. Regular inspection and replacement of the turbine is important to maintain performance.",
+        "description_ko": "실린더로 들어가는 공기를 압축하여 엔진 출력을 높이는 터보차저입니다. 성능을 유지하려면 터빈을 정기적으로 점검하고 교체하는 것이 중요합니다.",
+        "amount": 7,
+        "video_url": "https://www.youtube.com/embed/Qojc-XenN9E?si=3eAxgZH0F_iLTEAP",
+        "image1": "parts/page8.1.jpeg",
+        "image2": "parts/page8.2.jpeg",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 11,
+    "fields": {
+        "category": 4,
+        "vehicle_info": 4,
+        "name": "Тормозной вакуумный усилитель",
+        "name_ru": "Тормозной вакуумный усилитель",
+        "name_en": "Brake vacuum booster",
+        "name_ko": "브레이크 진공 부스터",
+        "description": "Устройство, которое облегчает усилия водителя при торможении, делая процесс более эффективным",
+        "description_ru": "Устройство, которое облегчает усилия водителя при торможении, делая процесс более эффективным",
+        "description_en": "A device that eases the driver's efforts when braking, making the process more efficient.",
+        "description_ko": "제동 시 운전자의 노력을 완화하여 프로세스를 더욱 효율적으로 만드는 장치입니다.",
+        "amount": 13,
+        "video_url": "https://www.youtube.com/embed/dG6MTYwzVk8?si=derrD_kSVOIgO1K6",
+        "image1": "parts/page9.1.jpg",
+        "image2": "parts/page9.2.jpg",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 12,
+    "fields": {
+        "category": 4,
+        "vehicle_info": 4,
+        "name": "Тормозной вакуумный усилитель\"",
+        "name_ru": "Тормозной вакуумный усилитель\"",
+        "name_en": "Brake vacuum booster",
+        "name_ko": "브레이크 진공 부스터",
+        "description": "Устройство, которое облегчает усилия водителя при торможении, делая процесс более эффективным.",
+        "description_ru": "Устройство, которое облегчает усилия водителя при торможении, делая процесс более эффективным.",
+        "description_en": "A device that eases the driver's efforts when braking, making the process more efficient.",
+        "description_ko": "제동 시 운전자의 노력을 완화하여 프로세스를 더욱 효율적으로 만드는 장치입니다.",
+        "amount": 3,
+        "video_url": "https://www.youtube.com/embed/ywcvh7ZLRWM?si=RJDt9yIzWyYJG3Pj",
+        "image1": "parts/page10.1.jpeg",
+        "image2": "parts/page10.2.jpg",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 13,
+    "fields": {
+        "category": 5,
+        "vehicle_info": 5,
+        "name": "Радиатор охлаждения",
+        "name_ru": "Радиатор охлаждения",
+        "name_en": "Cooling radiator",
+        "name_ko": "냉각 라디에이터",
+        "description": "Радиатор для охлаждения антифриза, предотвращает перегрев двигателя. Замена требуется при утечках или повреждениях.",
+        "description_ru": "Радиатор для охлаждения антифриза, предотвращает перегрев двигателя. Замена требуется при утечках или повреждениях.",
+        "description_en": "Radiator for cooling antifreeze, prevents engine overheating. Replacement is required if leaks or damage occurs.",
+        "description_ko": "부동액 냉각용 라디에이터는 엔진 과열을 방지합니다. 누출이나 손상이 발생하면 교체가 필요합니다.",
+        "amount": 5,
+        "video_url": "https://www.youtube.com/embed/HonHTlZv6Qc?si=G-h6u_3N639VrXNE",
+        "image1": "parts/page13.1.jpg",
+        "image2": "parts/page13.2.jpg",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 14,
+    "fields": {
+        "category": 5,
+        "vehicle_info": 5,
+        "name": "Фара задняя (LED)",
+        "name_ru": "Фара задняя (LED)",
+        "name_en": "Rear light (LED)",
+        "name_ko": "후방 조명(LED)",
+        "description": "Задняя фара с LED-технологией для лучшего освещения и большей долговечности. Заменяется при повреждениях или тусклом свете.",
+        "description_ru": "Задняя фара с LED-технологией для лучшего освещения и большей долговечности. Заменяется при повреждениях или тусклом свете.",
+        "description_en": "Taillight with LED technology for better illumination and greater durability. Replaced if damaged or dim light.",
+        "description_ko": "LED 기술이 적용된 미등은 더 나은 조명과 더 뛰어난 내구성을 제공합니다. 손상되었거나 빛이 희미한 경우 교체됩니다.",
+        "amount": 4,
+        "video_url": "https://www.youtube.com/embed/0ops3S4Jjmc?si=PoQXDzz6gJArqveP",
+        "image1": "parts/page14.2.jpg",
+        "image2": "parts/page14.1.jpg",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 15,
+    "fields": {
+        "category": 5,
+        "vehicle_info": 5,
+        "name": "Катализатор",
+        "name_ru": "Катализатор",
+        "name_en": "Accelerant",
+        "name_ko": "촉매",
+        "description": "Катализатор, который очищает выхлопные газы от вредных веществ. Регулярная проверка и замена необходимы для соблюдения экологических стандартов.",
+        "description_ru": "Катализатор, который очищает выхлопные газы от вредных веществ. Регулярная проверка и замена необходимы для соблюдения экологических стандартов.",
+        "description_en": "An accelarator that cleans exhaust gases from harmful substances. Regular inspection and replacement are necessary to maintain environmental standards.",
+        "description_ko": "유해물질로부터 배기가스를 정화하는 촉매입니다. 환경기준을 유지하기 위해서는 정기적인 점검과 교체가 필요합니다.",
+        "amount": 6,
+        "video_url": "https://www.youtube.com/embed/4601xbjjw9E?si=xpgnh36c_EQNupAX",
+        "image1": "parts/page15.1.jpeg",
+        "image2": "parts/page15.2.jpg",
+        "image3": ""
+    }
+},
+{
+    "model": "part.part",
+    "pk": 16,
+    "fields": {
+        "category": 3,
+        "vehicle_info": 2,
+        "name": "Интеркулер",
+        "name_ru": "Интеркулер",
+        "name_en": "Intercooler",
+        "name_ko": "인터쿨러",
+        "description": "Устройство, охлаждающее воздух, поступающий в двигатель через турбину, для увеличения эффективности сгорания топлива",
+        "description_ru": "Устройство, охлаждающее воздух, поступающий в двигатель через турбину, для увеличения эффективности сгорания топлива",
+        "description_en": "A device that cools the air entering an engine through a turbine to increase fuel combustion efficiency",
+        "description_ko": "터빈을 통해 엔진으로 유입되는 공기를 냉각시켜 연료 연소 효율을 높이는 장치",
+        "amount": 3,
+        "video_url": "https://www.youtube.com/embed/r-FylNiJuIs?si=nNOI_8HhsYdL46SV",
+        "image1": "parts/page16.1.jpeg",
+        "image2": "parts/page16.2.jpg",
+        "image3": ""
+    }
+}
+]

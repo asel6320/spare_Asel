@@ -57,10 +57,12 @@ class Part(models.Model):
             ]
 
     def get_column_headers(self):
+        from django.utils.translation import gettext as _
+
         return [
-            'Запчасть',
-            'Марка',
-            'Навзание',
+            _('Запчасть'),
+            _('Марка'),
+            _('Название'),
         ]
 
     class Meta:

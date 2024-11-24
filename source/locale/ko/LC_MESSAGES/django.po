@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-18 01:38-0700\n"
+"POT-Creation-Date: 2024-11-21 15:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,139 +18,702 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: webapp/templates/base.html:22
-msgid "Web Title"
-msgstr "웹사이트"
+#: accounts/templates/change_password.html:5
+msgid "Изменение пароля"
+msgstr "비밀번호 변경"
 
-#: webapp/templates/base.html:32
-msgid "Avrora"
-msgstr "아브로라"
+#: accounts/templates/change_password.html:9
+#, fuzzy
+#| msgid "Применить фильтр"
+msgid "Сменить пароль"
+msgstr "비밀번호 변경"
 
-#: webapp/templates/base.html:33
-msgid "AVRORA"
-msgstr "아브로라"
-
-#: webapp/templates/base.html:37
-msgid "Toggle navigation"
-msgstr "Toggle navigation"
-
-#: webapp/templates/base.html:43
-msgid "Запчасти"
-msgstr "부품"
-
-#: webapp/templates/base.html:46
-msgid "О компании"
-msgstr "회사소개"
-
-#: webapp/templates/base.html:49
-msgid "Контакты"
-msgstr "연락처"
-
-#: webapp/templates/base.html:68
-msgid "English"
-msgstr "영어"
-
-#: webapp/templates/base.html:76
-msgid "РУ"
-msgstr "러시아어"
-
-#: webapp/templates/base.html:84
-msgid "한국어"
-msgstr "한국어"
-
-#: webapp/templates/base.html:92
-msgid "USD"
-msgstr "달러"
-
-#: webapp/templates/base.html:95
-msgid "KGZ"
-msgstr "솜"
-
-#: webapp/templates/base.html:96
-msgid "RUB"
-msgstr "루블"
-
-#: webapp/templates/base.html:97
-msgid "WON"
-msgstr "원"
-
-#: webapp/templates/base.html:108
-msgid "CRM"
-msgstr ""
-
-#: webapp/templates/base.html:109 webapp/templates/base.html:112
-msgid "Выйти"
-msgstr "로그아웃"
-
-#: webapp/templates/base.html:111
-msgid "Личный кабинет"
-msgstr "내 페이지"
-
-#: webapp/templates/base.html:115
+#: accounts/templates/login.html:92 accounts/templates/login.html:120
+#: part/templates/part/parts_main.html:123 webapp/templates/base.html:137
 msgid "Войти"
 msgstr "로그인"
 
-#: webapp/templates/base.html:116
-msgid "Зарегистрироваться"
-msgstr "등록"
+#: accounts/templates/login.html:97 accounts/templates/profile.html:51
+#: accounts/templates/register.html:46 contacts/templates/popup.html:19
+#: newsletter/templates/subcribe.html:15 newsletter/templates/subcribe.html:16
+msgid "Email"
+msgstr "이메일"
 
-#: webapp/templates/base.html:122
+#: accounts/templates/login.html:109 accounts/templates/register.html:56
+msgid "Пароль"
+msgstr "비밀번호"
+
+#: accounts/templates/login.html:124
+msgid "Нет аккаунта? Создать аккаунт"
+msgstr "계정이 없으신가요? 계정을 생성하세요"
+
+#: accounts/templates/profile.html:13
+msgid "Профиль пользователя"
+msgstr "사용자 프로필"
+
+#: accounts/templates/profile.html:18 contacts/templates/popup.html:13
+#: newsletter/templates/subcribe.html:12 newsletter/templates/subcribe.html:13
+msgid "Имя"
+msgstr "이름"
+
+#: accounts/templates/profile.html:21 accounts/templates/register.html:20
+msgid "Введите ваше имя"
+msgstr "이름을 입력하세요"
+
+#: accounts/templates/profile.html:29 accounts/templates/register.html:26
+#: contacts/templates/popup.html:16
+msgid "Фамилия"
+msgstr "성"
+
+#: accounts/templates/profile.html:32 accounts/templates/register.html:30
+msgid "Введите вашу фамилию"
+msgstr "성을 입력하세요"
+
+#: accounts/templates/profile.html:40
+msgid "Имя пользовател"
+msgstr "사용자 이름"
+
+#: accounts/templates/profile.html:43
+msgid "Введите ваше имя пользователя"
+msgstr "사용자 이름을 입력하세요"
+
+#: accounts/templates/profile.html:54
+msgid "Введите ваш email "
+msgstr "이메일을 입력하세요"
+
+#: accounts/templates/profile.html:62 accounts/templates/register.html:76
+#: accounts/templates/register.html:80 contacts/templates/popup.html:22
+msgid "Номер телефона"
+msgstr "전화번호"
+
+#: accounts/templates/profile.html:65
+#: orders/templates/includes/included_order_details.html:31
+msgid "Введите ваш номер телефона"
+msgstr "전화번호를 입력하세요"
+
+#: accounts/templates/profile.html:73
+msgid "Сохранить"
+msgstr "저장하기"
+
+#: accounts/templates/profile.html:81 accounts/templates/user_cart.html:12
+#: part/templates/part/partial/part_view_partial.html:87
 msgid "Корзина"
 msgstr "장바구니"
 
-#: webapp/templates/base.html:139
-msgid "© 2021 Автосалон 'ABC AUTO'. Официальный дилер"
-msgstr "© 2021 Auto Spare Parts. Official Dealer"
+#: accounts/templates/profile.html:93
+msgid "Мои заказы"
+msgstr "내 주문"
 
-#: webapp/templates/part/index.html:6
-msgid "Main"
+#: accounts/templates/profile.html:104
+msgid "Заказ №"
+msgstr "주문 №"
+
+#: accounts/templates/profile.html:104
+msgid "Статус:"
+msgstr "상태:"
+
+#: accounts/templates/profile.html:115
+msgid "Товар"
+msgstr "상품"
+
+#: accounts/templates/profile.html:116
+msgid "Количество"
+msgstr "수량"
+
+#: accounts/templates/profile.html:117
+#, fuzzy
+#| msgid "Цена:"
+msgid "Цена"
+msgstr "가격:"
+
+#: accounts/templates/profile.html:118
+#, fuzzy
+#| msgid "Качество и надежность"
+msgid "Общая стоимость"
+msgstr "총 비용"
+
+#: accounts/templates/register.html:11
+#, fuzzy
+#| msgid "Все страны"
+msgid "Регистрация"
+msgstr "회원가입"
+
+#: accounts/templates/register.html:36
+msgid "Имя пользователя"
+msgstr "사용자 이름"
+
+#: accounts/templates/register.html:40
+msgid "Введите ваше имя пользовател"
+msgstr "사용자 이름을 입력하세요"
+
+#: accounts/templates/register.html:50
+msgid "Введите ваш email"
+msgstr "이메일을 입력하세요"
+
+#: accounts/templates/register.html:60
+msgid "Введите пароль"
+msgstr "비밀번호를 입력하세요"
+
+#: accounts/templates/register.html:66
+#, fuzzy
+#| msgid "Последние новости"
+msgid "Подтверждение пароля"
+msgstr "비밀번호 확인"
+
+#: accounts/templates/register.html:70
+msgid "Подтвердите пароль"
+msgstr "비밀번호를 확인하세요"
+
+#: accounts/templates/register.html:87 part/templates/part/parts_main.html:125
+#: webapp/templates/base.html:139
+msgid "Зарегистрироваться"
+msgstr "회원가입"
+
+#: admin_panel/templates/admin/set_new_price.html:6
+msgid "Массовая смена цен"
+msgstr "대량 가격 변경"
+
+#: carts/templates/cart/includes/included_cart.html:55
+msgid "Итого"
+msgstr "합계"
+
+#: carts/templates/cart/includes/included_cart.html:55
+msgid "запчасти(ей) на сумму"
+msgstr "부품 합계"
+
+#: carts/templates/cart/includes/included_cart.html:61
+#: orders/templates/includes/included_order_details.html:93
+msgid "Оформить заказ"
+msgstr "주문하기"
+
+#: contacts/templates/popup.html:7
+msgid "Не нашли то, что искали? Сообщите нам!"
+msgstr "원하는 것을 찾지 못하셨나요? 저희에게 알려주세요!"
+
+#: contacts/templates/popup.html:12
+#: orders/templates/includes/included_order_details.html:11
+msgid "Имя:"
+msgstr "이름:"
+
+#: contacts/templates/popup.html:15
+#: orders/templates/includes/included_order_details.html:20
+msgid "Фамилия:"
+msgstr "성:"
+
+#: contacts/templates/popup.html:18
+#: orders/templates/includes/included_order_details.html:42
+msgid "Email:"
+msgstr "이메일"
+
+#: contacts/templates/popup.html:21
+#: orders/templates/includes/included_order_details.html:29
+msgid "Номер телефона:"
+msgstr "전화번호:"
+
+#: contacts/templates/popup.html:24
+#, fuzzy
+#| msgid "Документ"
+msgid "Комментарий:"
+msgstr "댓글:"
+
+#: contacts/templates/popup.html:25
+#, fuzzy
+#| msgid "Документ"
+msgid "Комментарий"
+msgstr "댓글:"
+
+#: contacts/templates/popup.html:27
+msgid "Связаться"
+msgstr "문의하기"
+
+#: favorite/templates/favorites.html:12
+#, fuzzy
+#| msgid "Каталог товаров"
+msgid "Избранные товары"
+msgstr "즐겨찾는 상품"
+
+#: favorite/templates/favorites.html:36
+msgid "Цена не указана"
+msgstr "가격 미정"
+
+#: favorite/templates/favorites.html:62
+msgid "Список избранных товаров пуст"
+msgstr "즐겨찾는 상품 목록이 비어 있습니다."
+
+#: newsletter/templates/subcribe.html:6
+msgid "Подпишитесь на рассылку новостей"
+msgstr "뉴스레터를 구독하세요"
+
+#: newsletter/templates/subcribe.html:7
+msgid ""
+"Хотите первыми читать наши новости? Подпишитесь на рассылку, чтобы быть в "
+"курсе всех событий."
+msgstr ""
+"최신 뉴스를 가장 먼저 보고 싶으신가요? 뉴스레터를 구독하여 모든 소식을 놓치"
+"지 마세요."
+
+#: newsletter/templates/subcribe.html:18
+#, fuzzy
+#| msgid "Зарегистрироваться"
+msgid "Подписаться"
+msgstr "구독하기"
+
+#: orders/templates/includes/included_order_details.html:4
+msgid "Детали заказа"
+msgstr "주문 세부 사항"
+
+#: orders/templates/includes/included_order_details.html:38
+msgid "Неверный формат номера"
+msgstr "잘못된 전화번호 형식"
+
+#: orders/templates/includes/included_order_details.html:45
+msgid "Ваш email"
+msgstr "이메일 주소"
+
+#: orders/templates/includes/included_order_details.html:53
+msgid "Способ доставки:"
+msgstr "배송 방법:"
+
+#: orders/templates/includes/included_order_details.html:57
+msgid "Нужна доставка"
+msgstr "배송 필요"
+
+#: orders/templates/includes/included_order_details.html:62
+msgid "Самовывоз"
+msgstr "직접 수령"
+
+#: orders/templates/includes/included_order_details.html:66
+msgid "Адрес доставки*:"
+msgstr "배송 주소* :"
+
+#: orders/templates/includes/included_order_details.html:77
+msgid "Способ оплаты:"
+msgstr "결제 방법:"
+
+#: orders/templates/includes/included_order_details.html:81
+msgid "Оплата картой"
+msgstr "카드 결제"
+
+#: orders/templates/includes/included_order_details.html:86
+msgid "Наличными/картой при получении"
+msgstr "현금/카드 결제 (배송 시)"
+
+#: orders/templates/making_order.html:9
+#, fuzzy
+#| msgid "Каталог товаров"
+msgid "Выбранные товары"
+msgstr "부품 카탈로그"
+
+#: part/models.py:63
+#, fuzzy
+#| msgid "Запчасти"
+msgid "Запчасть"
+msgstr "부품"
+
+#: part/models.py:64
+msgid "Марка"
+msgstr "브렌드"
+
+#: part/models.py:65
+msgid "Название"
+msgstr "제목"
+
+#: part/templates/part/partial/part_view_partial.html:65
+msgid "Модель"
+msgstr "자동차 모델"
+
+#: part/templates/part/partial/part_view_partial.html:76
+#: part/templates/part/parts_detail.html:24
+#: part/templates/part/parts_detail.html:173
+msgid "сом"
+msgstr "솜"
+
+#: part/templates/part/partial/part_view_partial.html:82
+#, fuzzy
+#| msgid "Отзывы"
+msgid "отзывов"
+msgstr "리뷰"
+
+#: part/templates/part/parts_detail.html:20
+msgid "Категория:"
+msgstr "카테고리:"
+
+#: part/templates/part/parts_detail.html:23
+msgid "Цена:"
+msgstr "가격:"
+
+#: part/templates/part/parts_detail.html:27
+msgid "Модель:"
+msgstr "자동차 모델"
+
+#: part/templates/part/parts_detail.html:28
+msgid "Мощность:"
+msgstr "힘:"
+
+#: part/templates/part/parts_detail.html:28
+msgid "л.с."
 msgstr ""
 
-#: webapp/templates/part/index.html:17
+#: part/templates/part/parts_detail.html:29
+msgid "Описание:"
+msgstr "설명:"
+
+#: part/templates/part/parts_detail.html:41
+msgid "Ссылка успешно скопирована!"
+msgstr "링크가 복사되었습니다!"
+
+#: part/templates/part/parts_detail.html:47
+#: part/templates/part/parts_detail.html:181
+msgid "Catalog Icon"
+msgstr ""
+
+#: part/templates/part/parts_detail.html:58
+#, fuzzy
+#| msgid "Продажа автозапчастей"
+msgid "Видеообзор запчасти"
+msgstr "자동차 부품의 비디오"
+
+#: part/templates/part/parts_detail.html:67
+msgid "Видео отсутствует для этой запчасти"
+msgstr "비디오가 없습니다"
+
+#: part/templates/part/parts_detail.html:75
+msgid "Документ"
+msgstr "서류"
+
+#: part/templates/part/parts_detail.html:86
+#, fuzzy
+#| msgid "Продажа автозапчастей"
+msgid "Документов к этой запчасти нет!"
+msgstr "서류가 없습니다"
+
+#: part/templates/part/parts_detail.html:95
+msgid "Отзывы"
+msgstr "리뷰"
+
+#: part/templates/part/parts_detail.html:99
+msgid "Показать отзывы"
+msgstr "리뷰 보여주기"
+
+#: part/templates/part/parts_detail.html:116
+msgid "Отзывов пока нет. Будьте первым, кто оставит отзыв!"
+msgstr "리뷰 지금 없습니다. 리뷰를 남기실겁니까!"
+
+#: part/templates/part/parts_detail.html:122
+msgid "Оставить отзыв"
+msgstr "리뷰 남기기"
+
+#: part/templates/part/parts_detail.html:132
+msgid "Отправить"
+msgstr "보내기"
+
+#: part/templates/part/parts_detail.html:137
+msgid "Для добавления отзыва необходимо"
+msgstr "리뷰를 남기려면 다음을 수행해야 합니다"
+
+#: part/templates/part/parts_detail.html:137
+#, fuzzy
+#| msgid "Войти"
+msgid "войти"
+msgstr "로그인"
+
+#: part/templates/part/parts_detail.html:146
+#, fuzzy
+#| msgid "Запчасти"
+msgid "Еще запчасти:"
+msgstr "더 부품"
+
+#: part/templates/part/parts_detail.html:183
+msgid "В корзину"
+msgstr "장바구니에 추가"
+
+#: part/templates/part/parts_detail.html:190
+msgid "Похожие запчасти не найдены."
+msgstr "검색하신 부품이 없습니다"
+
+#: part/templates/part/parts_main.html:38 webapp/templates/base.html:52
+msgid "Запчасти"
+msgstr "부품"
+
+#: part/templates/part/parts_main.html:42 webapp/templates/base.html:56
+msgid "О компании"
+msgstr "회사소개"
+
+#: part/templates/part/parts_main.html:63 webapp/templates/base.html:77
+msgid "English"
+msgstr "영어"
+
+#: part/templates/part/parts_main.html:71 webapp/templates/base.html:85
+msgid "РУ"
+msgstr "러시아어"
+
+#: part/templates/part/parts_main.html:79 webapp/templates/base.html:93
+msgid "한국어"
+msgstr "한국어"
+
+#: part/templates/part/parts_main.html:110 webapp/templates/base.html:124
+msgid "Админ-панель"
+msgstr "메인 관리자 패널"
+
+#: part/templates/part/parts_main.html:111 webapp/templates/base.html:125
+msgid "CRM"
+msgstr "CRM"
+
+#: part/templates/part/parts_main.html:114
+#: part/templates/part/parts_main.html:119 webapp/templates/base.html:128
+#: webapp/templates/base.html:133
+msgid "Выйти"
+msgstr "로그아웃"
+
+#: part/templates/part/parts_main.html:117 webapp/templates/base.html:131
+msgid "Личный кабинет"
+msgstr "내 페이지"
+
+#: part/templates/part/parts_main.html:151
+msgid "Фильтр"
+msgstr "필터"
+
+#: part/templates/part/parts_main.html:154
+msgid "Страна производства"
+msgstr "부품의 원산지"
+
+#: part/templates/part/parts_main.html:156
+msgid "Все страны"
+msgstr "모든 원산지"
+
+#: part/templates/part/parts_main.html:165
+msgid "По марке машины"
+msgstr "자동차 브렌드로 검색하기"
+
+#: part/templates/part/parts_main.html:167
+msgid "Все марки"
+msgstr "모든 브렌드"
+
+#: part/templates/part/parts_main.html:176
+msgid "По категории детали"
+msgstr "부품의 카테고리로 검색하기"
+
+#: part/templates/part/parts_main.html:178
+msgid "Все категории"
+msgstr "모든 카테고리"
+
+#: part/templates/part/parts_main.html:187
+msgid "По модели машины"
+msgstr "자동차 브렌드로 검색하기"
+
+#: part/templates/part/parts_main.html:189
+msgid "Все модели"
+msgstr "모든 브렌드"
+
+#: part/templates/part/parts_main.html:198
+msgid "По цене"
+msgstr "가격으로"
+
+#: part/templates/part/parts_main.html:199
+msgid "Мин. цена"
+msgstr "낮 가격"
+
+#: part/templates/part/parts_main.html:201
+msgid "Макс. цена"
+msgstr "높 가격"
+
+#: part/templates/part/parts_main.html:205
+#, fuzzy
+#| msgid "Зарегистрироваться"
+msgid "Сортировать:"
+msgstr "필터"
+
+#: part/templates/part/parts_main.html:211
+msgid "По умолчанию"
+msgstr "기본"
+
+#: part/templates/part/parts_main.html:219
+msgid "От дешевых к дорогим"
+msgstr "저렴한 것부터 비싼 것까지"
+
+#: part/templates/part/parts_main.html:227
+msgid "От дорогих к дешевым"
+msgstr "비싼 것부터 싼 것까지"
+
+#: part/templates/part/parts_main.html:231
+msgid "Применить фильтр"
+msgstr "필터 적용"
+
+#: part/templates/part/parts_main.html:245
+#, fuzzy
+#| msgid "Продажа автозапчастей"
+msgid "Не найдено запчастей"
+msgstr "그런 부품 없습니다"
+
+#: webapp/templates/about_us.html:14
+msgid "О нас"
+msgstr "회사소개"
+
+#: webapp/templates/about_us.html:15
+msgid ""
+"Общество с ограниченной ответственностью «Аполлон» – это надёжный поставщик "
+"автозапчастей для автомобилей и мотоциклов, успешно работающий на территории "
+"Кыргызской Республики. Наша компания, расположенная в городе Бишкек по "
+"адресу: ул. Тыныбекова, д. 62, предлагает широкий ассортимент качественных "
+"автозапчастей от проверенных производителей. Мы гордимся тем, что "
+"предоставляем клиентам продукцию, соответствующую высоким стандартам "
+"качества, что обеспечивает надёжность и долговечность вашего транспорта."
+msgstr ""
+"‘아폴론’ 유한책임회사는 키르기스스탄에서 성공적으로 운영되는 신뢰할 수 있는 "
+"자동차 및 오토바이 부품 공급업체입니다. 저희 회사는 빅시켙에 위치하고 있으며 "
+"주소는: Tynibekov 거리 62번지입니다. 저희는 검증된 제조업체의 고품질 자동차 "
+"부품을 다양하게 제공합니다. 우리는 고객에게 높은 품질 기준을 충족하는 제품을 "
+"제공하는 것을 자랑스럽게 생각하며, 이는 귀하의 차량의 신뢰성과 내구성을 보장"
+"합니다."
+
+#: webapp/templates/about_us.html:27
+msgid "Наша миссия"
+msgstr "우리 미션"
+
+#: webapp/templates/about_us.html:28
+msgid ""
+"Мы стремимся к максимальному удобству и удовлетворению потребностей наших "
+"клиентов. В компании «Аполлон» вас ждёт высокий уровень обслуживания, "
+"профессиональная помощь в подборе запчастей и индивидуальный подход. Вы "
+"можете связаться с нами по телефону: +996 555 00 35 39 (отдел продаж) или "
+"+996 777 07 66 92 (финансовый отдел). Также вы можете отправить запрос на "
+"электронную почту: oooapollon@yandex.ru. ООО «Аполлон» готово стать вашим "
+"надёжным партнёром для обеспечения качественного обслуживания вашего "
+"автомобиля или мотоцикла."
+msgstr ""
+"저희는 고객의 편리함과 요구를 최대한 충족시키기 위해 노력합니다. ‘아폴론’ 회"
+"사에서는 높은 수준의 서비스와 부품 선택에 대한 전문적인 도움, 그리고 개인 맞"
+"춤형 접근 방식을 제공합니다. 저희에게 연락하려면 다음 전화번호로 연락하실 수 "
+"있습니다: +996 555 00 35 39 (영업 부서) 또는 +996 777 07 66 92 (재무 부서). "
+"또한, 이메일을 통해 문의하실 수 있습니다: oooapollon@yandex.ru. ‘아폴론’ 유한"
+"책임회사는 귀하의 자동차 또는 오토바이에 대한 품질 있는 서비스를 제공하는 신"
+"뢰할 수 있는 파트너가 되겠습니다."
+
+#: webapp/templates/about_us.html:33
+msgid "Поставляем комплектующие от таких автопроизводителей как:"
+msgstr "우리 회사에 있는 부품들"
+
+#: webapp/templates/about_us.html:37 webapp/templates/about_us.html:40
+#: webapp/templates/about_us.html:43 webapp/templates/about_us.html:46
+#: webapp/templates/about_us.html:49 webapp/templates/about_us.html:52
+#: webapp/templates/about_us.html:55 webapp/templates/about_us.html:58
+msgid "Mercedes"
+msgstr ""
+
+#: webapp/templates/base.html:43
+msgid "Avrora"
+msgstr "아브로라"
+
+#: webapp/templates/base.html:164
+msgid "Контакты"
+msgstr "연락처"
+
+#: webapp/templates/base.html:168
+msgid "Бишкек, Малдыбаева"
+msgstr "비슈케크, 트느베커와"
+
+#: webapp/templates/base.html:173
+msgid "Полезные ссылки"
+msgstr "유용한 링크"
+
+#: webapp/templates/base.html:175
+msgid "Договор оферты"
+msgstr "제안 계약서"
+
+#: webapp/templates/base.html:180
+msgid "Мы в социальных сетях"
+msgstr "소셜 미디어에서 우리를 찾아 보세요"
+
+#: webapp/templates/index.html:17
 msgid "Продажа автозапчастей"
 msgstr "자동차 부품 판매"
 
-#: webapp/templates/part/index.html:18
+#: webapp/templates/index.html:18
 msgid "Лучшие решения для вашего автомобиля"
 msgstr "당신의 자동차 위한 최고의 솔루션"
 
-#: webapp/templates/part/index.html:23
+#: webapp/templates/index.html:23
 msgid "Качество и надежность"
 msgstr "품질과 신뢰성"
 
-#: webapp/templates/part/index.html:24
+#: webapp/templates/index.html:24
 msgid "Индивидуальные решения для ваших нужд"
 msgstr "당신의 요구에 맞는 맞춤형 솔루션"
 
-#: webapp/templates/part/index.html:29
+#: webapp/templates/index.html:29
 msgid "Инновационные подходы"
 msgstr "혁신적인 접근 방식"
 
-#: webapp/templates/part/index.html:30
+#: webapp/templates/index.html:30
 msgid "Повышение эффективности вашего автомобиля"
 msgstr "자동차의 효율성 향상"
 
-#: webapp/templates/part/index.html:48
+#: webapp/templates/index.html:48
 msgid "Каталог товаров"
 msgstr "제품 카탈로그"
 
-#: webapp/templates/part/index.html:67
+#: webapp/templates/index.html:65
+msgid "Последние новости"
+msgstr "소식"
+
+#: webapp/templates/index.html:74
 msgid "Наши партнеры"
 msgstr "우리 파트너"
 
-#: webapp/templates/part/index.html:100
-#, python-format
-msgid "Скидка 10% на первый заказ"
-msgstr "첫 주문 시 10% 할인"
+#: webapp/templates/news/latest_news.html:14
+#: webapp/templates/news/news_list.html:18
+msgid "Читать далее"
+msgstr "읽기"
 
-#: webapp/templates/part/index.html:101
-msgid "Используйте код"
-msgstr "코드를 사용하세요"
+#: webapp/templates/news/latest_news.html:18
+#, fuzzy
+#| msgid "Похожие запчасти не найдены."
+msgid "Новости не найдены"
+msgstr "검색하신 부품이 없습니다"
 
-#: webapp/templates/part/index.html:101
-msgid "WELCOME10"
-msgstr ""
+#: webapp/templates/news/latest_news.html:23
+#, fuzzy
+#| msgid "Последние новости"
+msgid "Посмотреть все новости"
+msgstr "소식"
 
-#: webapp/templates/part/index.html:102
-msgid "Получить скидку"
-msgstr "할인 받기"
+#: webapp/templates/news/news_detail.html:11
+msgid "Опубликовано"
+msgstr "등록됨"
+
+#: webapp/templates/news/news_detail.html:12
+msgid "Вернуться ко всем новостям"
+msgstr "모든 뉴스를 보기"
+
+#: webapp/templates/news/news_detail.html:13
+msgid "На главную"
+msgstr "메인으로"
+
+#: webapp/templates/partial/related_part_review_partial.html:33
+#: webapp/templates/partial/review_partial.html:34
+#, fuzzy
+#| msgid "Отзывы"
+msgid "Еще отзывы"
+msgstr "리뷰"
+
+#: webapp/templates/partial/search_form.html:8
+msgid "Поиск"
+msgstr "검색"
+
+#: webapp/templates/review/create_review.html:8
+#, fuzzy
+#| msgid "Показать отзывы"
+msgid "Создание отзыва"
+msgstr "리뷰 보여주기"
+
+#~ msgid "© 2021 Автосалон 'ABC AUTO'. Официальный дилер"
+#~ msgstr "© 2021 Auto Spare Parts. Official Dealer"
+
+#~ msgid "AVRORA"
+#~ msgstr "아브로라"
+
+#~ msgid "Web Title"
+#~ msgstr "웹 제목"
+
+#~ msgid "Main"
+#~ msgstr "메인"

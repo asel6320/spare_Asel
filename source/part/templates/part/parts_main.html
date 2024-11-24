@@ -24,11 +24,10 @@
     <header class="header">
         <nav class="navbar navbar-expand-lg py-3">
             <div class="container d-flex justify-content-between align-items-center">
-
                 <div class="logo-custom">
                     <a class="navbar-brand d-flex align-items-center" href="{% url "part:parts_list" %}">
-                        <img src="{% static 'images/logo.png' %}" alt="{% trans "Avrora" %}" class="logo-img">
-                        <span>{% trans "AVRORA" %}</span>
+                        <img src="{% static 'images/logo.svg' %}" alt="Apollo" class="logo-img">
+                        <span>Apollon</span>
                     </a>
                 </div>
 
@@ -149,12 +148,12 @@
             </div>
 
             <div id="filterCollapse" class="collapse fixed-filter d-lg-block col-lg-3">
-                <h5 class="h-filter">Фильтр</h5>
+                <h5 class="h-filter">{% trans "Фильтр" %}</h5>
                 <form method="get" action="{% url 'part:parts_main' %}">
                     <div class="mb-3">
-                        <label class="form-label">Страна производства</label>
+                        <label class="form-label">{% trans "Страна производства" %}</label>
                         <select name="country" class="form-select">
-                            <option value="">Все страны</option>
+                            <option value="">{% trans "Все страны" %}</option>
                             {% for country in countries %}
                                 <option value="{{ country.pk }}"
                                         {% if request.GET.country == country.pk|stringformat:"s" %}selected{% endif %}>{{ country.name }}</option>
@@ -163,9 +162,9 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">По марке машины</label>
+                        <label class="form-label">{% trans "По марке машины" %}</label>
                         <select name="brand" class="form-select">
-                            <option value="">Все марки</option>
+                            <option value="">{% trans "Все марки" %}</option>
                             {% for brand in brands %}
                                 <option value="{{ brand.pk }}"
                                         {% if request.GET.brand == brand.pk|stringformat:"s" %}selected{% endif %}>{{ brand.name }}</option>
@@ -174,9 +173,9 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">По категории детали</label>
+                        <label class="form-label">{% trans "По категории детали" %}</label>
                         <select name="category" class="form-select">
-                            <option value="">Все категории</option>
+                            <option value="">{% trans "Все категории" %}</option>
                             {% for category in categories %}
                                 <option value="{{ category.pk }}"
                                         {% if request.GET.category == category.pk|stringformat:"s" %}selected{% endif %}>{{ category.name }}</option>
@@ -185,9 +184,9 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">По модели машины</label>
+                        <label class="form-label">{% trans "По модели машины" %}</label>
                         <select name="model" class="form-select">
-                            <option value="">Все модели</option>
+                            <option value="">{% trans "Все модели" %}</option>
                             {% for model in models %}
                                 <option value="{{ model.pk }}"
                                         {% if request.GET.model == model.pk|stringformat:"s" %}selected{% endif %}>{{ model.name }}</option>
@@ -195,22 +194,21 @@
                         </select>
                     </div>
 
-
                     <div class="mb-3">
-                        <label class="form-label">По цене</label>
-                        <input type="number" name="min_price" placeholder="Мин. цена" class="form-control mb-2"
+                        <label class="form-label">{% trans "По цене" %}</label>
+                        <input type="number" name="min_price" placeholder="{% trans 'Мин. цена' %}" class="form-control mb-2"
                                value="{{ min_price }}">
-                        <input type="number" name="max_price" placeholder="Макс. цена" class="form-control"
+                        <input type="number" name="max_price" placeholder="{% trans 'Макс. цена' %}" class="form-control"
                                value="{{ max_price }}">
                     </div>
 
-                    <p>Сортировать:</p>
+                    <p>{% trans "Сортировать:" %}</p>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault1"
                                value="default"
                                {% if not request.GET.order_by or request.GET.order_by == 'default' %}checked{% endif %}>
                         <label class="form-check-label" for="flexRadioDefault1">
-                            По умолчанию
+                            {% trans "По умолчанию" %}
                         </label>
                     </div>
                     <div class="form-check">
@@ -218,7 +216,7 @@
                                value="price"
                                {% if request.GET.order_by == 'price' %}checked{% endif %}>
                         <label class="form-check-label" for="flexRadioDefault2">
-                            От дешевых к дорогим
+                            {% trans "От дешевых к дорогим" %}
                         </label>
                     </div>
                     <div class="form-check">
@@ -226,14 +224,13 @@
                                value="-price"
                                {% if request.GET.order_by == '-price' %}checked{% endif %}>
                         <label class="form-check-label" for="flexRadioDefault3">
-                            От дорогих к дешевым
+                            {% trans "От дорогих к дешевым" %}
                         </label>
                     </div>
 
-                    <button type="submit" class="submit-filter w-100 mt-3">Применить фильтр</button>
+                    <button type="submit" class="submit-filter w-100 mt-3">{% trans "Применить фильтр" %}</button>
                 </form>
             </div>
-
 
             <!-- Список запчастей -->
             <div class="col-lg-9">
@@ -245,7 +242,7 @@
 
                         </div>
                         {% empty %}
-                        <p>Не найдено запчастей</p>
+                        <p>{% trans 'Не найдено запчастей' %}</p>
                     {% endfor %}
                     {% if is_paginated %}
                         {% include 'partial/pagination.html' %}

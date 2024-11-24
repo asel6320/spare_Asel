@@ -1,7 +1,8 @@
 {% load static %}
 {% load humanize %}
+{% load i18n %}
 
-<div class="card product-card h-100 bg-body d-flex">
+<div class="card product-card h-100 bg-body d-flex border-0">
     <div class="position-relative partCarousel">
         <div id="partCarousel{{ part.pk }}" class="carousel slide" data-bs-interval="false">
             <div class="carousel-inner">
@@ -28,14 +29,14 @@
 
             <div class="part carousel-indicators position-absolute">
                 <button type="button" data-bs-target="#partCarousel{{ part.pk }}" data-bs-slide-to="0" class="active"
-                        aria-current="true" style="background-color: #c98d48;"></button>
+                        aria-current="true" style="background-color: #f24421;"></button>
                 {% if part.image2 %}
                     <button type="button" data-bs-target="#partCarousel{{ part.pk }}" data-bs-slide-to="1"
-                            style="background-color: #c98d48;"></button>
+                            style="background-color: #f24421;"></button>
                 {% endif %}
                 {% if part.image3 %}
                     <button type="button" data-bs-target="#partCarousel{{ part.pk }}" data-bs-slide-to="2"
-                            style="background-color: #c98d48;"></button>
+                            style="background-color: #f24421;"></button>
                 {% endif %}
             </div>
         </div>
@@ -61,7 +62,7 @@
             <a href="{% url 'part:part_detail' part.pk %}"
                class="text-dark text-decoration-none hover-red">{{ part.name }}</a>
         </h4>
-        <p>Модель: <span class="fw-bold">{{ part.vehicle_info.model }}</span></p>
+        <p>{% trans 'Модель' %}: <span class="fw-bold">{{ part.vehicle_info.model }}</span></p>
 
         {% block content %}
         {% endblock %}
@@ -72,18 +73,18 @@
                     <del>{{ part.previous_price|intcomma }} руб</del>
                 {% endif %}
                 {% if part.current_price %}
-                    <span class="fw-bold text-danger">{{ part.current_price|intcomma }} сом</span>
+                    <span class="fw-bold text-danger">{{ part.current_price|intcomma }} {% trans 'сом' %}</span>
                 {% endif %}
             </p>
         {% endif %}
 
         <div class="mt-auto d-flex justify-content-end pt-2">
-            <span class="text-secondary fw-bold me-auto">{{ part.reviews.count }} отзывов</span>
+            <span class="text-secondary fw-bold me-auto">{{ part.reviews.count }} {% trans 'отзывов' %}</span>
               <div class="card-overlay">
                     <div class="hover-buttons">
                         <a href="{% url 'cart:cart_add' %}" class="add-to-cart" data-part-id="{{ part.id }}">
                             <i class="bi bi-cart"></i>
-                            Корзина
+                            {% trans 'Корзина' %}
                         </a>
                     </div>
                 </div>

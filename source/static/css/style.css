@@ -17,9 +17,14 @@ body {
     overflow-x: hidden;
 }
 
+.navbar {
+    background: url("/static/images/pattern.png") 100% 0;
+    background-size: cover;
+}
+
 .nav-link {
     color: #736c80;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     transition: color 0.3s ease-in-out;
 }
@@ -39,19 +44,15 @@ body {
 }
 
 .custom-cart-btn:hover, .custom-fav-btn:hover {
-    background-color: #c98d48;
+    background-color: #f24421;
     transform: scale(1.05);
 }
 
 .navbar-brand {
-    font-size: 20px;
-    color: #736c80;
+    font-size: 21px;
+    color: #f24421;
     font-weight: bold;
     text-transform: uppercase;
-}
-
-.navbar-brand:hover {
-    color: #f24421;
 }
 
 .logo-img {
@@ -137,7 +138,7 @@ body {
 
 .pagination .page-link {
     font-size: 10px;
-    color: #000;
+    color: #736c80;
     background-color: #f8f9fa;
     border: 1px solid #dee2e6;
     padding: 5px 10px;
@@ -145,16 +146,14 @@ body {
 
 .pagination .page-link:hover {
     color: #fff;
-    background-color: #000;
-    border-color: #000;
+    background-color: #736c80;
 }
 
 .pagination .page-item.active .page-link {
     color: #fff;
-    background-color: #000;
-    border-color: #000;
+    background-color: #736c80;
+    border-color: #736c80;
 }
-
 
 .about-us-row {
     display: flex;
@@ -246,7 +245,7 @@ body {
     width: 8px;
     height: 8px;
     border-radius: 100%;
-    border: 1px solid #c98d48;
+    border: 1px solid #f24421;
 }
 
 .carousel-item {
@@ -264,12 +263,12 @@ body {
     transition: transform 0.2s;
     position: relative;
     overflow: hidden;
-    border: 1px solid #c98d48;
 }
 
 .card:hover {
+    border: 1px solid #f24421;
     transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .card-overlay {
@@ -278,7 +277,7 @@ body {
     left: 0;
     width: 100%;
     height: 25%;
-    background-color: rgba(201, 141, 72, 0.8);
+    background-color: rgba(242, 68, 33, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -288,6 +287,7 @@ body {
 }
 
 .card:hover .card-overlay {
+    border-top: 1px solid #f24421;
     opacity: 1;
 }
 
@@ -298,8 +298,8 @@ body {
 
 .hover-buttons a {
     background-color: #ffffff;
-    color: #c98d48;
-    border: 2px solid #c98d48;
+    color: #f24421;
+    border: 1px solid #f24421;
     padding: 10px 15px;
     border-radius: 8px;
     text-decoration: none;
@@ -309,7 +309,7 @@ body {
 }
 
 .hover-buttons a:hover {
-    background-color: #c98d48;
+    background-color: #f24421;
     color: white;
     transform: scale(1.1);
 }
@@ -370,8 +370,8 @@ body {
 
 .alert-success {
     background-color: #e6ffed;
-    color: #256029;
-    border-color: #a0e9af;
+    color: #c98d48;
+    border-color: #c98d48;
 }
 
 .alert-info {
@@ -599,24 +599,24 @@ body {
 }
 
 .add-to-favorite i {
-    font-size: 24px; /* Adjust size as needed */
+    font-size: 24px;
     transition: color 0.3s ease, border 0.3s ease;
-    border: 2px solid transparent; /* Default border is transparent */
-    border-radius: 30%; /* Makes the border circular */
+    border: 2px solid transparent;
+    border-radius: 30%;
     padding: 5px;
 }
 
 .custom-icon {
-    background-color: transparent; /* No background */
-    border: none; /* Remove border */
-    color: #c98d48; /* Brown color for the icons */
-    font-size: 1.5rem; /* Adjust size if needed */
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    color: #fff;
+    background-color: rgba(242, 68, 33, 0.5);
+    border: 1px solid #fff;
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .custom-icon:hover {
-    color: #a26e3b; /* Darker brown for hover effect */
-    transform: scale(1.2); /* Slightly enlarge the icon on hover */
+    color: #f24421;
+    transform: scale(1.2);
 }
 
 .custom-icon i {
@@ -646,4 +646,23 @@ header {
     z-index: 1000;
     background-color: #fff;
     box-shadow: 0 4px 2px -2px gray;
+}
+
+.company-policy .single-policy {
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+}
+
+.company-policy .policy-icon img {
+    background-color: rgba(242, 68, 33, 0.5);
+    border: 1px solid #f24421;
+    border-radius: 50%;
+    padding: 15px;
+}
+
+.company-policy .policy-desc h3 {
+    color: #736380;
+    font-size: 21px;
+    margin-top: 10px;
 }

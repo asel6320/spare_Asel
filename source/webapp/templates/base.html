@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="{% static 'css/share.css' %}">
 
     {% block title %}
-        <title>{% trans "Web Title" %}</title>
+        <title>Web Title</title>
     {% endblock %}
 </head>
 <body>
@@ -40,8 +40,8 @@
 
                 <div class="logo-custom">
                     <a class="navbar-brand d-flex align-items-center" href="{% url "part:parts_list" %}">
-                        <img src="{% static 'images/logo.png' %}" alt="{% trans "Avrora" %}" class="logo-img">
-                        <span>{% trans "AVRORA" %}</span>
+                        <img src="{% static 'images/logo.svg' %}" alt="{% trans "Apollon" %}" class="logo-img">
+                        <span>APOLLON</span>
                     </a>
                 </div>
 
@@ -167,7 +167,7 @@
                     <div class="contact-info">
                         <p class="email"><a href="mailto:info@abc-auto.com" class="text-light">info@abc-auto.com</a></p>
                         <p class="phone"><a href="tel:+996555003539" class="text-light">+996 (555) 003 539</a></p>
-                        <p class="address">Бишкек, Малдыбаева 7/1</p>
+                        <p class="address">{% trans 'Бишкек, Малдыбаева' %}7/1</p>
                     </div>
                 </div>
 
@@ -192,10 +192,6 @@
                         </a>
                     </div>
                 </div>
-            </div>
-
-            <div class="text-center mt-1">
-                <p class="footer-text">{% trans "© 2021 Автосалон 'ABC AUTO'. Официальный дилер" %}</p>
             </div>
         </div>
     </footer>

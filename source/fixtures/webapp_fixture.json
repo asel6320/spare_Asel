@@ -1,0 +1,590 @@
+[
+{
+    "model": "webapp.carbrand",
+    "pk": 1,
+    "fields": {
+        "name": "BMW",
+        "name_ru": "BMW",
+        "name_en": "BMW",
+        "name_ko": "BMW",
+        "description": "Немецкий производитель автомобилей, мотоциклов, двигателей, а также велосипедов.",
+        "description_ru": "Немецкий производитель автомобилей, мотоциклов, двигателей, а также велосипедов.",
+        "description_en": "German manufacturer of cars, motorcycles, engines, and bicycles.",
+        "description_ko": "독일의 자동차, 오토바이, 엔진, 자전거 제조업체."
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 2,
+    "fields": {
+        "name": "Mercedes-Benz",
+        "name_ru": "Mercedes-Benz",
+        "name_en": "Mercedes-Benz",
+        "name_ko": "Mercedes-Benz",
+        "description": "Известна своей роскошью, инновациями и качеством сборки. Продукция варьируется от элегантных седанов до мощных внедорожников и спортивных автомобилей.",
+        "description_ru": "Известна своей роскошью, инновациями и качеством сборки. Продукция варьируется от элегантных седанов до мощных внедорожников и спортивных автомобилей.",
+        "description_en": "Known for its luxury, innovation and build quality. Products range from elegant sedans to powerful SUVs and sports cars.",
+        "description_ko": "고급스러움, 혁신, 제작 품질로 유명합니다. 제품은 우아한 세단부터 강력한 SUV, 스포츠카까지 다양합니다."
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 3,
+    "fields": {
+        "name": "Toyota",
+        "name_ru": "Toyota",
+        "name_en": "Toyota",
+        "name_ko": "Toyota",
+        "description": "Надежный японский бренд, специализирующийся на экономичных, долговечных и экологичных автомобилях, включая популярные гибриды",
+        "description_ru": "Надежный японский бренд, специализирующийся на экономичных, долговечных и экологичных автомобилях, включая популярные гибриды",
+        "description_en": "Reliable Japanese brand specializing in economical, durable and environmentally friendly cars, including popular hybrids",
+        "description_ko": "인기 하이브리드를 포함한 경제적이고 내구성이 뛰어나며 환경 친화적인 자동차를 전문으로 하는 믿을 수 있는 일본 브랜드"
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 4,
+    "fields": {
+        "name": "Audi",
+        "name_ru": "Audi",
+        "name_en": "Audi",
+        "name_ko": "Audi",
+        "description": "Немецкий производитель, выделяющийся сочетанием элегантного дизайна, передовых технологий и спортивных характеристик.",
+        "description_ru": "Немецкий производитель, выделяющийся сочетанием элегантного дизайна, передовых технологий и спортивных характеристик.",
+        "description_en": "A German manufacturer that stands out for its combination of elegant design, advanced technology and sporty performance.",
+        "description_ko": "우아한 디자인, 첨단 기술, 스포티한 성능의 조합으로 두각을 나타내는 독일 제조업체입니다."
+    }
+},
+{
+    "model": "webapp.carbrand",
+    "pk": 5,
+    "fields": {
+        "name": "Ford",
+        "name_ru": "Ford",
+        "name_en": "Ford",
+        "name_ko": "Ford",
+        "description": "Американская марка, известная своими пикапами, доступными седанами и спортивными автомобилями",
+        "description_ru": "Американская марка, известная своими пикапами, доступными седанами и спортивными автомобилями",
+        "description_en": "American brand known for its pickup trucks, affordable sedans and sports cars",
+        "description_ko": "픽업트럭, 저렴한 세단, 스포츠카로 유명한 미국 브랜드"
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 1,
+    "fields": {
+        "name": "E-Class",
+        "name_ru": "E-Class",
+        "name_en": "E-Class",
+        "name_ko": "E-Class",
+        "brand": 2,
+        "year_of_manufacture": 2024
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 2,
+    "fields": {
+        "name": "Corolla",
+        "name_ru": "Corolla",
+        "name_en": "Corolla",
+        "name_ko": "Corolla",
+        "brand": 3,
+        "year_of_manufacture": 2015
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 3,
+    "fields": {
+        "name": "RS7",
+        "name_ru": "RS7",
+        "name_en": "RS7",
+        "name_ko": "RS7",
+        "brand": 4,
+        "year_of_manufacture": 2021
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 4,
+    "fields": {
+        "name": "X5",
+        "name_ru": "X5",
+        "name_en": "X5",
+        "name_ko": "X5",
+        "brand": 1,
+        "year_of_manufacture": 2014
+    }
+},
+{
+    "model": "webapp.carmodel",
+    "pk": 5,
+    "fields": {
+        "name": "Mustang",
+        "name_ru": "Mustang",
+        "name_en": "Mustang",
+        "name_ko": "Mustang",
+        "brand": 5,
+        "year_of_manufacture": 2011
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 1,
+    "fields": {
+        "engine_type": "gasoline",
+        "displacement": "1999.00",
+        "horsepower": 255,
+        "torque": 400
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 2,
+    "fields": {
+        "engine_type": "hybrid",
+        "displacement": "1798.00",
+        "horsepower": 121,
+        "torque": 142
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 3,
+    "fields": {
+        "engine_type": "diesel",
+        "displacement": "1984.00",
+        "horsepower": 201,
+        "torque": 320
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 4,
+    "fields": {
+        "engine_type": "gasoline",
+        "displacement": "1998.00",
+        "horsepower": 255,
+        "torque": 400
+    }
+},
+{
+    "model": "webapp.engine",
+    "pk": 5,
+    "fields": {
+        "engine_type": "diesel",
+        "displacement": "4951.00",
+        "horsepower": 450,
+        "torque": 530
+    }
+},
+{
+    "model": "webapp.country",
+    "pk": 1,
+    "fields": {
+        "name": "USA"
+    }
+},
+{
+    "model": "webapp.country",
+    "pk": 2,
+    "fields": {
+        "name": "Japan"
+    }
+},
+{
+    "model": "webapp.country",
+    "pk": 3,
+    "fields": {
+        "name": "Germany"
+    }
+},
+{
+    "model": "webapp.vehicleinfo",
+    "pk": 1,
+    "fields": {
+        "vehicle_type": "passenger",
+        "model": 1,
+        "year_of_manufacture": 2011,
+        "body_type": null,
+        "body_type_ru": null,
+        "body_type_en": null,
+        "body_type_ko": null,
+        "engine": 1,
+        "countries": [
+            3
+        ]
+    }
+},
+{
+    "model": "webapp.vehicleinfo",
+    "pk": 2,
+    "fields": {
+        "vehicle_type": "passenger",
+        "model": 2,
+        "year_of_manufacture": 2015,
+        "body_type": null,
+        "body_type_ru": null,
+        "body_type_en": null,
+        "body_type_ko": null,
+        "engine": 2,
+        "countries": [
+            2
+        ]
+    }
+},
+{
+    "model": "webapp.vehicleinfo",
+    "pk": 3,
+    "fields": {
+        "vehicle_type": "passenger",
+        "model": 3,
+        "year_of_manufacture": 2021,
+        "body_type": null,
+        "body_type_ru": null,
+        "body_type_en": null,
+        "body_type_ko": null,
+        "engine": 3,
+        "countries": [
+            3
+        ]
+    }
+},
+{
+    "model": "webapp.vehicleinfo",
+    "pk": 4,
+    "fields": {
+        "vehicle_type": "truck",
+        "model": 5,
+        "year_of_manufacture": 2011,
+        "body_type": null,
+        "body_type_ru": null,
+        "body_type_en": null,
+        "body_type_ko": null,
+        "engine": 5,
+        "countries": [
+            1
+        ]
+    }
+},
+{
+    "model": "webapp.vehicleinfo",
+    "pk": 5,
+    "fields": {
+        "vehicle_type": "passenger",
+        "model": 4,
+        "year_of_manufacture": 2014,
+        "body_type": null,
+        "body_type_ru": null,
+        "body_type_en": null,
+        "body_type_ko": null,
+        "engine": 4,
+        "countries": [
+            3
+        ]
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 1,
+    "fields": {
+        "name": "Бизнес-класс",
+        "name_ru": "Бизнес-класс",
+        "name_en": "Business class",
+        "name_ko": "비즈니스 클래스",
+        "description": "Mercedes-Benz E-Class — это элегантный и высокотехнологичный бизнес-седан, который сочетает в себе комфорт, передовые системы безопасности и отличные ходовые качества. Это один из самых популярных моделей в премиум-сегменте для тех, кто ценит стиль и инновации",
+        "description_ru": "Mercedes-Benz E-Class — это элегантный и высокотехнологичный бизнес-седан, который сочетает в себе комфорт, передовые системы безопасности и отличные ходовые качества. Это один из самых популярных моделей в премиум-сегменте для тех, кто ценит стиль и инновации",
+        "description_en": "The Mercedes-Benz E-Class is an elegant and high-tech business sedan that combines comfort, advanced safety systems and excellent driving performance. This is one of the most popular models in the premium segment for those who value style and innovation.",
+        "description_ko": "The Mercedes-Benz E-Class 편안함, 첨단 안전 시스템, 탁월한 주행 성능을 결합한 우아하고 첨단 기술을 갖춘 비즈니스 세단입니다. 스타일과 혁신을 중시하는 사람들에게 프리미엄 부문에서 가장 인기 있는 모델 중 하나입니다."
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 2,
+    "fields": {
+        "name": "Компактный автомобиль",
+        "name_ru": "Компактный автомобиль",
+        "name_en": "Compact car",
+        "name_ko": "소형차",
+        "description": "Toyota Corolla — это компактный и экономичный автомобиль, известный своей надежностью и долговечностью. Благодаря гибридной силовой установке он сочетает в себе экономию топлива с высокой экологичностью, что делает его отличным выбором для повседневных поездок",
+        "description_ru": "Toyota Corolla — это компактный и экономичный автомобиль, известный своей надежностью и долговечностью. Благодаря гибридной силовой установке он сочетает в себе экономию топлива с высокой экологичностью, что делает его отличным выбором для повседневных поездок",
+        "description_en": "The Toyota Corolla is a compact and economical car known for its reliability and durability. Thanks to its hybrid powertrain, it combines fuel economy with high environmental friendliness, making it an excellent choice for everyday driving",
+        "description_ko": "Toyota Corolla는 신뢰성과 내구성으로 유명한 작고 경제적인 자동차입니다. 하이브리드 파워트레인을 기반으로 연비와 높은 친환경성을 결합해 일상 주행에 탁월한 선택입니다."
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 3,
+    "fields": {
+        "name": "Премиум-седан",
+        "name_ru": "Премиум-седан",
+        "name_en": "Premium sedan",
+        "name_ko": "프리미엄 세단",
+        "description": "Audi A4 — это стильный и динамичный седан премиум-класса, который сочетает в себе элегантный дизайн, комфорт и передовые технологии. Эта модель предлагает отличную управляемость и высокое качество материалов для создания лучшего опыта вождения.",
+        "description_ru": "Audi A4 — это стильный и динамичный седан премиум-класса, который сочетает в себе элегантный дизайн, комфорт и передовые технологии. Эта модель предлагает отличную управляемость и высокое качество материалов для создания лучшего опыта вождения.",
+        "description_en": "The Audi A4 is a stylish and dynamic premium sedan that combines elegant design, comfort and advanced technology. This model offers excellent handling and high quality materials to create the best driving experience.",
+        "description_ko": "The Audi A4 우아한 디자인과 편안함, 첨단 기술이 결합된 스타일리쉬하고 역동적인 프리미엄 세단입니다. 이 모델은 뛰어난 핸들링과 고품질 소재를 제공하여 최고의 드라이빙 경험을 선사합니다."
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 4,
+    "fields": {
+        "name": "Спортивный седан",
+        "name_ru": "Спортивный седан",
+        "name_en": "Sports sedan",
+        "name_ko": "스포츠 세단",
+        "description": "BMW X5 — это спортивный и высокоэффективный седан, сочетающий стиль, динамичность и передовые технологии. Один из лучших выборов для тех, кто ищет не только комфорт, но и отличные характеристики вождения.",
+        "description_ru": "BMW X5 — это спортивный и высокоэффективный седан, сочетающий стиль, динамичность и передовые технологии. Один из лучших выборов для тех, кто ищет не только комфорт, но и отличные характеристики вождения.",
+        "description_en": "The BMW X5 is a sporty and high-performance sedan that combines style, dynamism and advanced technology. One of the best choices for those who are looking not only for comfort, but also for excellent driving performance.",
+        "description_ko": "BMW X5는 스타일, 역동성, 첨단 기술이 결합된 스포티한 고성능 세단입니다. 편안함뿐만 아니라 탁월한 주행 성능도 원하는 사람들을 위한 최고의 선택 중 하나입니다."
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 5,
+    "fields": {
+        "name": "Спортивный автомобиль",
+        "name_ru": "Спортивный автомобиль",
+        "name_en": "Sports car",
+        "name_ko": "스포츠카",
+        "description": "Ford Mustang — это икона американской автомобильной индустрии, которая сочетает агрессивный стиль с невероятной мощностью. Купе с двигателем V8 обеспечит мощное ускорение и захватывающие ощущения от вождения, что делает его отличным выбором для любителей скорости и спортивных автомобилей.",
+        "description_ru": "Ford Mustang — это икона американской автомобильной индустрии, которая сочетает агрессивный стиль с невероятной мощностью. Купе с двигателем V8 обеспечит мощное ускорение и захватывающие ощущения от вождения, что делает его отличным выбором для любителей скорости и спортивных автомобилей.",
+        "description_en": "The Ford Mustang is an American automotive icon that combines aggressive styling with incredible power. The V8-powered coupe will provide powerful acceleration and an exhilarating driving experience, making it an excellent choice for speed and sports car enthusiasts.",
+        "description_ko": "The Ford Mustang 공격적인 스타일과 놀라운 파워를 결합한 미국의 자동차 아이콘입니다. V8 구동 쿠페는 강력한 가속력과 짜릿한 운전 경험을 제공하여 속도와 스포츠카 매니아에게 탁월한 선택이 될 것입니다."
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 1,
+    "fields": {
+        "part": 9,
+        "price": "25000.00",
+        "date_changed": "2024-11-18T17:58:38.750Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 2,
+    "fields": {
+        "part": 1,
+        "price": "21000.00",
+        "date_changed": "2024-11-18T17:58:59.122Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 3,
+    "fields": {
+        "part": 2,
+        "price": "2500.00",
+        "date_changed": "2024-11-18T17:59:19.960Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 4,
+    "fields": {
+        "part": 3,
+        "price": "18000.00",
+        "date_changed": "2024-11-18T17:59:37.245Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 5,
+    "fields": {
+        "part": 2,
+        "price": "2700.00",
+        "date_changed": "2024-11-18T18:00:22.377Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 6,
+    "fields": {
+        "part": 16,
+        "price": "31000.00",
+        "date_changed": "2024-11-18T18:00:38.326Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 7,
+    "fields": {
+        "part": 14,
+        "price": "19000.00",
+        "date_changed": "2024-11-18T18:00:51.568Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 8,
+    "fields": {
+        "part": 13,
+        "price": "21999.00",
+        "date_changed": "2024-11-18T18:01:05.911Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 9,
+    "fields": {
+        "part": 8,
+        "price": "47999.00",
+        "date_changed": "2024-11-18T18:01:20.394Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 10,
+    "fields": {
+        "part": 5,
+        "price": "7499.00",
+        "date_changed": "2024-11-18T18:01:43.577Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 11,
+    "fields": {
+        "part": 12,
+        "price": "1800.00",
+        "date_changed": "2024-11-18T18:02:30.461Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 12,
+    "fields": {
+        "part": 11,
+        "price": "12000.00",
+        "date_changed": "2024-11-18T18:02:48.471Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 13,
+    "fields": {
+        "part": 7,
+        "price": "21000.00",
+        "date_changed": "2024-11-18T18:03:06.147Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 14,
+    "fields": {
+        "part": 6,
+        "price": "750.00",
+        "date_changed": "2024-11-18T18:03:28.020Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 15,
+    "fields": {
+        "part": 10,
+        "price": "34999.00",
+        "date_changed": "2024-11-18T18:04:04.947Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 16,
+    "fields": {
+        "part": 15,
+        "price": "7895.00",
+        "date_changed": "2024-11-18T18:04:47.096Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 17,
+    "fields": {
+        "part": 4,
+        "price": "1499.00",
+        "date_changed": "2024-11-18T18:05:21.181Z"
+    }
+},
+{
+    "model": "webapp.pricehistory",
+    "pk": 18,
+    "fields": {
+        "part": 8,
+        "price": "4100.00",
+        "date_changed": "2024-11-18T18:05:53.360Z"
+    }
+},
+{
+    "model": "webapp.review",
+    "pk": 1,
+    "fields": {
+        "part": 10,
+        "user": 3,
+        "text": "m, ,m",
+        "created_at": "2024-11-21T03:59:07.145Z"
+    }
+},
+{
+    "model": "webapp.review",
+    "pk": 2,
+    "fields": {
+        "part": 10,
+        "user": 4,
+        "text": "jnkjnkj",
+        "created_at": "2024-11-21T04:01:50.053Z"
+    }
+},
+{
+    "model": "webapp.review",
+    "pk": 3,
+    "fields": {
+        "part": 10,
+        "user": 4,
+        "text": "jn kjnkjnkj",
+        "created_at": "2024-11-21T04:01:55.541Z"
+    }
+},
+{
+    "model": "webapp.review",
+    "pk": 4,
+    "fields": {
+        "part": 10,
+        "user": 4,
+        "text": "jnkjnkj",
+        "created_at": "2024-11-21T04:02:00.585Z"
+    }
+},
+{
+    "model": "webapp.review",
+    "pk": 5,
+    "fields": {
+        "part": 10,
+        "user": 4,
+        "text": "jbkjbkj",
+        "created_at": "2024-11-21T04:02:07.924Z"
+    }
+},
+{
+    "model": "webapp.review",
+    "pk": 6,
+    "fields": {
+        "part": 10,
+        "user": 4,
+        "text": "jnkjnkj",
+        "created_at": "2024-11-21T04:02:12.329Z"
+    }
+},
+{
+    "model": "webapp.review",
+    "pk": 7,
+    "fields": {
+        "part": 10,
+        "user": 4,
+        "text": "n kj j kj",
+        "created_at": "2024-11-21T04:02:17.146Z"
+    }
+}
+]

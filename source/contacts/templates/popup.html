@@ -1,28 +1,30 @@
+{% load i18n %}
+
 <div id="discountPopup" style="display: none;" class="popup-container">
     <form id="contactForm" action="{% url 'contacts:contact' %}" method="POST" class="popup-form">
         {% csrf_token %}
         <div class="popup-header">
-            <h2>Не нашли то, что искали? Сообщите нам! </h2>
+            <h2>{% trans "Не нашли то, что искали? Сообщите нам!" %}</h2>
             <button type="button" id="closePopup" class="close-btn">&times;</button>
         </div>
         <div class="popup-body">
 
-             <label for="first_name" class="visually-hidden">Имя:</label>
-            <input type="text" name="first_name" id="first_name" placeholder="Имя" required>
+            <label for="first_name" class="visually-hidden">{% trans "Имя:" %}</label>
+            <input type="text" name="first_name" id="first_name" placeholder="{% trans 'Имя' %}" required>
 
-            <label for="last_name" class="visually-hidden">Фамилия:</label>
-            <input type="text" name="last_name" id="last_name" placeholder="Фамилия" required>
+            <label for="last_name" class="visually-hidden">{% trans "Фамилия:" %}</label>
+            <input type="text" name="last_name" id="last_name" placeholder="{% trans 'Фамилия' %}" required>
 
-            <label for="email" class="visually-hidden">Email:</label>
-            <input type="email" name="email" id="email" placeholder="Email" required>
+            <label for="email" class="visually-hidden">{% trans "Email:" %}</label>
+            <input type="email" name="email" id="email" placeholder="{% trans 'Email' %}" required>
 
-            <label for="phone_number" class="visually-hidden">Номер телефона:</label>
-            <input type="text" name="phone_number" id="phone_number" placeholder="Номер телефона" required>
+            <label for="phone_number" class="visually-hidden">{% trans "Номер телефона:" %}</label>
+            <input type="text" name="phone_number" id="phone_number" placeholder="{% trans 'Номер телефона' %}" required>
 
-            <label for="comments" class="visually-hidden">Комментарий:</label>
-            <textarea name="comments" id="comments" placeholder="Комментарий"></textarea>
+            <label for="comments" class="visually-hidden">{% trans "Комментарий:" %}</label>
+            <textarea name="comments" id="comments" placeholder="{% trans 'Комментарий' %}"></textarea>
 
-            <button type="submit" class="submit-btn">Связаться</button>
+            <button type="submit" class="submit-btn">{% trans "Связаться" %}</button>
         </div>
     </form>
 </div>
