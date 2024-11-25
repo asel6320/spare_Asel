@@ -42,15 +42,18 @@
 
 .news-button {
     display: inline-block;
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff; /* Белый текст */
+    background-color: #f24421; /* Цвет кнопки */
+    border: 1px solid #f24421; /* Цвет границы */
+    border-radius: 5px;
     text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, border-color 0.3s; /* Анимация */
 }
 
 .news-button:hover {
-    background-color: #0056b3;
+    background-color: #d93c1e; /* Цвет кнопки при наведении */
+    border-color: #d93c1e; /* Цвет границы при наведении */
 }
+

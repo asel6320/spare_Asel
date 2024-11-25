@@ -596,7 +596,9 @@ body {
 .news-button {
     padding: 10px 15px;
     margin-top: 10px;
+    background-color: #f24421;
 }
+
 
 .add-to-favorite i {
     font-size: 24px;
@@ -698,4 +700,24 @@ header {
     color: #736380;
     font-size: 21px;
     margin-top: 10px;
+}
+
+.btn-primary {
+    background-color: #f24421 !important; /* Цвет фона кнопки */
+    border-color: #f24421 !important;   /* Цвет границы кнопки */
+}
+
+.btn-primary:hover {
+    background-color: #d93c1e !important; /* Цвет фона при наведении */
+    border-color: #d93c1e !important;   /* Цвет границы при наведении */
+}
+
+.btn-danger.news-button {
+    background-color: #f24421 !important;
+    border-color: #f24421 !important;
+}
+
+.btn-danger.news-button:hover {
+    background-color: #d93c1e !important;
+    border-color: #d93c1e !important;
 }
