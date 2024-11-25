@@ -1,6 +1,5 @@
 name: Django CI
 on:
-  #workflow_dispatch
   push:
     branches: [ "dev" ]
   pull_request:
@@ -16,12 +15,9 @@ jobs:
         uses: docker/setup-buildx-action@master
       - name: Add environ
         run: cp .env.test ./source/.env
-      - name: migrations load
+      - name: Migrations load
         run: |
           docker compose run -T --rm web bash -c "ls ../ && cd /app && python manage.py makemigrations --merge --noinput && python manage.py migrate"
-#      - name: Run Tests
-#        run: |
-#          docker compose run -T --rm web bash -c "python manage.py test"
 
   publish:
     needs: tests
@@ -42,5 +38,10 @@ jobs:
             echo "" > ./source/.env
             echo TEST="TEST" >> ./source/.env
             echo DATABASE_URL="psql://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@${{ secrets.POSTGRES_HOST }}:${{ secrets.POSTGRES_PORT }}/${{ secrets.POSTGRES_DB }}" >> ./source/.env
+            
+            # Сброс локальных изменений перед git pull
+            git reset --hard HEAD
+            git clean -fdx
+            
             git pull
             exit
