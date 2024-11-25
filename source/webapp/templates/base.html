@@ -156,7 +156,9 @@
 
     </main>
 
-    {% include 'subcribe.html' %}
+    {% if request.path == '/' %}
+        {% include 'subcribe.html' %}
+    {% endif %}
     <footer class="footer bg-footer-custom py-5">
         <div class="container">
             <div class="row text-center">

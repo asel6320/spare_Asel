@@ -4,7 +4,6 @@ from accounts.views.login import CustomLoginView
 from accounts.views.register import UserRegistrationView
 from accounts.views.profile import UserProfileView
 from accounts.views.profile import UserCartView
-from accounts.views.password_change_view import CustomPasswordChangeView
 
 app_name = "accounts"
 
@@ -14,7 +13,4 @@ urlpatterns = [
     path("logout/", custom_logout_view, name="logout"),
     path("user/cart", UserCartView.as_view(), name="cart"),
     path("profile/", UserProfileView.as_view(), name="profile"),
-    path(
-        "password_change/", CustomPasswordChangeView.as_view(), name="password_change"
-    ),
 ]

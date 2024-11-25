@@ -17,7 +17,6 @@
                                         data-cart-id="{{ cart.id }}"
                                         data-cart-change-url="{% url "cart:cart_change" %}"
                                         {% if cart.quantity == 1 %}disabled{% endif %}>
-                                    {% csrf_token %}
                                     -</button>
                             </span>
                             <input type="text" class="form-control number" value="{{ cart.quantity }}"
@@ -28,7 +27,6 @@
                                          data-cart-id="{{ cart.id }}"
                                          data-cart-change-url="{% url "cart:cart_change" %}"
                                          {% if cart.quantity >= cart.part.amount %}disabled{% endif %}>
-                                    {% csrf_token %}
                                     +</button>
                             </span>
                         </div>

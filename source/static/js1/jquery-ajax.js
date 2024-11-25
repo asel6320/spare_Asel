@@ -102,7 +102,7 @@ $(document).ready(function () {
             type: "POST",
             url: url,
             data: {
-                cart_ID: cartID,
+                cart_id: cartID,
                 quantity: quantity,
                 csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
             },
