@@ -703,13 +703,13 @@ header {
 }
 
 .btn-primary {
-    background-color: #f24421 !important; /* Цвет фона кнопки */
-    border-color: #f24421 !important;   /* Цвет границы кнопки */
+    background-color: #f24421 !important;
+    border-color: #f24421 !important;
 }
 
 .btn-primary:hover {
-    background-color: #d93c1e !important; /* Цвет фона при наведении */
-    border-color: #d93c1e !important;   /* Цвет границы при наведении */
+    background-color: #d93c1e !important;
+    border-color: #d93c1e !important;
 }
 
 .btn-danger.news-button {
