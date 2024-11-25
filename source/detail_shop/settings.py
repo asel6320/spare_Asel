@@ -32,7 +32,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['146.190.226.59', 'localhost', '127.0.0.1']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,7 +44,6 @@ INSTALLED_APPS = [
     "django.contrib.humanize",
     'modeltranslation',
     "django_summernote",
-    "debug_toolbar",
     "webapp",
     "accounts",
     "carts",
@@ -68,10 +66,10 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
+
 
 ROOT_URLCONF = "detail_shop.urls"
 

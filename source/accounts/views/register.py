@@ -24,7 +24,7 @@ class UserRegistrationView(CreateView):
 
         messages.success(
             self.request,
-            f"{user.username}, Вы успешно зарегистрированы и вошли в аккаунт",
+            f"{user.username} - вы успешно зарегистрировались",
         )
         return HttpResponseRedirect(self.success_url)
 

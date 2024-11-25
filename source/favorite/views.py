@@ -53,7 +53,7 @@ class FavoriteDelete(FavoriteMixin, View):
             favorite.delete()
 
         response_data = {
-            "message": "Товар удален из избранных",
+            "message": "Товар удалён из избранного",
         }
         return JsonResponse(response_data)
 
