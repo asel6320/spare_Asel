@@ -647,3 +647,36 @@ header {
     background-color: #fff;
     box-shadow: 0 4px 2px -2px gray;
 }
+.btn a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.btn-orange {
+    background-color: #f24421;
+}
+
+.btn-orange:hover {
+    background-color: #b1351c; }
+
+.btn-brown {
+    background-color: #c98d48;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn-brown:hover {
+    background-color: #ae7b40;
+}
+
+.btn-sm {
+    font-size: 16px;
+    padding: 16px 16px;
+    border-radius: 25px;
+    border: #ffffffff;
+    color: #fcf7e3;
+    background: #dda382;
+}

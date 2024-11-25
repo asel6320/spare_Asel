@@ -19,7 +19,7 @@ def edit_news(request, news_id):
 
     if request.method == "POST":
         try:
-            data = json.loads(request.body)  # Парсим JSON из тела запроса
+            data = json.loads(request.body)
             full_text = data.get('full_text')
             short_description = data.get('short_description')
             title = data.get('title')
