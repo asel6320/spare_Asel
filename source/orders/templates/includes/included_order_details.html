@@ -26,10 +26,10 @@
                         {% endif %}
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="id_phone_number" class="form-label">{% trans "Номер телефона:" %}</label>
-                        <input type="number" class="form-control" id="phone" name="phone"
+                        <label for="phone" class="form-label">{% trans "Номер телефона:" %}</label>
+                        <input type="phone" class="form-control" id="phone_number" name="phone"
+                               value="{% if form.phone.value %}{{ form.phone.value }}{% endif %}"
                                placeholder="{% trans 'Введите ваш номер телефона' %}"
-                               value="{% if form.phone_number.value %}{{ form.phone_number.value }}{% endif %}"
                                required>
                         {% if form.phone.errors %}
                             <div class="alert alert-danger alert-dismissible fade show">{{ form.phone.errors }}</div>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="email" class="form-label">{% trans "Email:" %}</label>
-                        <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}"
+                        <input type="email" class="form-control" id="email" name="email"
                                value="{% if form.email.value %}{{ form.email.value }}{% endif %}"
                                placeholder="{% trans 'Ваш email' %}"
                                required>
@@ -54,7 +54,8 @@
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="requires_delivery"
                                    id="id_requires_delivery_1" value="1" checked>
-                            <label class="form-check-label" for="id_requires_delivery_1">{% trans "Нужна доставка" %}</label>
+                            <label class="form-check-label"
+                                   for="id_requires_delivery_1">{% trans "Нужна доставка" %}</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="requires_delivery"
@@ -63,7 +64,7 @@
                         </div>
                     </div>
                     <div class="mb-3" id="deliveryAddressField">
-                        <label for="id_delivery_address" class="form-label">{% trans "Адрес доставки*:" %}</label>
+                        <label for="id_delivery_address" class="form-label">{% trans "Адрес доставки:" %}</label>
                         <textarea class="form-control" id="id_delivery_address" name="delivery_address" rows="2">
     {% if form.delivery_address.value %}{{ form.delivery_address.value }}{% endif %}
 </textarea>
@@ -83,7 +84,8 @@
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="payment_on_get"
                                    id="id_payment_on_get" value="1">
-                            <label class="form-check-label" for="id_payment_on_get">{% trans "Наличными/картой при получении" %}</label>
+                            <label class="form-check-label"
+                                   for="id_payment_on_get">{% trans "Наличными/картой при получении" %}</label>
                             {% if form.payment_on_get.errors %}
                                 <div class="alert alert-danger alert-dismissible fade show">{{ form.payment_on_get.errors }}</div>
                             {% endif %}
