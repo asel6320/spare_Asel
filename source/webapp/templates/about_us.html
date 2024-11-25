@@ -2,61 +2,50 @@
 {% load static %}
 {% load i18n %}
 
+<link rel="stylesheet" href="{% static 'css/about_us_media.css' %}">
+
 {% block title %}
     <title>About Us</title>
 {% endblock %}
 
 {% block content %}
-
-    <div class="container" style="margin-bottom: 5%; margin-top: 115px">
-        <div class="row about-us-row">
-            <div class="about-us-col">
-                <h1 class="about-us-heading">{% trans "О нас" %}</h1>
-                <p class="about-us-text">{% trans 'Общество с ограниченной ответственностью «Аполлон» – это надёжный поставщик автозапчастей для автомобилей и мотоциклов, успешно работающий на территории Кыргызской Республики. Наша компания, расположенная в городе Бишкек по адресу: ул. Тыныбекова, д. 62, предлагает широкий ассортимент качественных автозапчастей от проверенных производителей. Мы гордимся тем, что предоставляем клиентам продукцию, соответствующую высоким стандартам качества, что обеспечивает надёжность и долговечность вашего транспорта.' %}</p>
-            </div>
-            <div class="about-us-col">
-                <img src="https://8934175.fs1.hubspotusercontent-na1.net/hubfs/8934175/Imported_Blog_Media/People_at_work01.jpg" class="about-us-img">
-            </div>
+<div class="container about-us-container" style="margin-bottom: 5%; margin-top: 115px;">
+    <div class="row about-us-row">
+        <!-- Левая колонка -->
+        <div class="about-us-col">
+            <h1 class="about-us-heading">{% trans "О нас" %}</h1>
+            <p class="about-us-text">
+                {% trans 'Общество с ограниченной ответственностью «Аполлон» – это надёжный поставщик 
+                автозапчастей для автомобилей и мотоциклов, успешно работающий на территории Кыргызской 
+                Республики. Наша компания, расположенная в городе Бишкек по адресу: ул. Тыныбекова, д. 62, 
+                предлагает широкий ассортимент качественных автозапчастей от проверенных производителей. 
+                Мы гордимся тем, что предоставляем клиентам продукцию, соответствующую высоким стандартам 
+                качества, что обеспечивает надёжность и долговечность вашего транспорта.' %}
+            </p>
         </div>
-
-        <div class="row about-us-row">
-            <div class="about-us-col">
-                <img src="https://365financialanalyst.com/wp-content/uploads/2020/11/Defining-a-companys-Vision-Mission-Goals-and-Values-statements-thumb.jpg" class="about-us-img">
-            </div>
-            <div class="about-us-col">
-                <h1 class="about-us-heading">{% trans "Наша миссия" %}</h1>
-                <p class="about-us-text">{% trans 'Мы стремимся к максимальному удобству и удовлетворению потребностей наших клиентов. В компании «Аполлон» вас ждёт высокий уровень обслуживания, профессиональная помощь в подборе запчастей и индивидуальный подход. Вы можете связаться с нами по телефону: +996 555 00 35 39 (отдел продаж) или +996 777 07 66 92 (финансовый отдел). Также вы можете отправить запрос на электронную почту: oooapollon@yandex.ru. ООО «Аполлон» готово стать вашим надёжным партнёром для обеспечения качественного обслуживания вашего автомобиля или мотоцикла.' %}</p>
-            </div>
-        </div>
-
-        <div style="margin-top: 10%;" >
-            <h1 style="text-align: center">{% trans "Поставляем комплектующие от таких автопроизводителей как:" %}</h1> <!-- Translated heading -->
-        </div>
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 30px; margin-bottom: 40px">
-            <div class="card" style="width: 18rem; border-radius: 5%; overflow: hidden;">
-                <img src="https://banner2.cleanpng.com/20171203/618/av2q4pytp.webp" class="card-img-top" alt="{% trans 'Mercedes' %}" style="width: 100%; height: auto;">
-            </div>
-            <div class="card" style="width: 18rem; border-radius: 5%; overflow: hidden;">
-                <img src="https://banner2.cleanpng.com/20171203/618/av2q4pytp.webp" class="card-img-top" alt="{% trans 'Mercedes' %}" style="width: 100%; height: auto;">
-            </div>
-            <div class="card" style="width: 18rem; border-radius: 5%; overflow: hidden;">
-                <img src="https://banner2.cleanpng.com/20171203/618/av2q4pytp.webp" class="card-img-top" alt="{% trans 'Mercedes' %}" style="width: 100%; height: auto;">
-            </div>
-            <div class="card" style="width: 18rem; border-radius: 5%; overflow: hidden;">
-                <img src="https://banner2.cleanpng.com/20171203/618/av2q4pytp.webp" class="card-img-top" alt="{% trans 'Mercedes' %}" style="width: 100%; height: auto;">
-            </div>
-            <div class="card" style="width: 18rem; border-radius: 5%; overflow: hidden;">
-                <img src="https://banner2.cleanpng.com/20171203/618/av2q4pytp.webp" class="card-img-top" alt="{% trans 'Mercedes' %}" style="width: 100%; height: auto;">
-            </div>
-            <div class="card" style="width: 18rem; border-radius: 5%; overflow: hidden;">
-                <img src="https://banner2.cleanpng.com/20171203/618/av2q4pytp.webp" class="card-img-top" alt="{% trans 'Mercedes' %}" style="width: 100%; height: auto;">
-            </div>
-            <div class="card" style="width: 18rem; border-radius: 5%; overflow: hidden;">
-                <img src="https://banner2.cleanpng.com/20171203/618/av2q4pytp.webp" class="card-img-top" alt="{% trans 'Mercedes' %}" style="width: 100%; height: auto;">
-            </div>
-            <div class="card" style="width: 18rem; border-radius: 5%; overflow: hidden;">
-                <img src="https://banner2.cleanpng.com/20171203/618/av2q4pytp.webp" class="card-img-top" alt="{% trans 'Mercedes' %}" style="width: 100%; height: auto;">
-            </div>
+        <!-- Правая колонка -->
+        <div class="about-us-col">
+            <img src="https://8934175.fs1.hubspotusercontent-na1.net/hubfs/8934175/Imported_Blog_Media/People_at_work01.jpg" class="about-us-img">
         </div>
     </div>
+
+    <div class="row about-us-row">
+        <!-- Левая колонка -->
+        <div class="about-us-col">
+            <img src="https://365financialanalyst.com/wp-content/uploads/2020/11/Defining-a-companys-Vision-Mission-Goals-and-Values-statements-thumb.jpg" class="about-us-img">
+        </div>
+        <!-- Правая колонка -->
+        <div class="about-us-col">
+            <h1 class="about-us-heading">{% trans "Наша миссия" %}</h1>
+            <p class="about-us-text">
+                {% trans 'Мы стремимся к максимальному удобству и удовлетворению потребностей наших клиентов. 
+                В компании «Аполлон» вас ждёт высокий уровень обслуживания, профессиональная помощь в подборе 
+                запчастей и индивидуальный подход. Вы можете связаться с нами по телефону: +996 555 00 35 39 
+                (отдел продаж) или +996 777 07 66 92 (финансовый отдел). Также вы можете отправить запрос на 
+                электронную почту: oooapollon@yandex.ru. ООО «Аполлон» готово стать вашим надёжным партнёром 
+                для обеспечения качественного обслуживания вашего автомобиля или мотоцикла.' %}
+            </p>
+        </div>
+    </div>
+</div>
 {% endblock %}
