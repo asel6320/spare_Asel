@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.humanize",
     'modeltranslation',
+    "django_summernote",
     "webapp",
     "accounts",
     "carts",

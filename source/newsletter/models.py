@@ -10,6 +10,10 @@ class Subscription(models.Model):
     def __str__(self):
         return f"{self.name} <{self.email}>"
 
+    class Meta:
+        verbose_name = "Подписка"
+        verbose_name_plural = "Подписки"
+
 
 class Newsletter(models.Model):
     subject = models.CharField(max_length=255, verbose_name="Тема")
@@ -18,3 +22,7 @@ class Newsletter(models.Model):
 
     def __str__(self):
         return self.subject
+
+    class Meta:
+        verbose_name = "Рассылка"
+        verbose_name_plural = "Рассылки"

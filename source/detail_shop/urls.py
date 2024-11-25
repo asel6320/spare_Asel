@@ -36,6 +36,7 @@ urlpatterns = (
         path("crm/", include("crm.urls")),
         path("favorite/", include("favorite.urls")),
         path("newsletter/", include("newsletter.urls")),
+        path('summernote/', include('django_summernote.urls')),
     ]
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     + debug_toolbar_urls()
