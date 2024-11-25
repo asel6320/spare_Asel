@@ -9,6 +9,7 @@ from webapp.views.contact_offer import (
     product_docs,
     terms_of_use,
 )
+from webapp.views.news import edit_news
 
 app_name = "webapp"
 
@@ -18,6 +19,7 @@ urlpatterns = [
     path("logins/", LoginView.as_view(template_name=""), name="login"),
     path("news/", news.news_list, name="news_list"),
     path("news/<int:news_id>/", news.news_detail, name="news_detail"),
+    path('news/<int:news_id>/edit/', edit_news, name='edit_news'),
     path("contract_offer/", contract_offer, name="contract_offer"),
     path("privacy_policy/", privacy_policy, name="privacy_policy"),
     path("terms_of_use/", terms_of_use, name="terms_of_use"),

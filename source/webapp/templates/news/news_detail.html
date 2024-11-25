@@ -1,18 +1,40 @@
 {% extends 'base.html' %}
-{% load i18n %}
-{% block content%}
-    
-    <div class="news-detail container" style="margin-top: 115px; margin-bottom: 115px">
-        <h1>{{ news.title }}</h1>
-        <p>{{ news.full_text }}</p>
-        {% if news.image %}
-            <img src="{{ news.image.url }}" alt="{{ news.title }}">
-        {% endif %}
-        <p>{% trans 'Опубликовано' %}: {{ news.published_at }}</p>
-        <a href="{% url 'webapp:news_list' %}">{% trans 'Вернуться ко всем новостям' %}</a>
-        <a href="{% url 'part:parts_list' %}">{% trans 'На главную' %}</a>
+
+{% block content %}
+<div class="container mt-5">
+{% if request.user.is_staff %}
+<div class="position-relative">
+    <div class="position-absolute top-0 end-0 mt-2 me-2">
+        <button id="edit" class="btn-sm" onclick="edit()" type="button" data-bs-toggle="tooltip" title="Редактировать">
+            <i class="bi bi-pencil-square"></i>
+        </button>
+        <button id="save" class="btn btn-success btn-sm" onclick="save()" type="button" style="display: none;" data-bs-toggle="tooltip" title="Сохранить">
+            <i class="bi bi-check-lg"></i>
+        </button>
     </div>
-	
+</div>
+{% endif %}
+    <h1>{{ news.title }}</h1>
+    {% if news.image %}
+            <img src="{{ news.image.url }}" alt="{{ news.title }}">
+    {% endif %}
+    <h4>{{ news.short_description }}</h4>
+    <div id="news-content" data-edit-url="{% url 'webapp:edit_news' news.id %}">
+        <input type="hidden" id="csrf_token" value="{{ csrf_token }}">
+        <div class="click2edit">
+            {{ news.full_text|safe }}
+        </div>
+    </div>
+
+    <p><strong>Опубликовано:</strong> {{ news.published_at }}</p>
+<button class="btn btn-orange">
+    <a href="{% url 'webapp:news_list' %}">Вернуться ко всем новостям</a>
+</button>
+<button class="btn btn-brown">
+    <a href="{% url 'part:parts_list' %}">На главную</a>
+</button>
+
+</div>
+
+
 {% endblock %}
-
-

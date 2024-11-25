@@ -78,6 +78,18 @@
         font-size: 1rem;
         padding: 15px;
     }
+    .subscription-section .u-form label {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 10px 0;
+    }
+
+    .subscription-section .u-form input[type="text"],
+    .subscription-section .u-form input[type="email"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -91,6 +103,8 @@
 
     .subscription-section .u-form button[type="submit"] {
         font-size: 0.9rem;
-        padding: 14px;
+        padding: 14px 25px;
+        display: flex;
+        margin: 0 auto;
     }
 }
