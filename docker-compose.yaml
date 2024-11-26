@@ -2,7 +2,7 @@ services:
   db:
     image: postgres:14.3
     ports:
-      - "5434:5432"
+      - "5432:5432"
     env_file:
       - ./source/.env
     restart: always
@@ -21,10 +21,11 @@ services:
     restart: always
     container_name: spare_parts_web
     volumes:
-      - ./source/:/code
+      - ./source/:/app
     depends_on:
       - db
-    command: sh -c "python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8000"
+    command: sh -c "python manage.py migrate --noinput || python manage.py makemigrations || python manage.py migrate --fake && python manage.py runserver 0.0.0.0:8000"
+
 
 volumes:
   postgres_data:
