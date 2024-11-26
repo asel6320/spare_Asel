@@ -192,6 +192,40 @@ body {
     padding: 40px;
     border-radius: 8px;
 }
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    .dropdown-menu {
+        width: 100%;
+    }
+
+    .navbar-toggler {
+        border: none;
+        background: transparent;
+    }
+
+
+    .nav-item .btn {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        text-align: center;
+    }
+
+    .custom-icon i {
+        font-size: 1.5rem;
+    }
+}
 
 .all-headers {
     color: #333;

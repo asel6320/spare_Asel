@@ -36,6 +36,12 @@ class Favorite(models.Model):
                 "Нельзя указывать одновременно пользователя и ключ сессии."
             )
 
+    def to_display(self):
+        return [self.user, self.part]
+
+    def get_column_headers(self):
+        return ['Пользователь', "Товар"]
+
     class Meta:
         db_table = "favorite"
         verbose_name = "Избранное"
