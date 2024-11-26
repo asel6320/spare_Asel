@@ -39,28 +39,33 @@
     <header class="header">
         <nav class="navbar navbar-expand-lg py-3">
             <div class="container d-flex justify-content-between align-items-center">
-
-                <div class="logo-custom">
-                    <a class="navbar-brand d-flex align-items-center" href="{% url "part:parts_list" %}">
-                        <img src="{% static 'images/logo.svg' %}" alt="{% trans "Apollon" %}" class="logo-img">
+                <!-- Logo -->
+                <div class="logo-custom flex-shrink-0">
+                    <a class="navbar-brand d-flex align-items-center" href="{% url 'part:parts_list' %}">
+                        <img src="{% static 'images/logo.svg' %}" alt="{% trans 'Apollon' %}" class="logo-img">
                         <span>APOLLON</span>
                     </a>
                 </div>
 
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                    <ul class="navbar-nav d-block d-md-flex">
+                <!-- Burger Menu -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation Links -->
+                <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                    <ul class="navbar-nav text-center">
                         <li class="nav-item px-3">
                             <a class="nav-link text-uppercase"
-                               href="{% url 'part:parts_main' %}">{% trans "Запчасти" %}</a>
+                               href="{% url 'part:parts_main' %}">{% trans 'Запчасти' %}</a>
                         </li>
                         <li class="nav-item px-3">
                             <a class="nav-link text-uppercase"
-                               href="{% url 'webapp:about_us' %}">{% trans "О компании" %}</a>
+                               href="{% url 'webapp:about_us' %}">{% trans 'О компании' %}</a>
                         </li>
                         <li class="nav-item dropdown px-3">
                             <a class="nav-link dropdown-toggle text-uppercase" href="#" id="languageDropdown"
-                               role="button"
-                               data-bs-toggle="dropdown" aria-expanded="false">
+                               role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {% get_current_language as LANGUAGE_CODE %}
                                 {% if LANGUAGE_CODE == 'ru' %}
                                     РУ
@@ -98,52 +103,56 @@
                             </ul>
                         </li>
                     </ul>
-                </div>
-                <div class="d-flex align-items-center">
-                    {% if user.is_authenticated %}
+
+                    <!-- Cart and Profile in Right -->
+                    <ul class="navbar-nav ms-auto">  <!-- Added ms-auto to move items to the right -->
                         {% if not user.is_staff %}
-                            <!-- Cart Icon -->
-                            <a class="btn btn-light me-2 custom-icon" href="{% url "accounts:cart" %}">
-                                <i class="bi bi-cart"></i>
-                            </a>
-                            <!-- Favorites Icon -->
-                            <a class="btn btn-light me-2 custom-icon" href="{% url 'favorite:favorite_template' %}">
-                                <i class="bi bi-heart"></i>
-                            </a>
-                        {% endif %}
-                    {% endif %}
-                    <!-- User Icon -->
-                    <div class="dropdown">
-                        <a class="btn btn-light custom-icon" href="#" id="userDropdown" role="button"
-                           data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            <i class="bi bi-person-circle"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li class="nav-item px-1">
+                                <a class="btn btn-light me-2 custom-icon" href="{% url 'accounts:cart' %}">
+                                    <i class="bi bi-cart"></i>
+                                </a>
+                            </li>
                             {% if user.is_authenticated %}
-                                {% if user.is_staff %}
+                                <li class="nav-item px-3">
+                                    <a class="btn btn-light me-2 custom-icon"
+                                       href="{% url 'favorite:favorite_template' %}">
+                                        <i class="bi bi-heart"></i>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+
+                        <!-- User Icon -->
+                        <li class="nav-item dropdown">
+                            <a class="btn btn-light custom-icon" href="#" id="userDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-circle"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                {% if user.is_authenticated %}
+                                    {% if user.is_staff %}
+                                        <li><a class="dropdown-item"
+                                               href="{% url 'admin_panel:admin_home' %}">{% trans 'Админ-панель' %}</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'crm:orders' %}">{% trans 'CRM' %}</a>
+                                        </li>
+                                    {% else %}
+                                        <li><a class="dropdown-item"
+                                               href="{% url 'accounts:profile' %}">{% trans 'Личный кабинет' %}</a></li>
+                                    {% endif %}
                                     <li><a class="dropdown-item"
-                                           href="{% url 'admin_panel:admin_home' %}">{% trans "Админ-панель" %}</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'crm:orders' %}">{% trans "CRM" %}</a>
-                                    </li>
-                                    <li><a class="dropdown-item"
-                                           href="{% url 'accounts:logout' %}">{% trans "Выйти" %}</a></li>
+                                           href="{% url 'accounts:logout' %}">{% trans 'Выйти' %}</a></li>
                                 {% else %}
                                     <li><a class="dropdown-item"
-                                           href="{% url 'accounts:profile' %}">{% trans "Личный кабинет" %}</a></li>
+                                           href="{% url 'accounts:login' %}">{% trans 'Войти' %}</a></li>
                                     <li><a class="dropdown-item"
-                                           href="{% url 'accounts:logout' %}">{% trans "Выйти" %}</a></li>
+                                           href="{% url 'accounts:register' %}">{% trans 'Зарегистрироваться' %}</a>
+                                    </li>
                                 {% endif %}
-                            {% else %}
-                                <li><a class="dropdown-item"
-                                       href="{% url 'accounts:login' %}">{% trans "Войти" %}</a></li>
-                                <li><a class="dropdown-item"
-                                       href="{% url 'accounts:register' %}">{% trans "Зарегистрироваться" %}</a></li>
-                            {% endif %}
-                        </ul>
-                    </div>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-
             </div>
         </nav>
     </header>
@@ -151,11 +160,7 @@
     <main class="flex-grow-1">
         {% include "partial/notifications.html" %}
         {% block content %}
-
-
         {% endblock %}
-
-
     </main>
 
     {% if request.path == '/' %}
