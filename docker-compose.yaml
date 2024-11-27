@@ -1,3 +1,4 @@
+version: "3.9"
 services:
   db:
     image: postgres:14.3
@@ -16,16 +17,13 @@ services:
       dockerfile: source/Dockerfile
     env_file:
       - ./source/.env
-    ports:
-      - "8000:8000"
     restart: always
     container_name: spare_parts_web
     volumes:
       - ./source/:/app
     depends_on:
       - db
-    command: sh -c "python manage.py migrate --noinput || python manage.py makemigrations || python manage.py migrate --fake && python manage.py runserver 0.0.0.0:8000"
-
+    command: gunicorn detail_shop.wsgi:application --bind 0.0.0.0:8000
 
   nginx:
     image: nginx:alpine
@@ -38,8 +36,5 @@ services:
     depends_on:
       - web
 
-
 volumes:
   postgres_data:
-
-
