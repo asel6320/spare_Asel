@@ -3,7 +3,7 @@ services:
   db:
     image: postgres:14.3
     ports:
-      - "5432:5432"
+      - "5434:5432"
     env_file:
       - ./source/.env
     restart: always
@@ -28,8 +28,8 @@ services:
   nginx:
     build: ./nginx
     volumes:
-      - ./static:/app/static
-      - ./media:/app/media
+      - ./source/static:/app/static
+      - ./source/media:/app/media
     ports:
       - "80:80"
     depends_on:
