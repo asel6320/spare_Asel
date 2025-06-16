@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-21 15:16+0000\n"
+"POT-Creation-Date: 2025-06-16 14:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,16 +20,8 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: accounts/templates/change_password.html:5
-msgid "Изменение пароля"
-msgstr ""
-
-#: accounts/templates/change_password.html:9
-msgid "Сменить пароль"
-msgstr ""
-
 #: accounts/templates/login.html:92 accounts/templates/login.html:120
-#: part/templates/part/parts_main.html:123 webapp/templates/base.html:137
+#: part/templates/part/parts_main.html:144 webapp/templates/base.html:147
 msgid "Войти"
 msgstr "Войти"
 
@@ -69,8 +61,8 @@ msgstr ""
 msgid "Введите вашу фамилию"
 msgstr ""
 
-#: accounts/templates/profile.html:40
-msgid "Имя пользовател"
+#: accounts/templates/profile.html:40 accounts/templates/register.html:36
+msgid "Имя пользователя"
 msgstr ""
 
 #: accounts/templates/profile.html:43
@@ -87,7 +79,7 @@ msgid "Номер телефона"
 msgstr ""
 
 #: accounts/templates/profile.html:65
-#: orders/templates/includes/included_order_details.html:31
+#: orders/templates/includes/included_order_details.html:32
 msgid "Введите ваш номер телефона"
 msgstr ""
 
@@ -134,10 +126,6 @@ msgstr ""
 msgid "Регистрация"
 msgstr "Зарегистрироваться"
 
-#: accounts/templates/register.html:36
-msgid "Имя пользователя"
-msgstr ""
-
 #: accounts/templates/register.html:40
 msgid "Введите ваше имя пользовател"
 msgstr ""
@@ -158,8 +146,8 @@ msgstr ""
 msgid "Подтвердите пароль"
 msgstr ""
 
-#: accounts/templates/register.html:87 part/templates/part/parts_main.html:125
-#: webapp/templates/base.html:139
+#: accounts/templates/register.html:87 part/templates/part/parts_main.html:146
+#: webapp/templates/base.html:149
 msgid "Зарегистрироваться"
 msgstr "Зарегистрироваться"
 
@@ -167,16 +155,16 @@ msgstr "Зарегистрироваться"
 msgid "Массовая смена цен"
 msgstr "Массовая смена цен"
 
-#: carts/templates/cart/includes/included_cart.html:55
+#: carts/templates/cart/includes/included_cart.html:53
 msgid "Итого"
 msgstr ""
 
-#: carts/templates/cart/includes/included_cart.html:55
+#: carts/templates/cart/includes/included_cart.html:53
 msgid "запчасти(ей) на сумму"
 msgstr ""
 
-#: carts/templates/cart/includes/included_cart.html:61
-#: orders/templates/includes/included_order_details.html:93
+#: carts/templates/cart/includes/included_cart.html:59
+#: orders/templates/includes/included_order_details.html:95
 msgid "Оформить заказ"
 msgstr ""
 
@@ -260,27 +248,27 @@ msgstr ""
 msgid "Способ доставки:"
 msgstr ""
 
-#: orders/templates/includes/included_order_details.html:57
+#: orders/templates/includes/included_order_details.html:58
 msgid "Нужна доставка"
 msgstr ""
 
-#: orders/templates/includes/included_order_details.html:62
+#: orders/templates/includes/included_order_details.html:63
 msgid "Самовывоз"
 msgstr ""
 
-#: orders/templates/includes/included_order_details.html:66
-msgid "Адрес доставки*:"
+#: orders/templates/includes/included_order_details.html:67
+msgid "Адрес доставки:"
 msgstr ""
 
-#: orders/templates/includes/included_order_details.html:77
+#: orders/templates/includes/included_order_details.html:78
 msgid "Способ оплаты:"
 msgstr ""
 
-#: orders/templates/includes/included_order_details.html:81
+#: orders/templates/includes/included_order_details.html:82
 msgid "Оплата картой"
 msgstr ""
 
-#: orders/templates/includes/included_order_details.html:86
+#: orders/templates/includes/included_order_details.html:88
 msgid "Наличными/картой при получении"
 msgstr ""
 
@@ -307,8 +295,8 @@ msgid "Модель"
 msgstr ""
 
 #: part/templates/part/partial/part_view_partial.html:76
-#: part/templates/part/parts_detail.html:24
-#: part/templates/part/parts_detail.html:173
+#: part/templates/part/parts_detail.html:66
+#: part/templates/part/parts_detail.html:219
 msgid "сом"
 msgstr ""
 
@@ -316,275 +304,239 @@ msgstr ""
 msgid "отзывов"
 msgstr ""
 
-#: part/templates/part/parts_detail.html:20
+#: part/templates/part/parts_detail.html:62
 msgid "Категория:"
 msgstr ""
 
-#: part/templates/part/parts_detail.html:23
+#: part/templates/part/parts_detail.html:65
 msgid "Цена:"
 msgstr ""
 
-#: part/templates/part/parts_detail.html:27
+#: part/templates/part/parts_detail.html:69
 msgid "Модель:"
 msgstr ""
 
-#: part/templates/part/parts_detail.html:28
+#: part/templates/part/parts_detail.html:70
 msgid "Мощность:"
 msgstr ""
 
-#: part/templates/part/parts_detail.html:28
+#: part/templates/part/parts_detail.html:71
 msgid "л.с."
 msgstr ""
 
-#: part/templates/part/parts_detail.html:29
+#: part/templates/part/parts_detail.html:72
 msgid "Описание:"
 msgstr ""
 
-#: part/templates/part/parts_detail.html:41
+#: part/templates/part/parts_detail.html:85
 msgid "Ссылка успешно скопирована!"
 msgstr ""
 
-#: part/templates/part/parts_detail.html:47
-#: part/templates/part/parts_detail.html:181
+#: part/templates/part/parts_detail.html:91
+#: part/templates/part/parts_detail.html:228
 msgid "Catalog Icon"
 msgstr ""
 
-#: part/templates/part/parts_detail.html:58
+#: part/templates/part/parts_detail.html:103
 msgid "Видеообзор запчасти"
 msgstr ""
 
-#: part/templates/part/parts_detail.html:67
+#: part/templates/part/parts_detail.html:112
 msgid "Видео отсутствует для этой запчасти"
 msgstr ""
 
-#: part/templates/part/parts_detail.html:75
+#: part/templates/part/parts_detail.html:120
 msgid "Документ"
 msgstr ""
 
-#: part/templates/part/parts_detail.html:86
+#: part/templates/part/parts_detail.html:131
 msgid "Документов к этой запчасти нет!"
 msgstr ""
 
-#: part/templates/part/parts_detail.html:95
+#: part/templates/part/parts_detail.html:140
 msgid "Отзывы"
 msgstr ""
 
-#: part/templates/part/parts_detail.html:99
+#: part/templates/part/parts_detail.html:144
 msgid "Показать отзывы"
 msgstr ""
 
-#: part/templates/part/parts_detail.html:116
+#: part/templates/part/parts_detail.html:161
 msgid "Отзывов пока нет. Будьте первым, кто оставит отзыв!"
 msgstr ""
 
-#: part/templates/part/parts_detail.html:122
+#: part/templates/part/parts_detail.html:167
 msgid "Оставить отзыв"
 msgstr ""
 
-#: part/templates/part/parts_detail.html:132
+#: part/templates/part/parts_detail.html:177
 msgid "Отправить"
 msgstr ""
 
-#: part/templates/part/parts_detail.html:137
+#: part/templates/part/parts_detail.html:182
 msgid "Для добавления отзыва необходимо"
 msgstr ""
 
-#: part/templates/part/parts_detail.html:137
+#: part/templates/part/parts_detail.html:183
 #, fuzzy
 #| msgid "Войти"
 msgid "войти"
 msgstr "Войти"
 
-#: part/templates/part/parts_detail.html:146
+#: part/templates/part/parts_detail.html:192
 #, fuzzy
 #| msgid "Запчасти"
 msgid "Еще запчасти:"
 msgstr "Запчасти"
 
-#: part/templates/part/parts_detail.html:183
+#: part/templates/part/parts_detail.html:230
 msgid "В корзину"
 msgstr ""
 
-#: part/templates/part/parts_detail.html:190
+#: part/templates/part/parts_detail.html:237
 msgid "Похожие запчасти не найдены."
 msgstr ""
 
-#: part/templates/part/parts_main.html:38 webapp/templates/base.html:52
+#: part/templates/part/parts_main.html:42 webapp/templates/base.html:45
+msgid "Apollon"
+msgstr ""
+
+#: part/templates/part/parts_main.html:57 webapp/templates/base.html:60
 msgid "Запчасти"
 msgstr "Запчасти"
 
-#: part/templates/part/parts_main.html:42 webapp/templates/base.html:56
+#: part/templates/part/parts_main.html:61 webapp/templates/base.html:64
 msgid "О компании"
 msgstr "О компании"
 
-#: part/templates/part/parts_main.html:63 webapp/templates/base.html:77
+#: part/templates/part/parts_main.html:81 webapp/templates/base.html:84
 msgid "English"
 msgstr "Английский"
 
-#: part/templates/part/parts_main.html:71 webapp/templates/base.html:85
+#: part/templates/part/parts_main.html:89 webapp/templates/base.html:92
 msgid "РУ"
 msgstr "Русский"
 
-#: part/templates/part/parts_main.html:79 webapp/templates/base.html:93
+#: part/templates/part/parts_main.html:97 webapp/templates/base.html:100
 msgid "한국어"
 msgstr "Корейский"
 
-#: part/templates/part/parts_main.html:110 webapp/templates/base.html:124
+#: part/templates/part/parts_main.html:132 webapp/templates/base.html:135
 msgid "Админ-панель"
 msgstr "Админ-панель"
 
-#: part/templates/part/parts_main.html:111 webapp/templates/base.html:125
+#: part/templates/part/parts_main.html:134 webapp/templates/base.html:137
 msgid "CRM"
 msgstr ""
 
-#: part/templates/part/parts_main.html:114
-#: part/templates/part/parts_main.html:119 webapp/templates/base.html:128
-#: webapp/templates/base.html:133
-msgid "Выйти"
-msgstr "Выйти"
-
-#: part/templates/part/parts_main.html:117 webapp/templates/base.html:131
+#: part/templates/part/parts_main.html:138 webapp/templates/base.html:141
 msgid "Личный кабинет"
 msgstr "Личный кабинет"
 
-#: part/templates/part/parts_main.html:151
+#: part/templates/part/parts_main.html:141 webapp/templates/base.html:144
+msgid "Выйти"
+msgstr "Выйти"
+
+#: part/templates/part/parts_main.html:174
 msgid "Фильтр"
 msgstr ""
 
-#: part/templates/part/parts_main.html:154
+#: part/templates/part/parts_main.html:177
 msgid "Страна производства"
 msgstr ""
 
-#: part/templates/part/parts_main.html:156
+#: part/templates/part/parts_main.html:179
 msgid "Все страны"
 msgstr ""
 
-#: part/templates/part/parts_main.html:165
+#: part/templates/part/parts_main.html:188
 msgid "По марке машины"
 msgstr ""
 
-#: part/templates/part/parts_main.html:167
+#: part/templates/part/parts_main.html:190
 msgid "Все марки"
 msgstr ""
 
-#: part/templates/part/parts_main.html:176
+#: part/templates/part/parts_main.html:199
 msgid "По категории детали"
 msgstr ""
 
-#: part/templates/part/parts_main.html:178
+#: part/templates/part/parts_main.html:201
 msgid "Все категории"
 msgstr ""
 
-#: part/templates/part/parts_main.html:187
+#: part/templates/part/parts_main.html:210
 msgid "По модели машины"
 msgstr ""
 
-#: part/templates/part/parts_main.html:189
+#: part/templates/part/parts_main.html:212
 msgid "Все модели"
 msgstr ""
 
-#: part/templates/part/parts_main.html:198
+#: part/templates/part/parts_main.html:221
 msgid "По цене"
 msgstr ""
 
-#: part/templates/part/parts_main.html:199
+#: part/templates/part/parts_main.html:222
 msgid "Мин. цена"
 msgstr ""
 
-#: part/templates/part/parts_main.html:201
+#: part/templates/part/parts_main.html:225
 msgid "Макс. цена"
 msgstr ""
 
-#: part/templates/part/parts_main.html:205
+#: part/templates/part/parts_main.html:230
 #, fuzzy
 #| msgid "Зарегистрироваться"
 msgid "Сортировать:"
 msgstr "Зарегистрироваться"
 
-#: part/templates/part/parts_main.html:211
+#: part/templates/part/parts_main.html:236
 msgid "По умолчанию"
 msgstr ""
 
-#: part/templates/part/parts_main.html:219
+#: part/templates/part/parts_main.html:244
 msgid "От дешевых к дорогим"
 msgstr ""
 
-#: part/templates/part/parts_main.html:227
+#: part/templates/part/parts_main.html:252
 msgid "От дорогих к дешевым"
 msgstr ""
 
-#: part/templates/part/parts_main.html:231
+#: part/templates/part/parts_main.html:256
 msgid "Применить фильтр"
 msgstr ""
 
-#: part/templates/part/parts_main.html:245
+#: part/templates/part/parts_main.html:270
 msgid "Не найдено запчастей"
 msgstr ""
 
-#: webapp/templates/about_us.html:14
-msgid "О нас"
-msgstr ""
-
-#: webapp/templates/about_us.html:15
-msgid ""
-"Общество с ограниченной ответственностью «Аполлон» – это надёжный поставщик "
-"автозапчастей для автомобилей и мотоциклов, успешно работающий на территории "
-"Кыргызской Республики. Наша компания, расположенная в городе Бишкек по "
-"адресу: ул. Тыныбекова, д. 62, предлагает широкий ассортимент качественных "
-"автозапчастей от проверенных производителей. Мы гордимся тем, что "
-"предоставляем клиентам продукцию, соответствующую высоким стандартам "
-"качества, что обеспечивает надёжность и долговечность вашего транспорта."
-msgstr ""
-
-#: webapp/templates/about_us.html:27
-msgid "Наша миссия"
-msgstr ""
-
-#: webapp/templates/about_us.html:28
-msgid ""
-"Мы стремимся к максимальному удобству и удовлетворению потребностей наших "
-"клиентов. В компании «Аполлон» вас ждёт высокий уровень обслуживания, "
-"профессиональная помощь в подборе запчастей и индивидуальный подход. Вы "
-"можете связаться с нами по телефону: +996 555 00 35 39 (отдел продаж) или "
-"+996 777 07 66 92 (финансовый отдел). Также вы можете отправить запрос на "
-"электронную почту: oooapollon@yandex.ru. ООО «Аполлон» готово стать вашим "
-"надёжным партнёром для обеспечения качественного обслуживания вашего "
-"автомобиля или мотоцикла."
-msgstr ""
-
-#: webapp/templates/about_us.html:33
-msgid "Поставляем комплектующие от таких автопроизводителей как:"
-msgstr ""
-
-#: webapp/templates/about_us.html:37 webapp/templates/about_us.html:40
-#: webapp/templates/about_us.html:43 webapp/templates/about_us.html:46
-#: webapp/templates/about_us.html:49 webapp/templates/about_us.html:52
-#: webapp/templates/about_us.html:55 webapp/templates/about_us.html:58
-msgid "Mercedes"
-msgstr ""
-
-#: webapp/templates/base.html:43
-msgid "Avrora"
-msgstr "Аврора"
-
-#: webapp/templates/base.html:164
+#: part/templates/part/parts_main.html:284 webapp/templates/base.html:173
 msgid "Контакты"
 msgstr "Контакты"
 
-#: webapp/templates/base.html:168
+#: part/templates/part/parts_main.html:288 webapp/templates/base.html:177
 msgid "Бишкек, Малдыбаева"
 msgstr ""
 
-#: webapp/templates/base.html:173
+#: part/templates/part/parts_main.html:293 webapp/templates/base.html:182
 msgid "Полезные ссылки"
 msgstr ""
 
-#: webapp/templates/base.html:175
+#: part/templates/part/parts_main.html:295 webapp/templates/base.html:184
 msgid "Договор оферты"
 msgstr ""
 
-#: webapp/templates/base.html:180
+#: part/templates/part/parts_main.html:300 webapp/templates/base.html:189
 msgid "Мы в социальных сетях"
+msgstr ""
+
+#: webapp/templates/about_us.html:16
+msgid "О нас"
+msgstr ""
+
+#: webapp/templates/about_us.html:39
+msgid "Наша миссия"
 msgstr ""
 
 #: webapp/templates/index.html:17
@@ -615,11 +567,37 @@ msgstr ""
 msgid "Каталог товаров"
 msgstr ""
 
-#: webapp/templates/index.html:65
+#: webapp/templates/index.html:52
+#, fuzzy
+#| msgid "Запчасти"
+msgid "Топ запчасти"
+msgstr ""
+
+#: webapp/templates/index.html:59
+msgid "Недавнее"
+msgstr ""
+
+#: webapp/templates/index.html:83
+msgid "Быстрая доставка"
+msgstr ""
+
+#: webapp/templates/index.html:93
+msgid "Консультация 24/7"
+msgstr ""
+
+#: webapp/templates/index.html:103
+msgid "Качество и возврат"
+msgstr ""
+
+#: webapp/templates/index.html:113
+msgid "Скидки и Акции"
+msgstr ""
+
+#: webapp/templates/index.html:123
 msgid "Последние новости"
 msgstr ""
 
-#: webapp/templates/index.html:74
+#: webapp/templates/index.html:132
 msgid "Наши партнеры"
 msgstr ""
 
@@ -636,18 +614,6 @@ msgstr ""
 msgid "Посмотреть все новости"
 msgstr ""
 
-#: webapp/templates/news/news_detail.html:11
-msgid "Опубликовано"
-msgstr ""
-
-#: webapp/templates/news/news_detail.html:12
-msgid "Вернуться ко всем новостям"
-msgstr ""
-
-#: webapp/templates/news/news_detail.html:13
-msgid "На главную"
-msgstr ""
-
 #: webapp/templates/partial/related_part_review_partial.html:33
 #: webapp/templates/partial/review_partial.html:34
 msgid "Еще отзывы"
@@ -660,6 +626,9 @@ msgstr ""
 #: webapp/templates/review/create_review.html:8
 msgid "Создание отзыва"
 msgstr ""
+
+#~ msgid "Avrora"
+#~ msgstr "Аврора"
 
 #~ msgid "AVRORA"
 #~ msgstr "AVRORA"

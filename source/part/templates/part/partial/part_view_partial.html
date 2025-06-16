@@ -79,12 +79,12 @@
         {% endif %}
 
         <div class="mt-auto d-flex justify-content-end pt-2">
-            <span class="text-secondary fw-bold me-auto">{{ part.reviews.count }} {% trans 'отзывов' %}</span>
+            <span class="text-secondary fw-bold me-auto">{{ part.reviews.count }} {% trans "отзывов" %}</span>
               <div class="card-overlay">
                     <div class="hover-buttons">
                         <a href="{% url 'cart:cart_add' %}" class="add-to-cart" data-part-id="{{ part.id }}">
                             <i class="bi bi-cart"></i>
-                            {% trans 'Корзина' %}
+                            {% trans "Корзина" %}
                         </a>
                     </div>
                 </div>

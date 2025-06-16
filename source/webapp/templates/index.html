@@ -49,14 +49,14 @@
 
         <div class="row">
             <div class="col-sm-3">
-                <h4 class="my-4">{% trans 'Топ запчасти' %}</h4>
+                <h4 class="my-4">{% trans "Топ запчасти" %}</h4>
                 {% for part in popular_parts %}
                     {% include "part/partial/popular_part_partial.html" with part=part %}
                 {% endfor %}
             </div>
 
             <div class="col-sm-9">
-                <h4 class="my-4">{% trans 'Недавнее' %}</h4>
+                <h4 class="my-4">{% trans "Недавнее" %}</h4>
                 <div class="row">
                     {% for part in parts %}
                         <div class="col-lg-6 col-sm-9">
@@ -80,7 +80,7 @@
                                 <img src="{% static 'images/1.png' %}" alt="">
                             </div>
                             <div class="policy-desc">
-                                <h3>{% trans 'Быстрая доставка' %}</h3>
+                                <h3>{% trans "Быстрая доставка" %}</h3>
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                                 <img src="{% static 'images/2.png' %}" alt="">
                             </div>
                             <div class="policy-desc">
-                                <h3>{% trans 'Консультация 24/7' %}</h3>
+                                <h3>{% trans "Консультация 24/7" %}</h3>
                             </div>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                                 <img src="{% static 'images/3.png' %}" alt="">
                             </div>
                             <div class="policy-desc">
-                                <h3>{% trans 'Качество и возврат' %}</h3>
+                                <h3>{% trans "Качество и возврат" %}</h3>
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                                 <img src="{% static 'images/4.png' %}" alt="">
                             </div>
                               <div class="policy-desc">
-                                <h3>{% trans 'Скидки и Акции' %}</h3>
+                                <h3>{% trans "Скидки и Акции" %}</h3>
                             </div>
                         </div>
                     </div>
@@ -120,7 +120,7 @@
 
     <div class="news container">
         <div>
-            <h3 class="all-headers">{% trans 'Последние новости' %}</h3>
+            <h3 class="all-headers">{% trans "Последние новости" %}</h3>
         </div>
         {% include 'news/latest_news.html' %}
     </div>

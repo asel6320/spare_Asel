@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-21 15:15+0000\n"
+"POT-Creation-Date: 2025-06-16 14:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,18 +18,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: accounts/templates/change_password.html:5
-msgid "Изменение пароля"
-msgstr "Change password"
-
-#: accounts/templates/change_password.html:9
-#, fuzzy
-#| msgid "Применить фильтр"
-msgid "Сменить пароль"
-msgstr "Change password"
-
 #: accounts/templates/login.html:92 accounts/templates/login.html:120
-#: part/templates/part/parts_main.html:123 webapp/templates/base.html:137
+#: part/templates/part/parts_main.html:144 webapp/templates/base.html:147
 msgid "Войти"
 msgstr "Log In"
 
@@ -69,8 +59,8 @@ msgstr "Surname"
 msgid "Введите вашу фамилию"
 msgstr "Input your surname"
 
-#: accounts/templates/profile.html:40
-msgid "Имя пользовател"
+#: accounts/templates/profile.html:40 accounts/templates/register.html:36
+msgid "Имя пользователя"
 msgstr "Username"
 
 #: accounts/templates/profile.html:43
@@ -87,7 +77,7 @@ msgid "Номер телефона"
 msgstr "Phone number"
 
 #: accounts/templates/profile.html:65
-#: orders/templates/includes/included_order_details.html:31
+#: orders/templates/includes/included_order_details.html:32
 msgid "Введите ваш номер телефона"
 msgstr "Input your phone number"
 
@@ -138,10 +128,6 @@ msgstr "Total sum"
 msgid "Регистрация"
 msgstr "Register"
 
-#: accounts/templates/register.html:36
-msgid "Имя пользователя"
-msgstr "Username"
-
 #: accounts/templates/register.html:40
 msgid "Введите ваше имя пользовател"
 msgstr "Input your username"
@@ -164,8 +150,8 @@ msgstr "Password confirmation"
 msgid "Подтвердите пароль"
 msgstr "Confirm password"
 
-#: accounts/templates/register.html:87 part/templates/part/parts_main.html:125
-#: webapp/templates/base.html:139
+#: accounts/templates/register.html:87 part/templates/part/parts_main.html:146
+#: webapp/templates/base.html:149
 msgid "Зарегистрироваться"
 msgstr "Register"
 
@@ -173,16 +159,16 @@ msgstr "Register"
 msgid "Массовая смена цен"
 msgstr "Mass Price Change"
 
-#: carts/templates/cart/includes/included_cart.html:55
+#: carts/templates/cart/includes/included_cart.html:53
 msgid "Итого"
 msgstr "Total"
 
-#: carts/templates/cart/includes/included_cart.html:55
+#: carts/templates/cart/includes/included_cart.html:53
 msgid "запчасти(ей) на сумму"
 msgstr "parts this price"
 
-#: carts/templates/cart/includes/included_cart.html:61
-#: orders/templates/includes/included_order_details.html:93
+#: carts/templates/cart/includes/included_cart.html:59
+#: orders/templates/includes/included_order_details.html:95
 msgid "Оформить заказ"
 msgstr "Make order"
 
@@ -274,27 +260,29 @@ msgstr "Your email"
 msgid "Способ доставки:"
 msgstr "Delivery method:"
 
-#: orders/templates/includes/included_order_details.html:57
+#: orders/templates/includes/included_order_details.html:58
 msgid "Нужна доставка"
 msgstr "Need delivery"
 
-#: orders/templates/includes/included_order_details.html:62
+#: orders/templates/includes/included_order_details.html:63
 msgid "Самовывоз"
 msgstr "Pickup"
 
-#: orders/templates/includes/included_order_details.html:66
-msgid "Адрес доставки*:"
+#: orders/templates/includes/included_order_details.html:67
+#, fuzzy
+#| msgid "Адрес доставки*:"
+msgid "Адрес доставки:"
 msgstr "Delivery address*:"
 
-#: orders/templates/includes/included_order_details.html:77
+#: orders/templates/includes/included_order_details.html:78
 msgid "Способ оплаты:"
 msgstr "Payment method:"
 
-#: orders/templates/includes/included_order_details.html:81
+#: orders/templates/includes/included_order_details.html:82
 msgid "Оплата картой"
 msgstr "Card payment"
 
-#: orders/templates/includes/included_order_details.html:86
+#: orders/templates/includes/included_order_details.html:88
 msgid "Наличными/картой при получении"
 msgstr "Cash/card upon receipt"
 
@@ -323,8 +311,8 @@ msgid "Модель"
 msgstr "Model:"
 
 #: part/templates/part/partial/part_view_partial.html:76
-#: part/templates/part/parts_detail.html:24
-#: part/templates/part/parts_detail.html:173
+#: part/templates/part/parts_detail.html:66
+#: part/templates/part/parts_detail.html:219
 msgid "сом"
 msgstr "som"
 
@@ -334,295 +322,246 @@ msgstr "som"
 msgid "отзывов"
 msgstr "reviews"
 
-#: part/templates/part/parts_detail.html:20
+#: part/templates/part/parts_detail.html:62
 msgid "Категория:"
 msgstr "Category:"
 
-#: part/templates/part/parts_detail.html:23
+#: part/templates/part/parts_detail.html:65
 msgid "Цена:"
 msgstr "Price:"
 
-#: part/templates/part/parts_detail.html:27
+#: part/templates/part/parts_detail.html:69
 msgid "Модель:"
 msgstr "Model:"
 
-#: part/templates/part/parts_detail.html:28
+#: part/templates/part/parts_detail.html:70
 msgid "Мощность:"
 msgstr "Capacity:"
 
-#: part/templates/part/parts_detail.html:28
+#: part/templates/part/parts_detail.html:71
 msgid "л.с."
 msgstr "l.s"
 
-#: part/templates/part/parts_detail.html:29
+#: part/templates/part/parts_detail.html:72
 msgid "Описание:"
 msgstr "Description"
 
-#: part/templates/part/parts_detail.html:41
+#: part/templates/part/parts_detail.html:85
 msgid "Ссылка успешно скопирована!"
 msgstr "You successfully copied the link"
 
-#: part/templates/part/parts_detail.html:47
-#: part/templates/part/parts_detail.html:181
+#: part/templates/part/parts_detail.html:91
+#: part/templates/part/parts_detail.html:228
 msgid "Catalog Icon"
 msgstr "Catalog Icon"
 
-#: part/templates/part/parts_detail.html:58
+#: part/templates/part/parts_detail.html:103
 #, fuzzy
 #| msgid "Продажа автозапчастей"
 msgid "Видеообзор запчасти"
 msgstr "Full range of spare parts"
 
-#: part/templates/part/parts_detail.html:67
+#: part/templates/part/parts_detail.html:112
 msgid "Видео отсутствует для этой запчасти"
 msgstr "No video for this part"
 
-#: part/templates/part/parts_detail.html:75
+#: part/templates/part/parts_detail.html:120
 msgid "Документ"
 msgstr "Document"
 
-#: part/templates/part/parts_detail.html:86
+#: part/templates/part/parts_detail.html:131
 #, fuzzy
 #| msgid "Продажа автозапчастей"
 msgid "Документов к этой запчасти нет!"
 msgstr "Full range of spare parts"
 
-#: part/templates/part/parts_detail.html:95
+#: part/templates/part/parts_detail.html:140
 msgid "Отзывы"
 msgstr "Reviews"
 
-#: part/templates/part/parts_detail.html:99
+#: part/templates/part/parts_detail.html:144
 msgid "Показать отзывы"
 msgstr "Show reviews"
 
-#: part/templates/part/parts_detail.html:116
+#: part/templates/part/parts_detail.html:161
 msgid "Отзывов пока нет. Будьте первым, кто оставит отзыв!"
 msgstr "It does not have reviews yet. Be first to leave the review"
 
-#: part/templates/part/parts_detail.html:122
+#: part/templates/part/parts_detail.html:167
 msgid "Оставить отзыв"
 msgstr "Leave review"
 
-#: part/templates/part/parts_detail.html:132
+#: part/templates/part/parts_detail.html:177
 msgid "Отправить"
 msgstr "Send"
 
-#: part/templates/part/parts_detail.html:137
+#: part/templates/part/parts_detail.html:182
 msgid "Для добавления отзыва необходимо"
 msgstr "In order to leave review, you should"
 
-#: part/templates/part/parts_detail.html:137
+#: part/templates/part/parts_detail.html:183
 #, fuzzy
 #| msgid "Войти"
 msgid "войти"
 msgstr "Log In"
 
-#: part/templates/part/parts_detail.html:146
+#: part/templates/part/parts_detail.html:192
 #, fuzzy
 #| msgid "Запчасти"
 msgid "Еще запчасти:"
 msgstr "Spare Parts"
 
-#: part/templates/part/parts_detail.html:183
+#: part/templates/part/parts_detail.html:230
 msgid "В корзину"
 msgstr "To cart"
 
-#: part/templates/part/parts_detail.html:190
+#: part/templates/part/parts_detail.html:237
 msgid "Похожие запчасти не найдены."
 msgstr "Could not find similar parts"
 
-#: part/templates/part/parts_main.html:38 webapp/templates/base.html:52
+#: part/templates/part/parts_main.html:42 webapp/templates/base.html:45
+msgid "Apollon"
+msgstr ""
+
+#: part/templates/part/parts_main.html:57 webapp/templates/base.html:60
 msgid "Запчасти"
 msgstr "Spare Parts"
 
-#: part/templates/part/parts_main.html:42 webapp/templates/base.html:56
+#: part/templates/part/parts_main.html:61 webapp/templates/base.html:64
 msgid "О компании"
 msgstr "About Us"
 
-#: part/templates/part/parts_main.html:63 webapp/templates/base.html:77
+#: part/templates/part/parts_main.html:81 webapp/templates/base.html:84
 msgid "English"
 msgstr "English"
 
-#: part/templates/part/parts_main.html:71 webapp/templates/base.html:85
+#: part/templates/part/parts_main.html:89 webapp/templates/base.html:92
 msgid "РУ"
 msgstr "Russian"
 
-#: part/templates/part/parts_main.html:79 webapp/templates/base.html:93
+#: part/templates/part/parts_main.html:97 webapp/templates/base.html:100
 msgid "한국어"
 msgstr "Korean"
 
-#: part/templates/part/parts_main.html:110 webapp/templates/base.html:124
+#: part/templates/part/parts_main.html:132 webapp/templates/base.html:135
 msgid "Админ-панель"
 msgstr "Admin Panel"
 
-#: part/templates/part/parts_main.html:111 webapp/templates/base.html:125
+#: part/templates/part/parts_main.html:134 webapp/templates/base.html:137
 msgid "CRM"
 msgstr "CRM"
 
-#: part/templates/part/parts_main.html:114
-#: part/templates/part/parts_main.html:119 webapp/templates/base.html:128
-#: webapp/templates/base.html:133
-msgid "Выйти"
-msgstr "Log Out"
-
-#: part/templates/part/parts_main.html:117 webapp/templates/base.html:131
+#: part/templates/part/parts_main.html:138 webapp/templates/base.html:141
 msgid "Личный кабинет"
 msgstr "Personal Account"
 
-#: part/templates/part/parts_main.html:151
+#: part/templates/part/parts_main.html:141 webapp/templates/base.html:144
+msgid "Выйти"
+msgstr "Log Out"
+
+#: part/templates/part/parts_main.html:174
 msgid "Фильтр"
 msgstr "Filter"
 
-#: part/templates/part/parts_main.html:154
+#: part/templates/part/parts_main.html:177
 msgid "Страна производства"
 msgstr "By country"
 
-#: part/templates/part/parts_main.html:156
+#: part/templates/part/parts_main.html:179
 msgid "Все страны"
 msgstr "All countries"
 
-#: part/templates/part/parts_main.html:165
+#: part/templates/part/parts_main.html:188
 msgid "По марке машины"
 msgstr "By brand"
 
-#: part/templates/part/parts_main.html:167
+#: part/templates/part/parts_main.html:190
 msgid "Все марки"
 msgstr "All brand"
 
-#: part/templates/part/parts_main.html:176
+#: part/templates/part/parts_main.html:199
 msgid "По категории детали"
 msgstr "By part category"
 
-#: part/templates/part/parts_main.html:178
+#: part/templates/part/parts_main.html:201
 msgid "Все категории"
 msgstr "All categories"
 
-#: part/templates/part/parts_main.html:187
+#: part/templates/part/parts_main.html:210
 msgid "По модели машины"
 msgstr "By car model"
 
-#: part/templates/part/parts_main.html:189
+#: part/templates/part/parts_main.html:212
 msgid "Все модели"
 msgstr "All car models"
 
-#: part/templates/part/parts_main.html:198
+#: part/templates/part/parts_main.html:221
 msgid "По цене"
 msgstr "By price"
 
-#: part/templates/part/parts_main.html:199
+#: part/templates/part/parts_main.html:222
 msgid "Мин. цена"
 msgstr "Min price"
 
-#: part/templates/part/parts_main.html:201
+#: part/templates/part/parts_main.html:225
 msgid "Макс. цена"
 msgstr "Max price"
 
-#: part/templates/part/parts_main.html:205
+#: part/templates/part/parts_main.html:230
 #, fuzzy
 #| msgid "Зарегистрироваться"
 msgid "Сортировать:"
 msgstr "Register"
 
-#: part/templates/part/parts_main.html:211
+#: part/templates/part/parts_main.html:236
 msgid "По умолчанию"
 msgstr "Be Default"
 
-#: part/templates/part/parts_main.html:219
+#: part/templates/part/parts_main.html:244
 msgid "От дешевых к дорогим"
 msgstr "From cheapest to expensive"
 
-#: part/templates/part/parts_main.html:227
+#: part/templates/part/parts_main.html:252
 msgid "От дорогих к дешевым"
 msgstr "From expensive to cheapest"
 
-#: part/templates/part/parts_main.html:231
+#: part/templates/part/parts_main.html:256
 msgid "Применить фильтр"
 msgstr "Filter"
 
-#: part/templates/part/parts_main.html:245
+#: part/templates/part/parts_main.html:270
 #, fuzzy
 #| msgid "Продажа автозапчастей"
 msgid "Не найдено запчастей"
 msgstr "Full range of spare parts"
 
-#: webapp/templates/about_us.html:14
-msgid "О нас"
-msgstr "About Us"
-
-#: webapp/templates/about_us.html:15
-msgid ""
-"Общество с ограниченной ответственностью «Аполлон» – это надёжный поставщик "
-"автозапчастей для автомобилей и мотоциклов, успешно работающий на территории "
-"Кыргызской Республики. Наша компания, расположенная в городе Бишкек по "
-"адресу: ул. Тыныбекова, д. 62, предлагает широкий ассортимент качественных "
-"автозапчастей от проверенных производителей. Мы гордимся тем, что "
-"предоставляем клиентам продукцию, соответствующую высоким стандартам "
-"качества, что обеспечивает надёжность и долговечность вашего транспорта."
-msgstr ""
-"Apollon Limited Liability Company is a reliable supplier of auto parts for "
-"cars and motorcycles, successfully operating in the Kyrgyz Republic. Our "
-"company, located in Bishkek at the address: Tynybekov St., 62, offers a wide "
-"range of high-quality auto parts from trusted manufacturers. We are proud to "
-"provide customers with products that meet high standards of quality, which "
-"ensures the reliability and durability of your transport."
-
-#: webapp/templates/about_us.html:27
-msgid "Наша миссия"
-msgstr "Our Mission"
-
-#: webapp/templates/about_us.html:28
-msgid ""
-"Мы стремимся к максимальному удобству и удовлетворению потребностей наших "
-"клиентов. В компании «Аполлон» вас ждёт высокий уровень обслуживания, "
-"профессиональная помощь в подборе запчастей и индивидуальный подход. Вы "
-"можете связаться с нами по телефону: +996 555 00 35 39 (отдел продаж) или "
-"+996 777 07 66 92 (финансовый отдел). Также вы можете отправить запрос на "
-"электронную почту: oooapollon@yandex.ru. ООО «Аполлон» готово стать вашим "
-"надёжным партнёром для обеспечения качественного обслуживания вашего "
-"автомобиля или мотоцикла."
-msgstr ""
-"We strive for maximum convenience and satisfaction of our customers. At "
-"Apollo, you will find a high level of service, professional assistance in "
-"selecting spare parts and an individual approach. You can contact us by "
-"phone: +996 555 00 35 39 (sales department) or +996 777 07 66 92 (financial "
-"department). You can also send a request to e-mail: oooapollon@yandex.ru. "
-"Apollo LLC is ready to become your reliable partner to ensure high-quality "
-"service for your car or motorcycle."
-
-#: webapp/templates/about_us.html:33
-msgid "Поставляем комплектующие от таких автопроизводителей как:"
-msgstr "We have products of:"
-
-#: webapp/templates/about_us.html:37 webapp/templates/about_us.html:40
-#: webapp/templates/about_us.html:43 webapp/templates/about_us.html:46
-#: webapp/templates/about_us.html:49 webapp/templates/about_us.html:52
-#: webapp/templates/about_us.html:55 webapp/templates/about_us.html:58
-msgid "Mercedes"
-msgstr "Mercedes"
-
-#: webapp/templates/base.html:43
-msgid "Avrora"
-msgstr "Avrora"
-
-#: webapp/templates/base.html:164
+#: part/templates/part/parts_main.html:284 webapp/templates/base.html:173
 msgid "Контакты"
 msgstr "Contacts"
 
-#: webapp/templates/base.html:168
+#: part/templates/part/parts_main.html:288 webapp/templates/base.html:177
 msgid "Бишкек, Малдыбаева"
 msgstr "Bishkek, Maldybaeva"
 
-#: webapp/templates/base.html:173
+#: part/templates/part/parts_main.html:293 webapp/templates/base.html:182
 msgid "Полезные ссылки"
 msgstr "Useful Links"
 
-#: webapp/templates/base.html:175
+#: part/templates/part/parts_main.html:295 webapp/templates/base.html:184
 msgid "Договор оферты"
 msgstr "Offer Agreement"
 
-#: webapp/templates/base.html:180
+#: part/templates/part/parts_main.html:300 webapp/templates/base.html:189
 msgid "Мы в социальных сетях"
 msgstr "Find Us on Social Media"
+
+#: webapp/templates/about_us.html:16
+msgid "О нас"
+msgstr "About Us"
+
+#: webapp/templates/about_us.html:39
+msgid "Наша миссия"
+msgstr "Our Mission"
 
 #: webapp/templates/index.html:17
 msgid "Продажа автозапчастей"
@@ -652,11 +591,41 @@ msgstr "Improving your car's efficiency"
 msgid "Каталог товаров"
 msgstr "Products"
 
-#: webapp/templates/index.html:65
+#: webapp/templates/index.html:52
+#, fuzzy
+#| msgid "Запчасти"
+msgid "Топ запчасти"
+msgstr "Top Parts"
+
+#: webapp/templates/index.html:59
+msgid "Недавнее"
+msgstr "Recent"
+
+#: webapp/templates/index.html:83
+#, fuzzy
+#| msgid "Нужна доставка"
+msgid "Быстрая доставка"
+msgstr "Fast delivery"
+
+#: webapp/templates/index.html:93
+msgid "Консультация 24/7"
+msgstr "Consultation 24/7"
+
+#: webapp/templates/index.html:103
+#, fuzzy
+#| msgid "Качество и надежность"
+msgid "Качество и возврат"
+msgstr "Quality and reliability"
+
+#: webapp/templates/index.html:113
+msgid "Скидки и Акции"
+msgstr "Sale and Auctions"
+
+#: webapp/templates/index.html:123
 msgid "Последние новости"
 msgstr "Last News"
 
-#: webapp/templates/index.html:74
+#: webapp/templates/index.html:132
 msgid "Наши партнеры"
 msgstr "Our partners"
 
@@ -677,18 +646,6 @@ msgstr "Could not find news"
 msgid "Посмотреть все новости"
 msgstr "Check all news"
 
-#: webapp/templates/news/news_detail.html:11
-msgid "Опубликовано"
-msgstr "Published"
-
-#: webapp/templates/news/news_detail.html:12
-msgid "Вернуться ко всем новостям"
-msgstr "Return to all news"
-
-#: webapp/templates/news/news_detail.html:13
-msgid "На главную"
-msgstr "Main"
-
 #: webapp/templates/partial/related_part_review_partial.html:33
 #: webapp/templates/partial/review_partial.html:34
 #, fuzzy
@@ -705,6 +662,70 @@ msgstr "Search"
 #| msgid "Показать отзывы"
 msgid "Создание отзыва"
 msgstr "Create Review"
+
+#~ msgid "Изменение пароля"
+#~ msgstr "Change password"
+
+#, fuzzy
+#~| msgid "Применить фильтр"
+#~ msgid "Сменить пароль"
+#~ msgstr "Change password"
+
+#~ msgid "Имя пользовател"
+#~ msgstr "Username"
+
+msgid ""
+"Общество с ограниченной ответственностью «Аполлон» – это надёжный "
+"поставщик автозапчастей для автомобилей и мотоциклов, успешно работающий "
+"на территории Кыргызской Республики. Наша компания, расположенная в "
+"городе Бишкек по адресу: ул. Тыныбекова, д. 62, предлагает широкий "
+"ассортимент качественных автозапчастей от проверенных производителей. Мы "
+"гордимся тем, что предоставляем клиентам продукцию, соответствующую "
+"высоким стандартам качества, что обеспечивает надёжность и долговечность "
+"вашего транспорта."
+msgstr ""
+"Apollon Limited Liability Company is a reliable supplier of auto parts "
+"for cars and motorcycles, successfully operating in the Kyrgyz Republic. "
+"Our company, located in Bishkek at the address: Tynybekov St., 62, offers "
+"a wide range of high-quality auto parts from trusted manufacturers. We "
+"are proud to provide customers with products that meet high standards of "
+"quality, which ensures the reliability and durability of your transport."
+
+msgid ""
+"Мы стремимся к максимальному удобству и удовлетворению потребностей наших "
+"клиентов. В компании «Аполлон» вас ждёт высокий уровень обслуживания, "
+"профессиональная помощь в подборе запчастей и индивидуальный подход. Вы "
+"можете связаться с нами по телефону: +996 555 00 35 39 (отдел продаж) или "
+"+996 777 07 66 92 (финансовый отдел). Также вы можете отправить запрос на "
+"электронную почту: oooapollon@yandex.ru. ООО «Аполлон» готово стать вашим "
+"надёжным партнёром для обеспечения качественного обслуживания вашего "
+"автомобиля или мотоцикла."
+msgstr ""
+"We strive for maximum convenience and satisfaction of our customers. At "
+"Apollo, you will find a high level of service, professional assistance in "
+"selecting spare parts and an individual approach. You can contact us by "
+"phone: +996 555 00 35 39 (sales department) or +996 777 07 66 92 "
+"(financial department). You can also send a request to e-mail: "
+"oooapollon@yandex.ru. Apollo LLC is ready to become your reliable partner "
+"to ensure high-quality service for your car or motorcycle."
+
+msgid "Поставляем комплектующие от таких автопроизводителей как:"
+msgstr "We have products of:"
+
+#~ msgid "Mercedes"
+#~ msgstr "Mercedes"
+
+#~ msgid "Avrora"
+#~ msgstr "Avrora"
+
+#~ msgid "Опубликовано"
+#~ msgstr "Published"
+
+#~ msgid "Вернуться ко всем новостям"
+#~ msgstr "Return to all news"
+
+#~ msgid "На главную"
+#~ msgstr "Main"
 
 #~ msgid "© 2021 Автосалон 'ABC AUTO'. Официальный дилер"
 #~ msgstr "© 2021 Auto Spare Parts. Official Dealer"

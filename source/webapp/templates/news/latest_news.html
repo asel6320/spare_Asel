@@ -15,10 +15,10 @@
             </div>
         </div>
     {% empty %}
-        <p>{% trans 'Новости не найдены' %}</p>
+        <p>{% trans "Новости не найдены" %}</p>
     {% endfor %}
 </div>
 
 <div style="text-align: center;">
-    <a href="{% url 'webapp:news_list' %}" class="btn btn-danger news-button">{% trans 'Посмотреть все новости' %}</a>
+    <a href="{% url 'webapp:news_list' %}" class="btn btn-danger news-button">{% trans "Посмотреть все новости" %}</a>
 </div>
