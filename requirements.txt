@@ -22,6 +22,8 @@ django-modeltranslation
 django-summernote
 django-debug-toolbar
 pyTelegramBotAPI
+gunicorn
+
 
 
 
