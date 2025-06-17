@@ -9,6 +9,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     rm -rf /var/lib/apt/lists/*
 COPY source/ /app/
 #RUN python manage.py collectstatic --noinput
-RUN python manage.py compilemessages
+#RUN python manage.py compilemessages
 EXPOSE 8000
-CMD ["gunicorn", "detail_shop.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3"]
+CMD ["bash", "-c", "python manage.py migrate && python manage.py compilemessages && python manage.py collectstatic --noinput && gunicorn detail_shop.wsgi:application --bind 0.0.0.0:$PORT"]
