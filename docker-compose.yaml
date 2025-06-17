@@ -14,7 +14,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: source/Dockerfile
+      dockerfile: Dockerfile
     env_file:
       - ./source/.env
     restart: always
