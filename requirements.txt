@@ -20,4 +20,6 @@ virtualenv==20.25.1
 whitenoise==6.9.0
 django-modeltranslation
 django-summernote
+django-debug-toolbar
+
 
