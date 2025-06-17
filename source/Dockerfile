@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 COPY source/ /app/
-RUN python manage.py collectstatic --noinput
+#RUN python manage.py collectstatic --noinput
 RUN python manage.py compilemessages
 EXPOSE 8000
 CMD ["gunicorn", "detail_shop.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3"]
