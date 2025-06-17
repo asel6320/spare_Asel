@@ -11,4 +11,5 @@ COPY source/ /app/
 #RUN python manage.py collectstatic --noinput
 #RUN python manage.py compilemessages
 EXPOSE 8000
-CMD ["bash", "-c", "python manage.py migrate && python manage.py compilemessages && python manage.py collectstatic --noinput && gunicorn detail_shop.wsgi:application --bind 0.0.0.0:$PORT"]
+CMD ["bash", "-c", "python manage.py migrate && python manage.py loaddata fixtures/dump.json fixtures/part_fixture.json fixtures/webapp_fixture.json && python manage.py compilemessages && python manage.py collectstatic --noinput && gunicorn detail_shop.wsgi:application --bind 0.0.0.0:$PORT"]
+
